@@ -1,5 +1,4 @@
 ---
-#description: What is Hugo?
 title: About
 ---
 
