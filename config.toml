@@ -6,6 +6,7 @@ theme = "minimal"
 googleAnalytics = "UA-134222974-1"
 
 
+
 [blackfriday]
     hrefTargetBlank = true
     noreferrerLinks = true
