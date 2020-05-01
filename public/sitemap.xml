@@ -3,112 +3,112 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/www.exploringdata.org/project/project1/</loc>
+    <loc>/project/project1/</loc>
   </url>
   
   <url>
-    <loc>/www.exploringdata.org/project/project2/</loc>
+    <loc>/project/project2/</loc>
   </url>
   
   <url>
-    <loc>/www.exploringdata.org/project/project3/</loc>
+    <loc>/project/project3/</loc>
   </url>
   
   <url>
-    <loc>/www.exploringdata.org/project/project4/</loc>
+    <loc>/project/project4/</loc>
   </url>
   
   <url>
-    <loc>/www.exploringdata.org/categories/</loc>
+    <loc>/categories/</loc>
     <lastmod>2015-07-23T21:13:14-05:00</lastmod>
   </url>
   
   <url>
-    <loc>/www.exploringdata.org/</loc>
+    <loc>/</loc>
     <lastmod>2015-07-23T21:13:14-05:00</lastmod>
   </url>
   
   <url>
-    <loc>/www.exploringdata.org/post/2015-07-23-r-rmarkdown/</loc>
+    <loc>/post/2015-07-23-r-rmarkdown/</loc>
     <lastmod>2015-07-23T21:13:14-05:00</lastmod>
   </url>
   
   <url>
-    <loc>/www.exploringdata.org/tags/plot/</loc>
+    <loc>/tags/plot/</loc>
     <lastmod>2015-07-23T21:13:14-05:00</lastmod>
   </url>
   
   <url>
-    <loc>/www.exploringdata.org/post/</loc>
+    <loc>/post/</loc>
     <lastmod>2015-07-23T21:13:14-05:00</lastmod>
   </url>
   
   <url>
-    <loc>/www.exploringdata.org/categories/r/</loc>
+    <loc>/categories/r/</loc>
     <lastmod>2015-07-23T21:13:14-05:00</lastmod>
   </url>
   
   <url>
-    <loc>/www.exploringdata.org/tags/r-markdown/</loc>
+    <loc>/tags/r-markdown/</loc>
     <lastmod>2015-07-23T21:13:14-05:00</lastmod>
   </url>
   
   <url>
-    <loc>/www.exploringdata.org/tags/regression/</loc>
+    <loc>/tags/regression/</loc>
     <lastmod>2015-07-23T21:13:14-05:00</lastmod>
   </url>
   
   <url>
-    <loc>/www.exploringdata.org/tags/</loc>
+    <loc>/tags/</loc>
     <lastmod>2015-07-23T21:13:14-05:00</lastmod>
   </url>
   
   <url>
-    <loc>/www.exploringdata.org/about/</loc>
+    <loc>/about/</loc>
   </url>
   
   <url>
-    <loc>/www.exploringdata.org/tags/bootstrap/</loc>
+    <loc>/tags/bootstrap/</loc>
   </url>
   
   <url>
-    <loc>/www.exploringdata.org/tags/css/</loc>
+    <loc>/tags/css/</loc>
   </url>
   
   <url>
-    <loc>/www.exploringdata.org/tags/go/</loc>
+    <loc>/tags/go/</loc>
   </url>
   
   <url>
-    <loc>/www.exploringdata.org/tags/golang/</loc>
+    <loc>/tags/golang/</loc>
   </url>
   
   <url>
-    <loc>/www.exploringdata.org/tags/highlight-js/</loc>
+    <loc>/tags/highlight-js/</loc>
   </url>
   
   <url>
-    <loc>/www.exploringdata.org/tags/html/</loc>
+    <loc>/tags/html/</loc>
   </url>
   
   <url>
-    <loc>/www.exploringdata.org/tags/hugo/</loc>
+    <loc>/tags/hugo/</loc>
   </url>
   
   <url>
-    <loc>/www.exploringdata.org/tags/js/</loc>
+    <loc>/tags/js/</loc>
   </url>
   
   <url>
-    <loc>/www.exploringdata.org/project/</loc>
+    <loc>/project/</loc>
   </url>
   
   <url>
-    <loc>/www.exploringdata.org/tags/responsive/</loc>
+    <loc>/tags/responsive/</loc>
   </url>
   
   <url>
-    <loc>/www.exploringdata.org/tags/syntax-highlighting/</loc>
+    <loc>/tags/syntax-highlighting/</loc>
   </url>
   
 </urlset>
