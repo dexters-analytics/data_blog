@@ -11,7 +11,7 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 
 [params]
     author = "Jason Dexter"
-    description = "A Blog on Wrangling and Exploring Data programatically (R-Centric)"
+    description = "A Blog on Wrangling + Exploring Data programatically (R-Centric)"
     githubUsername = "#"
     accent = "black"
     showBorder = true

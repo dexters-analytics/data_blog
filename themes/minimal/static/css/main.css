@@ -33,13 +33,13 @@ img {
 
 .intro > h2 {
     color: #757575;
-    font-size: 3vmin;
+    font-size: 4vmin;
 }
 
 /* Page content */
 
 .content {
-    padding-top: 20px;
+    padding-top: 200px;
 }
 
 /* Profile picture */
