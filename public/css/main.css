@@ -38,6 +38,7 @@ img {
 
 /* Page content */
 
+
 .content {
     padding-top: 20px;
 }
@@ -53,7 +54,7 @@ img {
 /* Colored links */
 
 a:link, a:visited {
-    color: var(--accent);
+    color: 'dark-blue';        /* var(--accent) */
 }
 
 a.icon:hover {

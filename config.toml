@@ -5,7 +5,10 @@ theme = "minimal"
 # disqusShortname = "username" # delete this to disable disqus comments
 googleAnalytics = "UA-134222974-1"
 
-
+[blackfriday]
+  hrefTargetBlank = true
+  noreferrerLinks = true
+  nofollowLinks = true
 
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"] 
 
