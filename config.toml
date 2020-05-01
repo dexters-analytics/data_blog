@@ -1,4 +1,4 @@
-baseURL = "https://www.exploringdata.org"
+baseURL = "www.exploringdata.org"
 languageCode = "en-us"
 title = "Exploring Data"
 theme = "minimal"

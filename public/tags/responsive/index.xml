@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>responsive on Exploring Data</title>
-    <link>/tags/responsive/</link>
+    <link>/www.exploringdata.org/tags/responsive/</link>
     <description>Recent content in responsive on Exploring Data</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-	<atom:link href="/tags/responsive/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/www.exploringdata.org/tags/responsive/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Project 3</title>
-      <link>/project/project3/</link>
+      <link>/www.exploringdata.org/project/project3/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/project/project3/</guid>
+      <guid>/www.exploringdata.org/project/project3/</guid>
       <description></description>
     </item>
     
