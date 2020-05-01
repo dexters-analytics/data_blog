@@ -3,7 +3,7 @@ html, body {
 }
 
 body {
-    padding-top: 15px;      /* controls padding at top of homepage*/
+    padding-top: 10px;      /* controls padding at top of homepage */
     display: flex;
     text-align: center;
     flex-direction: column;
@@ -28,7 +28,7 @@ img {
 
 .intro > h1 {
     color: #212121;
-    font-size: 14vh;
+    font-size: 13vh;
 }
 
 .intro > h2 {
