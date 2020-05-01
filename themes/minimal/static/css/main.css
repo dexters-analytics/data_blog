@@ -3,7 +3,7 @@ html, body {
 }
 
 body {
-    padding-top: 10px;      /* controls padding at top of homepage */
+    padding-top: 55px;
     display: flex;
     text-align: center;
     flex-direction: column;
@@ -11,9 +11,9 @@ body {
 
 main {
     margin: auto;
-    padding: 25px;
+    padding: 10px;
     flex: 1 0 auto;
-    max-width: 600px;
+    max-width: 750px;
 }
 
 img {
@@ -28,7 +28,7 @@ img {
 
 .intro > h1 {
     color: #212121;
-    font-size: 12 vh;
+    font-size: 12vh;
 }
 
 .intro > h2 {
@@ -93,7 +93,7 @@ a:hover {
 /* Navigation icons */
 
 .navbar-icon {
-    font-size: 150%;
+    font-size: 125%;
     display: inline-block !important;
 }
 
