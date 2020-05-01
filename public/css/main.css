@@ -100,7 +100,7 @@ a:hover {
 /* Colored borders at top/bottom of page */
 
 .navbar.navbar-default {
-    border-top: var(--border-width) solid var(--accent);
+    border-top: var(--border-width) solid var(--accent);  /* var(--border-width) */
 }
 
 footer {
