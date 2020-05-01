@@ -6,7 +6,7 @@ title: About
 
 My name is Jason Dexter and I'm an `R-Programmer` and `Data-Analyst` based out of Berkeley, CA, where I live with my lovely wife 💃 and our two cats 🐈 🐈
 
-In graduate school I was introduced to programming, first `base-R` and then `Python`. Programming was difficult for me at first, then I began to really resonate with the idea of solving problems programattically.
+In graduate school I was introduced to programming, first `base-R` then `Python`. Programming was difficult at first, then I began to resonate with the idea 💡 of solving problems programattically.
 
 Now I'm a nerd 🤓 when it comes to automation - there's something intoxicating about the process of wrangling data using code - it's simply amazing! 
 
@@ -27,5 +27,5 @@ For now, posts will take an R-Centric approach to Wrangling + Exploring data. Th
 ### STAY CONNECTED
 
 Enter your [Email Here](https://tinyletter.com/dexters-analytics) to receive notifications when new content is posted.<br/>  
-
+   
 PS: Be Kind and Tidy your Data 😎
