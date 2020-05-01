@@ -7,9 +7,9 @@ googleAnalytics = "UA-134222974-1"
 
 
 [blackfriday]
-  # hrefTargetBlank = true
-  # noreferrerLinks = true
-  # nofollowLinks = true
+    hrefTargetBlank = true
+    noreferrerLinks = true
+    nofollowLinks = true
 
 
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"] 
@@ -25,6 +25,7 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
     highlight = true
     highlightStyle = "solarized-dark"
     highlightLanguages = ["go", "haskell", "kotlin", "scala", "swift"]
+    code_copy_button = true # Turn on/off the code-copy-button for code-fields
     
 
 [[menu.main]]
