@@ -3,7 +3,7 @@ html, body {
 }
 
 body {
-    padding-top: 55px;
+    padding-top: 20px;
     display: flex;
     text-align: center;
     flex-direction: column;
@@ -33,7 +33,7 @@ img {
 
 .intro > h2 {
     color: #757575;
-    font-size: 3vmin;
+    font-size: 5vmin;
 }
 
 /* Page content */
@@ -93,7 +93,7 @@ a:hover {
 /* Navigation icons */
 
 .navbar-icon {
-    font-size: 125%;
+    font-size: 150%;
     display: inline-block !important;
 }
 
