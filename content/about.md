@@ -3,13 +3,6 @@
 title: About
 ---
 
-<p align = "center">
-<strong> <font size="5">Jason Dexter </font> </strong> <br />
-<strong> <font size="3"> Data Scientist, Analytics </font> </strong>  <br />
-Gymboree Group, San Francisco <br />
-Marketing + Customer Insights <br />
-</p>
-
 
 ### Geographic
 
