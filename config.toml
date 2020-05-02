@@ -6,9 +6,9 @@ theme = "minimal"
 googleAnalytics = "UA-134222974-1"
 
 [blackfriday]
-  hrefTargetBlank = true
-  noreferrerLinks = true
-  nofollowLinks = true
+#  hrefTargetBlank = true
+#  noreferrerLinks = true
+#  nofollowLinks = true
 
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"] 
 
