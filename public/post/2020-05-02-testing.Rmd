@@ -1,9 +1,0 @@
----
-title: Up and Running with R + RStudio
-author: Jason Dexter
-date: '2020-05-02'
-tags:
-  - R
-  - RStudio
-slug: testing
----
