@@ -12,21 +12,24 @@
     
     
     <item>
-      <title>My First Post (test)</title>
-      <link>/post/testing/</link>
-      <pubDate>Sat, 02 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/post/testing/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>My First Project (test)</title>
       <link>/project/my-first-project-test/</link>
       <pubDate>Sat, 02 May 2020 00:00:00 +0000</pubDate>
       
       <guid>/project/my-first-project-test/</guid>
       <description></description>
+    </item>
+    
+    <item>
+      <title>Up and Running with R &#43; RStudio</title>
+      <link>/post/up-and-running-with-r-rstudio/</link>
+      <pubDate>Sat, 02 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/up-and-running-with-r-rstudio/</guid>
+      <description> Let’s dive right in!
+This post will get new users of R up and running quickly.
+Getting Started If you’ve never used R before, then you are in for a treat! The awesome people at RStudio are doing incredible work to help users of R be productive. RStudio is an open source (+commercial) Integrated Development Environment (IDE).
+ </description>
     </item>
     
     <item>
