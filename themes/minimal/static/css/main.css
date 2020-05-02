@@ -3,7 +3,7 @@ html, body {
 }
 
 body {
-    padding-top: 25px;
+    padding-top: 30px;
     display: flex;
     text-align: center;
     flex-direction: column;
