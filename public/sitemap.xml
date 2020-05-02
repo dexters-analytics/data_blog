@@ -3,46 +3,61 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://www.exploringdata.org/tags/data/</loc>
+    <loc>/tags/data/</loc>
     <lastmod>2020-05-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.exploringdata.org/tags/data-engineering/</loc>
+    <loc>/tags/data-engineering/</loc>
     <lastmod>2020-05-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.exploringdata.org/</loc>
+    <loc>/</loc>
     <lastmod>2020-05-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.exploringdata.org/project/my-first-project-test/</loc>
+    <loc>/project/my-first-project-test/</loc>
     <lastmod>2020-05-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.exploringdata.org/project/</loc>
+    <loc>/post/</loc>
     <lastmod>2020-05-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.exploringdata.org/tags/r/</loc>
+    <loc>/project/</loc>
     <lastmod>2020-05-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.exploringdata.org/tags/</loc>
+    <loc>/tags/r/</loc>
     <lastmod>2020-05-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.exploringdata.org/about/</loc>
+    <loc>/tags/rstudio/</loc>
+    <lastmod>2020-05-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.exploringdata.org/categories/</loc>
+    <loc>/tags/</loc>
+    <lastmod>2020-05-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/up-and-running-with-r-rstudio/</loc>
+    <lastmod>2020-05-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/about/</loc>
+  </url>
+  
+  <url>
+    <loc>/categories/</loc>
   </url>
   
 </urlset>
