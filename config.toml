@@ -1,6 +1,6 @@
 baseURL = "https://www.exploringdata.org"
 languageCode = "en-us"
-title = "Exploring Data"
+title = "Exploring-Data"
 theme = "minimal"
 # disqusShortname = "username" # delete this to disable disqus comments
 googleAnalytics = "UA-134222974-1"
