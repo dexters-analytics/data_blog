@@ -2,12 +2,12 @@
 title: Up and Running with R + RStudio
 author: Jason Dexter
 date: '2020-05-02'
+draft: true
 slug: up-and-running-with-r-rstudio
 categories: []
 tags:
   - R
   - RStudio
-draft: true
 ---
 
 Let's dive right in!
