@@ -4,7 +4,7 @@ title: About
 
 ### CONTEXT
 
-My name is Jason Dexter and I'm an `R-Programmer` and `Data-Analyst` based out of Berkeley, CA, where I live with my lovely 💃 wife 💃 and our two cats 🐈 🐈
+My name is Jason Dexter and I'm an `R-Programmer` and `Data-Analyst` based out of Berkeley, CA, where I live with my lovely wife 💃 and our two cats 🐈 🐈
 
 In graduate school I was introduced to programming, first `base-R` then `Python`. Programming was difficult at first, then I began to resonate with the idea 💡 of solving problems programmatically.
 
