@@ -8,7 +8,7 @@ tags:
 - R
 - stringr
 - ggplot
-draft: yes
+draft: no
 editor_options:
   chunk_output_type: console
 output: 
