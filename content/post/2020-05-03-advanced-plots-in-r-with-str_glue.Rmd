@@ -52,7 +52,7 @@ sf_trees_data_raw_tbl <- readr::read_csv('https://raw.githubusercontent.com/rfor
 Let's take a quick peak and inspect the SF Trees Data.
 
 ```{r, fig.height=4}
-plot_missing(sf_trees_data_raw_tbl, ggtheme = theme_tq())
+plot_missing(sf_trees_data_raw_tbl, ggtheme = theme_tq()) 
 ```
 
 This is a fairly small data-set with only 12 columns. For the purpose of demonstration, let's see what we can do with just the species column.
