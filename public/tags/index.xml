@@ -2,39 +2,66 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Exploring Data</title>
-    <link>https://www.exploringdata.org/tags/</link>
+    <link>/tags/</link>
     <description>Recent content in Tags on Exploring Data</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 02 May 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://www.exploringdata.org/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>data</title>
-      <link>https://www.exploringdata.org/tags/data/</link>
+      <link>/tags/data/</link>
       <pubDate>Sat, 02 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.exploringdata.org/tags/data/</guid>
+      <guid>/tags/data/</guid>
       <description></description>
     </item>
     
     <item>
       <title>data engineering</title>
-      <link>https://www.exploringdata.org/tags/data-engineering/</link>
+      <link>/tags/data-engineering/</link>
       <pubDate>Sat, 02 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.exploringdata.org/tags/data-engineering/</guid>
+      <guid>/tags/data-engineering/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ggplot</title>
+      <link>/tags/ggplot/</link>
+      <pubDate>Sat, 02 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/ggplot/</guid>
       <description></description>
     </item>
     
     <item>
       <title>R</title>
-      <link>https://www.exploringdata.org/tags/r/</link>
+      <link>/tags/r/</link>
       <pubDate>Sat, 02 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.exploringdata.org/tags/r/</guid>
+      <guid>/tags/r/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>RStudio</title>
+      <link>/tags/rstudio/</link>
+      <pubDate>Sat, 02 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/rstudio/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>stringr</title>
+      <link>/tags/stringr/</link>
+      <pubDate>Sat, 02 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/stringr/</guid>
       <description></description>
     </item>
     
