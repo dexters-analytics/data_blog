@@ -8,7 +8,7 @@ googleAnalytics = "UA-134222974-1"
 [blackfriday]
 #  hrefTargetBlank = true
 #  noreferrerLinks = true
-#  nofollowLinks = true
+#  nofollowLinks   = true
 
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"] 
 
@@ -56,9 +56,9 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 
 
 [[menu.icon]]
-    url = "mailto:dexters.analytics@gmail.com"
-    name = "envelope-o"
-    weight = 1
+#    url = "mailto:dextersanalytics@gmail.com"
+#    name = "envelope-o"
+#    weight = 1
 
 [[menu.icon]]
     url = "https://www.linkedin.com/in/jdex/"
