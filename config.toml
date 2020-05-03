@@ -24,6 +24,10 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
     highlightStyle = "solarized-dark"
     highlightLanguages = ["go", "haskell", "kotlin", "scala", "swift"]
     code_copy_button = true # Turn on/off the code-copy-button for code-fields
+    relatedPosts = false  # Add a related content section to all single posts page
+    
+    # Add custom css
+    customCSS = ["css/extra.css"]
     
 
 [[menu.main]]
