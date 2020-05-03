@@ -98,14 +98,16 @@ redwood_labeled_text_tbl &lt;- redwood_tbl %&gt;%
     
     # reorder factors based on percent rank
     mutate(common_name = common_name %&gt;% fct_reorder(pct))</code></pre>
-<p>Here is the manipulated text that will be useful once we plot these data.</p>
-<pre class="r"><code>redwood_labeled_text_tbl %&gt;% select(label_text)</code></pre>
-<pre><code>## # A tibble: 3 x 1
-##   label_text                                                                    
-##   &lt;glue&gt;                                                                        
-## 1 &quot;Scientific Name:\nSequoia sempervirens\nCount: 341 of 369\nPct (%): 92.41%&quot;  
-## 2 &quot;Scientific Name:\nMetasequoia glyplostroboides\nCount: 15 of 369\nPct (%): 4…
-## 3 &quot;Scientific Name:\nSequoiadendron giganteum\nCount: 13 of 369\nPct (%): 3.52%&quot;</code></pre>
+</div>
+<div id="manipulated-text-ready-to-plot" class="section level3">
+<h3>Manipulated Text (ready to plot)</h3>
+<p>Here is the manipulated text that will be useful once we plot these data; this setup is critical for the labels on our final plot e.g., the <code>\n</code> will wrap the text at those locations.</p>
+<pre class="r"><code>redwood_labeled_text_tbl %&gt;% select(label_text) %&gt;% rmarkdown::paged_table()</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["label_text"],"name":[1],"type":["S3: glue"],"align":["right"]}],"data":[{"1":"Scientific Name:\\nSequoia sempervirens\\nCount: 341 of 369\\nPct (%): 92.41%"},{"1":"Scientific Name:\\nMetasequoia glyplostroboides\\nCount: 15 of 369\\nPct (%): 4.07%"},{"1":"Scientific Name:\\nSequoiadendron giganteum\\nCount: 13 of 369\\nPct (%): 3.52%"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 </div>
 <div id="data-visualization" class="section level3">
 <h3>Data Visualization</h3>
@@ -134,17 +136,19 @@ g &lt;- redwood_labeled_text_tbl %&gt;%
 </div>
 <div id="display-awesome-plot" class="section level2">
 <h2>Display Awesome Plot</h2>
-<p>And here is our plot with our the labels engineered in the last few steps. And that’s just one example of why I love <code>str_glue()</code> - Simply Awesome!</p>
+<p>And here is our plot with the engineered labels from the last few steps. And that’s just one example of why I love <code>str_glue()</code> - Simply Awesome!</p>
 <p><img src="/post/2020-05-03-advanced-plots-in-r-with-str_glue_files/figure-html/unnamed-chunk-8-1.png" width="768" /></p>
 <p>That’s it for today!</p>
-<p>Stay tuned (+connected) for more posts on Wrangling + Exploring data (<code>programatically</code>).</p>
+<p>We used <code>str_glue()</code> to manipulate our text and add awesome labels to our <code>ggplot()</code> - the plot is now <code>Business-Ready</code> 👍</p>
+<p>Stay tuned for more posts on Wrangling + Exploring data (<code>programatically</code>).</p>
 <div id="stay-connected" class="section level3">
 <h3>Stay Connected</h3>
 <p>Enter your <a href="https://tinyletter.com/dexters-analytics" target="_blank">Email Here</a> to receive notifications when new content is posted.<br/></p>
-<p>PS: Be Kind and Tidy your Data 😎</p>
+<p>PS: Be Kind and Tidy your Data 😎<br/>
+<br/></p>
 </div>
-<div id="check-out-business-science" class="section level3">
-<h3>Check out Business Science 👇</h3>
+<div id="learn-r-fast" class="section level3">
+<h3>Learn R Fast 👇</h3>
 <p>Interested in expediting your learning path? Head on over to <a href="https://www.business-science.io/?affcode=173166_vnvxtqbd" target="_blank">Business Science</a> and join me on the journey.</p>
 <p><a href="https://university.business-science.io/p/jumpstart-with-r/?affcode=173166_vnvxtqbd" target="_blank">Business Science: FREE Jumpstart Data-Science Course</a> (opened for a limited time)</p>
 </div>

@@ -3,7 +3,7 @@ html, body {
 }
 
 body {
-    padding-top: 30px;
+    padding-top: 35px;
     display: flex;
     text-align: center;
     flex-direction: column;
@@ -11,7 +11,7 @@ body {
 
 main {
     margin: auto;
-    padding: 25px;
+    padding: 35px;
     flex: 1 0 auto;
     max-width: 750px;
 }

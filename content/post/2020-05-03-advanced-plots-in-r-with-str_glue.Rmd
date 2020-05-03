@@ -120,10 +120,13 @@ redwood_labeled_text_tbl <- redwood_tbl %>%
     mutate(common_name = common_name %>% fct_reorder(pct))
 ```
 
-Here is the manipulated text that will be useful once we plot these data.
+
+### Manipulated Text (ready to plot)
+
+Here is the manipulated text that will be useful once we plot these data; this setup is critical for the labels on our final plot e.g., the `\n` will wrap the text at those locations.
 
 ```{r}
-redwood_labeled_text_tbl %>% select(label_text)
+redwood_labeled_text_tbl %>% select(label_text) %>% rmarkdown::paged_table()
 ```
 
 
@@ -157,25 +160,29 @@ g <- redwood_labeled_text_tbl %>%
 
 ## Display Awesome Plot 
 
-And here is our plot with our the labels engineered in the last few steps. And that's just one example of why I love `str_glue()` - Simply Awesome!
+And here is our plot with the engineered labels from the last few steps. And that's just one example of why I love `str_glue()` - Simply Awesome!
 
 ```{r echo=FALSE, fig.height=4.5, fig.width=8}
 # Show Plot
 g
 ```
 
-That's it for today!
+That's it for today! 
 
-Stay tuned (+connected) for more posts on Wrangling + Exploring data (`programatically`).
+We used `str_glue()` to manipulate our text and add awesome labels to our `ggplot()` - the plot is now `Business-Ready` 👍
+
+Stay tuned for more posts on Wrangling + Exploring data (`programatically`).
 
 
 ### Stay Connected
 
 Enter your [Email Here](https://tinyletter.com/dexters-analytics){target="_blank"} to receive notifications when new content is posted.<br/>  
 
-PS: Be Kind and Tidy your Data 😎
+PS: Be Kind and Tidy your Data 😎<br/>
+<br/>
 
-### Check out Business Science 👇
+
+### Learn R Fast 👇
 
 Interested in expediting your learning path? Head on over to [Business Science](https://www.business-science.io/?affcode=173166_vnvxtqbd){target="_blank"} and join me on the journey.
 
