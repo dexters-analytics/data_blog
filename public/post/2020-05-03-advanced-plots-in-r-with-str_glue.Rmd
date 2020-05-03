@@ -1,5 +1,5 @@
 ---
-title: "Advanced Plots in R with str_glue()"
+title: "Advanced Plots in R"
 author: "Jason Dexter"
 date: '2020-05-03'
 slug: advanced-plots-in-r-with-str_glue
@@ -29,7 +29,7 @@ knitr::opts_chunk$set(
 
 I'd like to share a technique using `str_glue()` that I learned from [Matt Dancho](https://www.linkedin.com/in/mattdancho/){target="_blank"}, a Data-Science instructor at Business Science University. Check out my favorite course here: [Business Analysis With R](http://bit.ly/2Z9SHsd){target="_blank"}.
 
-`str_glue()` from the `stringr` library is one of my favorite functions in `R` - It's super helpful for wrangling and manipulating text in preparation for building plots. 
+`str_glue()` from the `stringr` library is one of my favorite functions in `R` - It's super helpful for wrangling and manipulating text in preparation for building `advanced` plots. 
 
 ### Let's Get Some Data 🤓
 
