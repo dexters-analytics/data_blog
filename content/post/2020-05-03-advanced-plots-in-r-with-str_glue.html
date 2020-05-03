@@ -1,8 +1,8 @@
 ---
-title: "Using str_glue() in R for Advanced Plotting"
+title: "Advanced Plots in R with str_glue()"
 author: "Jason Dexter"
-date: '2020-05-02'
-slug: advanced-plotting-techniques-using-str-glue-in-r
+date: '2020-05-03'
+slug: advanced-plots-in-r-with-str_glue
 categories: []
 tags:
 - R
@@ -33,29 +33,20 @@ output:
 library(stringr)
 library(tidyquant)
 library(scales)
+library(DataExplorer)
 
 sf_trees_data_raw_tbl &lt;- readr::read_csv(&#39;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-01-28/sf_trees.csv&#39;)</code></pre>
-<p>Let’s take a quick peak at the transposed table to inspect the columns and data types.</p>
-<pre class="r"><code>sf_trees_data_raw_tbl %&gt;% glimpse()</code></pre>
-<pre><code>## Rows: 192,987
-## Columns: 12
-## $ tree_id      &lt;dbl&gt; 53719, 30313, 30312, 30314, 30315, 30316, 48435, 30319, …
-## $ legal_status &lt;chr&gt; &quot;Permitted Site&quot;, &quot;Permitted Site&quot;, &quot;Permitted Site&quot;, &quot;D…
-## $ species      &lt;chr&gt; &quot;Tree(s) ::&quot;, &quot;Tree(s) ::&quot;, &quot;Tree(s) ::&quot;, &quot;Pittosporum u…
-## $ address      &lt;chr&gt; &quot;2963 Webster St&quot;, &quot;501 Arkansas St&quot;, &quot;501 Arkansas St&quot;,…
-## $ site_order   &lt;dbl&gt; 1, 3, 2, 1, 5, 6, 4, 2, 1, 3, 1, 3, 1, 2, 4, 1, 1, 1, 2,…
-## $ site_info    &lt;chr&gt; &quot;Sidewalk: Curb side : Cutout&quot;, &quot;Sidewalk: Curb side : C…
-## $ caretaker    &lt;chr&gt; &quot;Private&quot;, &quot;Private&quot;, &quot;Private&quot;, &quot;Private&quot;, &quot;Private&quot;, &quot;…
-## $ date         &lt;date&gt; 1955-09-19, 1955-10-20, 1955-10-20, 1955-10-20, 1955-10…
-## $ dbh          &lt;dbl&gt; NA, NA, NA, 16, NA, NA, NA, NA, NA, NA, 2, NA, NA, NA, N…
-## $ plot_size    &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
-## $ latitude     &lt;dbl&gt; 37.79787, 37.75984, 37.75984, 37.75977, 37.79265, 37.792…
-## $ longitude    &lt;dbl&gt; -122.4341, -122.3981, -122.3981, -122.3981, -122.4124, -…</code></pre>
+</div>
+<div id="data-exploration" class="section level3">
+<h3>Data Exploration</h3>
+<p>Let’s take a quick peak and inspect the SF Trees Data.</p>
+<pre class="r"><code>plot_missing(sf_trees_data_raw_tbl, ggtheme = theme_tq())</code></pre>
+<p><img src="/post/2020-05-03-advanced-plots-in-r-with-str_glue_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <p>This is a fairly small data-set with only 12 columns. For the purpose of demonstration, let’s see what we can do with just the species column.</p>
 <p>The Coastal Redwoods in the SF area are incredible and one of my favorite species. I’m curious if other species of Redwoods are in SF and if so, at what proportions do they exist relative to the Coastal Redwoods.</p>
 </div>
-<div id="data-wrangling-data-exploration" class="section level3">
-<h3>Data Wrangling + Data Exploration</h3>
+<div id="data-wrangling" class="section level3">
+<h3>Data Wrangling</h3>
 <pre class="r"><code># Data Wrangling
 redwood_tbl &lt;- sf_trees_data_raw_tbl %&gt;% 
     
@@ -144,7 +135,7 @@ g &lt;- redwood_labeled_text_tbl %&gt;%
 <div id="display-awesome-plot" class="section level2">
 <h2>Display Awesome Plot</h2>
 <p>And here is our plot with our the labels engineered in the last few steps. And that’s just one example of why I love <code>str_glue()</code> - Simply Awesome!</p>
-<p><img src="/post/2020-05-02-advanced-plotting-techniques-using-str-glue-in-r_files/figure-html/unnamed-chunk-8-1.png" width="768" /></p>
+<p><img src="/post/2020-05-03-advanced-plots-in-r-with-str_glue_files/figure-html/unnamed-chunk-8-1.png" width="768" /></p>
 <p>That’s it for today!</p>
 <p>Stay tuned (+connected) for more posts on Wrangling + Exploring data (<code>programatically</code>).</p>
 <div id="stay-connected" class="section level3">

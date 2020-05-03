@@ -1,8 +1,8 @@
 ---
-title: "Using str_glue() in R for Advanced Plotting"
+title: "Advanced Plots in R with str_glue()"
 author: "Jason Dexter"
-date: '2020-05-02'
-slug: advanced-plotting-techniques-using-str-glue-in-r
+date: '2020-05-03'
+slug: advanced-plots-in-r-with-str_glue
 categories: []
 tags:
 - R
@@ -42,21 +42,24 @@ library(tidyverse)
 library(stringr)
 library(tidyquant)
 library(scales)
+library(DataExplorer)
 
 sf_trees_data_raw_tbl <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-01-28/sf_trees.csv')
 ```
 
-Let's take a quick peak at the transposed table to inspect the columns and data types.
+### Data Exploration 
 
-```{r}
-sf_trees_data_raw_tbl %>% glimpse()
+Let's take a quick peak and inspect the SF Trees Data.
+
+```{r, fig.height=4}
+plot_missing(sf_trees_data_raw_tbl, ggtheme = theme_tq())
 ```
 
 This is a fairly small data-set with only 12 columns. For the purpose of demonstration, let's see what we can do with just the species column.
 
 The Coastal Redwoods in the SF area are incredible and one of my favorite species. I'm curious if other species of Redwoods are in SF and if so, at what proportions do they exist relative to the Coastal Redwoods. 
 
-### Data Wrangling + Data Exploration
+### Data Wrangling
 
 ```{r}
 # Data Wrangling
