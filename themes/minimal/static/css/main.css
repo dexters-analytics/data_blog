@@ -3,7 +3,7 @@ html, body {
 }
 
 body {
-    padding-top: 50px;
+    padding-top: 30px;
     display: flex;
     text-align: center;
     flex-direction: column;
@@ -40,7 +40,7 @@ img {
 
 
 .content {
-    padding-top: 50px;
+    padding-top: 5px;
 }
 
 /* Profile picture */
