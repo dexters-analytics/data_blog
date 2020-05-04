@@ -20,6 +20,8 @@ output:
 <script src="/rmarkdown-libs/pagedtable/js/pagedtable.js"></script>
 
 
+<p><br/></p>
+<p>Enter your <a href="https://tinyletter.com/dexters-analytics" target="_blank">Email Here</a> to receive notifications when new content is posted.<br/></p>
 <div id="lets-dive-into-an-example" class="section level3">
 <h3>Let’s Dive Into an Example</h3>
 <p>I’d like to share a technique using <code>str_glue()</code> that I learned from <a href="https://www.linkedin.com/in/mattdancho/" target="_blank">Matt Dancho</a>, a Data-Science instructor at Business Science University. Check out my favorite course here: <a href="http://bit.ly/2Z9SHsd" target="_blank">Business Analysis With R</a>.</p>
@@ -40,7 +42,8 @@ sf_trees_data_raw_tbl &lt;- readr::read_csv(&#39;https://raw.githubusercontent.c
 <div id="data-exploration" class="section level3">
 <h3>Data Exploration</h3>
 <p>Let’s take a quick peak and inspect the SF Trees Data.</p>
-<pre class="r"><code>plot_missing(sf_trees_data_raw_tbl, ggtheme = theme_tq()) </code></pre>
+<pre class="r"><code>plot_missing(sf_trees_data_raw_tbl, 
+             ggtheme = theme_tq())</code></pre>
 <p><img src="/post/2020-05-03-advanced-plots-in-r-with-str_glue_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <p>This is a fairly small data-set with only 12 columns. For the purpose of demonstration, let’s see what we can do with just the species column.</p>
 <p>The Coastal Redwoods in the SF area are incredible and one of my favorite species. I’m curious if other species of Redwoods are in SF and if so, at what proportions do they exist relative to the Coastal Redwoods.</p>
