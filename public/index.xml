@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Exploring Data</title>
-    <link>https://www.exploringdata.org/</link>
+    <link>/</link>
     <description>Recent content on Exploring Data</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 03 May 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://www.exploringdata.org/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Advanced Plots in R</title>
-      <link>https://www.exploringdata.org/post/advanced-plots-in-r-with-str_glue/</link>
+      <link>/post/advanced-plots-in-r-with-str_glue/</link>
       <pubDate>Sun, 03 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.exploringdata.org/post/advanced-plots-in-r-with-str_glue/</guid>
+      <guid>/post/advanced-plots-in-r-with-str_glue/</guid>
       <description>Enter your Email Here to receive notifications when new content is posted.
 Let’s Dive Into an Example I’d like to share a technique using str_glue() that I learned from Matt Dancho, a Data-Science instructor at Business Science University. Check out my favorite course here: Business Analysis With R.
 str_glue() from the stringr library is one of my favorite functions in R - It’s super helpful for wrangling and manipulating text in preparation for building advanced plots.</description>
@@ -24,19 +24,31 @@ str_glue() from the stringr library is one of my favorite functions in R - It’
     
     <item>
       <title>My First Project (test)</title>
-      <link>https://www.exploringdata.org/project/my-first-project-test/</link>
+      <link>/project/my-first-project-test/</link>
       <pubDate>Sat, 02 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.exploringdata.org/project/my-first-project-test/</guid>
+      <guid>/project/my-first-project-test/</guid>
       <description></description>
     </item>
     
     <item>
+      <title>Up and Running with R &#43; RStudio</title>
+      <link>/post/up-and-running-with-r-rstudio/</link>
+      <pubDate>Sat, 02 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/up-and-running-with-r-rstudio/</guid>
+      <description> Let’s dive right in!
+This post will get new users of R up and running quickly.
+Getting Started If you’ve never used R before, then you are in for a treat! The awesome people at RStudio are doing incredible work to help users of R be productive. RStudio is an open source (+commercial editions) Integrated Development Environment (IDE).
+ </description>
+    </item>
+    
+    <item>
       <title>About</title>
-      <link>https://www.exploringdata.org/about/</link>
+      <link>/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www.exploringdata.org/about/</guid>
+      <guid>/about/</guid>
       <description>CONTEXT My name is Jason Dexter and I&amp;rsquo;m an R-Programmer and Data-Analyst based out of Berkeley, CA, where I live with my lovely wife 💃 and our two cats 🐈 🐈
 In graduate school I was introduced to programming, first base-R then Python. The idea 💡 of solving problems programmatically resonated deeply with me and I&amp;rsquo;ve been hooked ever since.
 I&amp;rsquo;m a nerd 🤓 when it comes to automating data manipulation - there&amp;rsquo;s something intoxicating about the process of wrangling data using code, it&amp;rsquo;s simply amazing!</description>
