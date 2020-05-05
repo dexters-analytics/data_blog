@@ -15,9 +15,9 @@ I find immense satisfaction in determining the shape data needs to be in, then p
 
 ### R-CENTRIC
 
-Eventually I gravitated towards `R`, especially after [Matt Dancho](https://www.linkedin.com/in/mattdancho/){target="_blank"} introduced me to the `Tidyverse`. Matt has an online learning platform for Data Science that has been a real game-changer for me.
+Eventually I gravitated towards `R`, especially after [Matt Dancho](https://www.linkedin.com/in/mattdancho/) introduced me to the `Tidyverse`. Matt has an online learning platform for Data Science that has been a real game-changer for me.
 
-Check out the platform, it's called [Business Science Unviersity](http://bit.ly/2Z9SHsd){target="_blank"}.  
+Check out the platform, it's called [Business Science Unviersity](http://bit.ly/2Z9SHsd).  
 
 
 ### WHAT TO EXPECT
@@ -26,6 +26,6 @@ For now, posts will take an `R`-Centric approach to Wrangling + Exploring data. 
 
 ### STAY CONNECTED
 
-Enter your [Email Here](https://tinyletter.com/dexters-analytics){target="_blank"} to receive notifications when new content is posted.<br/>  
+Enter your [Email Here](https://tinyletter.com/dexters-analytics) to receive notifications when new content is posted.<br/>  
    
 PS: Be Kind and Tidy your Data 😎
