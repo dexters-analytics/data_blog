@@ -30,7 +30,7 @@ Enter your [Email Here](https://tinyletter.com/dexters-analytics){target="_blank
 
 ### Let's Dive Into an Example
 
-I'd like to share a technique using `str_glue()` that I learned from [Matt Dancho](https://www.linkedin.com/in/mattdancho/){target="_blank"}, a Data-Science instructor at Business Science University. Check out my favorite course here: [Business Analysis With R](http://bit.ly/2Z9SHsd){target="_blank"}.
+I'd like to share a technique using `str_glue()` that I learned from [Matt Dancho](https://www.linkedin.com/in/mattdancho/){target="_blank"}, a Data-Science instructor at [Business Science University](https://www.business-science.io/?affcode=173166_vnvxtqbd){target="_blank"}. Check out my favorite course here: [Business Analysis With R](http://bit.ly/2Z9SHsd){target="_blank"}.
 
 `str_glue()` from the `stringr` library is one of my favorite functions in `R` - It's super helpful for wrangling and manipulating text in preparation for building `advanced` plots. 
 
