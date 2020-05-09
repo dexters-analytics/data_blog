@@ -42,8 +42,10 @@ sf_trees_data_raw_tbl &lt;- readr::read_csv(&#39;https://raw.githubusercontent.c
 <div id="data-exploration" class="section level3">
 <h3>Data Exploration</h3>
 <p>Let’s take a quick peak and inspect the SF Trees Data.</p>
-<pre class="r"><code>plot_missing(sf_trees_data_raw_tbl, 
-             ggtheme = theme_tq())</code></pre>
+<pre class="r"><code>plot_missing(sf_trees_data_raw_tbl,
+             ggtheme = theme_tq(),
+             title = str_glue(
+               &#39;Exploring Missing Data (N = {count(sf_trees_data_raw_tbl)})&#39;))</code></pre>
 <p><img src="/post/2020-05-03-advanced-plots-in-r-with-str_glue_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <p>This is a fairly small data-set with only 12 columns. For the purpose of demonstration, let’s see what we can do with just the species column.</p>
 <p>The Coastal Redwoods in the SF area are incredible and one of my favorite species. I’m curious if other species of Redwoods are in SF and if so, at what proportions do they exist relative to the Coastal Redwoods.</p>
