@@ -1,0 +1,231 @@
+---
+title: "Examining Data with glimpse()"
+author: "Jason Dexter"
+date: '2020-05-13'
+draft: true
+slug: examining-data-with-glimpse
+categories: []
+tags:
+- R
+- dplyr
+- tidyverse
+editor_options:
+  chunk_output_type: console
+---
+
+<link href="/rmarkdown-libs/pagedtable/css/pagedtable.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/pagedtable/js/pagedtable.js"></script>
+
+
+<div id="context" class="section level3">
+<h3>Context</h3>
+<p>Recently, I completed the <code>Data Science Foundations</code> course by <a href="https://www.linkedin.com/in/mattdancho/" target="_blank">Matt Dancho</a> over at <a href="https://www.business-science.io/?affcode=173166_vnvxtqbd" target="_blank">Business Science University</a>. The course was action packed and the instructors intention was obviously to rapidly move novice users of R towards expertise within 7 weeks (e.g., applied Machine-Learning).</p>
+<p>In the course you get to code along side an expert <code>Data Scientist</code> while he teaches you to think critically when using data to solve problems that drive ROIx.</p>
+<p>Hands down, this is one of my favorite courses because it takes students through the entire process of learning how to import, examine, wrangle, explore, visualize, model, and communicate findings to the business.</p>
+<p><img src="/post/2020-05-13-exploring-data-with-glimpse_files/Screen%20Shot%202020-05-14%20at%201.29.34%20AM.png" /></p>
+<p>You can check out an overview of the course here and even get 15% off for a limited time: <a href="">Data Science Foundations</a>.</p>
+</div>
+<div id="courses-without-application-are-pointless" class="section level3">
+<h3>Courses without Application are Pointless</h3>
+<p>While it’s easy to take a course on a subject it’s much more difficult to Transfer that Learning by applying new concepts from one context to another - that’s why I’m a BIG proponent of ‘project-based’ learning.</p>
+<p>For that reason, I’m doing a series of posts to solidify and share my learnings from the <a href="https://university.business-science.io/p/ds4b-101-r-business-analysis-r/?coupon_code=DS4B15&amp;affcode=173166_vnvxtqbd">Data Science Foundations</a> course that I recently completed.</p>
+</div>
+<div id="lets-dive-into-an-example" class="section level3">
+<h3>Let’s Dive into an Example</h3>
+<p>I’m a nerd 🤓 when it comes to programming and love learning about new functions.</p>
+<p>Matt Dancho early in his 101 course teaches students the importance of examining data before diving into wrangling and exploring it further.</p>
+<p>One of the functions I’ve adopted from the course is the <code>glimpse()</code> function - it’s awesome and I use it all the time!</p>
+</div>
+<div id="the-glimse-function" class="section level3">
+<h3>The glimse() function</h3>
+<p>When your data has a small number of columns you can print it to the console in <code>RStudio</code>. However, when there are many columns it’s much more difficult to get a quick view of your data.</p>
+<p>Let’s look at an example so I can stress the value in using the <code>dplyr::glimpse()</code> function in the examination of your data.</p>
+</div>
+<div id="lets-get-some-data" class="section level3">
+<h3>Let’s Get Some Data</h3>
+<p>The <a href="https://github.com/rfordatascience/tidytuesday" target="_blank">Tidy Tuesday Project</a> is an awesome repository of useful data for practicing your data <code>Wrangling</code> skills.</p>
+<p>We will work with the ‘Volcano Eruptions’ data as a case study for using the <code>glimpse()</code> function for examining your data prior to further exploration.</p>
+<p>…</p>
+<pre class="r"><code># Load Libraries
+library(tidyverse)
+library(DataExplorer)
+library(rmarkdown)
+
+# Import Data
+volcano_raw_tbl &lt;- readr::read_csv(&#39;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-05-12/volcano.csv&#39;)</code></pre>
+</div>
+<div id="data-examimation" class="section level3">
+<h3>Data Examimation</h3>
+<p>Something about how the tibble view is cumbersome and doesn’t provide a good view of ‘wide’ data.
+…</p>
+<pre class="r"><code>volcano_raw_tbl</code></pre>
+<pre><code>## # A tibble: 958 x 26
+##    volcano_number volcano_name primary_volcano… last_eruption_y… country region
+##             &lt;dbl&gt; &lt;chr&gt;        &lt;chr&gt;            &lt;chr&gt;            &lt;chr&gt;   &lt;chr&gt; 
+##  1         283001 Abu          Shield(s)        -6850            Japan   Japan…
+##  2         355096 Acamarachi   Stratovolcano    Unknown          Chile   South…
+##  3         342080 Acatenango   Stratovolcano(e… 1972             Guatem… Méxic…
+##  4         213004 Acigol-Nevs… Caldera          -2080            Turkey  Medit…
+##  5         321040 Adams        Stratovolcano    950              United… Canad…
+##  6         283170 Adatarayama  Stratovolcano(e… 1996             Japan   Japan…
+##  7         221170 Adwa         Stratovolcano    Unknown          Ethiop… Afric…
+##  8         221110 Afdera       Stratovolcano    Unknown          Ethiop… Afric…
+##  9         284160 Agrigan      Stratovolcano    1917             United… Japan…
+## 10         342100 Agua         Stratovolcano    Unknown          Guatem… Méxic…
+## # … with 948 more rows, and 20 more variables: subregion &lt;chr&gt;, latitude &lt;dbl&gt;,
+## #   longitude &lt;dbl&gt;, elevation &lt;dbl&gt;, tectonic_settings &lt;chr&gt;,
+## #   evidence_category &lt;chr&gt;, major_rock_1 &lt;chr&gt;, major_rock_2 &lt;chr&gt;,
+## #   major_rock_3 &lt;chr&gt;, major_rock_4 &lt;chr&gt;, major_rock_5 &lt;chr&gt;,
+## #   minor_rock_1 &lt;chr&gt;, minor_rock_2 &lt;chr&gt;, minor_rock_3 &lt;chr&gt;,
+## #   minor_rock_4 &lt;chr&gt;, minor_rock_5 &lt;chr&gt;, population_within_5_km &lt;dbl&gt;,
+## #   population_within_10_km &lt;dbl&gt;, population_within_30_km &lt;dbl&gt;,
+## #   population_within_100_km &lt;dbl&gt;</code></pre>
+<p>Something about how awesome the <code>glimpse()</code> function is.</p>
+<pre class="r"><code>volcano_raw_tbl %&gt;% glimpse()</code></pre>
+<pre><code>## Rows: 958
+## Columns: 26
+## $ volcano_number           &lt;dbl&gt; 283001, 355096, 342080, 213004, 321040, 2831…
+## $ volcano_name             &lt;chr&gt; &quot;Abu&quot;, &quot;Acamarachi&quot;, &quot;Acatenango&quot;, &quot;Acigol-N…
+## $ primary_volcano_type     &lt;chr&gt; &quot;Shield(s)&quot;, &quot;Stratovolcano&quot;, &quot;Stratovolcano…
+## $ last_eruption_year       &lt;chr&gt; &quot;-6850&quot;, &quot;Unknown&quot;, &quot;1972&quot;, &quot;-2080&quot;, &quot;950&quot;, …
+## $ country                  &lt;chr&gt; &quot;Japan&quot;, &quot;Chile&quot;, &quot;Guatemala&quot;, &quot;Turkey&quot;, &quot;Un…
+## $ region                   &lt;chr&gt; &quot;Japan, Taiwan, Marianas&quot;, &quot;South America&quot;, …
+## $ subregion                &lt;chr&gt; &quot;Honshu&quot;, &quot;Northern Chile, Bolivia and Argen…
+## $ latitude                 &lt;dbl&gt; 34.500, -23.292, 14.501, 38.537, 46.206, 37.…
+## $ longitude                &lt;dbl&gt; 131.600, -67.618, -90.876, 34.621, -121.490,…
+## $ elevation                &lt;dbl&gt; 641, 6023, 3976, 1683, 3742, 1728, 1733, 125…
+## $ tectonic_settings        &lt;chr&gt; &quot;Subduction zone / Continental crust (&gt;25 km…
+## $ evidence_category        &lt;chr&gt; &quot;Eruption Dated&quot;, &quot;Evidence Credible&quot;, &quot;Erup…
+## $ major_rock_1             &lt;chr&gt; &quot;Andesite / Basaltic Andesite&quot;, &quot;Dacite&quot;, &quot;A…
+## $ major_rock_2             &lt;chr&gt; &quot;Basalt / Picro-Basalt&quot;, &quot;Andesite / Basalti…
+## $ major_rock_3             &lt;chr&gt; &quot;Dacite&quot;, &quot; &quot;, &quot; &quot;, &quot;Basalt / Picro-Basalt&quot;,…
+## $ major_rock_4             &lt;chr&gt; &quot; &quot;, &quot; &quot;, &quot; &quot;, &quot;Andesite / Basaltic Andesite…
+## $ major_rock_5             &lt;chr&gt; &quot; &quot;, &quot; &quot;, &quot; &quot;, &quot; &quot;, &quot; &quot;, &quot; &quot;, &quot; &quot;, &quot; &quot;, &quot; &quot;,…
+## $ minor_rock_1             &lt;chr&gt; &quot; &quot;, &quot; &quot;, &quot;Basalt / Picro-Basalt&quot;, &quot; &quot;, &quot;Dac…
+## $ minor_rock_2             &lt;chr&gt; &quot; &quot;, &quot; &quot;, &quot; &quot;, &quot; &quot;, &quot; &quot;, &quot;Basalt / Picro-Bas…
+## $ minor_rock_3             &lt;chr&gt; &quot; &quot;, &quot; &quot;, &quot; &quot;, &quot; &quot;, &quot; &quot;, &quot; &quot;, &quot; &quot;, &quot;Andesite…
+## $ minor_rock_4             &lt;chr&gt; &quot; &quot;, &quot; &quot;, &quot; &quot;, &quot; &quot;, &quot; &quot;, &quot; &quot;, &quot; &quot;, &quot; &quot;, &quot; &quot;,…
+## $ minor_rock_5             &lt;chr&gt; &quot; &quot;, &quot; &quot;, &quot; &quot;, &quot; &quot;, &quot; &quot;, &quot; &quot;, &quot; &quot;, &quot; &quot;, &quot; &quot;,…
+## $ population_within_5_km   &lt;dbl&gt; 3597, 0, 4329, 127863, 0, 428, 101, 51, 0, 9…
+## $ population_within_10_km  &lt;dbl&gt; 9594, 7, 60730, 127863, 70, 3936, 485, 6042,…
+## $ population_within_30_km  &lt;dbl&gt; 117805, 294, 1042836, 218469, 4019, 717078, …
+## $ population_within_100_km &lt;dbl&gt; 4071152, 9092, 7634778, 2253483, 393303, 502…</code></pre>
+</div>
+<div id="lets-subset-some-of-these-data-for-exploration" class="section level3">
+<h3>Let’s subset some of these data for exploration</h3>
+<p>I’ve done GIS work before and so I’m really interested in mapping some of these data.</p>
+<p>The population counts based on proximity to volcanoes sounds really interesting so let’s start there.</p>
+<pre class="r"><code>volcano_raw_subset_tbl &lt;- volcano_raw_tbl %&gt;% 
+    select(contains(&#39;volcano_n&#39;), country, contains(&#39;tude&#39;), contains(&#39;population&#39;))
+
+volcano_raw_subset_tbl</code></pre>
+<pre><code>## # A tibble: 958 x 9
+##    volcano_number volcano_name country latitude longitude population_with…
+##             &lt;dbl&gt; &lt;chr&gt;        &lt;chr&gt;      &lt;dbl&gt;     &lt;dbl&gt;            &lt;dbl&gt;
+##  1         283001 Abu          Japan       34.5     132.              3597
+##  2         355096 Acamarachi   Chile      -23.3     -67.6                0
+##  3         342080 Acatenango   Guatem…     14.5     -90.9             4329
+##  4         213004 Acigol-Nevs… Turkey      38.5      34.6           127863
+##  5         321040 Adams        United…     46.2    -121.                 0
+##  6         283170 Adatarayama  Japan       37.6     140.               428
+##  7         221170 Adwa         Ethiop…     10.1      40.8              101
+##  8         221110 Afdera       Ethiop…     13.1      40.9               51
+##  9         284160 Agrigan      United…     18.8     146.                 0
+## 10         342100 Agua         Guatem…     14.5     -90.7             9890
+## # … with 948 more rows, and 3 more variables: population_within_10_km &lt;dbl&gt;,
+## #   population_within_30_km &lt;dbl&gt;, population_within_100_km &lt;dbl&gt;</code></pre>
+</div>
+<div id="simpler-to-work-with-less-at-first" class="section level3">
+<h3>Simpler to work with Less at First</h3>
+<p>We’ve reduced our data down to just 8 columns but it’s still a bit difficult to get a full view of what it contains.</p>
+<p>Let’s use the <code>glimpse()</code> function again to get a better view.</p>
+<pre class="r"><code>glimpse(volcano_raw_subset_tbl)</code></pre>
+<pre><code>## Rows: 958
+## Columns: 9
+## $ volcano_number           &lt;dbl&gt; 283001, 355096, 342080, 213004, 321040, 2831…
+## $ volcano_name             &lt;chr&gt; &quot;Abu&quot;, &quot;Acamarachi&quot;, &quot;Acatenango&quot;, &quot;Acigol-N…
+## $ country                  &lt;chr&gt; &quot;Japan&quot;, &quot;Chile&quot;, &quot;Guatemala&quot;, &quot;Turkey&quot;, &quot;Un…
+## $ latitude                 &lt;dbl&gt; 34.500, -23.292, 14.501, 38.537, 46.206, 37.…
+## $ longitude                &lt;dbl&gt; 131.600, -67.618, -90.876, 34.621, -121.490,…
+## $ population_within_5_km   &lt;dbl&gt; 3597, 0, 4329, 127863, 0, 428, 101, 51, 0, 9…
+## $ population_within_10_km  &lt;dbl&gt; 9594, 7, 60730, 127863, 70, 3936, 485, 6042,…
+## $ population_within_30_km  &lt;dbl&gt; 117805, 294, 1042836, 218469, 4019, 717078, …
+## $ population_within_100_km &lt;dbl&gt; 4071152, 9092, 7634778, 2253483, 393303, 502…</code></pre>
+</div>
+<div id="data-examination-cont." class="section level3">
+<h3>Data Examination Cont.</h3>
+<p>Before exploring and wrangling this data further, let’s examine it a little closer</p>
+</div>
+<div id="any-missing-data" class="section level3">
+<h3>Any missing data?</h3>
+<p>…</p>
+<pre class="r"><code>volcano_raw_subset_tbl %&gt;% 
+    profile_missing() %&gt;% 
+    arrange(desc(num_missing)) %&gt;% 
+    rmarkdown::paged_table()</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["feature"],"name":[1],"type":["fctr"],"align":["left"]},{"label":["num_missing"],"name":[2],"type":["int"],"align":["right"]},{"label":["pct_missing"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"volcano_number","2":"0","3":"0"},{"1":"volcano_name","2":"0","3":"0"},{"1":"country","2":"0","3":"0"},{"1":"latitude","2":"0","3":"0"},{"1":"longitude","2":"0","3":"0"},{"1":"population_within_5_km","2":"0","3":"0"},{"1":"population_within_10_km","2":"0","3":"0"},{"1":"population_within_30_km","2":"0","3":"0"},{"1":"population_within_100_km","2":"0","3":"0"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<div id="any-duplicated-records" class="section level3">
+<h3>Any duplicated records?</h3>
+<p>looks like all the vol-nums are unique, and:
+* names are’nt suprising to be dups (diff countries?)
+* country, name should show no dups (but there is one)
+* let’s research that…</p>
+<p>…</p>
+<pre class="r"><code>volcano_raw_subset_tbl %&gt;% count(volcano_number, sort = T)</code></pre>
+<pre><code>## # A tibble: 958 x 2
+##    volcano_number     n
+##             &lt;dbl&gt; &lt;int&gt;
+##  1         210010     1
+##  2         210020     1
+##  3         210030     1
+##  4         210040     1
+##  5         211003     1
+##  6         211004     1
+##  7         211010     1
+##  8         211020     1
+##  9         211030     1
+## 10         211040     1
+## # … with 948 more rows</code></pre>
+<pre class="r"><code>volcano_raw_subset_tbl %&gt;% count(volcano_name, sort = T) %&gt;% filter(n==2)</code></pre>
+<pre><code>## # A tibble: 4 x 2
+##   volcano_name      n
+##   &lt;chr&gt;         &lt;int&gt;
+## 1 Azul, Cerro       2
+## 2 Flores            2
+## 3 San Cristobal     2
+## 4 Sumbing           2</code></pre>
+<pre class="r"><code>volcano_raw_subset_tbl %&gt;% count(volcano_name, country, sort = T) %&gt;% filter(n==2)</code></pre>
+<pre><code>## # A tibble: 1 x 3
+##   volcano_name country       n
+##   &lt;chr&gt;        &lt;chr&gt;     &lt;int&gt;
+## 1 Sumbing      Indonesia     2</code></pre>
+<pre class="r"><code>volcano_raw_subset_tbl %&gt;% filter(volcano_name == &#39;Sumbing&#39;) %&gt;% 
+    glimpse()</code></pre>
+<pre><code>## Rows: 2
+## Columns: 9
+## $ volcano_number           &lt;dbl&gt; 261180, 263220
+## $ volcano_name             &lt;chr&gt; &quot;Sumbing&quot;, &quot;Sumbing&quot;
+## $ country                  &lt;chr&gt; &quot;Indonesia&quot;, &quot;Indonesia&quot;
+## $ latitude                 &lt;dbl&gt; -2.414, -7.384
+## $ longitude                &lt;dbl&gt; 101.728, 110.070
+## $ population_within_5_km   &lt;dbl&gt; 3, 15294
+## $ population_within_10_km  &lt;dbl&gt; 304, 310361
+## $ population_within_30_km  &lt;dbl&gt; 49583, 2425607
+## $ population_within_100_km &lt;dbl&gt; 1209448, 25707858</code></pre>
+</div>
+<div id="stay-connected" class="section level3">
+<h3>Stay Connected</h3>
+<p>Enter your <a href="https://tinyletter.com/dexters-analytics" target="_blank">Email Here</a> to receive notifications when new content is posted.<br/></p>
+<p>PS: Be Kind and Tidy your Data 😎<br/>
+<br/></p>
+</div>
+<div id="learn-r-fast" class="section level3">
+<h3>Learn R Fast 👇</h3>
+<p>Interested in expediting your learning path? Head on over to <a href="https://www.business-science.io/?affcode=173166_vnvxtqbd" target="_blank">Business Science</a> and join me on the journey.</p>
+<p><a href="https://university.business-science.io/p/jumpstart-with-r/?affcode=173166_vnvxtqbd" target="_blank">Business Science: FREE Jumpstart Data-Science Course</a> (opened for a limited time)</p>
+</div>
