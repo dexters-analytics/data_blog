@@ -3,6 +3,7 @@ languageCode = "en-us"
 title = "Exploring Data"
 theme = "minimal"
 disqusShortname = "https-www-exploringdata-org" # delete this to disable disqus comments
+
 googleAnalytics = "UA-134222974-1"
 
 [blackfriday]
