@@ -1,17 +1,18 @@
 ---
 title: "Examining Data with glimpse()"
 author: "Jason Dexter"
-date: '2020-05-13'
-draft: true
+date: '2020-05-15'
+draft: yes
 slug: examining-data-with-glimpse
 categories: []
 tags:
 - R
-- dplyr
 - tidyverse
+- dplyr
 editor_options:
   chunk_output_type: console
 ---
+
 
 
 
@@ -31,9 +32,7 @@ In the course you get to code along side an expert `Data Scientist` while he tea
 
 Hands down, this is one of my favorite courses because it takes students through the entire process of learning how to import, examine, wrangle, explore, visualize, model, and communicate findings to the business.
 
-![](/post/2020-05-13-exploring-data-with-glimpse_files/Screen Shot 2020-05-14 at 1.29.34 AM.png)
 
-You can check out an overview of the course here and even get 15% off for a limited time: [Data Science Foundations]().
 
 ### Courses without Application are Pointless
 
@@ -170,3 +169,13 @@ Interested in expediting your learning path? Head on over to [Business Science](
 [Business Science: FREE Jumpstart Data-Science Course](https://university.business-science.io/p/jumpstart-with-r/?affcode=173166_vnvxtqbd){target="_blank"} (opened for a limited time)
 
 
+
+```{r include=FALSE}
+knitr::knit_exit()
+```
+
+
+
+![](/post/2020-05-13-exploring-data-with-glimpse_files/Screen Shot 2020-05-14 at 1.29.34 AM.png)
+
+You can check out an overview of the course here and even get 15% off for a limited time: [Data Science Foundations]().

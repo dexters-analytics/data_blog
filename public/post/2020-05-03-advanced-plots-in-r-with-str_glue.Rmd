@@ -6,9 +6,9 @@ slug: advanced-plots-in-r-with-str_glue
 categories: []
 tags:
 - R
+- tidyverse
 - stringr
 - ggplot
-- tidyverse
 editor_options:
   chunk_output_type: console
 output: 
