@@ -2,7 +2,7 @@
 title: "Examining Data with glimpse()"
 author: "Jason Dexter"
 date: '2020-05-15'
-#draft: yes
+draft: yes
 slug: examining-data-with-glimpse
 categories: []
 tags:
@@ -88,7 +88,7 @@ So why not just use the `tibble::view()` function and open the data in the RStud
 I recommend using the `glimpse()` function and using it early 😎
 
 ```{r}
-volcano_raw_tbl %>% glimpse(width = 50)
+volcano_raw_tbl %>% glimpse()
 ```
 
 ### Let's subset some of these data for exploration

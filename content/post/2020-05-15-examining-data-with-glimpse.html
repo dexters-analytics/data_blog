@@ -2,7 +2,7 @@
 title: "Examining Data with glimpse()"
 author: "Jason Dexter"
 date: '2020-05-15'
-#draft: yes
+draft: yes
 slug: examining-data-with-glimpse
 categories: []
 tags:
@@ -79,35 +79,35 @@ print(volcano_raw_tbl[ , 0:4], n = 3)</code></pre>
 <p>Printing that many columns into the console makes the process of examining the data cumbersome; the columns being wrapped show the data-type for the columns but it’s difficult to extract that info. Also, for the wrapped columns you don’t see what the data types are.</p>
 <p>So why not just use the <code>tibble::view()</code> function and open the data in the RStudio Data Window? That’s a great idea but even before we go there we really want to get a sense of our data and the associated data types.</p>
 <p>I recommend using the <code>glimpse()</code> function and using it early 😎</p>
-<pre class="r"><code>volcano_raw_tbl %&gt;% glimpse(width = 50)</code></pre>
+<pre class="r"><code>volcano_raw_tbl %&gt;% glimpse()</code></pre>
 <pre><code>## Rows: 958
 ## Columns: 26
-## $ volcano_number           &lt;dbl&gt; 283001, 355096…
-## $ volcano_name             &lt;chr&gt; &quot;Abu&quot;, &quot;Acamar…
-## $ primary_volcano_type     &lt;chr&gt; &quot;Shield(s)&quot;, &quot;…
-## $ last_eruption_year       &lt;chr&gt; &quot;-6850&quot;, &quot;Unkn…
-## $ country                  &lt;chr&gt; &quot;Japan&quot;, &quot;Chil…
-## $ region                   &lt;chr&gt; &quot;Japan, Taiwan…
-## $ subregion                &lt;chr&gt; &quot;Honshu&quot;, &quot;Nor…
-## $ latitude                 &lt;dbl&gt; 34.500, -23.29…
-## $ longitude                &lt;dbl&gt; 131.600, -67.6…
-## $ elevation                &lt;dbl&gt; 641, 6023, 397…
-## $ tectonic_settings        &lt;chr&gt; &quot;Subduction zo…
-## $ evidence_category        &lt;chr&gt; &quot;Eruption Date…
-## $ major_rock_1             &lt;chr&gt; &quot;Andesite / Ba…
-## $ major_rock_2             &lt;chr&gt; &quot;Basalt / Picr…
-## $ major_rock_3             &lt;chr&gt; &quot;Dacite&quot;, &quot; &quot;,…
-## $ major_rock_4             &lt;chr&gt; &quot; &quot;, &quot; &quot;, &quot; &quot;,…
-## $ major_rock_5             &lt;chr&gt; &quot; &quot;, &quot; &quot;, &quot; &quot;,…
-## $ minor_rock_1             &lt;chr&gt; &quot; &quot;, &quot; &quot;, &quot;Bas…
-## $ minor_rock_2             &lt;chr&gt; &quot; &quot;, &quot; &quot;, &quot; &quot;,…
-## $ minor_rock_3             &lt;chr&gt; &quot; &quot;, &quot; &quot;, &quot; &quot;,…
-## $ minor_rock_4             &lt;chr&gt; &quot; &quot;, &quot; &quot;, &quot; &quot;,…
-## $ minor_rock_5             &lt;chr&gt; &quot; &quot;, &quot; &quot;, &quot; &quot;,…
-## $ population_within_5_km   &lt;dbl&gt; 3597, 0, 4329,…
-## $ population_within_10_km  &lt;dbl&gt; 9594, 7, 60730…
-## $ population_within_30_km  &lt;dbl&gt; 117805, 294, 1…
-## $ population_within_100_km &lt;dbl&gt; 4071152, 9092,…</code></pre>
+## $ volcano_number           &lt;dbl&gt; 283001, 355096, 342080, 213004, 321040, 2831…
+## $ volcano_name             &lt;chr&gt; &quot;Abu&quot;, &quot;Acamarachi&quot;, &quot;Acatenango&quot;, &quot;Acigol-N…
+## $ primary_volcano_type     &lt;chr&gt; &quot;Shield(s)&quot;, &quot;Stratovolcano&quot;, &quot;Stratovolcano…
+## $ last_eruption_year       &lt;chr&gt; &quot;-6850&quot;, &quot;Unknown&quot;, &quot;1972&quot;, &quot;-2080&quot;, &quot;950&quot;, …
+## $ country                  &lt;chr&gt; &quot;Japan&quot;, &quot;Chile&quot;, &quot;Guatemala&quot;, &quot;Turkey&quot;, &quot;Un…
+## $ region                   &lt;chr&gt; &quot;Japan, Taiwan, Marianas&quot;, &quot;South America&quot;, …
+## $ subregion                &lt;chr&gt; &quot;Honshu&quot;, &quot;Northern Chile, Bolivia and Argen…
+## $ latitude                 &lt;dbl&gt; 34.500, -23.292, 14.501, 38.537, 46.206, 37.…
+## $ longitude                &lt;dbl&gt; 131.600, -67.618, -90.876, 34.621, -121.490,…
+## $ elevation                &lt;dbl&gt; 641, 6023, 3976, 1683, 3742, 1728, 1733, 125…
+## $ tectonic_settings        &lt;chr&gt; &quot;Subduction zone / Continental crust (&gt;25 km…
+## $ evidence_category        &lt;chr&gt; &quot;Eruption Dated&quot;, &quot;Evidence Credible&quot;, &quot;Erup…
+## $ major_rock_1             &lt;chr&gt; &quot;Andesite / Basaltic Andesite&quot;, &quot;Dacite&quot;, &quot;A…
+## $ major_rock_2             &lt;chr&gt; &quot;Basalt / Picro-Basalt&quot;, &quot;Andesite / Basalti…
+## $ major_rock_3             &lt;chr&gt; &quot;Dacite&quot;, &quot; &quot;, &quot; &quot;, &quot;Basalt / Picro-Basalt&quot;,…
+## $ major_rock_4             &lt;chr&gt; &quot; &quot;, &quot; &quot;, &quot; &quot;, &quot;Andesite / Basaltic Andesite…
+## $ major_rock_5             &lt;chr&gt; &quot; &quot;, &quot; &quot;, &quot; &quot;, &quot; &quot;, &quot; &quot;, &quot; &quot;, &quot; &quot;, &quot; &quot;, &quot; &quot;,…
+## $ minor_rock_1             &lt;chr&gt; &quot; &quot;, &quot; &quot;, &quot;Basalt / Picro-Basalt&quot;, &quot; &quot;, &quot;Dac…
+## $ minor_rock_2             &lt;chr&gt; &quot; &quot;, &quot; &quot;, &quot; &quot;, &quot; &quot;, &quot; &quot;, &quot;Basalt / Picro-Bas…
+## $ minor_rock_3             &lt;chr&gt; &quot; &quot;, &quot; &quot;, &quot; &quot;, &quot; &quot;, &quot; &quot;, &quot; &quot;, &quot; &quot;, &quot;Andesite…
+## $ minor_rock_4             &lt;chr&gt; &quot; &quot;, &quot; &quot;, &quot; &quot;, &quot; &quot;, &quot; &quot;, &quot; &quot;, &quot; &quot;, &quot; &quot;, &quot; &quot;,…
+## $ minor_rock_5             &lt;chr&gt; &quot; &quot;, &quot; &quot;, &quot; &quot;, &quot; &quot;, &quot; &quot;, &quot; &quot;, &quot; &quot;, &quot; &quot;, &quot; &quot;,…
+## $ population_within_5_km   &lt;dbl&gt; 3597, 0, 4329, 127863, 0, 428, 101, 51, 0, 9…
+## $ population_within_10_km  &lt;dbl&gt; 9594, 7, 60730, 127863, 70, 3936, 485, 6042,…
+## $ population_within_30_km  &lt;dbl&gt; 117805, 294, 1042836, 218469, 4019, 717078, …
+## $ population_within_100_km &lt;dbl&gt; 4071152, 9092, 7634778, 2253483, 393303, 502…</code></pre>
 </div>
 <div id="lets-subset-some-of-these-data-for-exploration" class="section level3">
 <h3>Let’s subset some of these data for exploration</h3>
