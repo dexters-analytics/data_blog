@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>dplyr on Exploring Data</title>
-    <link>https://www.exploringdata.org/tags/dplyr/</link>
+    <link>/tags/dplyr/</link>
     <description>Recent content in dplyr on Exploring Data</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 15 May 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://www.exploringdata.org/tags/dplyr/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/dplyr/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Examining Data with glimpse()</title>
-      <link>https://www.exploringdata.org/post/examining-data-with-glimpse/</link>
+      <link>/post/examining-data-with-glimpse/</link>
       <pubDate>Fri, 15 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.exploringdata.org/post/examining-data-with-glimpse/</guid>
+      <guid>/post/examining-data-with-glimpse/</guid>
       <description>Let’s Dive into an Example I’m a nerd 🤓 when it comes to programming (esp. in R) and love learning about new functions.
 Matt Dancho early in his R 101 course teaches students the importance of examining data before diving into wrangling and exploring it further.
 One of the functions I’ve adopted from the course is the glimpse() function - it’s awesome and I use it all the time!</description>

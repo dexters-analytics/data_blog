@@ -3,81 +3,91 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://www.exploringdata.org/tags/dplyr/</loc>
+    <loc>/tags/dplyr/</loc>
     <lastmod>2020-05-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.exploringdata.org/post/examining-data-with-glimpse/</loc>
+    <loc>/post/examining-data-with-glimpse/</loc>
     <lastmod>2020-05-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.exploringdata.org/</loc>
+    <loc>/</loc>
     <lastmod>2020-05-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.exploringdata.org/post/</loc>
+    <loc>/post/</loc>
     <lastmod>2020-05-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.exploringdata.org/tags/r/</loc>
+    <loc>/tags/r/</loc>
     <lastmod>2020-05-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.exploringdata.org/tags/</loc>
+    <loc>/tags/</loc>
     <lastmod>2020-05-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.exploringdata.org/tags/tidyverse/</loc>
+    <loc>/tags/tidyverse/</loc>
     <lastmod>2020-05-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.exploringdata.org/post/advanced-plots-in-r-with-str_glue/</loc>
+    <loc>/post/advanced-plots-in-r-with-str_glue/</loc>
     <lastmod>2020-05-03T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.exploringdata.org/tags/ggplot/</loc>
+    <loc>/tags/ggplot/</loc>
     <lastmod>2020-05-03T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.exploringdata.org/tags/stringr/</loc>
+    <loc>/tags/stringr/</loc>
     <lastmod>2020-05-03T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.exploringdata.org/tags/data/</loc>
+    <loc>/tags/data/</loc>
     <lastmod>2020-05-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.exploringdata.org/tags/data-engineering/</loc>
+    <loc>/tags/data-engineering/</loc>
     <lastmod>2020-05-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.exploringdata.org/project/my-first-project-test/</loc>
+    <loc>/project/my-first-project-test/</loc>
     <lastmod>2020-05-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.exploringdata.org/project/</loc>
+    <loc>/project/</loc>
     <lastmod>2020-05-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.exploringdata.org/about/</loc>
+    <loc>/tags/rstudio/</loc>
+    <lastmod>2020-05-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.exploringdata.org/categories/</loc>
+    <loc>/post/up-and-running-with-r-rstudio/</loc>
+    <lastmod>2020-05-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/about/</loc>
+  </url>
+  
+  <url>
+    <loc>/categories/</loc>
   </url>
   
 </urlset>

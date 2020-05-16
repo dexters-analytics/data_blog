@@ -88,7 +88,7 @@ So why not just use the `tibble::view()` function and open the data in the RStud
 I recommend using the `glimpse()` function and using it early 😎
 
 ```{r}
-volcano_raw_tbl %>% glimpse()
+volcano_raw_tbl %>% glimpse(width = 50)
 ```
 
 ### Let's subset some of these data for exploration
