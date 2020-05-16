@@ -7,9 +7,9 @@ disqusShortname = "https-www-exploringdata-org" # delete this to disable disqus 
 googleAnalytics = "UA-134222974-1"
 
 [blackfriday]
-#  hrefTargetBlank = true
-#  noreferrerLinks = true
-#  nofollowLinks   = true
+  hrefTargetBlank = true
+  noreferrerLinks = true
+  nofollowLinks   = true
 
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"] 
 
@@ -46,10 +46,10 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
     name = "Posts"
     weight = 3
 
-[[menu.main]]
-    url = "/project/"
-    name = "Projects"
-    weight = 4
+#[[menu.main]]
+ #   url = "/project/"
+  #  name = "Projects"
+   # weight = 4
 
 # Social icons to be shown on the right-hand side of the navigation bar.
 # The "name" field should match the name of the icon in Font Awesome.

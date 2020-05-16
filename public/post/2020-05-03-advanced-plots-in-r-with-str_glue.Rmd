@@ -178,7 +178,7 @@ That's it for today!
 
 We used `str_glue()` to manipulate our text and add awesome labels to our `ggplot()` - the plot is now `Business-Ready` 👍
 
-Stay tuned for more posts on Wrangling + Exploring data (`programatically`).
+Stay tuned for more posts on Wrangling + Exploring data (`programmatically`).
 
 
 ### Stay Connected
