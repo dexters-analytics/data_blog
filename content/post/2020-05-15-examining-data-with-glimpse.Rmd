@@ -2,7 +2,7 @@
 title: "Examining Data with glimpse()"
 author: "Jason Dexter"
 date: '2020-05-15'
-draft: yes
+#draft: yes
 slug: examining-data-with-glimpse
 categories: []
 tags:
@@ -14,8 +14,6 @@ editor_options:
 ---
 
 
-
-
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(
   message = FALSE,
@@ -24,43 +22,28 @@ knitr::opts_chunk$set(
 ```
 
 
-### Context
-
-Recently, I completed the `Data Science Foundations` course by [Matt Dancho](https://www.linkedin.com/in/mattdancho/){target="_blank"} over at [Business Science University](https://www.business-science.io/?affcode=173166_vnvxtqbd){target="_blank"}. The course was action packed and the instructors intention was obviously to rapidly move novice users of R towards expertise within 7 weeks (e.g., applied Machine-Learning).
-
-In the course you get to code along side an expert `Data Scientist` while he teaches you to think critically when using data to solve problems that drive ROIx.
-
-Hands down, this is one of my favorite courses because it takes students through the entire process of learning how to import, examine, wrangle, explore, visualize, model, and communicate findings to the business.
-
-
-
-### Courses without Application are Pointless
-
-While it's easy to take a course on a subject it's much more difficult to Transfer that Learning by applying new concepts from one context to another - that's why I'm a BIG proponent of 'project-based' learning.
-
-For that reason, I'm doing a series of posts to solidify and share my learnings from the [Data Science Foundations](https://university.business-science.io/p/ds4b-101-r-business-analysis-r/?coupon_code=DS4B15&affcode=173166_vnvxtqbd) course that I recently completed.
 
 ### Let's Dive into an Example
 
-I'm a nerd 🤓 when it comes to programming and love learning about new functions.
+I'm a nerd 🤓 when it comes to programming (esp. in `R`) and love learning about new functions.
 
-Matt Dancho early in his 101 course teaches students the importance of examining data before diving into wrangling and exploring it further.
+Matt Dancho early in his R 101 course teaches students the importance of examining data before diving into wrangling and exploring it further.
 
 One of the functions I've adopted from the course is the `glimpse()` function - it's awesome and I use it all the time!
 
 ### The glimse() function
 
-When your data has a small number of columns you can print it to the console in `RStudio`. However, when there are many columns it's much more difficult to get a quick view of your data.
+When your data has a small number of columns you can print it to the console in `RStudio`. However, when there are many columns it's difficult to get a quick view of your data.
 
 Let's look at an example so I can stress the value in using the `dplyr::glimpse()` function in the examination of your data.
+
 
 ### Let's Get Some Data
 
 The [Tidy Tuesday Project](https://github.com/rfordatascience/tidytuesday){target="_blank"} is an awesome repository of useful data for practicing your data `Wrangling` skills.
 
-We will work with the 'Volcano Eruptions' data as a case study for using the `glimpse()` function for examining your data prior to further exploration.
+We will work with the `Volcano Eruptions` data as a case study for using the `glimpse()` function for examining your data prior to further exploration.
 
-...
 
 ```{r}
 # Load Libraries
@@ -73,16 +56,36 @@ volcano_raw_tbl <- readr::read_csv('https://raw.githubusercontent.com/rfordatasc
 ```
 
 
-### Data Examimation
+### Data Examimation with print()
 
-Something about how the tibble view is cumbersome and doesn't provide a good view of 'wide' data.
-...
+The tidyverse version of a `data.frame` is a `tibble` and when printed to the RStudio console they provide an overview of your data. 
+
+When our data has only a few columns the tibble printed to the console is awesome! The user gets a quick overview of their data e.g., data-types, column count, etc.
+
+Let's filter our volcano data to see what this in action.
+
 
 ```{r}
-volcano_raw_tbl
+# Slice data to limit the view
+print(volcano_raw_tbl[ , 0:4], n = 3)
 ```
 
-Something about how awesome the `glimpse()` function is.
+That's awesome! 
+
+A clean view is returned that with information that allows the user to quickly examine there data. But what about if our data has many columns as is the case with the `Volcanos Data`? 
+
+```{r}
+print(volcano_raw_tbl, n = 5)
+```
+
+
+### Data Examination with glimpse()
+
+Printing that many columns into the console makes the process of examining the data cumbersome; the columns being wrapped show the data-type for the columns but it's difficult to extract that info. Also, for the wrapped columns you don't see what the data types are.
+
+So why not just use the `tibble::view()` function and open the data in the RStudio Data Window? That's a great idea but even before we go there we really want to get a sense of our data and the associated data types.
+
+I recommend using the `glimpse()` function and using it early 😎
 
 ```{r}
 volcano_raw_tbl %>% glimpse()
