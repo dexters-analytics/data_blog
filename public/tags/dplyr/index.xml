@@ -17,9 +17,9 @@
       <pubDate>Fri, 15 May 2020 00:00:00 +0000</pubDate>
       
       <guid>https://www.exploringdata.org/post/examining-data-with-glimpse/</guid>
-      <description>Enter your Email Here to receive notifications when new content is posted.
-Let’s Dive into an Example I’m a nerd 🤓 when it comes to programming (esp. in R) and love learning about new functions.
-Matt Dancho, early in his Data Science Foundations with R Course course, teaches students the importance of examining data before diving into wrangling and exploring it further.</description>
+      <description>Let’s Dive into an Example I’m a nerd 🤓 when it comes to programming (esp. in R) and love learning about new functions.
+Matt Dancho, early in his Data Science Foundations with R Course, teaches students the importance of examining data before diving into wrangling and exploring it further.
+One of the functions I’ve adopted from the course is the glimpse() function - it’s awesome and I use it all the time!</description>
     </item>
     
   </channel>
