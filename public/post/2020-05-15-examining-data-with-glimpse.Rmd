@@ -21,17 +21,14 @@ knitr::opts_chunk$set(
 )
 ```
 
-
 <br/> 
-
-Enter your [Email Here](https://tinyletter.com/dexters-analytics){target="_blank"} to receive notifications when new content is posted.<br/> 
 
 
 ### Let's Dive into an Example
 
 I'm a nerd 🤓 when it comes to programming (esp. in `R`) and love learning about new functions.
 
-[Matt Dancho](https://www.linkedin.com/in/mattdancho/){target="_blank"}, early in his [Data Science Foundations with R Course](http://bit.ly/2Z9SHsd){target="_blank"} course, teaches students the importance of examining data before diving into wrangling and exploring it further.
+[Matt Dancho](https://www.linkedin.com/in/mattdancho/){target="_blank"}, early in his [Data Science Foundations with R Course](http://bit.ly/2Z9SHsd){target="_blank"}, teaches students the importance of examining data before diving into wrangling and exploring it further.
 
 One of the functions I've adopted from the course is the `glimpse()` function - it's awesome and I use it all the time!
 
