@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Exploring Data</title>
+    <link>https://www.exploringdata.org/</link>
+    <description>Recent content on Exploring Data</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 15 May 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.exploringdata.org/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Examining Data with glimpse()</title>
+      <link>https://www.exploringdata.org/post/examining-data-with-glimpse/</link>
+      <pubDate>Fri, 15 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.exploringdata.org/post/examining-data-with-glimpse/</guid>
+      <description>Let’s Dive into an Example I’m a nerd 🤓 when it comes to programming (esp. in R) and love learning about new functions.
+Matt Dancho, early in his Data Science Foundations with R Course, teaches students the importance of examining data before diving into wrangling and exploring it further.
+One of the functions I’ve adopted from the course is the glimpse() function - it’s awesome and I use it all the time!</description>
+    </item>
+    
+    <item>
+      <title>Advanced Plots in R</title>
+      <link>https://www.exploringdata.org/post/advanced-plots-in-r-with-str_glue/</link>
+      <pubDate>Sun, 03 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.exploringdata.org/post/advanced-plots-in-r-with-str_glue/</guid>
+      <description>Enter your Email Here to receive notifications when new content is posted.
+Let’s Dive Into an Example I’d like to share a technique using str_glue() that I learned from Matt Dancho, a Data-Science instructor at Business Science University. Check out my favorite course here: Business Analysis With R.
+str_glue() from the stringr library is one of my favorite functions in R - It’s super helpful for wrangling and manipulating text in preparation for building advanced plots.</description>
+    </item>
+    
+    <item>
+      <title>My First Project (test)</title>
+      <link>https://www.exploringdata.org/project/my-first-project-test/</link>
+      <pubDate>Sat, 02 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.exploringdata.org/project/my-first-project-test/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>https://www.exploringdata.org/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.exploringdata.org/about/</guid>
+      <description>CONTEXT My name is Jason Dexter and I&amp;rsquo;m an R-Programmer and Data-Analyst based out of Berkeley, CA, where I live with my lovely wife 💃 and our two cats 🐈 🐈
+In graduate school I was introduced to programming, first base-R then Python. The idea 💡 of solving problems programmatically resonated deeply with me and I&amp;rsquo;ve been hooked ever since.
+I&amp;rsquo;m a nerd 🤓 when it comes to automating data manipulation - there&amp;rsquo;s something intoxicating about the process of wrangling data using code, it&amp;rsquo;s simply amazing!</description>
+    </item>
+    
+  </channel>
+</rss>

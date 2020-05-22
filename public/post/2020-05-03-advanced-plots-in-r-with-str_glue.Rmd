@@ -1,0 +1,207 @@
+---
+title: "Advanced Plots with str_glue()"
+author: "Jason Dexter"
+date: '2020-05-03'
+slug: advanced-plots-in-r-with-str_glue
+categories: []
+tags:
+- R
+- tidyverse
+- stringr
+- ggplot
+editor_options:
+  chunk_output_type: console
+output: 
+  html_document: 
+    fig_height: 3
+    fig_width: 8
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  message = FALSE,
+  warning = FALSE
+)
+```
+
+<br/> 
+
+Enter your [Email Here](https://tinyletter.com/dexters-analytics){target="_blank"} to receive notifications when new content is posted.<br/> 
+
+### Let's Dive Into an Example
+
+I'd like to share a technique using `str_glue()` that I learned from [Matt Dancho](https://www.linkedin.com/in/mattdancho/){target="_blank"}, a Data-Science instructor at [Business Science University](https://www.business-science.io/?affcode=173166_vnvxtqbd){target="_blank"}. Check out my favorite course here: [Business Analysis With R](http://bit.ly/2Z9SHsd){target="_blank"}.
+
+`str_glue()` from the `stringr` library is one of my favorite functions in `R` - It's super helpful for wrangling and manipulating text in preparation for building `advanced` plots. 
+
+### Let's Get Some Data 🤓
+
+The [Tidy Tuesday Project](https://github.com/rfordatascience/tidytuesday){target="_blank"} is an awesome repository of useful data for practicing your data `Wrangling` skills.
+
+We will work with the 'San Francisco Trees' data as a case study for using `str_glue()` for advanced plotting techniques.
+
+```{r}
+library(tidyverse)
+library(stringr)
+library(tidyquant)
+library(scales)
+library(DataExplorer)
+
+sf_trees_data_raw_tbl <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-01-28/sf_trees.csv')
+```
+
+### Data Exploration 
+
+Let's take a quick peak and inspect the SF Trees Data.
+
+```{r, fig.height=4}
+plot_missing(sf_trees_data_raw_tbl,
+             ggtheme = theme_tq(),
+             title = str_glue(
+               'Exploring Missing Data (N = {count(sf_trees_data_raw_tbl)})'))
+```
+
+This is a fairly small data-set with only 12 columns. For the purpose of demonstration, let's see what we can do with just the species column.
+
+The Coastal Redwoods in the SF area are incredible and one of my favorite species. I'm curious if other species of Redwoods are in SF and if so, at what proportions do they exist relative to the Coastal Redwoods. 
+
+### Data Wrangling
+
+```{r}
+# Data Wrangling
+redwood_tbl <- sf_trees_data_raw_tbl %>% 
+    
+    # select species and filter to redwood only
+    select(species) %>% 
+    filter(str_detect(species, pattern = 'Redwood')) %>% 
+    
+    # break up species and common-name into separate columns
+    separate(
+        col = species,
+        into = c("species", "common_name"),
+        sep  = ' :: ',
+        remove = FALSE) %>% 
+    
+    # calculate absolute and relative distributions
+    count(species, common_name) %>% 
+    mutate(pct = n / sum(n),
+           pct_text = percent(pct)) %>% 
+    arrange(desc(pct))
+```
+
+### Summary Table
+
+Let's take a look at our findings.
+
+
+```{r}
+rmarkdown::paged_table(redwood_tbl %>% select(-pct))
+```
+
+
+As I expected, the Coastal Redwoods are the dominant species in San Francisco.
+
+And while the table is good, lets craft an awesome plot to display these results.
+
+### The Power of `str_glue()`
+
+With a couple lines of `code` we can build our label for plotting. As you can see, we can add `arguments` directly from our table using curly brackets `{}` - honestly, the options are endless for how creative you can get with `stringing` together text and adding labels to your plots. 
+
+```{r}
+# Data Wrangling
+redwood_labeled_text_tbl <- redwood_tbl %>% 
+    
+    # label text
+    mutate(label_text = str_glue(
+        'Scientific Name:
+        {species}
+        Count: {n} of {sum(n)}
+        Pct (%): {pct_text}'
+    ),
+    
+    # add 'forward-slash' to wrap-text on our plots y-axis
+    common_name = str_replace(common_name, pattern = ' ', replacement = ' \n ')) %>% 
+    
+    # reorder factors based on percent rank
+    mutate(common_name = common_name %>% fct_reorder(pct))
+```
+
+
+### Manipulated Text (ready to plot)
+
+Here is the manipulated text that will be useful once we plot these data; this setup is critical for the labels on our final plot e.g., the `\n` will wrap the text at those locations.
+
+```{r}
+redwood_labeled_text_tbl %>% select(label_text) %>% rmarkdown::paged_table()
+```
+
+
+### Data Visualization
+
+Now that we've done our `Data Wrangling`, lets get into a bit of `Data Visualization`.
+
+```{r fig.height=2.8, fig.width=8}
+# Save Plot
+g <- redwood_labeled_text_tbl %>% 
+    
+    ggplot(aes(pct, common_name), color = '#2c3e50') +
+    
+    # Geometries
+    geom_segment(aes(xend = 0, yend = common_name), size = 2) +
+    geom_point(aes(size = 5)) +
+    geom_label(aes(label = label_text),hjust = "inward",size = 3) +
+
+    # Formatting
+    scale_x_continuous(labels = scales::percent_format()) +
+    labs(title = str_glue("Redwoods Trees of San Francisco"),
+        subtitle = str_glue(
+          "As expected, the coastal Redwoods make up the largest proportion.
+          Dawn Redwoods were once thought to be extinct, so low numbers aren't suprising.
+          Siera Redwoods grow at high elevations and so low numbers are expected."),
+        caption = str_glue("The Coastal Redwood is the dominant species in SF."),
+        x = "", y = "") +
+    theme_tq() + theme(legend.position = "none",
+          plot.title = element_text(face = "bold"))
+```
+
+## Display Awesome Plot 
+
+And here is our plot with the engineered labels from the last few steps. And that's just one example of why I love `str_glue()` - Simply Awesome!
+
+```{r echo=FALSE, fig.height=4.5, fig.width=8}
+# Show Plot
+g
+```
+
+That's it for today! 
+
+We used `str_glue()` to manipulate our text and add awesome labels to our `ggplot()` - the plot is now `Business-Ready` 👍
+
+Stay tuned for more posts on Wrangling + Exploring data (`programmatically`).
+
+
+### Stay Connected
+
+Enter your [Email Here](https://tinyletter.com/dexters-analytics){target="_blank"} to receive notifications when new content is posted.<br/>  
+
+PS: Be Kind and Tidy your Data 😎<br/>
+<br/>
+
+
+### Learn R Fast 👇
+
+Interested in expediting your learning path? Head on over to [Business Science](https://www.business-science.io/?affcode=173166_vnvxtqbd){target="_blank"} and join me on the journey.
+
+[Business Science: FREE Jumpstart Data-Science Course](https://university.business-science.io/p/jumpstart-with-r/?affcode=173166_vnvxtqbd){target="_blank"} (opened for a limited time)
+
+
+
+
+
+```{r include=FALSE}
+knitr::knit_exit()
+```
+
+
+### test?

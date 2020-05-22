@@ -1,0 +1,280 @@
+---
+title: "Examining Data with glimpse()"
+author: "Jason Dexter"
+date: '2020-05-15'
+#draft: yes
+slug: examining-data-with-glimpse
+categories: []
+tags:
+- R
+- tidyverse
+- dplyr
+editor_options:
+  chunk_output_type: console
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  message = FALSE,
+  warning = FALSE
+)
+```
+
+<br/> 
+
+
+### Let's Dive into an Example
+
+I'm a nerd 🤓 when it comes to programming (esp. in `R`) and love learning about new functions.
+
+[Matt Dancho](https://www.linkedin.com/in/mattdancho/){target="_blank"}, early in his [Data Science Foundations with R Course](http://bit.ly/2Z9SHsd){target="_blank"}, teaches students the importance of examining data before diving into wrangling and exploring it further.
+
+One of the functions I've adopted from the course is the `glimpse()` function - it's awesome and I use it all the time!
+
+### The `glimpse()` function
+
+When your data has a small number of columns it's easy to print + view them in the `RStudio` console; however, when there are many columns it's difficult to digest the view returned.
+
+Let's look at an example so I can stress the value in using the `dplyr::glimpse()` function when examining your data.
+
+
+### Let's Get Some Data
+
+The [Tidy Tuesday Project](https://github.com/rfordatascience/tidytuesday){target="_blank"} is an awesome repository of useful data for practicing your `Data Wrangling` skills.
+
+We will work with the `Volcano Eruptions` data as a case study for using the `glimpse()` function for examining your data prior to further exploration.
+
+For simplicity, we are only going to focus on the `Volcano` data from the repository.
+
+```{r}
+# Load Libraries
+library(tidyverse)
+library(tidyquant)
+library(rmarkdown)
+library(leaflet)
+library(tmap)
+library(DataExplorer)
+
+# Import Data
+volcano_raw_tbl <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-05-12/volcano.csv')
+```
+
+
+### Data Examination with `print()`
+
+The tidyverse version of a `data.frame` is a `tibble` and when printed to the RStudio console an overview of your data is returned. 
+
+When our data has only a few columns the tibble printed to the console is awesome! The user gets a quick overview of their data e.g., data-types, column count, etc.
+
+Let's filter our volcano data to see what this looks like in action.
+
+
+```{r}
+# Filter + print data
+print(volcano_raw_tbl[ , 0:4], n = 3) 
+```
+
+That's awesome! 
+
+A clean view is returned with information that allows the user to quickly examine their data. But what about if our data has many columns as is the case with the `Volcanos Data`? 
+
+```{r}
+print(volcano_raw_tbl, n = 5)
+```
+
+
+### Data Examination with `glimpse()`
+
+Printing that many columns into the console makes the process of examining the data cumbersome - the columns being wrapped show the data-type for the columns but it's difficult to extract that info. Also, for the wrapped columns you don't see example values.
+
+So why not just use the `tibble::view()` function and open the data in the RStudio Data Window? That's a great idea but even before we go there we really want to get a sense of our data and the associated data-types.
+
+I recommend using the `glimpse()` function and using it early 😎
+
+__NOTE:__ On a mobile device (esp. a phone) this will not look good; check it out on a laptop or desktop 😉
+
+```{r}
+volcano_raw_tbl %>% glimpse()
+```
+
+### `glimpse()` Packs a Punch 👊
+
+This view (if on a large enough screen) is awesome! 
+
+We've now got a `glimpse()` of an incredible amount of detail to help inform our next steps in `examining` and `exploring` these data. I love that in one view we can quickly see row/column counts, each column printed cleanly, the data-type of each column, and a handful of example `values` for each column.
+
+We immediately gain insights into potential issues such as those we are seeing with the empty values being spaces (e.g., `" "`) instead of `NA` values.
+
+We also see that these data are not tidy because headers of our columns in some instances are values, not names of variables - this is the case with the `rock features` and the `population features`.
+
+The `glimpse()` function aloud us to quickly examine our data - now let's have fun!
+
+### Subsetting Data for Exploration
+
+I've done GIS work before and so I'm really interested in mapping some of these data.
+
+The population counts based on proximity to volcanoes sound really interesting so let's start there.
+
+```{r}
+volcano_raw_subset_tbl <- volcano_raw_tbl %>% 
+    select(volcano_name, country, 
+           contains('tude'), contains('population'))
+
+print(volcano_raw_subset_tbl, n = 5)
+```
+
+### Get another `glimpse()`
+
+We've reduced our data down to just 7 columns but it's still a bit difficult to get a full view of what it contains.
+
+Let's use the `glimpse()` function again to get a better view 🤓
+
+```{r}
+glimpse(volcano_raw_subset_tbl)
+```
+
+
+### Data Examination Cont.
+
+Before exploring this data further, let's examine it a little closer. Let's see if there are any missing data in our subset of columns
+
+### Any Missing Records?
+
+```{r}
+volcano_raw_subset_tbl %>% 
+    DataExplorer::profile_missing() %>% 
+    arrange(desc(num_missing)) %>% 
+    rmarkdown::paged_table()
+```
+
+Nothing missing, that's a good sign. And based on our earlier `glimpse()` all of the data-types looked good too.
+
+
+### Volcano Counts by Country: Top 5
+
+Let's see which countries have the most volcanoes.
+
+```{r}
+volcano_raw_subset_tbl %>% 
+    count(country, sort = T) %>% 
+    top_n(5) %>% rmarkdown::paged_table()
+```
+
+I'm shocked that the United States has the most (in this data-set). While that's interesting, a quick Google-search search shows that Indonesia is high in the ranks for countries with the most active volcanoes.
+
+Let's focus on Indonesia.
+
+### Data Wrangling
+
+Let's wrangle these data and transform them from a `wide` to `long` format - Tidy-Data 😎
+
+
+```{r}
+# wrangle + tidy data
+indonesia_tidy_tbl <- volcano_raw_subset_tbl %>% 
+    
+    # filter to country of interest
+    filter(country == 'Indonesia') %>%
+    
+    # pivot data into 'tidy' format
+    pivot_longer(cols = contains('pop'),
+                 names_to = 'distance_km',
+                 values_to = 'population') %>% 
+    
+    # reorder columns
+    select(volcano_name, country, distance_km,
+           population, everything())
+ 
+
+# view tidy data  
+indonesia_tidy_tbl %>% 
+    
+    # format table
+    rmarkdown::paged_table(options = list(rows.print = 5))
+```
+
+Our `tidy-data` table is coming together but it still has a glaring issue: there are text combined with numeric values in our `distance_km` column.
+
+I've got just the trick for that: `readr::parse_number()`
+
+### Another Awesome Function
+
+The `readr::parse_number()` function extracts numeric values from text - Simply Awesome!
+
+
+```{r}
+# tidy up the distance feature
+indonesia_tidy_tbl <- indonesia_tidy_tbl %>% 
+    mutate(distance_km = parse_number(distance_km))
+
+# format and view table
+indonesia_tidy_tbl %>% paged_table(list(rows.print = 5))
+```
+
+
+Am I the only one who `geeks out` when they learn new functions?
+
+Now that we've got our data wrangled let's see if we can generate a quick map. I've never done this in R and so this ought to be fun 🥳
+
+### Map Indonesia Volcanoes
+
+Let's take a look at all volcanoes that have more than 10,000 people living within 5km (~3mi).
+
+```{r}
+indonesia_tidy_tbl %>% 
+    filter(country == 'Indonesia', distance_km == 5,
+        population > 10000) %>% 
+    rename(long = longitude, lat = latitude) %>% 
+    leaflet(height = 300) %>% 
+    addTiles() %>% 
+    addCircleMarkers(
+        ~long, ~lat,
+        radius = 5, 
+        color = 'red', stroke = F,
+        fillOpacity = 0.5)
+```
+
+<br/> 
+
+In these data there are 28 volcanoes that have more than 10,000 people living within 3 miles.
+
+I wonder how many of those volcanoes are active. At UC Davis I actually took a class on volcanoes and remember that cities living near active volcanoes have extensive evacuation plans. 
+
+### Wrap-Up
+
+That's it for today!
+
+We used `glimpse()` to quickly examine our data prior to `Wrangling` and `Exploring` it further. 
+
+
+### Stay Connected
+
+Stay tuned for more posts on `Wrangling` + `Exploring` data..
+
+Enter your [Email Here](https://tinyletter.com/dexters-analytics){target="_blank"} to receive notifications when new content is posted.<br/>  
+
+PS: Be Kind and Tidy your Data 😎
+
+
+### Learn R Fast 👇
+
+Interested in expediting your `R` learning path? 
+
+Head on over to [Business Science](https://www.business-science.io/?affcode=173166_vnvxtqbd){target="_blank"} and join me on the journey. 
+
+Link to my favorite `R` course: [Data Science for Business 101](https://university.business-science.io/p/ds4b-101-r-business-analysis-r/?coupon_code=DS4B15&affcode=173166_vnvxtqbd)
+
+[FREE Jumpstart Data-Science Course](https://university.business-science.io/p/jumpstart-with-r/?affcode=173166_vnvxtqbd){target="_blank"} (opened for a limited time)
+
+
+
+```{r include=FALSE}
+knitr::knit_exit()
+```
+
+
+
+![](/post/2020-05-13-exploring-data-with-glimpse_files/Screen Shot 2020-05-14 at 1.29.34 AM.png)
+
+You can check out an overview of the course here and even get 15% off for a limited time: [Data Science Foundations]().
