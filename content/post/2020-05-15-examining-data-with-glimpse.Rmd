@@ -221,18 +221,30 @@ Now that we've got our data wrangled let's see if we can generate a quick map. I
 
 Let's take a look at all volcanoes that have more than 10,000 people living within 5km (~3mi).
 
+Click on a Volcano to see its name and population 😎
+
 ```{r}
-indonesia_tidy_tbl %>% 
+indonesia_tidy_tbl %>%
+  
+    # filter data
     filter(country == 'Indonesia', distance_km == 5,
         population > 10000) %>% 
-    rename(long = longitude, lat = latitude) %>% 
+  
+    # build text for popup
+    mutate(popup_text = str_glue(
+      "<b>Volcano Name:</b> {volcano_name}</p>
+       <b>Population:</b> {scales::comma(population)}")) %>% 
+  
+    # build awesome volcano map
     leaflet(height = 300) %>% 
     addTiles() %>% 
     addCircleMarkers(
-        ~long, ~lat,
-        radius = 5, 
-        color = 'red', stroke = F,
-        fillOpacity = 0.5)
+        lat = ~ latitude,
+        lng = ~ longitude,
+        radius = 5, color = 'red', 
+        stroke = F,
+        fillOpacity = 0.5,
+        popup = ~ popup_text) # hover over to activate
 ```
 
 <br/> 
