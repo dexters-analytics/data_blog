@@ -251,19 +251,30 @@ indonesia_tidy_tbl %&gt;% paged_table(list(rows.print = 5))</code></pre>
 <div id="map-indonesia-volcanoes" class="section level3">
 <h3>Map Indonesia Volcanoes</h3>
 <p>Let’s take a look at all volcanoes that have more than 10,000 people living within 5km (~3mi).</p>
-<pre class="r"><code>indonesia_tidy_tbl %&gt;% 
+<p>Click on a Volcano to see its name and population 😎</p>
+<pre class="r"><code>indonesia_tidy_tbl %&gt;%
+  
+    # filter data
     filter(country == &#39;Indonesia&#39;, distance_km == 5,
         population &gt; 10000) %&gt;% 
-    rename(long = longitude, lat = latitude) %&gt;% 
+  
+    # build text for popup
+    mutate(popup_text = str_glue(
+      &quot;&lt;b&gt;Volcano Name:&lt;/b&gt; {volcano_name}&lt;/p&gt;
+       &lt;b&gt;Population:&lt;/b&gt; {scales::comma(population)}&quot;)) %&gt;% 
+  
+    # build awesome volcano map
     leaflet(height = 300) %&gt;% 
     addTiles() %&gt;% 
     addCircleMarkers(
-        ~long, ~lat,
-        radius = 5, 
-        color = &#39;red&#39;, stroke = F,
-        fillOpacity = 0.5)</code></pre>
+        lat = ~ latitude,
+        lng = ~ longitude,
+        radius = 5, color = &#39;red&#39;, 
+        stroke = F,
+        fillOpacity = 0.5,
+        popup = ~ popup_text) # hover over to activate</code></pre>
 <div id="htmlwidget-1" style="width:672px;height:300px;" class="leaflet html-widget"></div>
-<script type="application/json" data-for="htmlwidget-1">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addCircleMarkers","args":[[-8.242,-8.283,-7.2,0.8,-5.334,-8.342,-8.479,-8.891,-8.542,1.358,1.352,-7.54,-7.454,-7.162,-7.616,-4.871,-8.42,-8.724,3.248,-7.384,-7.3,-6.77,1.83,-7.362,-7.942,0.658,2.58,1.23],[115.375,115.133,109.879,127.33,104.59,123.258,122.761,121.641,122.775,124.792,124.865,110.446,110.44,107.4,112.62,103.925,116.47,119.986,98.501,110.07,109.992,107.6,127.83,110.4,112.95,127.4,98.83,124.83],5,null,null,{"interactive":true,"className":"","stroke":false,"color":"red","weight":5,"opacity":0.5,"fill":true,"fillColor":"red","fillOpacity":0.5},null,null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[-8.891,3.248],"lng":[98.501,127.83]}},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addCircleMarkers","args":[[-8.242,-8.283,-7.2,0.8,-5.334,-8.342,-8.479,-8.891,-8.542,1.358,1.352,-7.54,-7.454,-7.162,-7.616,-4.871,-8.42,-8.724,3.248,-7.384,-7.3,-6.77,1.83,-7.362,-7.942,0.658,2.58,1.23],[115.375,115.133,109.879,127.33,104.59,123.258,122.761,121.641,122.775,124.792,124.865,110.446,110.44,107.4,112.62,103.925,116.47,119.986,98.501,110.07,109.992,107.6,127.83,110.4,112.95,127.4,98.83,124.83],5,null,null,{"interactive":true,"className":"","stroke":false,"color":"red","weight":5,"opacity":0.5,"fill":true,"fillColor":"red","fillOpacity":0.5},null,null,["<b>Volcano Name:<\/b> Batur<\/p>\n<b>Population:<\/b> 466,899","<b>Volcano Name:<\/b> Buyan-Bratan<\/p>\n<b>Population:<\/b> 333,333","<b>Volcano Name:<\/b> Dieng Volcanic Complex<\/p>\n<b>Population:<\/b> 1,092,929","<b>Volcano Name:<\/b> Gamalama<\/p>\n<b>Population:<\/b> 103,429","<b>Volcano Name:<\/b> Hulubelu<\/p>\n<b>Population:<\/b> 56,894","<b>Volcano Name:<\/b> Iliboleng<\/p>\n<b>Population:<\/b> 30,359","<b>Volcano Name:<\/b> Ilimuda<\/p>\n<b>Population:<\/b> 32,343","<b>Volcano Name:<\/b> Iya<\/p>\n<b>Population:<\/b> 10,837","<b>Volcano Name:<\/b> Lewotobi<\/p>\n<b>Population:<\/b> 18,686","<b>Volcano Name:<\/b> Lokon-Empung<\/p>\n<b>Population:<\/b> 12,183","<b>Volcano Name:<\/b> Mahawu<\/p>\n<b>Population:<\/b> 18,618","<b>Volcano Name:<\/b> Merapi<\/p>\n<b>Population:<\/b> 49,205","<b>Volcano Name:<\/b> Merbabu<\/p>\n<b>Population:<\/b> 19,996","<b>Volcano Name:<\/b> Patuha<\/p>\n<b>Population:<\/b> 12,576","<b>Volcano Name:<\/b> Penanggungan<\/p>\n<b>Population:<\/b> 19,435","<b>Volcano Name:<\/b> Ranau<\/p>\n<b>Population:<\/b> 12,275","<b>Volcano Name:<\/b> Rinjani<\/p>\n<b>Population:<\/b> 10,289","<b>Volcano Name:<\/b> Sano, Wai<\/p>\n<b>Population:<\/b> 127,347","<b>Volcano Name:<\/b> Singkut<\/p>\n<b>Population:<\/b> 11,833","<b>Volcano Name:<\/b> Sumbing<\/p>\n<b>Population:<\/b> 15,294","<b>Volcano Name:<\/b> Sundoro<\/p>\n<b>Population:<\/b> 52,462","<b>Volcano Name:<\/b> Tangkuban Parahu<\/p>\n<b>Population:<\/b> 100,608","<b>Volcano Name:<\/b> Tarakan<\/p>\n<b>Population:<\/b> 18,056","<b>Volcano Name:<\/b> Telomoyo<\/p>\n<b>Population:<\/b> 38,661","<b>Volcano Name:<\/b> Tengger Caldera<\/p>\n<b>Population:<\/b> 27,826","<b>Volcano Name:<\/b> Tidore<\/p>\n<b>Population:<\/b> 37,379","<b>Volcano Name:<\/b> Toba<\/p>\n<b>Population:<\/b> 125,908","<b>Volcano Name:<\/b> Tondano Caldera<\/p>\n<b>Population:<\/b> 321,308"],null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[-8.891,3.248],"lng":[98.501,127.83]}},"evals":[],"jsHooks":[]}</script>
 <p><br/></p>
 <p>In these data there are 28 volcanoes that have more than 10,000 people living within 3 miles.</p>
 <p>I wonder how many of those volcanoes are active. At UC Davis I actually took a class on volcanoes and remember that cities living near active volcanoes have extensive evacuation plans.</p>
