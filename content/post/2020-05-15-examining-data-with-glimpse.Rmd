@@ -223,7 +223,7 @@ Let's take a look at all volcanoes that have more than 10,000 people living with
 
 Click on a Volcano to see its name and population 😎
 
-```{r}
+```{r, fig.align='center'}
 indonesia_tidy_tbl %>%
   
     # filter data
