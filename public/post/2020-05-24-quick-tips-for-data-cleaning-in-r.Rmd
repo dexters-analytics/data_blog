@@ -2,7 +2,7 @@
 title: "Quick Tips for Data Cleaning in R"
 author: "Jason Dexter"
 date: '2020-05-24'
-draft: yes
+#draft: yes
 slug: quick-tips-for-data-cleaning-in-r
 categories: R
 tags:

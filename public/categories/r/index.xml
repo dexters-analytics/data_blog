@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>R on Exploring Data</title>
+    <link>https://www.exploringdata.org/categories/r/</link>
+    <description>Recent content in R on Exploring Data</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 24 May 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.exploringdata.org/categories/r/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Quick Tips for Data Cleaning in R</title>
+      <link>https://www.exploringdata.org/post/quick-tips-for-data-cleaning-in-r/</link>
+      <pubDate>Sun, 24 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.exploringdata.org/post/quick-tips-for-data-cleaning-in-r/</guid>
+      <description>If time, read the article and leave a comment 📝
+If I’ve added value, circle back and enter your Email Here to be alerted when new bite-size content is released. 
+What to Expect I’m excited to share pro-tips that will expedite your process for cleaning and standardizing column names in your data; this is a critical yet sometimes overlooked step in the cleaning + tidying of data.</description>
+    </item>
+    
+  </channel>
+</rss>
