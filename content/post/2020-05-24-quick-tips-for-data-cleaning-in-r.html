@@ -1,0 +1,181 @@
+---
+title: "Quick Tips for Data Cleaning in R"
+author: "Jason Dexter"
+date: '2020-05-24'
+draft: yes
+slug: quick-tips-for-data-cleaning-in-r
+categories: R
+tags:
+- R
+- tidyverse
+- data wrangling
+editor_options:
+  chunk_output_type: console
+---
+
+
+
+<p><br/></p>
+<p>If time, read the article and leave a comment 📝</p>
+<p>If I’ve added value, circle back and enter your <a href="https://tinyletter.com/dexters-analytics" target="_blank">Email Here</a> to be alerted when new bite-size content is released. <br/></p>
+<div id="what-to-expect" class="section level3">
+<h3>What to Expect</h3>
+<p>I’m excited to share pro-tips that will expedite your process for cleaning and standardizing column names in your data; this is a critical yet sometimes overlooked step in the cleaning + tidying of data.</p>
+<p>There are a couple of handy <code>functions()</code> available in <code>R</code> to help effectively execute these tasks.</p>
+<p>By the end of this short article you’ll have a couple of new tricks up your sleeve for getting those column names just the way you want them 😎</p>
+</div>
+<div id="data-wrangling-toolkit" class="section level3">
+<h3>Data Wrangling Toolkit 🧰</h3>
+<ul>
+<li>The <code>clean_names()</code> function from the <a href="https://www.rdocumentation.org/packages/janitor/versions/1.2.0/topics/clean_names">janitor</a> library.</li>
+<li>The <code>set_names()</code> function from the <a href="https://www.rdocumentation.org/packages/rlang/versions/0.2.2/topics/set_names">purrr</a> library.</li>
+</ul>
+</div>
+<div id="load-our-libraries" class="section level3">
+<h3>Load our Libraries</h3>
+<pre class="r"><code>library(tidyverse)      # Work-Horse Package
+library(tidytuesdayR)   # Access Data from Tidy Tuesday
+library(janitor)        # Data Cleaning Package
+library(purrr)          # Functional Programming Toolkit</code></pre>
+</div>
+<div id="lets-get-some-data" class="section level3">
+<h3>Let’s Get Some Data</h3>
+<p>I’m grabbing a couple of data-sets from the <a href="https://github.com/rfordatascience/tidytuesday" target="_blank">Tidy Tuesday Project</a> that will help us walk through a couple of examples together.</p>
+<pre class="r"><code># Get Marine Mammal Data
+cetacean_week    &lt;- tidytuesdayR::tt_load(&quot;2018-12-18&quot;)
+cetacean_raw_tbl &lt;- cetacean_week$allCetaceanData 
+
+# Get NFL Salary Data
+nfl_salary_week    &lt;- tidytuesdayR::tt_load(&quot;2018-04-09&quot;)
+nfl_salary_raw_tbl &lt;- nfl_salary_week$nfl_salary</code></pre>
+<p>Each of these data-sets contain column naming useful for emphasizing the value in the aforementioned functions.</p>
+<p>Let’s start with the <code>janitor</code> library and it’s nifty function called <code>clean_names()</code>.</p>
+</div>
+<div id="janitor-makes-life-easy" class="section level3">
+<h3>Janitor Makes Life Easy</h3>
+<p>My head exploded 🤯 when learning about the <code>Janitor</code> library - it’s one of my favorite’s and I use the <code>clean_names()</code> function ALL the time.</p>
+<p>Standardizing our naming convention upfront in our data cleaning pipeline can save enormous amounts of time downstream. I’m a big fan of the 🐍 <code>snake_case</code> 🐍 naming convention and so I typically like the columns of my data to follow that pattern.</p>
+<p>Fortunately, the <code>janitor::clean_names()</code> function has built in <code>functionality</code> to programmatically clean up our column names - my favorite part is that by default it favors the <code>snake_case</code> naming convention.</p>
+</div>
+<div id="lets-look-at-an-example" class="section level3">
+<h3>Let’s Look at an Example</h3>
+<p>Pulling a few columns from our marine-mammal data we see that our columns are not in our preferred <code>snake_case</code> convention.</p>
+<pre class="r"><code># Get subset of columns for example
+cetacean_subset_tbl &lt;- cetacean_raw_tbl %&gt;% 
+    
+    # Select columns using helper_functions()
+    select(contains(&quot;origin&quot;), contains(&quot;date&quot;), COD)
+
+# Transpose Data to view Column Names
+glimpse(cetacean_subset_tbl)</code></pre>
+<pre><code>## Rows: 2,194
+## Columns: 6
+## $ originDate     &lt;date&gt; 1989-04-07, 1973-11-26, 1978-05-13, 1979-02-03, 1979-…
+## $ originLocation &lt;chr&gt; &quot;Marineland Florida&quot;, &quot;Dolphin Research Center&quot;, &quot;SeaW…
+## $ statusDate     &lt;date&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
+## $ transferDate   &lt;date&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
+## $ entryDate      &lt;date&gt; 1989-04-07, 1973-11-26, 1978-05-13, 1979-02-03, 1979-…
+## $ COD            &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…</code></pre>
+</div>
+<div id="mixed-naming-lets-standardize" class="section level3">
+<h3>Mixed Naming, Let’s Standardize</h3>
+<p>As you can see we’ve got columns in lowerCamel and also in capitals. To standardize, let’s now use the <code>clean_names()</code> function to tidy these up.</p>
+<pre class="r"><code># Clean up Column Names + Glimpse Output
+cetacean_subset_tbl %&gt;% 
+    clean_names() %&gt;% 
+    glimpse()</code></pre>
+<pre><code>## Rows: 2,194
+## Columns: 6
+## $ origin_date     &lt;date&gt; 1989-04-07, 1973-11-26, 1978-05-13, 1979-02-03, 1979…
+## $ origin_location &lt;chr&gt; &quot;Marineland Florida&quot;, &quot;Dolphin Research Center&quot;, &quot;Sea…
+## $ status_date     &lt;date&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
+## $ transfer_date   &lt;date&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
+## $ entry_date      &lt;date&gt; 1989-04-07, 1973-11-26, 1978-05-13, 1979-02-03, 1979…
+## $ cod             &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…</code></pre>
+<div id="those-column-names-look-great" class="section level4">
+<h4>Those Column Names Look Great!</h4>
+<p>Now imagine you have a picky partner/colleague who insists on a format like ALLCAPS - you’ve tried to convince them otherwise but they insist 🙄</p>
+<pre class="r"><code># Standardize Column Naming - ALLCAPS
+cetacean_cols_allcaps_tbl &lt;- cetacean_subset_tbl %&gt;% 
+    clean_names(case = &quot;all_caps&quot;)
+
+# Glimpse Output
+cetacean_cols_allcaps_tbl %&gt;% glimpse()</code></pre>
+<pre><code>## Rows: 2,194
+## Columns: 6
+## $ ORIGIN_DATE     &lt;date&gt; 1989-04-07, 1973-11-26, 1978-05-13, 1979-02-03, 1979…
+## $ ORIGIN_LOCATION &lt;chr&gt; &quot;Marineland Florida&quot;, &quot;Dolphin Research Center&quot;, &quot;Sea…
+## $ STATUS_DATE     &lt;date&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
+## $ TRANSFER_DATE   &lt;date&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
+## $ ENTRY_DATE      &lt;date&gt; 1989-04-07, 1973-11-26, 1978-05-13, 1979-02-03, 1979…
+## $ COD             &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…</code></pre>
+</div>
+</div>
+<div id="awesome" class="section level3">
+<h3>Awesome!</h3>
+<p>Nice way to be a team-player 👍</p>
+<p><br/></p>
+</div>
+<div id="next-example-using-set_names" class="section level3">
+<h3>Next Example: using <code>set_names()</code></h3>
+<p>With <code>clean_names()</code> in our tool bag, we can now combine it with <code>set_names()</code> to programmatically standardize ALL of our column names using advanced techniques.</p>
+<p>Let’s take a quick peak at the columns from the NFL Salary data.</p>
+<pre class="r"><code>nfl_salary_raw_tbl %&gt;% names() </code></pre>
+<pre><code>##  [1] &quot;year&quot;              &quot;Cornerback&quot;        &quot;Defensive Lineman&quot;
+##  [4] &quot;Linebacker&quot;        &quot;Offensive Lineman&quot; &quot;Quarterback&quot;      
+##  [7] &quot;Running Back&quot;      &quot;Safety&quot;            &quot;Special Teamer&quot;   
+## [10] &quot;Tight End&quot;         &quot;Wide Receiver&quot;</code></pre>
+<p>Now imagine instead of requiring snake_case, the columns need to be lower-case with a <code>dash</code> instead of an <code>underscore</code> in between words.</p>
+<p>The <code>set_names()</code> function allows us to <code>Set the Names of a Vector</code> programmatically.</p>
+<p>Using the <code>names()</code> function above, we can pass a vector of our column names and manipulate each name in similar fashion.</p>
+<p>Let’s look at an example.</p>
+<pre class="r"><code>nfl_salary_raw_tbl %&gt;% 
+    clean_names() %&gt;% 
+    names()</code></pre>
+<pre><code>##  [1] &quot;year&quot;              &quot;cornerback&quot;        &quot;defensive_lineman&quot;
+##  [4] &quot;linebacker&quot;        &quot;offensive_lineman&quot; &quot;quarterback&quot;      
+##  [7] &quot;running_back&quot;      &quot;safety&quot;            &quot;special_teamer&quot;   
+## [10] &quot;tight_end&quot;         &quot;wide_receiver&quot;</code></pre>
+<p>We’ve effectively used <code>clean_names()</code> to quickly clean up our column names.</p>
+<p>However, we still need to replace those underscores with dashes.</p>
+<p>Check this out 😎</p>
+<pre class="r"><code>nfl_salary_raw_tbl %&gt;% 
+    clean_names() %&gt;% 
+    set_names(names(.) %&gt;% str_replace_all(&quot;_&quot;, &quot;-&quot;)) %&gt;% 
+    glimpse()</code></pre>
+<pre><code>## Rows: 800
+## Columns: 11
+## $ year                &lt;dbl&gt; 2011, 2011, 2011, 2011, 2011, 2011, 2011, 2011, 2…
+## $ cornerback          &lt;dbl&gt; 11265916, 11000000, 10000000, 10000000, 10000000,…
+## $ `defensive-lineman` &lt;dbl&gt; 17818000, 16200000, 12476000, 11904706, 11762782,…
+## $ linebacker          &lt;dbl&gt; 16420000, 15623000, 11825000, 10083333, 10020000,…
+## $ `offensive-lineman` &lt;dbl&gt; 15960000, 12800000, 11767500, 10358200, 10000000,…
+## $ quarterback         &lt;dbl&gt; 17228125, 16000000, 14400000, 14100000, 13510000,…
+## $ `running-back`      &lt;dbl&gt; 12955000, 10873833, 9479000, 7700000, 7500000, 70…
+## $ safety              &lt;dbl&gt; 8871428, 8787500, 8282500, 8000000, 7804333, 7652…
+## $ `special-teamer`    &lt;dbl&gt; 4300000, 3725000, 3556176, 3500000, 3250000, 3225…
+## $ `tight-end`         &lt;dbl&gt; 8734375, 8591000, 8290000, 7723333, 6974666, 6133…
+## $ `wide-receiver`     &lt;dbl&gt; 16250000, 14175000, 11424000, 11415000, 10800000,…</code></pre>
+<p>I learned this trick in the <a href="https://university.business-science.io/p/ds4b-101-r-business-analysis-r/?coupon_code=DS4B15&amp;affcode=173166_vnvxtqbd" target="_blank">Data Science for Business 101</a> course taught by <a href="https://www.linkedin.com/in/mattdancho/" target="_blank">Matt Dancho</a>.</p>
+<p>At first, I was puzzled by the <code>names(.)</code> component and didn’t understand what the <code>period</code> was doing. In the course I learned that using the <code>dot</code> (.) enables passing the incoming tibble to <code>multiple-spots</code> in the function.</p>
+<p><code>set_names()</code> is a vectorized function and so the first argument is a vector. The <code>dot</code> functionality in <code>R</code> allows us to take the incoming tibble and pass it to the <code>names(.)</code> function. Once we have the names in a vector we use the <code>str_replace_all</code> function to replace the <code>underscore</code> with a <code>dash</code>.</p>
+<p>The <code>str_replace_all</code> function uses regular expression pattern matching and so the options are endless for how creative you can get here.</p>
+</div>
+<div id="wrap-up" class="section level3">
+<h3>Wrap-Up</h3>
+<p>That’s it for today!</p>
+<p>We used <code>clean_names()</code> and <code>set_names()</code> to effectively standardize our column naming conventions.</p>
+<p>If anyone has more insights to the <code>dot</code> (.) functionality used here, I humbly ask that you provide insights or links to resources that will better help others understand it <code>- myself included</code></p>
+</div>
+<div id="stay-connected" class="section level3">
+<h3>Stay Connected</h3>
+<p>Enter your <a href="https://tinyletter.com/dexters-analytics" target="_blank">Email Here</a> to receive notifications when new content is posted.<br/></p>
+<p>PS: Be Kind and Tidy your Data 😎</p>
+</div>
+<div id="learn-r-fast" class="section level3">
+<h3>Learn R Fast 👇</h3>
+<p>Interested in expediting your <code>R</code> learning path?</p>
+<p>Head on over to <a href="https://www.business-science.io/?affcode=173166_vnvxtqbd" target="_blank">Business Science</a> and join me on the journey.</p>
+<p>Link to my favorite <code>R</code> course: <a href="https://university.business-science.io/p/ds4b-101-r-business-analysis-r/?coupon_code=DS4B15&amp;affcode=173166_vnvxtqbd">Data Science for Business 101</a></p>
+<p><a href="https://university.business-science.io/p/jumpstart-with-r/?affcode=173166_vnvxtqbd" target="_blank">FREE Jumpstart Data-Science Course</a> (opened for a limited time)</p>
+</div>
