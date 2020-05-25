@@ -123,7 +123,7 @@ Nice way to be a team-player 👍
 
 <br/>
 
-### Next Example: using `set_names()`
+### Next Example: `set_names()`
 
 With `clean_names()` in our tool bag, we can now combine it with `set_names()` to programmatically standardize ALL of our column names using advanced techniques.
 
