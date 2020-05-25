@@ -95,7 +95,7 @@ glimpse(cetacean_subset_tbl)
 
 ### Mixed Naming, Let's Standardize
 
-As you can see we've got columns in lowerCamel and also in capitals. To standardize, let's now use the `clean_names()` function to tidy these up.
+As you can see we've got columns in lowerCamel and also in UPPERCASE. To standardize, let's now use the `clean_names()` function to tidy these up.
 
 ```{r}
 # Clean up Column Names + Glimpse Output
