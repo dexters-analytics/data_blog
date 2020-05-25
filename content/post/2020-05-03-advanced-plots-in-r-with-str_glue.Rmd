@@ -38,6 +38,7 @@ The [Tidy Tuesday Project](https://github.com/rfordatascience/tidytuesday){targe
 
 We will work with the 'San Francisco Trees' data as a case study for using `str_glue()` for advanced plotting techniques.
 
+
 ```{r}
 library(tidyverse)
 library(stringr)

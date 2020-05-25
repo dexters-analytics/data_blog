@@ -2,7 +2,6 @@
 title: "Quick Tips for Data Cleaning in R"
 author: "Jason Dexter"
 date: '2020-05-24'
-#draft: yes
 slug: quick-tips-for-data-cleaning-in-r
 categories: R
 tags:
@@ -158,14 +157,14 @@ cetacean_cols_allcaps_tbl %&gt;% glimpse()</code></pre>
 ## $ `wide-receiver`     &lt;dbl&gt; 16250000, 14175000, 11424000, 11415000, 10800000,…</code></pre>
 <p>I learned this trick in the <a href="https://university.business-science.io/p/ds4b-101-r-business-analysis-r/?coupon_code=DS4B15&amp;affcode=173166_vnvxtqbd" target="_blank">Data Science for Business 101</a> course taught by <a href="https://www.linkedin.com/in/mattdancho/" target="_blank">Matt Dancho</a>.</p>
 <p>At first, I was puzzled by the <code>names(.)</code> component and didn’t understand what the <code>period</code> was doing. In the course I learned that using the <code>dot</code> (.) enables passing the incoming tibble to <code>multiple-spots</code> in the function.</p>
-<p><code>set_names()</code> is a vectorized function and so the first argument is a vector. The <code>dot</code> functionality in <code>R</code> allows us to take the incoming tibble and pass it to the <code>names(.)</code> function. Once we have the names in a vector we use the <code>str_replace_all</code> function to replace the <code>underscore</code> with a <code>dash</code>.</p>
-<p>The <code>str_replace_all</code> function uses regular expression pattern matching and so the options are endless for how creative you can get here.</p>
+<p><code>set_names()</code> is a vectorized function and so the first argument is a vector. The <code>dot</code> functionality in <code>R</code> allows us to take the incoming tibble and pass it to the <code>names(.)</code> function. Once we have the names in a vector we use the <code>str_replace_all()</code> function to replace the <code>underscore</code> with a <code>dash</code>.</p>
+<p>The <code>str_replace_all()</code> function uses regular expression pattern matching and so the options are endless for how creative you can get here.</p>
 </div>
 <div id="wrap-up" class="section level3">
 <h3>Wrap-Up</h3>
 <p>That’s it for today!</p>
 <p>We used <code>clean_names()</code> and <code>set_names()</code> to effectively standardize our column naming conventions.</p>
-<p>If anyone has more insights to the <code>dot</code> (.) functionality used here, I humbly ask that you provide insights or links to resources that will better help others understand it <code>- myself included</code></p>
+<p>If anyone has more insights to the <code>dot</code> (.) functionality used here, I humbly ask that you provide insights or links to resources that will better help others understand it - <code>myself included</code></p>
 </div>
 <div id="stay-connected" class="section level3">
 <h3>Stay Connected</h3>

@@ -2,7 +2,6 @@
 title: "Quick Tips for Data Cleaning in R"
 author: "Jason Dexter"
 date: '2020-05-24'
-#draft: yes
 slug: quick-tips-for-data-cleaning-in-r
 categories: R
 tags:
@@ -165,9 +164,9 @@ I learned this trick in the [Data Science for Business 101](https://university.b
 
 At first, I was puzzled by the `names(.)` component and didn't understand what the `period` was doing. In the course I learned that using the `dot` (.) enables passing the incoming tibble to `multiple-spots` in the function.
 
-`set_names()` is a vectorized function and so the first argument is a vector. The `dot` functionality in `R` allows us to take the incoming tibble and pass it to the `names(.)` function. Once we have the names in a vector we use the `str_replace_all` function to replace the `underscore` with a `dash`.
+`set_names()` is a vectorized function and so the first argument is a vector. The `dot` functionality in `R` allows us to take the incoming tibble and pass it to the `names(.)` function. Once we have the names in a vector we use the `str_replace_all()` function to replace the `underscore` with a `dash`.
 
-The `str_replace_all` function uses regular expression pattern matching and so the options are endless for how creative you can get here.
+The `str_replace_all()` function uses regular expression pattern matching and so the options are endless for how creative you can get here.
 
 
 ### Wrap-Up
@@ -176,7 +175,7 @@ That's it for today!
 
 We used `clean_names()` and `set_names()` to effectively standardize our column naming conventions.
 
-If anyone has more insights to the `dot` (.) functionality used here, I humbly ask that you provide insights or links to resources that will better help others understand it `- myself included`
+If anyone has more insights to the `dot` (.) functionality used here, I humbly ask that you provide insights or links to resources that will better help others understand it - `myself included`
 
 
 ### Stay Connected
