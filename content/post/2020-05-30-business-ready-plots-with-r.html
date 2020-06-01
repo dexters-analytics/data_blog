@@ -1,0 +1,178 @@
+---
+title: "Business Ready Plots with R"
+author: "Jason Dexter"
+date: '2020-05-30'
+#draft: yes
+slug: business-ready-plots-with-r
+categories: R
+tags:
+- R
+- ggplot
+- visualizations
+- tidyquant
+editor_options:
+  chunk_output_type: console
+---
+
+
+
+<p><br/></p>
+<div id="quick-context" class="section level3">
+<h3>Quick Context</h3>
+<p>Recently, I completed the Data Science for Business 101 course over at Business Science University. In the course, Matt Dancho teaches students the fundamentals of data science for business with the <code>tidyverse.</code> The course is jam packed with material and I highly recommend to anyone looking to advance their skills.</p>
+<p>I’ve been tracking down data then applying the techniques from the course to solidify what I learned in the course. One of my favorite parts from Week 1 is turning a generic ggplot() into something that is Business Ready.</p>
+<p>In this post I’ll show you how to upgrade your plots in <code>R</code> so that they are Business-Ready.</p>
+</div>
+<div id="the-final-plot" class="section level3">
+<h3>The Final Plot</h3>
+<p>This is the plot that we will recreate in the post - it’s crisp, clean, and Business-Ready.</p>
+<p>Let’s get started 😎</p>
+<p><img src="/post/2020-05-30-business-ready-plots-with-r_files/edu_comps_la_vs_nation.png" /></p>
+</div>
+<div id="load-our-libraries" class="section level3">
+<h3>Load our Libraries</h3>
+<pre class="r"><code>library(tidyverse)  # Work-Horse Package
+library(tidyquant)  # Business Ready Plots 
+library(scales)</code></pre>
+</div>
+<div id="lets-get-some-data" class="section level3">
+<h3>Let’s Get Some Data</h3>
+<p>These are Census data that I got here: link to data</p>
+<p>The original data was 4.M rows and so I’ve already filtered it down a bit.</p>
+<pre class="r"><code># Import Data
+edu_census_data_raw_tbl &lt;- read_csv(&quot;../../static/01_data/edu_census_data.csv&quot;)
+
+# Glimpse Data
+edu_census_data_raw_tbl %&gt;% glimpse()</code></pre>
+<pre><code>## Rows: 228,737
+## Columns: 5
+## $ name     &lt;chr&gt; &quot;United States&quot;, &quot;United States&quot;, &quot;United States&quot;, &quot;United S…
+## $ type     &lt;chr&gt; &quot;nation&quot;, &quot;nation&quot;, &quot;nation&quot;, &quot;nation&quot;, &quot;nation&quot;, &quot;nation&quot;, …
+## $ year     &lt;dbl&gt; 2013, 2013, 2013, 2013, 2013, 2013, 2013, 2013, 2013, 2013, …
+## $ variable &lt;chr&gt; &quot;percent_bachelors_degree_or_higher_rank&quot;, &quot;percent_graduate…
+## $ value    &lt;dbl&gt; 1.0, 10.8, 28.8, 11.1, 1.0, 86.7, 5.8, 18.0, 27.8, 28.1, 8.5…</code></pre>
+</div>
+<div id="filter-data-for-plotting" class="section level3">
+<h3>Filter Data for Plotting</h3>
+<p>We want to compare educational attainment statistics for the County of Los Angeles against the rest of the Nation - first let’s do a bit of filtering to get those data.</p>
+<pre class="r"><code># Setup variables: for filter + for using in plot later
+year_f &lt;- 2018
+nation &lt;- &quot;United States&quot;
+county &lt;- &quot;Los Angeles County&quot;
+
+# Data Prep
+edu_census_filtered_tbl &lt;- edu_census_data_raw_tbl %&gt;% 
+    
+    # Filter data to year and areas of interest 
+    filter(year == year_f,
+           name == nation | # OR
+           str_detect(name, county))
+
+# View data
+edu_census_filtered_tbl</code></pre>
+<pre><code>## # A tibble: 10 x 5
+##    name                      type    year variable                         value
+##    &lt;chr&gt;                     &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;                            &lt;dbl&gt;
+##  1 United States             nation  2018 percent_less_than_9th_grade        5.3
+##  2 United States             nation  2018 percent_high_school_graduate_or…  87.7
+##  3 United States             nation  2018 percent_bachelors_degree_or_hig…  31.5
+##  4 United States             nation  2018 percent_associates_degree          8.4
+##  5 United States             nation  2018 percent_graduate_or_professiona…  12.1
+##  6 Los Angeles County, Cali… county  2018 percent_less_than_9th_grade       12.6
+##  7 Los Angeles County, Cali… county  2018 percent_high_school_graduate_or…  78.7
+##  8 Los Angeles County, Cali… county  2018 percent_bachelors_degree_or_hig…  31.8
+##  9 Los Angeles County, Cali… county  2018 percent_associates_degree          7  
+## 10 Los Angeles County, Cali… county  2018 percent_graduate_or_professiona…  11.1</code></pre>
+<p>The 10 x 5 table is exactly what we need to create our first plot.</p>
+<p>Making a visualization is a great way to get a few insights in the process of better understanding your data.</p>
+</div>
+<div id="generic-ggplot" class="section level3">
+<h3>Generic ggplot()</h3>
+<p>The awesomeness of <code>ggplot()</code> is that we can rapidly produce a plot with just a couple of lines of code - that means we can quickly get insights that will help determine the next steps in <code>Exploring</code> these <code>Data</code> further.</p>
+<p>The stacked bar-chart below is a great starting place.</p>
+<pre class="r"><code>edu_census_filtered_tbl %&gt;% 
+    ggplot(aes(x = variable, y = value, fill = name)) +
+    geom_col() </code></pre>
+<p><img src="/post/2020-05-30-business-ready-plots-with-r_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>We can immediately see that ‘some’ differences exist but it’s difficult to get a sense of the magnitude. It’s also difficult to make out the names of the variables on the x-axis.</p>
+</div>
+<div id="business-ready-plots" class="section level3">
+<h3>Business Ready Plots</h3>
+<p>To get those plots business-ready, it’s helpful and a best-practice to break things up into two steps:</p>
+<ol style="list-style-type: decimal">
+<li>Data Manipulation (Wrangling)</li>
+<li>Data Visualization</li>
+</ol>
+<p>The data manipulation step will pay-off immensely once we get to the data visualization step; this was a key learning from Matt in the 101 course - it keeps your code nice and tidy too 🤓</p>
+</div>
+<div id="data-manipulation" class="section level3">
+<h3>1) Data Manipulation</h3>
+<pre class="r"><code># Step 1 - Manipulate Data
+data_manipulated_tbl &lt;- edu_census_filtered_tbl %&gt;% 
+    
+    # Selecting columns to focus on
+    select(name, variable, value) %&gt;% 
+    
+    # Tidy up variable names
+    mutate(variable = str_replace(variable, &quot;percent_&quot;, &quot;&quot;),
+           variable = str_replace_all(variable, &quot;_&quot;, &quot; &quot;),
+           variable = str_to_title(variable)) %&gt;% 
+    
+    # Convert value to a pct (ratio)
+    mutate(pct = value / 100) %&gt;% 
+    
+    # Format % Text 
+    mutate(pct_text = scales::percent(pct, accuracy = 0.1)) %&gt;% 
+    
+    # Select final columns for plotting
+    select(name, variable, contains(&quot;pct&quot;))</code></pre>
+<p>Now that we’ve wrangled + manipulated our data, let’s take a peak at it before diving into generating our visualization.</p>
+<pre class="r"><code>data_manipulated_tbl</code></pre>
+<pre><code>## # A tibble: 10 x 4
+##    name                           variable                          pct pct_text
+##    &lt;chr&gt;                          &lt;chr&gt;                           &lt;dbl&gt; &lt;chr&gt;   
+##  1 United States                  Less Than 9th Grade             0.053 5.3%    
+##  2 United States                  High School Graduate Or Higher  0.877 87.7%   
+##  3 United States                  Bachelors Degree Or Higher      0.315 31.5%   
+##  4 United States                  Associates Degree               0.084 8.4%    
+##  5 United States                  Graduate Or Professional Degree 0.121 12.1%   
+##  6 Los Angeles County, California Less Than 9th Grade             0.126 12.6%   
+##  7 Los Angeles County, California High School Graduate Or Higher  0.787 78.7%   
+##  8 Los Angeles County, California Bachelors Degree Or Higher      0.318 31.8%   
+##  9 Los Angeles County, California Associates Degree               0.07  7.0%    
+## 10 Los Angeles County, California Graduate Or Professional Degree 0.111 11.1%</code></pre>
+<p>Creating the <code>pct_text</code> column will come in handy for adding clean labels to our plot - this will be a nice touch that will help the audience quickly make sense of the chart.</p>
+</div>
+<div id="data-visualization" class="section level3">
+<h3>2) Data Visualization</h3>
+<pre class="r"><code># Step 2 - Visualize Data
+data_visualized_plot &lt;- data_manipulated_tbl %&gt;% 
+    
+    # Setup ggplot() canvas for plotting
+    ggplot(aes(x = variable, y = pct, fill = name)) +
+    
+    # Geometries
+    geom_col() +
+    geom_label(aes(label = pct_text), fill = &quot;white&quot;, hjust = &quot;center&quot;) +
+    
+    # Facet: splits plot into multiple plots by a categorical feature
+    facet_wrap(~ name) +
+    
+    # Flip coordinates for readable variable names
+    coord_flip() +
+    
+    # Formatting
+    theme_tq() +
+    scale_fill_tq() +
+    scale_y_continuous(labels = scales::percent, limits = c(0, 1.0)) +
+    theme(legend.position = &quot;none&quot;,
+          plot.title = element_text(face = &quot;bold&quot;)) +
+    labs(title = str_glue(&quot;Comparison of Educational Attainment ({year_f})&quot;),
+         subtitle = str_glue(&quot;{county} vs. Overall National Statistics&quot;),
+         caption  = &quot;Census Data&quot;,
+         x = &quot;&quot;, y = &quot;&quot;) </code></pre>
+<p>We now have our two steps completed with our code pretty well commented.</p>
+<p>Let’s take a look at our plot 😎</p>
+<pre class="r"><code>data_visualized_plot</code></pre>
+<p><img src="/post/2020-05-30-business-ready-plots-with-r_files/figure-html/unnamed-chunk-9-1.png" width="768" /></p>
+</div>

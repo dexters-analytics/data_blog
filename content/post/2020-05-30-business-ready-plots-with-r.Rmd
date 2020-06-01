@@ -1,0 +1,201 @@
+---
+title: "Business Ready Plots with R"
+author: "Jason Dexter"
+date: '2020-05-30'
+#draft: yes
+slug: business-ready-plots-with-r
+categories: R
+tags:
+- R
+- ggplot
+- visualizations
+- tidyquant
+editor_options:
+  chunk_output_type: console
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  message = FALSE,
+  warning = FALSE
+)
+```
+
+<br/> 
+
+### Quick Context
+
+Recently, I completed the Data Science for Business 101 course over at Business Science University. In the course, Matt Dancho teaches students the fundamentals of data science for business with the `tidyverse.` The course is jam packed with material and I highly recommend to anyone looking to advance their skills.
+
+I've been tracking down data then applying the techniques from the course to solidify what I learned in the course. One of my favorite parts from Week 1 is turning a generic ggplot() into something that is Business Ready.
+
+In this post I'll show you how to upgrade your plots in `R` so that they are Business-Ready.
+
+### The Final Plot
+
+This is the plot that we will recreate in the post - it's crisp, clean, and Business-Ready.
+
+Let's get started 😎
+
+
+![](/post/2020-05-30-business-ready-plots-with-r_files/edu_comps_la_vs_nation.png)
+
+
+### Load our Libraries
+
+```{r}
+library(tidyverse)  # Work-Horse Package
+library(tidyquant)  # Business Ready Plots 
+library(scales)
+```
+
+```{r, include=FALSE}
+#edu_census_data_raw_tbl <- read_csv("static/01_data/edu_census_data.csv")
+```
+
+### Let's Get Some Data
+
+These are Census data that I got here: link to data
+
+The original data was 4.M rows and so I've already filtered it down a bit.
+
+```{r}
+# Import Data
+edu_census_data_raw_tbl <- read_csv("../../static/01_data/edu_census_data.csv")
+
+# Glimpse Data
+edu_census_data_raw_tbl %>% glimpse()
+```
+
+
+### Filter Data for Plotting
+
+We want to compare educational attainment statistics for the County of Los Angeles against the rest of the Nation - first let's do a bit of filtering to get those data.
+
+```{r}
+# Setup variables: for filter + for using in plot later
+year_f <- 2018
+nation <- "United States"
+county <- "Los Angeles County"
+
+# Data Prep
+edu_census_filtered_tbl <- edu_census_data_raw_tbl %>% 
+    
+    # Filter data to year and areas of interest 
+    filter(year == year_f,
+           name == nation | # OR
+           str_detect(name, county))
+
+# View data
+edu_census_filtered_tbl
+```
+
+The 10 x 5 table is exactly what we need to create our first plot.
+
+Making a visualization is a great way to get a few insights in the process of better understanding your data.
+
+
+### Generic ggplot()
+
+The awesomeness of `ggplot()` is that we can rapidly produce a plot with just a couple of lines of code - that means we can quickly get insights that will help determine the next steps in `Exploring` these `Data` further.
+
+The stacked bar-chart below is a great starting place. 
+
+
+```{r, fig.height=3}
+edu_census_filtered_tbl %>% 
+    ggplot(aes(x = variable, y = value, fill = name)) +
+    geom_col() 
+```
+
+We can immediately see that 'some' differences exist but it's difficult to get a sense of the magnitude. It's also difficult to make out the names of the variables on the x-axis.
+
+
+### Business Ready Plots
+
+To get those plots business-ready, it's helpful and a best-practice to break things up into two steps:
+
+1. Data Manipulation (Wrangling)
+2. Data Visualization
+
+The data manipulation step will pay-off immensely once we get to the data visualization step; this was a key learning from Matt in the 101 course - it keeps your code nice and tidy too 🤓
+
+### 1) Data Manipulation
+
+```{r}
+# Step 1 - Manipulate Data
+data_manipulated_tbl <- edu_census_filtered_tbl %>% 
+    
+    # Selecting columns to focus on
+    select(name, variable, value) %>% 
+    
+    # Tidy up variable names
+    mutate(variable = str_replace(variable, "percent_", ""),
+           variable = str_replace_all(variable, "_", " "),
+           variable = str_to_title(variable)) %>% 
+    
+    # Convert value to a pct (ratio)
+    mutate(pct = value / 100) %>% 
+    
+    # Format % Text 
+    mutate(pct_text = scales::percent(pct, accuracy = 0.1)) %>% 
+    
+    # Select final columns for plotting
+    select(name, variable, contains("pct"))
+```
+
+
+Now that we've wrangled + manipulated our data, let's take a peak at it before diving into generating our visualization.
+
+
+```{r}
+data_manipulated_tbl
+```
+
+Creating the `pct_text` column will come in handy for adding clean labels to our plot - this will be a nice touch that will help the audience quickly make sense of the chart.
+
+
+### 2) Data Visualization
+
+```{r, fig.height=3.5, fig.width=8}
+# Step 2 - Visualize Data
+data_visualized_plot <- data_manipulated_tbl %>% 
+    
+    # Setup ggplot() canvas for plotting
+    ggplot(aes(x = variable, y = pct, fill = name)) +
+    
+    # Geometries
+    geom_col() +
+    geom_label(aes(label = pct_text), fill = "white", hjust = "center") +
+    
+    # Facet: splits plot into multiple plots by a categorical feature
+    facet_wrap(~ name) +
+    
+    # Flip coordinates for readable variable names
+    coord_flip() +
+    
+    # Formatting
+    theme_tq() +
+    scale_fill_tq() +
+    scale_y_continuous(labels = scales::percent, limits = c(0, 1.0)) +
+    theme(legend.position = "none",
+          plot.title = element_text(face = "bold")) +
+    labs(title = str_glue("Comparison of Educational Attainment ({year_f})"),
+         subtitle = str_glue("{county} vs. Overall National Statistics"),
+         caption  = "Census Data",
+         x = "", y = "") 
+```
+
+
+We now have our two steps completed with our code pretty well commented.
+
+Let's take a look at our plot 😎
+
+```{r,  fig.height=3.5, fig.width=8}
+data_visualized_plot
+```
+
+
+
+

@@ -21,9 +21,7 @@ knitr::opts_chunk$set(
 
 <br/> 
     
-If time, read the article and leave a comment 📝
 
-If I've added value, circle back and enter your [Email Here](https://tinyletter.com/dexters-analytics){target="_blank"} to be alerted when new bite-size content is released. <br/> 
 
 ![Data Cleaning (istockphoto)](/post/2020-05-24-quick-tips-for-data-cleaning-in-r_files/cleaning_data.png)
 

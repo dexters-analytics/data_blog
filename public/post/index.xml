@@ -6,10 +6,20 @@
     <description>Recent content in Posts on Exploring Data</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 24 May 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 30 May 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://www.exploringdata.org/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Business Ready Plots with R</title>
+      <link>https://www.exploringdata.org/post/business-ready-plots-with-r/</link>
+      <pubDate>Sat, 30 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.exploringdata.org/post/business-ready-plots-with-r/</guid>
+      <description>Quick Context Recently, I completed the Data Science for Business 101 course over at Business Science University. In the course, Matt Dancho teaches students the fundamentals of data science for business with the tidyverse. The course is jam packed with material and I highly recommend to anyone looking to advance their skills.
+I’ve been tracking down data then applying the techniques from the course to solidify what I learned in the course.</description>
+    </item>
     
     <item>
       <title>Quick Tips for Data Cleaning in R</title>
@@ -17,10 +27,10 @@
       <pubDate>Sun, 24 May 2020 00:00:00 +0000</pubDate>
       
       <guid>https://www.exploringdata.org/post/quick-tips-for-data-cleaning-in-r/</guid>
-      <description>If time, read the article and leave a comment 📝
-If I’ve added value, circle back and enter your Email Here to be alerted when new bite-size content is released. 
-Data Cleaning (istockphoto)
- What to Expect I’m excited to share pro-tips that will expedite your process for cleaning and standardizing column names in your data; this is a critical yet sometimes overlooked step in the cleaning + tidying of data.</description>
+      <description>Data Cleaning (istockphoto)
+ What to Expect I’m excited to share pro-tips that will expedite your process for cleaning and standardizing column names in your data; this is a critical yet sometimes overlooked step in the cleaning + tidying of data.
+There are a couple of handy functions() available in R to help effectively execute these tasks.
+By the end of this short article you’ll have a couple of new tricks up your sleeve for getting those column names just the way you want them 😎</description>
     </item>
     
     <item>

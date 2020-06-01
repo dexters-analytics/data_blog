@@ -28,7 +28,7 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
     relatedPosts = false  # Add a related content section to all single posts page
     
     # Add custom css
-    customCSS = ["css/extra.css"]
+    #customCSS = ["css/extra.css"]
     
 
 [[menu.main]]
