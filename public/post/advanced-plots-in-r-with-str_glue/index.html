@@ -227,7 +227,8 @@ redwood_labeled_text_tbl &lt;- redwood_tbl %&gt;%
     ),
     
     # add &#39;forward-slash&#39; to wrap-text on our plots y-axis
-    common_name = str_replace(common_name, pattern = &#39; &#39;, replacement = &#39; \n &#39;)) %&gt;% 
+    common_name = str_replace(common_name, pattern = &#39; &#39;, 
+                              replacement = &#39; \n &#39;)) %&gt;% 
     
     # reorder factors based on percent rank
     mutate(common_name = common_name %&gt;% fct_reorder(pct))</code></pre>

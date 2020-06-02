@@ -119,7 +119,8 @@ redwood_labeled_text_tbl <- redwood_tbl %>%
     ),
     
     # add 'forward-slash' to wrap-text on our plots y-axis
-    common_name = str_replace(common_name, pattern = ' ', replacement = ' \n ')) %>% 
+    common_name = str_replace(common_name, pattern = ' ', 
+                              replacement = ' \n ')) %>% 
     
     # reorder factors based on percent rank
     mutate(common_name = common_name %>% fct_reorder(pct))
