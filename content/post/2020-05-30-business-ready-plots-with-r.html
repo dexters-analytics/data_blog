@@ -17,10 +17,12 @@ editor_options:
 
 
 <p><br/></p>
-<div id="quick-context" class="section level3">
-<h3>Quick Context</h3>
-<p>Recently, I completed the Data Science for Business 101 course over at Business Science University. In the course, Matt Dancho teaches students the fundamentals of data science for business with the <code>tidyverse.</code> The course is jam packed with material and I highly recommend to anyone looking to advance their skills.</p>
-<p>I’ve been tracking down data then applying the techniques from the course to solidify what I learned in the course. One of my favorite parts from Week 1 is turning a generic ggplot() into something that is Business Ready.</p>
+<div id="quick-overview" class="section level3">
+<h3>Quick Overview</h3>
+<p>Recently, I completed the <a href="https://university.business-science.io/p/ds4b-101-r-business-analysis-r/?coupon_code=DS4B15&amp;affcode=173166_vnvxtqbd" target="_blank">Data Science for Business 101</a> course over at <a href="https://www.business-science.io/?affcode=173166_vnvxtqbd" target="_blank">Business Science University</a>. In the course, <a href="https://www.linkedin.com/in/mattdancho/" target="_blank">Matt Dancho</a> teaches students the fundamentals of data science for business with the <code>tidyverse.</code></p>
+<p>The course is jam packed with material: from basic data wrangling all the way to applied machine learning - I highly recommend it to anyone looking to advance their skills 🤓</p>
+<p>Clink this <a href="https://university.business-science.io/p/ds4b-101-r-business-analysis-r/?coupon_code=DS4B15&amp;affcode=173166_vnvxtqbd" target="_blank">LINK</a> to access the course.</p>
+<p>I’ve been tracking down data then applying the techniques to help solidify concepts from the course. One of my favorite parts from Week 1 is turning a generic ggplot() into something that is Business Ready.</p>
 <p>In this post I’ll show you how to upgrade your plots in <code>R</code> so that they are Business-Ready.</p>
 </div>
 <div id="the-final-plot" class="section level3">
@@ -33,12 +35,12 @@ editor_options:
 <h3>Load our Libraries</h3>
 <pre class="r"><code>library(tidyverse)  # Work-Horse Package
 library(tidyquant)  # Business Ready Plots 
-library(scales)</code></pre>
+library(scales)     # Scaling Data for Plots</code></pre>
 </div>
 <div id="lets-get-some-data" class="section level3">
 <h3>Let’s Get Some Data</h3>
-<p>These are Census data that I got here: link to data</p>
-<p>The original data was 4.M rows and so I’ve already filtered it down a bit.</p>
+<p>These are Census data that I got here: <a href="https://odn.data.socrata.com/Education/ODN-Education/8apn-rhyh" target="_blank">link to data</a>.</p>
+<p>The original data was 4M+ rows and so I’ve already filtered it down a bit.</p>
 <pre class="r"><code># Import Data
 edu_census_data_raw_tbl &lt;- read_csv(&quot;../../static/01_data/edu_census_data.csv&quot;)
 
@@ -54,7 +56,7 @@ edu_census_data_raw_tbl %&gt;% glimpse()</code></pre>
 </div>
 <div id="filter-data-for-plotting" class="section level3">
 <h3>Filter Data for Plotting</h3>
-<p>We want to compare educational attainment statistics for the County of Los Angeles against the rest of the Nation - first let’s do a bit of filtering to get those data.</p>
+<p>We want to compare educational attainment statistics for the County of Los Angeles against the rest of the Nation - first, let’s do a bit of filtering to get just the data needed for our plot.</p>
 <pre class="r"><code># Setup variables: for filter + for using in plot later
 year_f &lt;- 2018
 nation &lt;- &quot;United States&quot;
@@ -95,10 +97,11 @@ edu_census_filtered_tbl</code></pre>
     geom_col() </code></pre>
 <p><img src="/post/2020-05-30-business-ready-plots-with-r_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <p>We can immediately see that ‘some’ differences exist but it’s difficult to get a sense of the magnitude. It’s also difficult to make out the names of the variables on the x-axis.</p>
+<p>Making <code>Business-Ready</code> plots can be time-consuming - thankfully, we have the <code>Tidyquant</code> library to help expedite the process.</p>
 </div>
 <div id="business-ready-plots" class="section level3">
 <h3>Business Ready Plots</h3>
-<p>To get those plots business-ready, it’s helpful and a best-practice to break things up into two steps:</p>
+<p>To get those plots business-ready, it’s helpful (+best-practice) to break things up into two steps:</p>
 <ol style="list-style-type: decimal">
 <li>Data Manipulation (Wrangling)</li>
 <li>Data Visualization</li>
@@ -126,7 +129,7 @@ data_manipulated_tbl &lt;- edu_census_filtered_tbl %&gt;%
     
     # Select final columns for plotting
     select(name, variable, contains(&quot;pct&quot;))</code></pre>
-<p>Now that we’ve wrangled + manipulated our data, let’s take a peak at it before diving into generating our visualization.</p>
+<p>Now that we’ve wrangled + manipulated our data, let’s take a peak at it before diving into the generation of our visualization.</p>
 <pre class="r"><code>data_manipulated_tbl</code></pre>
 <pre><code>## # A tibble: 10 x 4
 ##    name                           variable                          pct pct_text
@@ -171,8 +174,26 @@ data_visualized_plot &lt;- data_manipulated_tbl %&gt;%
          subtitle = str_glue(&quot;{county} vs. Overall National Statistics&quot;),
          caption  = &quot;Census Data&quot;,
          x = &quot;&quot;, y = &quot;&quot;) </code></pre>
-<p>We now have our two steps completed with our code pretty well commented.</p>
-<p>Let’s take a look at our plot 😎</p>
+<p>We now have the two steps completed and our code is nicely commented for readability (+reproducibility).</p>
+</div>
+<div id="display-plot" class="section level3">
+<h3>Display Plot</h3>
+<p>Let’s take a look at our awesome plot 😎</p>
 <pre class="r"><code>data_visualized_plot</code></pre>
 <p><img src="/post/2020-05-30-business-ready-plots-with-r_files/figure-html/unnamed-chunk-9-1.png" width="768" /></p>
+</div>
+<div id="wrap-up" class="section level3">
+<h3>Wrap Up</h3>
+<p>That’s it for today!</p>
+<p>You learned how to turn a generic <code>ggplot()</code> into one that is <code>Business-Ready</code> 👍</p>
+</div>
+<div id="stay-connected" class="section level3">
+<h3>Stay Connected</h3>
+<p>Enter your <a href="https://tinyletter.com/dexters-analytics" target="_blank">Email Here</a> to receive notifications when new content is posted.<br/></p>
+<p>PS: Be Kind and Tidy your Data 😎<br/></p>
+</div>
+<div id="learn-r-fast" class="section level3">
+<h3>Learn R Fast 👇</h3>
+<p>Interested in expediting your learning path?</p>
+<p>Click on the link to head over to <a href="https://www.business-science.io/?affcode=173166_vnvxtqbd" target="_blank">Business Science</a> and join me on the journey.</p>
 </div>

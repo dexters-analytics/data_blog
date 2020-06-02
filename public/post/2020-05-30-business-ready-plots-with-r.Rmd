@@ -24,11 +24,15 @@ knitr::opts_chunk$set(
 
 <br/> 
 
-### Quick Context
+### Quick Overview
 
-Recently, I completed the Data Science for Business 101 course over at Business Science University. In the course, Matt Dancho teaches students the fundamentals of data science for business with the `tidyverse.` The course is jam packed with material and I highly recommend to anyone looking to advance their skills.
+Recently, I completed the [Data Science for Business 101](https://university.business-science.io/p/ds4b-101-r-business-analysis-r/?coupon_code=DS4B15&affcode=173166_vnvxtqbd){target="_blank"} course over at [Business Science University](https://www.business-science.io/?affcode=173166_vnvxtqbd){target="_blank"}. In the course, [Matt Dancho](https://www.linkedin.com/in/mattdancho/){target="_blank"} teaches students the fundamentals of data science for business with the `tidyverse.` 
 
-I've been tracking down data then applying the techniques from the course to solidify what I learned in the course. One of my favorite parts from Week 1 is turning a generic ggplot() into something that is Business Ready.
+The course is jam packed with material: from basic data wrangling all the way to applied machine learning - I highly recommend it to anyone looking to advance their skills 🤓
+
+Clink this [LINK](https://university.business-science.io/p/ds4b-101-r-business-analysis-r/?coupon_code=DS4B15&affcode=173166_vnvxtqbd){target="_blank"} to access the course.
+
+I've been tracking down data then applying the techniques to help solidify concepts from the course. One of my favorite parts from Week 1 is turning a generic ggplot() into something that is Business Ready.
 
 In this post I'll show you how to upgrade your plots in `R` so that they are Business-Ready.
 
@@ -47,7 +51,7 @@ Let's get started 😎
 ```{r}
 library(tidyverse)  # Work-Horse Package
 library(tidyquant)  # Business Ready Plots 
-library(scales)
+library(scales)     # Scaling Data for Plots
 ```
 
 ```{r, include=FALSE}
@@ -56,9 +60,9 @@ library(scales)
 
 ### Let's Get Some Data
 
-These are Census data that I got here: link to data
+These are Census data that I got here: [link to data](https://odn.data.socrata.com/Education/ODN-Education/8apn-rhyh){target="_blank"}.
 
-The original data was 4.M rows and so I've already filtered it down a bit.
+The original data was 4M+ rows and so I've already filtered it down a bit.
 
 ```{r}
 # Import Data
@@ -71,7 +75,7 @@ edu_census_data_raw_tbl %>% glimpse()
 
 ### Filter Data for Plotting
 
-We want to compare educational attainment statistics for the County of Los Angeles against the rest of the Nation - first let's do a bit of filtering to get those data.
+We want to compare educational attainment statistics for the County of Los Angeles against the rest of the Nation - first, let's do a bit of filtering to get just the data needed for our plot.
 
 ```{r}
 # Setup variables: for filter + for using in plot later
@@ -111,10 +115,11 @@ edu_census_filtered_tbl %>%
 
 We can immediately see that 'some' differences exist but it's difficult to get a sense of the magnitude. It's also difficult to make out the names of the variables on the x-axis.
 
+Making `Business-Ready` plots can be time-consuming - thankfully, we have the `Tidyquant` library to help expedite the process.
 
 ### Business Ready Plots
 
-To get those plots business-ready, it's helpful and a best-practice to break things up into two steps:
+To get those plots business-ready, it's helpful (+best-practice) to break things up into two steps:
 
 1. Data Manipulation (Wrangling)
 2. Data Visualization
@@ -146,7 +151,7 @@ data_manipulated_tbl <- edu_census_filtered_tbl %>%
 ```
 
 
-Now that we've wrangled + manipulated our data, let's take a peak at it before diving into generating our visualization.
+Now that we've wrangled + manipulated our data, let's take a peak at it before diving into the generation of our visualization.
 
 
 ```{r}
@@ -188,13 +193,33 @@ data_visualized_plot <- data_manipulated_tbl %>%
 ```
 
 
-We now have our two steps completed with our code pretty well commented.
+We now have the two steps completed and our code is nicely commented for readability (+reproducibility).
 
-Let's take a look at our plot 😎
+### Display Plot
+
+Let's take a look at our awesome plot 😎
 
 ```{r,  fig.height=3.5, fig.width=8}
 data_visualized_plot
 ```
+
+### Wrap Up
+
+That's it for today! 
+
+You learned how to turn a generic `ggplot()` into one that is `Business-Ready` 👍
+
+### Stay Connected
+
+Enter your [Email Here](https://tinyletter.com/dexters-analytics){target="_blank"} to receive notifications when new content is posted.<br/>  
+
+PS: Be Kind and Tidy your Data 😎<br/>
+
+### Learn R Fast 👇
+
+Interested in expediting your learning path? 
+
+Click on the link to head over to [Business Science](https://www.business-science.io/?affcode=173166_vnvxtqbd){target="_blank"} and join me on the journey.
 
 
 

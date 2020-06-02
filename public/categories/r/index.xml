@@ -2,31 +2,32 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>R on Exploring Data</title>
-    <link>https://www.exploringdata.org/categories/r/</link>
+    <link>/categories/r/</link>
     <description>Recent content in R on Exploring Data</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 30 May 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://www.exploringdata.org/categories/r/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/categories/r/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Business Ready Plots with R</title>
-      <link>https://www.exploringdata.org/post/business-ready-plots-with-r/</link>
+      <link>/post/business-ready-plots-with-r/</link>
       <pubDate>Sat, 30 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.exploringdata.org/post/business-ready-plots-with-r/</guid>
-      <description>Quick Context Recently, I completed the Data Science for Business 101 course over at Business Science University. In the course, Matt Dancho teaches students the fundamentals of data science for business with the tidyverse. The course is jam packed with material and I highly recommend to anyone looking to advance their skills.
-I’ve been tracking down data then applying the techniques from the course to solidify what I learned in the course.</description>
+      <guid>/post/business-ready-plots-with-r/</guid>
+      <description>Quick Overview Recently, I completed the Data Science for Business 101 course over at Business Science University. In the course, Matt Dancho teaches students the fundamentals of data science for business with the tidyverse.
+The course is jam packed with material: from basic data wrangling all the way to applied machine learning - I highly recommend it to anyone looking to advance their skills 🤓
+Clink this LINK to access the course.</description>
     </item>
     
     <item>
       <title>Quick Tips for Data Cleaning in R</title>
-      <link>https://www.exploringdata.org/post/quick-tips-for-data-cleaning-in-r/</link>
+      <link>/post/quick-tips-for-data-cleaning-in-r/</link>
       <pubDate>Sun, 24 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.exploringdata.org/post/quick-tips-for-data-cleaning-in-r/</guid>
+      <guid>/post/quick-tips-for-data-cleaning-in-r/</guid>
       <description>Data Cleaning (istockphoto)
  What to Expect I’m excited to share pro-tips that will expedite your process for cleaning and standardizing column names in your data; this is a critical yet sometimes overlooked step in the cleaning + tidying of data.
 There are a couple of handy functions() available in R to help effectively execute these tasks.
