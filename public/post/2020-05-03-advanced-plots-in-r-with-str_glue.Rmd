@@ -153,14 +153,16 @@ g <- redwood_labeled_text_tbl %>%
 
     # Formatting
     scale_x_continuous(labels = scales::percent_format()) +
-    labs(title = str_glue("Redwoods Trees of San Francisco"),
-        subtitle = str_glue(
-          "As expected, the coastal Redwoods make up the largest proportion.
-          Dawn Redwoods were once thought to be extinct, so low numbers aren't suprising.
-          Siera Redwoods grow at high elevations and so low numbers are expected."),
-        caption = str_glue("The Coastal Redwood is the dominant species in SF."),
-        x = "", y = "") +
-    theme_tq() + theme(legend.position = "none",
+    theme_tq() + 
+    labs(
+      title = str_glue("Redwoods Trees of San Francisco"),
+      subtitle = str_glue(
+        "As expected, the coastal Redwoods make up the largest proportion.
+        Dawn Redwoods were once thought to be extinct (low #s not suprising).
+        Siera Redwoods grow at high elev. and so low numbers are expected."),
+      caption = str_glue("The Coastal Redwood is the dominant species in SF."),
+      x = "", y = "") +
+    theme(legend.position = "none",
           plot.title = element_text(face = "bold"))
 ```
 

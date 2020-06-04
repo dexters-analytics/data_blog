@@ -127,14 +127,16 @@ g &lt;- redwood_labeled_text_tbl %&gt;%
 
     # Formatting
     scale_x_continuous(labels = scales::percent_format()) +
-    labs(title = str_glue(&quot;Redwoods Trees of San Francisco&quot;),
-        subtitle = str_glue(
-          &quot;As expected, the coastal Redwoods make up the largest proportion.
-          Dawn Redwoods were once thought to be extinct, so low numbers aren&#39;t suprising.
-          Siera Redwoods grow at high elevations and so low numbers are expected.&quot;),
-        caption = str_glue(&quot;The Coastal Redwood is the dominant species in SF.&quot;),
-        x = &quot;&quot;, y = &quot;&quot;) +
-    theme_tq() + theme(legend.position = &quot;none&quot;,
+    theme_tq() + 
+    labs(
+      title = str_glue(&quot;Redwoods Trees of San Francisco&quot;),
+      subtitle = str_glue(
+        &quot;As expected, the coastal Redwoods make up the largest proportion.
+        Dawn Redwoods were once thought to be extinct (low #s not suprising).
+        Siera Redwoods grow at high elev. and so low numbers are expected.&quot;),
+      caption = str_glue(&quot;The Coastal Redwood is the dominant species in SF.&quot;),
+      x = &quot;&quot;, y = &quot;&quot;) +
+    theme(legend.position = &quot;none&quot;,
           plot.title = element_text(face = &quot;bold&quot;))</code></pre>
 </div>
 <div id="display-awesome-plot" class="section level2">

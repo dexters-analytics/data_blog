@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Exploring Data</title>
-    <link>/post/</link>
+    <link>https://www.exploringdata.org/post/</link>
     <description>Recent content in Posts on Exploring Data</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 30 May 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.exploringdata.org/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Business Ready Plots with R</title>
-      <link>/post/business-ready-plots-with-r/</link>
+      <link>https://www.exploringdata.org/post/business-ready-plots-with-r/</link>
       <pubDate>Sat, 30 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/business-ready-plots-with-r/</guid>
+      <guid>https://www.exploringdata.org/post/business-ready-plots-with-r/</guid>
       <description>Quick Overview Recently, I completed the Data Science for Business 101 course over at Business Science University. In the course, Matt Dancho teaches students the fundamentals of data science for business with the tidyverse.
 The course is jam packed with material: from basic data wrangling all the way to applied machine learning - I highly recommend it to anyone looking to advance their skills 🤓
 Clink this LINK to access the course.</description>
@@ -24,10 +24,10 @@ Clink this LINK to access the course.</description>
     
     <item>
       <title>Quick Tips for Data Cleaning in R</title>
-      <link>/post/quick-tips-for-data-cleaning-in-r/</link>
+      <link>https://www.exploringdata.org/post/quick-tips-for-data-cleaning-in-r/</link>
       <pubDate>Sun, 24 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/quick-tips-for-data-cleaning-in-r/</guid>
+      <guid>https://www.exploringdata.org/post/quick-tips-for-data-cleaning-in-r/</guid>
       <description>Data Cleaning (istockphoto)
  What to Expect I’m excited to share pro-tips that will expedite your process for cleaning and standardizing column names in your data; this is a critical yet sometimes overlooked step in the cleaning + tidying of data.
 There are a couple of handy functions() available in R to help effectively execute these tasks.
@@ -36,10 +36,10 @@ By the end of this short article you’ll have a couple of new tricks up your sl
     
     <item>
       <title>Examining Data with glimpse()</title>
-      <link>/post/examining-data-with-glimpse/</link>
+      <link>https://www.exploringdata.org/post/examining-data-with-glimpse/</link>
       <pubDate>Fri, 15 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/examining-data-with-glimpse/</guid>
+      <guid>https://www.exploringdata.org/post/examining-data-with-glimpse/</guid>
       <description>Let’s Dive into an Example I’m a nerd 🤓 when it comes to programming (esp. in R) and love learning about new functions.
 Matt Dancho, early in his Data Science Foundations with R Course, teaches students the importance of examining data before diving into wrangling and exploring it further.
 One of the functions I’ve adopted from the course is the glimpse() function - it’s awesome and I use it all the time!</description>
@@ -47,25 +47,13 @@ One of the functions I’ve adopted from the course is the glimpse() function - 
     
     <item>
       <title>Advanced Plots with str_glue()</title>
-      <link>/post/advanced-plots-in-r-with-str_glue/</link>
+      <link>https://www.exploringdata.org/post/advanced-plots-in-r-with-str_glue/</link>
       <pubDate>Sun, 03 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/advanced-plots-in-r-with-str_glue/</guid>
+      <guid>https://www.exploringdata.org/post/advanced-plots-in-r-with-str_glue/</guid>
       <description>Enter your Email Here to receive notifications when new content is posted.
 Let’s Dive Into an Example I’d like to share a technique using str_glue() that I learned from Matt Dancho, a Data-Science instructor at Business Science University. Check out my favorite course here: Business Analysis With R.
 str_glue() from the stringr library is one of my favorite functions in R - It’s super helpful for wrangling and manipulating text in preparation for building advanced plots.</description>
-    </item>
-    
-    <item>
-      <title>Up and Running with R &#43; RStudio</title>
-      <link>/post/up-and-running-with-r-rstudio/</link>
-      <pubDate>Sat, 02 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/post/up-and-running-with-r-rstudio/</guid>
-      <description> Let’s dive right in!
-This post will get new users of R up and running quickly.
-Getting Started If you’ve never used R before, then you are in for a treat! The awesome people at RStudio are doing incredible work to help users of R be productive. RStudio is an open source (+commercial editions) Integrated Development Environment (IDE).
- </description>
     </item>
     
   </channel>
