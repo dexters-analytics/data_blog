@@ -2,102 +2,111 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Exploring Data</title>
-    <link>https://www.exploringdata.org/tags/</link>
+    <link>/tags/</link>
     <description>Recent content in Tags on Exploring Data</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 30 May 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://www.exploringdata.org/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>ggplot</title>
-      <link>https://www.exploringdata.org/tags/ggplot/</link>
+      <link>/tags/ggplot/</link>
       <pubDate>Sat, 30 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.exploringdata.org/tags/ggplot/</guid>
+      <guid>/tags/ggplot/</guid>
       <description></description>
     </item>
     
     <item>
       <title>R</title>
-      <link>https://www.exploringdata.org/tags/r/</link>
+      <link>/tags/r/</link>
       <pubDate>Sat, 30 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.exploringdata.org/tags/r/</guid>
+      <guid>/tags/r/</guid>
       <description></description>
     </item>
     
     <item>
       <title>tidyquant</title>
-      <link>https://www.exploringdata.org/tags/tidyquant/</link>
+      <link>/tags/tidyquant/</link>
       <pubDate>Sat, 30 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.exploringdata.org/tags/tidyquant/</guid>
+      <guid>/tags/tidyquant/</guid>
       <description></description>
     </item>
     
     <item>
       <title>visualizations</title>
-      <link>https://www.exploringdata.org/tags/visualizations/</link>
+      <link>/tags/visualizations/</link>
       <pubDate>Sat, 30 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.exploringdata.org/tags/visualizations/</guid>
+      <guid>/tags/visualizations/</guid>
       <description></description>
     </item>
     
     <item>
       <title>data</title>
-      <link>https://www.exploringdata.org/tags/data/</link>
+      <link>/tags/data/</link>
       <pubDate>Sun, 24 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.exploringdata.org/tags/data/</guid>
+      <guid>/tags/data/</guid>
       <description></description>
     </item>
     
     <item>
       <title>data wrangling</title>
-      <link>https://www.exploringdata.org/tags/data-wrangling/</link>
+      <link>/tags/data-wrangling/</link>
       <pubDate>Sun, 24 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.exploringdata.org/tags/data-wrangling/</guid>
+      <guid>/tags/data-wrangling/</guid>
       <description></description>
     </item>
     
     <item>
       <title>tidyverse</title>
-      <link>https://www.exploringdata.org/tags/tidyverse/</link>
+      <link>/tags/tidyverse/</link>
       <pubDate>Sun, 24 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.exploringdata.org/tags/tidyverse/</guid>
+      <guid>/tags/tidyverse/</guid>
       <description></description>
     </item>
     
     <item>
       <title>dplyr</title>
-      <link>https://www.exploringdata.org/tags/dplyr/</link>
+      <link>/tags/dplyr/</link>
       <pubDate>Fri, 15 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.exploringdata.org/tags/dplyr/</guid>
+      <guid>/tags/dplyr/</guid>
       <description></description>
     </item>
     
     <item>
       <title>stringr</title>
-      <link>https://www.exploringdata.org/tags/stringr/</link>
+      <link>/tags/stringr/</link>
       <pubDate>Sun, 03 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.exploringdata.org/tags/stringr/</guid>
+      <guid>/tags/stringr/</guid>
       <description></description>
     </item>
     
     <item>
       <title>data engineering</title>
-      <link>https://www.exploringdata.org/tags/data-engineering/</link>
+      <link>/tags/data-engineering/</link>
       <pubDate>Sat, 02 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.exploringdata.org/tags/data-engineering/</guid>
+      <guid>/tags/data-engineering/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>RStudio</title>
+      <link>/tags/rstudio/</link>
+      <pubDate>Sat, 02 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/rstudio/</guid>
       <description></description>
     </item>
     

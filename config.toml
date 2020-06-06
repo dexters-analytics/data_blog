@@ -6,10 +6,10 @@ disqusShortname = "https-www-exploringdata-org" # delete this to disable disqus 
 
 googleAnalytics = "UA-134222974-1"
 
-[blackfriday]
-  hrefTargetBlank = true
-  noreferrerLinks = true
-  nofollowLinks   = true
+#[blackfriday]
+#  hrefTargetBlank = true
+#  noreferrerLinks = true
+#  nofollowLinks   = true
 
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"] 
 
@@ -25,7 +25,7 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
     highlightStyle = "solarized-dark"
     highlightLanguages = ["go", "haskell", "kotlin", "scala", "swift"]
     code_copy_button = true # Turn on/off the code-copy-button for code-fields
-    relatedPosts = false  # Add a related content section to all single posts page
+    #relatedPosts = false  # Add a related content section to all single posts page
     
     # Add custom css
     #customCSS = ["css/extra.css"]
