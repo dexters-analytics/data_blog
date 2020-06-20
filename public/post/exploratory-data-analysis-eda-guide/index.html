@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Exploratory Data Analysis (EDA) Guide</title>
+        
+        <style>
+
+    html body {
+        font-family: 'Raleway', sans-serif;
+        background-color: white;
+    }
+
+    :root {
+        --accent: black;
+        --border-width:  5px ;
+    }
+
+</style>
+
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+
+
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-dark.min.css"> 
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+ 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/haskell.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/scala.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/swift.min.js"></script>
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
+ <meta name="generator" content="Hugo 0.69.2" />
+        
+
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-134222974-1"></script>
+            <script>
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments)};
+              gtag('js', new Date());
+              gtag('config', 'UA-134222974-1');
+            </script>
+        
+
+        
+            <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+
+        
+
+    </head>
+
+    <body>
+        
+
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand visible-xs" href="#">Exploratory Data Analysis (EDA) Guide</a>
+                    <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse">
+                    
+                        <ul class="nav navbar-nav">
+                            
+                                <li><a href="/">Home</a></li>
+                            
+                                <li><a href="/about/">About</a></li>
+                            
+                                <li><a href="/post/">Posts</a></li>
+                            
+                        </ul>
+                    
+                    
+                        <ul class="nav navbar-nav navbar-right">
+                            
+                                <li class="navbar-icon"><a href="https://www.linkedin.com/in/jdex/"><i class="fa fa-linkedin"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://github.com/dexters-analytics"><i class="fa fa-github"></i></a></li>
+                            
+                        </ul>
+                    
+                </div>
+            </div>
+        </nav>
+
+
+<main>
+
+    <div>
+        <h2>Exploratory Data Analysis (EDA) Guide</h2>
+        <h5>June 20, 2020</h5>
+        
+<a href="/tags/r"><kbd class="item-tag">R</kbd></a>
+
+<a href="/tags/eda"><kbd class="item-tag">EDA</kbd></a>
+
+<a href="/tags/r-for-data-science"><kbd class="item-tag">R for Data Science</kbd></a>
+
+
+    </div>
+
+    <div align="start" class="content">
+
+
+<p><br/></p>
+<div id="quick-overview" class="section level3">
+<h3>Quick Overview</h3>
+<p>Hadley Wickham and Garrett Grolemund wrote an incredible book called <a href="https://r4ds.had.co.nz/exploratory-data-analysis.html" target="_blank">R for Data Science (R4DS)</a>. In the book they teach how to “turn raw data into understanding, insight, and knowledge.” The authors do this by being laser focused on the tools that help the data-practitioner import, tidy, transform, visualize, and model data (+communicate findings):</p>
+<div class="figure">
+<img src="/post/2020-06-20-exploratory-data-analysis-eda-guide_files/data_science_workflow.png" alt="" />
+<p class="caption">R4DS Workflow</p>
+</div>
+<p>Chapter 5 is on Exploratory Data Analysis (EDA) and this past week I dug into the material a bit.</p>
+<p>The chapter is 🔥 and I highly recommend it 😎</p>
+</div>
+<div id="exploring-data" class="section level3">
+<h3>Exploring Data</h3>
+<p>I was super excited about the chapter and the learning it packed!</p>
+<p>In my own path to improving my EDA skills I thought I’d capture what stuck out most to myself in a form of a blog post.</p>
+</div>
+<div id="eda-overview" class="section level3">
+<h3>EDA Overview</h3>
+<p>The authors of R4DS explain EDA as the process of “using visualization and transformation to <code>Explore</code> your <code>Data</code> in a systematic way.” They recommend an iterative cycle as follows:</p>
+<blockquote>
+<ol style="list-style-type: decimal">
+<li>Generate <code>questions</code> about your data.</li>
+<li>Search for <code>answers</code> by visualizing, transforming, and modeling your data.</li>
+<li>Use what you learn to refine your <code>questions</code> and/or generate new <code>questions.</code></li>
+</ol>
+</blockquote>
+</div>
+<div id="favorite-quotes-from-intro" class="section level3">
+<h3>Favorite Quotes (from Intro)</h3>
+<p>The chapter was packed full of content - here are the quotes that stood out the most from the Introduction:</p>
+<ul>
+<li><p>“EDA is not a formal process with a strict set of rules.”</p></li>
+<li><p>“EDA is a state of mind.” - I love this one 😎</p></li>
+<li><p>“During the initial phases of EDA you should feel free to investigate every idea that occurs to you.”</p></li>
+<li><p>“As your exploration continues, you will home in on a few particularly productive areas that you’ll eventually write up and communicate to others.”</p></li>
+</ul>
+</div>
+<div id="questions-drive-eda" class="section level3">
+<h3>Questions Drive EDA</h3>
+<p>One of my biggest take always from the chapter was the emphasis on EDA being a creative process that is <code>driven by</code> asking <code>questions</code> - and lots of them 🤓</p>
+</div>
+<div id="section-on-questions" class="section level3">
+<h3>Section on Questions</h3>
+<p>The section titled <code>Questions</code> was packed full of nuggets - here a few of the quotes that stuck out:</p>
+<ul>
+<li><p>“EDA is fundamentally a creative process.”</p></li>
+<li><p>“Your goal during EDA is to develop an understanding of your data. The easiest way to do this is to use <code>questions</code> as tools to guide your investigation.”</p></li>
+<li><p>“the key to asking quality <code>questions</code> is to generate a large quantity of <code>questions.</code>” - So Good 😎</p></li>
+<li><p>“each new question that you ask will expose you to a new aspect of your data and increase your chance of making a discovery.”</p></li>
+<li><p>“There is no rule about which questions you should ask to guide your research. However, two types of questions will always be useful for making discoveries within your data. You can loosely word these questions as:”</p></li>
+</ul>
+<blockquote>
+<ol style="list-style-type: decimal">
+<li>What type of variation occurs within my variables?</li>
+<li>What type of covariation occurs between my variables?</li>
+</ol>
+</blockquote>
+</div>
+<div id="section-on-variation" class="section level3">
+<h3>Section on Variation</h3>
+<p>We always are interested in discovering what explains the variation we see and so this sections was very interesting. Here are a few of the quotes that stood out:</p>
+<ul>
+<li><p>“Variation is the tendency of the values of a variable to change from measurement to measurement.”</p></li>
+<li><p>“Every variable has its own pattern of variation, which can reveal interesting information.”</p></li>
+<li><p>“The best way to understand that pattern is to visualize the distribution of the variable’s values.”</p></li>
+</ul>
+</div>
+<div id="visualizating-distributions" class="section level3">
+<h3>Visualizating Distributions</h3>
+<p>This post wouldn’t be complete without a bit of code and a few visualizations.</p>
+<ul>
+<li>“To examine the distribution of a categorical variable, use a bar chart:”</li>
+</ul>
+<pre class="r"><code>p1 &lt;- ggplot(diamonds) +
+    geom_bar(aes(x = cut)) +
+    labs(title = &quot;Bar Charts for Categorical Variables&quot;)
+p1</code></pre>
+<p><img src="/post/2020-06-20-exploratory-data-analysis-eda-guide_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<ul>
+<li><p>“examine the distribution of a continuous variable, use a histogram:”</p></li>
+<li><p>“You can set the width of the intervals in a histogram with the <code>binwidth</code> argument, which is <code>measured in the units of the x variable</code>.”</p></li>
+</ul>
+<pre class="r"><code>p2 &lt;- ggplot(diamonds %&gt;% filter(carat &lt; 3)) +
+    geom_histogram(aes(x = carat), binwidth = 0.5) +
+    labs(title = &quot;Histograms for Continuous Variables - binwidth: 0.5&quot;) 
+
+p3 &lt;- ggplot(diamonds %&gt;% filter(carat &lt; 3)) +
+    geom_histogram(aes(x = carat), binwidth = 0.1) +
+    labs(title = &quot;Histograms for Continuous Variables - binwidth: 0.1&quot;) 
+
+p4 &lt;- ggplot(diamonds %&gt;% filter(carat &lt; 3)) +
+    geom_histogram(aes(x = carat), binwidth = 0.01) +
+    labs(title = &quot;Histograms for Continuous Variables - binwidth: 0.01&quot;) </code></pre>
+<ul>
+<li>“You should always <code>explore a variety of binwidths</code> when working with histograms, as different binwidths can reveal different patterns.”</li>
+</ul>
+<pre class="r"><code># Show plots
+p2/p3/p4</code></pre>
+<p><img src="/post/2020-06-20-exploratory-data-analysis-eda-guide_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+</div>
+</div>
+
+    
+    
+    
+        <h4 class="page-header">Related</h4>
+         <div class="item">
+
+    
+    
+    
+
+    
+    
+
+    <h4><a href="/post/business-ready-plots-with-r/">Business Ready Plots with R</a></h4>
+    <h5>May 30, 2020</h5>
+    
+<a href="/tags/r"><kbd class="item-tag">R</kbd></a>
+
+<a href="/tags/ggplot"><kbd class="item-tag">ggplot</kbd></a>
+
+<a href="/tags/visualizations"><kbd class="item-tag">visualizations</kbd></a>
+
+<a href="/tags/tidyquant"><kbd class="item-tag">tidyquant</kbd></a>
+
+
+
+</div>
+  <div class="item">
+
+    
+    
+    
+
+    
+    
+
+    <h4><a href="/post/quick-tips-for-data-cleaning-in-r/">Quick Tips for Data Cleaning in R</a></h4>
+    <h5>May 24, 2020</h5>
+    
+<a href="/tags/r"><kbd class="item-tag">R</kbd></a>
+
+<a href="/tags/tidyverse"><kbd class="item-tag">tidyverse</kbd></a>
+
+<a href="/tags/data-wrangling"><kbd class="item-tag">data wrangling</kbd></a>
+
+
+
+</div>
+  <div class="item">
+
+    
+    
+    
+
+    
+    
+
+    <h4><a href="/post/examining-data-with-glimpse/">Examining Data with glimpse()</a></h4>
+    <h5>May 15, 2020</h5>
+    
+<a href="/tags/r"><kbd class="item-tag">R</kbd></a>
+
+<a href="/tags/tidyverse"><kbd class="item-tag">tidyverse</kbd></a>
+
+<a href="/tags/dplyr"><kbd class="item-tag">dplyr</kbd></a>
+
+
+
+</div>
+ 
+    
+
+    
+    
+        <h4 class="page-header">Comments</h4>
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "https-www-exploringdata-org" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
+
+</main>
+
+        <footer>
+            <p class="copyright text-muted">© All rights reserved. Powered by <a href="https://gohugo.io">Hugo</a> and <a href="https://github.com/calintat/minimal">Minimal</a>.</p>
+        </footer>
+
+        
+
+        
+    </body>
+
+</html>
+

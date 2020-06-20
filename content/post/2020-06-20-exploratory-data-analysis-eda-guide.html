@@ -1,0 +1,116 @@
+---
+title: Exploratory Data Analysis (EDA) Guide
+author: Jason Dexter
+date: '2020-06-20'
+slug: exploratory-data-analysis-eda-guide
+categories: []
+tags:
+  - R
+  - EDA
+  - R for Data Science
+editor_options: 
+  chunk_output_type: console
+---
+
+
+
+<p><br/></p>
+<div id="quick-overview" class="section level3">
+<h3>Quick Overview</h3>
+<p>Hadley Wickham and Garrett Grolemund wrote an incredible book called <a href="https://r4ds.had.co.nz/exploratory-data-analysis.html" target="_blank">R for Data Science (R4DS)</a>. In the book they teach how to “turn raw data into understanding, insight, and knowledge.” The authors do this by being laser focused on the tools that help the data-practitioner import, tidy, transform, visualize, and model data (+communicate findings):</p>
+<div class="figure">
+<img src="/post/2020-06-20-exploratory-data-analysis-eda-guide_files/data_science_workflow.png" alt="" />
+<p class="caption">R4DS Workflow</p>
+</div>
+<p>Chapter 5 is on Exploratory Data Analysis (EDA) and this past week I dug into the material a bit.</p>
+<p>The chapter is 🔥 and I highly recommend it 😎</p>
+</div>
+<div id="exploring-data" class="section level3">
+<h3>Exploring Data</h3>
+<p>I was super excited about the chapter and the learning it packed!</p>
+<p>In my own path to improving my EDA skills I thought I’d capture what stuck out most to myself in a form of a blog post.</p>
+</div>
+<div id="eda-overview" class="section level3">
+<h3>EDA Overview</h3>
+<p>The authors of R4DS explain EDA as the process of “using visualization and transformation to <code>Explore</code> your <code>Data</code> in a systematic way.” They recommend an iterative cycle as follows:</p>
+<blockquote>
+<ol style="list-style-type: decimal">
+<li>Generate <code>questions</code> about your data.</li>
+<li>Search for <code>answers</code> by visualizing, transforming, and modeling your data.</li>
+<li>Use what you learn to refine your <code>questions</code> and/or generate new <code>questions.</code></li>
+</ol>
+</blockquote>
+</div>
+<div id="favorite-quotes-from-intro" class="section level3">
+<h3>Favorite Quotes (from Intro)</h3>
+<p>The chapter was packed full of content - here are the quotes that stood out the most from the Introduction:</p>
+<ul>
+<li><p>“EDA is not a formal process with a strict set of rules.”</p></li>
+<li><p>“EDA is a state of mind.” - I love this one 😎</p></li>
+<li><p>“During the initial phases of EDA you should feel free to investigate every idea that occurs to you.”</p></li>
+<li><p>“As your exploration continues, you will home in on a few particularly productive areas that you’ll eventually write up and communicate to others.”</p></li>
+</ul>
+</div>
+<div id="questions-drive-eda" class="section level3">
+<h3>Questions Drive EDA</h3>
+<p>One of my biggest take always from the chapter was the emphasis on EDA being a creative process that is <code>driven by</code> asking <code>questions</code> - and lots of them 🤓</p>
+</div>
+<div id="section-on-questions" class="section level3">
+<h3>Section on Questions</h3>
+<p>The section titled <code>Questions</code> was packed full of nuggets - here a few of the quotes that stuck out:</p>
+<ul>
+<li><p>“EDA is fundamentally a creative process.”</p></li>
+<li><p>“Your goal during EDA is to develop an understanding of your data. The easiest way to do this is to use <code>questions</code> as tools to guide your investigation.”</p></li>
+<li><p>“the key to asking quality <code>questions</code> is to generate a large quantity of <code>questions.</code>” - So Good 😎</p></li>
+<li><p>“each new question that you ask will expose you to a new aspect of your data and increase your chance of making a discovery.”</p></li>
+<li><p>“There is no rule about which questions you should ask to guide your research. However, two types of questions will always be useful for making discoveries within your data. You can loosely word these questions as:”</p></li>
+</ul>
+<blockquote>
+<ol style="list-style-type: decimal">
+<li>What type of variation occurs within my variables?</li>
+<li>What type of covariation occurs between my variables?</li>
+</ol>
+</blockquote>
+</div>
+<div id="section-on-variation" class="section level3">
+<h3>Section on Variation</h3>
+<p>We always are interested in discovering what explains the variation we see and so this sections was very interesting. Here are a few of the quotes that stood out:</p>
+<ul>
+<li><p>“Variation is the tendency of the values of a variable to change from measurement to measurement.”</p></li>
+<li><p>“Every variable has its own pattern of variation, which can reveal interesting information.”</p></li>
+<li><p>“The best way to understand that pattern is to visualize the distribution of the variable’s values.”</p></li>
+</ul>
+</div>
+<div id="visualizating-distributions" class="section level3">
+<h3>Visualizating Distributions</h3>
+<p>This post wouldn’t be complete without a bit of code and a few visualizations.</p>
+<ul>
+<li>“To examine the distribution of a categorical variable, use a bar chart:”</li>
+</ul>
+<pre class="r"><code>p1 &lt;- ggplot(diamonds) +
+    geom_bar(aes(x = cut)) +
+    labs(title = &quot;Bar Charts for Categorical Variables&quot;)
+p1</code></pre>
+<p><img src="/post/2020-06-20-exploratory-data-analysis-eda-guide_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<ul>
+<li><p>“examine the distribution of a continuous variable, use a histogram:”</p></li>
+<li><p>“You can set the width of the intervals in a histogram with the <code>binwidth</code> argument, which is <code>measured in the units of the x variable</code>.”</p></li>
+</ul>
+<pre class="r"><code>p2 &lt;- ggplot(diamonds %&gt;% filter(carat &lt; 3)) +
+    geom_histogram(aes(x = carat), binwidth = 0.5) +
+    labs(title = &quot;Histograms for Continuous Variables - binwidth: 0.5&quot;) 
+
+p3 &lt;- ggplot(diamonds %&gt;% filter(carat &lt; 3)) +
+    geom_histogram(aes(x = carat), binwidth = 0.1) +
+    labs(title = &quot;Histograms for Continuous Variables - binwidth: 0.1&quot;) 
+
+p4 &lt;- ggplot(diamonds %&gt;% filter(carat &lt; 3)) +
+    geom_histogram(aes(x = carat), binwidth = 0.01) +
+    labs(title = &quot;Histograms for Continuous Variables - binwidth: 0.01&quot;) </code></pre>
+<ul>
+<li>“You should always <code>explore a variety of binwidths</code> when working with histograms, as different binwidths can reveal different patterns.”</li>
+</ul>
+<pre class="r"><code># Show plots
+p2/p3/p4</code></pre>
+<p><img src="/post/2020-06-20-exploratory-data-analysis-eda-guide_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+</div>

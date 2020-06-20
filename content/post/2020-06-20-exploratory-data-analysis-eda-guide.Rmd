@@ -1,0 +1,136 @@
+---
+title: Exploratory Data Analysis (EDA) Guide
+author: Jason Dexter
+date: '2020-06-20'
+slug: exploratory-data-analysis-eda-guide
+categories: []
+tags:
+  - R
+  - EDA
+  - R for Data Science
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  message = FALSE,
+  warning = FALSE)
+
+library(tidyverse)
+library(tidyquant)
+library(patchwork)
+theme_set(theme_tq())
+```
+
+
+<br/> 
+
+### Quick Overview
+
+Hadley Wickham and Garrett Grolemund wrote an incredible book called [R for Data Science (R4DS)](https://r4ds.had.co.nz/exploratory-data-analysis.html){target="_blank"}. In the book they teach how to "turn raw data into understanding, insight, and knowledge." The authors do this by being laser focused on the tools that help the data-practitioner import, tidy, transform, visualize, and model data (+communicate findings):
+
+![R4DS Workflow](/post/2020-06-20-exploratory-data-analysis-eda-guide_files/data_science_workflow.png)
+
+Chapter 5 is on Exploratory Data Analysis (EDA) and this past week I dug into the material a bit. 
+
+The chapter is 🔥 and I highly recommend it 😎
+
+### Exploring Data
+
+I was super excited about the chapter and the learning it packed!
+
+In my own path to improving my EDA skills I thought I'd capture what stuck out most to myself in a form of a blog post. 
+
+### EDA Overview
+
+The authors of R4DS explain EDA as the process of "using visualization and transformation to `Explore` your `Data` in a systematic way." They recommend an iterative cycle as follows:
+
+> 1. Generate `questions` about your data.
+> 2. Search for `answers` by visualizing, transforming, and modeling your data.
+> 3. Use what you learn to refine your `questions` and/or generate new `questions.`
+
+
+### Favorite Quotes (from Intro)
+
+The chapter was packed full of content - here are the quotes that stood out the most from the Introduction:
+
+* "EDA is not a formal process with a strict set of rules."
+
+* "EDA is a state of mind." - I love this one 😎
+
+* "During the initial phases of EDA you should feel free to investigate every idea that occurs to you."
+
+* "As your exploration continues, you will home in on a few particularly productive areas that you’ll eventually write up and communicate to others."
+
+
+### Questions Drive EDA
+
+One of my biggest take always from the chapter was the emphasis on EDA being a creative process that is `driven by` asking `questions` - and lots of them 🤓
+
+### Section on Questions
+
+The section titled `Questions` was packed full of nuggets - here a few of the quotes that stuck out:
+
+* "EDA is fundamentally a creative process."
+
+* "Your goal during EDA is to develop an understanding of your data. The easiest way to do this is to use `questions` as tools to guide your investigation."
+
+* "the key to asking quality `questions` is to generate a large quantity of `questions.`" - So Good 😎
+
+* "each new question that you ask will expose you to a new aspect of your data and increase your chance of making a discovery."
+
+* "There is no rule about which questions you should ask to guide your research. However, two types of questions will always be useful for making discoveries within your data. You can loosely word these questions as:"
+
+> 1. What type of variation occurs within my variables?
+> 2. What type of covariation occurs between my variables?
+
+
+### Section on Variation
+
+We always are interested in discovering what explains the variation we see and so this sections was very interesting. Here are a few of the quotes that stood out:
+
+* "Variation is the tendency of the values of a variable to change from measurement to measurement."
+
+* "Every variable has its own pattern of variation, which can reveal interesting information."
+
+* "The best way to understand that pattern is to visualize the distribution of the variable’s values."
+
+### Visualizating Distributions
+
+This post wouldn't be complete without a bit of code and a few visualizations.
+
+* "To examine the distribution of a categorical variable, use a bar chart:"
+
+```{r, fig.height=2}
+p1 <- ggplot(diamonds) +
+    geom_bar(aes(x = cut)) +
+    labs(title = "Bar Charts for Categorical Variables")
+p1
+```
+
+* "examine the distribution of a continuous variable, use a histogram:"
+
+* "You can set the width of the intervals in a histogram with the `binwidth` argument, which is `measured in the units of the x variable`."
+
+```{r, fig.height=6}
+p2 <- ggplot(diamonds %>% filter(carat < 3)) +
+    geom_histogram(aes(x = carat), binwidth = 0.5) +
+    labs(title = "Histograms for Continuous Variables - binwidth: 0.5") 
+
+p3 <- ggplot(diamonds %>% filter(carat < 3)) +
+    geom_histogram(aes(x = carat), binwidth = 0.1) +
+    labs(title = "Histograms for Continuous Variables - binwidth: 0.1") 
+
+p4 <- ggplot(diamonds %>% filter(carat < 3)) +
+    geom_histogram(aes(x = carat), binwidth = 0.01) +
+    labs(title = "Histograms for Continuous Variables - binwidth: 0.01") 
+```
+
+* "You should always `explore a variety of binwidths` when working with histograms, as different binwidths can reveal different patterns."
+
+```{r}
+# Show plots
+p2/p3/p4
+```
+
