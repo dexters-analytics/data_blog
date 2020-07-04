@@ -41,7 +41,7 @@ The chapter is 🔥 and I highly recommend it 😎
 
 I was super excited about the chapter and the knowledge it packed!
 
-In my own path to improving my EDA skills I thought I'd capture what stuck out most to myself in a form of a blog post.
+In my own path to improving my EDA skills I thought I'd capture what stuck out most to myself in the form of a blog post.
 
 ### EDA Overview
 
