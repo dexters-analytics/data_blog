@@ -19,7 +19,7 @@
       <guid>/post/exploratory-data-analysis-eda-guide/</guid>
       <description>Quick Overview Hadley Wickham and Garrett Grolemund wrote an incredible book called R for Data Science (R4DS). In the book they teach how to “turn raw data into understanding, insight, and knowledge.” The authors do this by being laser focused on the tools that help the data-practitioner import, tidy, transform, visualize, and model data (+communicate findings):
 R4DS Workflow
- Chapter 5 is on Exploratory Data Analysis (EDA) and this past week I dug into the material a bit.</description>
+ I dug into the material in the chapter on Exploratory Data Analysis (EDA) this past week.</description>
     </item>
     
     <item>

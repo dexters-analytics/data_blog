@@ -10,6 +10,7 @@ tags:
   - R for Data Science
 editor_options: 
   chunk_output_type: console
+output: html_document
 ---
 
 
@@ -22,12 +23,12 @@ editor_options:
 <img src="/post/2020-06-20-exploratory-data-analysis-eda-guide_files/data_science_workflow.png" alt="" />
 <p class="caption">R4DS Workflow</p>
 </div>
-<p>Chapter 5 is on Exploratory Data Analysis (EDA) and this past week I dug into the material a bit.</p>
+<p>I dug into the material in the chapter on Exploratory Data Analysis (EDA) this past week.</p>
 <p>The chapter is 🔥 and I highly recommend it 😎</p>
 </div>
 <div id="exploring-data" class="section level3">
 <h3>Exploring Data</h3>
-<p>I was super excited about the chapter and the learning it packed!</p>
+<p>I was super excited about the chapter and the knowledge it packed!</p>
 <p>In my own path to improving my EDA skills I thought I’d capture what stuck out most to myself in a form of a blog post.</p>
 </div>
 <div id="eda-overview" class="section level3">
@@ -53,7 +54,7 @@ editor_options:
 </div>
 <div id="questions-drive-eda" class="section level3">
 <h3>Questions Drive EDA</h3>
-<p>One of my biggest take always from the chapter was the emphasis on EDA being a creative process that is <code>driven by</code> asking <code>questions</code> - and lots of them 🤓</p>
+<p>One of my biggest take always from the chapter was the emphasis on EDA being a creative process that is <code>driven by</code> asking <code>questions</code> - and lots of them 🤔</p>
 </div>
 <div id="section-on-questions" class="section level3">
 <h3>Section on Questions</h3>
@@ -74,7 +75,7 @@ editor_options:
 </div>
 <div id="section-on-variation" class="section level3">
 <h3>Section on Variation</h3>
-<p>We always are interested in discovering what explains the variation we see and so this sections was very interesting. Here are a few of the quotes that stood out:</p>
+<p>We always are interested in discovering what explains the variation seen in data and so the section on <code>Variation</code> was very interesting. Here are a few of the quotes that stood out:</p>
 <ul>
 <li><p>“Variation is the tendency of the values of a variable to change from measurement to measurement.”</p></li>
 <li><p>“Every variable has its own pattern of variation, which can reveal interesting information.”</p></li>
@@ -83,7 +84,9 @@ editor_options:
 </div>
 <div id="visualizating-distributions" class="section level3">
 <h3>Visualizating Distributions</h3>
-<p>This post wouldn’t be complete without a bit of code and a few visualizations.</p>
+<p>This post wouldn’t be complete without a bit of code and a few visualizations 🤓</p>
+<div id="categorical-variables" class="section level4">
+<h4>Categorical Variables</h4>
 <ul>
 <li>“To examine the distribution of a categorical variable, use a bar chart:”</li>
 </ul>
@@ -92,25 +95,88 @@ editor_options:
     labs(title = &quot;Bar Charts for Categorical Variables&quot;)
 p1</code></pre>
 <p><img src="/post/2020-06-20-exploratory-data-analysis-eda-guide_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+</div>
+<div id="continuous-variables" class="section level4">
+<h4>Continuous Variables</h4>
 <ul>
-<li><p>“examine the distribution of a continuous variable, use a histogram:”</p></li>
+<li><p>“To examine the distribution of a continuous variable, use a histogram:”</p></li>
 <li><p>“You can set the width of the intervals in a histogram with the <code>binwidth</code> argument, which is <code>measured in the units of the x variable</code>.”</p></li>
 </ul>
 <pre class="r"><code>p2 &lt;- ggplot(diamonds %&gt;% filter(carat &lt; 3)) +
-    geom_histogram(aes(x = carat), binwidth = 0.5) +
-    labs(title = &quot;Histograms for Continuous Variables - binwidth: 0.5&quot;) 
+    geom_histogram(aes(x = carat), binwidth = 1.0) +
+    labs(title = &quot;Binwidth: 1.0&quot;) 
 
 p3 &lt;- ggplot(diamonds %&gt;% filter(carat &lt; 3)) +
-    geom_histogram(aes(x = carat), binwidth = 0.1) +
-    labs(title = &quot;Histograms for Continuous Variables - binwidth: 0.1&quot;) 
+    geom_histogram(aes(x = carat), binwidth = 0.5) +
+    labs(title = &quot;Binwidth = 0.5&quot;) 
 
 p4 &lt;- ggplot(diamonds %&gt;% filter(carat &lt; 3)) +
+    geom_histogram(aes(x = carat), binwidth = 0.1) +
+    labs(title = &quot;Binwidth = 0.1&quot;) 
+
+p5 &lt;- ggplot(diamonds %&gt;% filter(carat &lt; 3)) +
     geom_histogram(aes(x = carat), binwidth = 0.01) +
-    labs(title = &quot;Histograms for Continuous Variables - binwidth: 0.01&quot;) </code></pre>
+    labs(title = &quot;Binwidth = 0.01&quot;) </code></pre>
 <ul>
 <li>“You should always <code>explore a variety of binwidths</code> when working with histograms, as different binwidths can reveal different patterns.”</li>
 </ul>
 <pre class="r"><code># Show plots
-p2/p3/p4</code></pre>
+patchwork &lt;- p2 + p3 + p4 + p5
+
+patchwork + plot_annotation(
+  title   = &quot;Histograms for Continuous Variables&quot;,
+  caption = &quot;Notice the different patterns that are revealed.&quot;
+)</code></pre>
 <p><img src="/post/2020-06-20-exploratory-data-analysis-eda-guide_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+</div>
+</div>
+<div id="typical-values" class="section level3">
+<h3>Typical Values</h3>
+<p>Remember how the author’s emphasize the use of questions to drive EDA?</p>
+<p>This section on <code>Typical</code> <code>Values</code> continues that thread and suggests the following questions to ask when <code>Visualizing</code> <code>Distributions</code>:</p>
+<ul>
+<li><p>“Which values are the most common? Why?”</p></li>
+<li><p>“Which values are rare? Why? Does that match your expectations?”</p></li>
+<li><p>“Can you see any unusual patterns? What might explain them?”</p></li>
+</ul>
+<p>Another learning from this section is to focus on the clusters revealed when <code>Visualizing</code> your <code>Distributions.</code> For example, take a look at the <code>Histogram</code> using a <code>Binwidth</code> of <code>0.01</code>; obvious clusters are revealed that are not obvious in the other 3 plots.</p>
+<pre class="r"><code>p5</code></pre>
+<p><img src="/post/2020-06-20-exploratory-data-analysis-eda-guide_files/figure-html/unnamed-chunk-4-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p>The author’s point out that “clusters of similar values suggest that subgroups exist in your data.”</p>
+<p>What do you think they suggest doing in this situation? Ask more questions 🤔</p>
+<p>Understand the subgroups by asking:</p>
+<ul>
+<li><p>“How are the observations within each cluster similar to each other?”</p></li>
+<li><p>“How are the observations in separate clusters different from each other?”</p></li>
+<li><p>“How can you explain or describe the clusters?”</p></li>
+<li><p>“Why might the appearance of clusters be misleading?”</p></li>
+</ul>
+</div>
+<div id="wrap-up" class="section level3">
+<h3>Wrap Up</h3>
+<p>The chapter goes on to discuss unusual values, missing values, covariation, and briefly get’s into using models to further your EDA. I highly recommend giving it a read and trying out the exercises in the chapter.</p>
+<p>Questions. Questions. Questions.</p>
+<p>The biggest learning I took from this chapter, and what I’ve started using in my own EDA process, is getting better at asking questions. Not only that, but really to let my curiosity drive the EDA early on in the process.</p>
+<p>And my favorite quote is probably this one:</p>
+<blockquote>
+<p>“the key to asking quality questions is to generate a large quantity of questions.”</p>
+</blockquote>
+</div>
+<div id="watch-an-expert-do-eda" class="section level3">
+<h3>Watch an Expert do EDA</h3>
+<p>This is a quick bonus for making it this far in the post.</p>
+<p>David Robinson is an expert when it comes to all things <code>EDA</code> and <code>R.</code> For the last year or so he has been recording weekly screencasts where he <code>Explores</code> <code>Data</code> he has never seen before.</p>
+<p>I watch these videos often to get insights into how to think analytically when doing EDA.</p>
+<p>You can check them out here at his YouTube channel: <a href="https://www.youtube.com/playlist?list=PL19ev-r1GBwkuyiwnxoHTRC8TTqP8OEi8" target="_blank">Tidy Tuesday R Screencasts</a></p>
+</div>
+<div id="learn-r-quickly" class="section level3">
+<h3>Learn R Quickly</h3>
+<p>I’ve expedited my <code>R</code> journey using the courses over at <a href="https://www.business-science.io/?affcode=173166_vnvxtqbd" target="_blank">Business Science University</a></p>
+<p>The instructor and CEO has given me a 15% discount to share with my audience. Get the discount and join me on the journey.</p>
+<p>Link to my favorite <code>R</code> course: <a href="https://university.business-science.io/p/ds4b-101-r-business-analysis-r/?coupon_code=DS4B15&amp;affcode=173166_vnvxtqbd" target="_blank">Data Science for Business 101</a></p>
+</div>
+<div id="stay-connected" class="section level3">
+<h3>Stay Connected</h3>
+<p>Enter your <a href="https://tinyletter.com/dexters-analytics" target="_blank">Email Here</a> to receive notifications when new content is posted.<br/></p>
+<p>PS: Be Kind and Tidy your Data 😎</p>
 </div>
