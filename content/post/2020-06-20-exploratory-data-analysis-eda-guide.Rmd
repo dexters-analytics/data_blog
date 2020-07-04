@@ -33,7 +33,7 @@ Hadley Wickham and Garrett Grolemund wrote an incredible book called [R for Data
 
 ![R4DS Workflow](/post/2020-06-20-exploratory-data-analysis-eda-guide_files/data_science_workflow.png)
 
-I dug into the material in the chapter on Exploratory Data Analysis (EDA) this past week. 
+I dug into the chapter on Exploratory Data Analysis (EDA) this past week. 
 
 The chapter is 🔥 and I highly recommend it 😎
 
@@ -41,7 +41,7 @@ The chapter is 🔥 and I highly recommend it 😎
 
 I was super excited about the chapter and the knowledge it packed!
 
-In my own path to improving my EDA skills I thought I'd capture what stuck out most to myself in the form of a blog post.
+In my own path to improving my EDA skills I thought I'd capture what stuck out most in the form of a blog post.
 
 ### EDA Overview
 
@@ -71,7 +71,7 @@ One of my biggest take always from the chapter was the emphasis on EDA being a c
 
 ### Section on Questions
 
-The section titled `Questions` was packed full of nuggets - here a few of the quotes that stuck out:
+The section titled `Questions` was packed full of nuggets - here are a few of the quotes that stuck out:
 
 * "EDA is fundamentally a creative process."
 
@@ -79,9 +79,9 @@ The section titled `Questions` was packed full of nuggets - here a few of the qu
 
 * "the key to asking quality `questions` is to generate a large quantity of `questions.`" - So Good 😎
 
-* "each new question that you ask will expose you to a new aspect of your data and increase your chance of making a discovery."
+* "each new `question` that you ask will expose you to a new aspect of your data and increase your chance of making a discovery."
 
-* "There is no rule about which questions you should ask to guide your research. However, two types of questions will always be useful for making discoveries within your data. You can loosely word these questions as:"
+* "There is no rule about which `questions` you should ask to guide your research. However, two types of `questions` will always be useful for making discoveries within your data. You can loosely word these `questions` as:"
 
 > 1. What type of variation occurs within my variables?
 > 2. What type of covariation occurs between my variables?
@@ -89,7 +89,7 @@ The section titled `Questions` was packed full of nuggets - here a few of the qu
 
 ### Section on Variation
 
-We always are interested in discovering what explains the variation seen in data and so the section on `Variation` was very interesting. Here are a few of the quotes that stood out:
+We are always interested in discovering what explains the variation seen in data and so the section on `Variation` was very interesting. Here are a few of the quotes that stood out:
 
 * "Variation is the tendency of the values of a variable to change from measurement to measurement."
 
@@ -97,7 +97,7 @@ We always are interested in discovering what explains the variation seen in data
 
 * "The best way to understand that pattern is to visualize the distribution of the variable’s values."
 
-### Visualizating Distributions
+### Visualizing Distributions
 
 This post wouldn't be complete without a bit of code and a few visualizations 🤓
 
@@ -150,9 +150,9 @@ patchwork + plot_annotation(
 
 ### Typical Values
 
-Remember how the author's emphasize the use of questions to drive EDA? 
+Remember how the author's emphasize the use of `questions` to drive EDA? 
 
-This section on `Typical` `Values` continues that thread and suggests the following questions to ask when `Visualizing` `Distributions`:
+This section on `Typical` `Values` continues that thread and suggests the following `questions` to ask when `Visualizing` `Distributions`:
 
 * "Which values are the most common? Why?"
 
@@ -169,7 +169,7 @@ p5
 
 The author's point out that "clusters of similar values suggest that subgroups exist in your data."
 
-What do you think they suggest doing in this situation? Ask more questions 🤔
+What do you think they suggest doing in this situation? Ask more `questions` 🤔
 
 Understand the subgroups by asking:
 
@@ -183,11 +183,11 @@ Understand the subgroups by asking:
 
 ### Wrap Up
 
-The chapter goes on to discuss unusual values, missing values, covariation, and briefly get's into using models to further your EDA. I highly recommend giving it a read and trying out the exercises in the chapter.
+The chapter goes on to discuss unusual values, missing values, covariation, and briefly goes into using models to further your EDA. I highly recommend giving it a read and trying out the exercises in the chapter.
 
-Questions. Questions. Questions.
+`Questions.` `Questions.` `Questions.`
 
-The biggest learning I took from this chapter, and what I've started using in my own EDA process, is getting better at asking questions. Not only that, but really to let my curiosity drive the EDA early on in the process.
+The biggest learning I took from this chapter, and what I've started using in my own EDA process, is getting better at asking `questions.` Not only that, but really to let my curiosity drive the EDA early on in the process.
 
 And my favorite quote is probably this one: 
 
@@ -197,7 +197,7 @@ And my favorite quote is probably this one:
 
 This is a quick bonus for making it this far in the post.
 
-David Robinson is an expert when it comes to all things `EDA` and `R.` For the last year or so he has been recording weekly screencasts where he `Explores` `Data` he has never seen before.
+David Robinson is an expert when it comes to all things `EDA` and `R`. For the last year or so he has been recording weekly screencasts where he `Explores` `Data` he has never seen before.
 
 I watch these videos often to get insights into how to think analytically when doing EDA.
 
@@ -205,11 +205,11 @@ You can check them out here at his YouTube channel: [Tidy Tuesday R Screencasts]
 
 ### Learn R Quickly
 
-I've expedited my `R` journey using the courses over at [Business Science University](https://www.business-science.io/?affcode=173166_vnvxtqbd){target="_blank"}
+I've expedited my `R` and `Data-Science` journey using the courses over at [Business Science University](https://www.business-science.io/?affcode=173166_vnvxtqbd){target="_blank"}
 
-The instructor and CEO has given me a 15% discount to share with my audience. Get the discount and join me on the journey. 
+The instructor, Matt Dancho, has given me a 15% discount to share with my audience. Get the discount and join me on the journey. 
 
-Link to my favorite `R` course: [Data Science for Business 101](https://university.business-science.io/p/ds4b-101-r-business-analysis-r/?coupon_code=DS4B15&affcode=173166_vnvxtqbd){target="_blank"}
+Link to my favorite `R` course (with 15% off discount): [Data Science for Business 101](https://university.business-science.io/p/ds4b-101-r-business-analysis-r/?coupon_code=DS4B15&affcode=173166_vnvxtqbd){target="_blank"}
 
 ### Stay Connected
 
