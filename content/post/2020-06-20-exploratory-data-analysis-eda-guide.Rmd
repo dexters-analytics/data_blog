@@ -195,7 +195,7 @@ And my favorite quote is probably this one:
 
 ### Watch an Expert do EDA
 
-This is a quick bonus for making it this far in the post.
+This is a `bonus` for making it this far in the post 😉
 
 David Robinson is an expert when it comes to all things `EDA` and `R`. For the last year or so he has been recording weekly screencasts where he `Explores` `Data` he has never seen before.
 
