@@ -214,6 +214,11 @@
 <div id="visualizing-distributions" class="section level3">
 <h3>Visualizing Distributions</h3>
 <p>This post wouldn’t be complete without a bit of code and a few visualizations 🤓</p>
+<pre class="r"><code># load libraries
+library(tidyverse)
+library(tidyquant)
+library(patchwork)
+theme_set(theme_tq())</code></pre>
 <div id="categorical-variables" class="section level4">
 <h4>Categorical Variables</h4>
 <ul>
@@ -223,7 +228,7 @@
     geom_bar(aes(x = cut)) +
     labs(title = &quot;Bar Charts for Categorical Variables&quot;)
 p1</code></pre>
-<p><img src="/post/2020-06-20-exploratory-data-analysis-eda-guide_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p><img src="/post/2020-06-20-exploratory-data-analysis-eda-guide_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 </div>
 <div id="continuous-variables" class="section level4">
 <h4>Continuous Variables</h4>
@@ -256,7 +261,7 @@ patchwork + plot_annotation(
   title   = &quot;Histograms for Continuous Variables&quot;,
   caption = &quot;Notice the different patterns that are revealed.&quot;
 )</code></pre>
-<p><img src="/post/2020-06-20-exploratory-data-analysis-eda-guide_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p><img src="/post/2020-06-20-exploratory-data-analysis-eda-guide_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 </div>
 </div>
 <div id="typical-values" class="section level3">
@@ -270,7 +275,7 @@ patchwork + plot_annotation(
 </ul>
 <p>Another learning from this section is to focus on the clusters revealed when <code>Visualizing</code> your <code>Distributions.</code> For example, take a look at the <code>Histogram</code> using a <code>Binwidth</code> of <code>0.01</code>; obvious clusters are revealed that are not obvious in the other 3 plots.</p>
 <pre class="r"><code>p5</code></pre>
-<p><img src="/post/2020-06-20-exploratory-data-analysis-eda-guide_files/figure-html/unnamed-chunk-4-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="/post/2020-06-20-exploratory-data-analysis-eda-guide_files/figure-html/unnamed-chunk-5-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>The author’s point out that “clusters of similar values suggest that subgroups exist in your data.”</p>
 <p>What do you think they suggest doing in this situation? Ask more <code>questions</code> 🤔</p>
 <p>Understand the subgroups by asking:</p>

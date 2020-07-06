@@ -101,6 +101,15 @@ We are always interested in discovering what explains the variation seen in data
 
 This post wouldn't be complete without a bit of code and a few visualizations 🤓
 
+```{r}
+# load libraries
+library(tidyverse)
+library(tidyquant)
+library(patchwork)
+theme_set(theme_tq())
+```
+
+
 #### Categorical Variables
 
 * "To examine the distribution of a categorical variable, use a bar chart:"
