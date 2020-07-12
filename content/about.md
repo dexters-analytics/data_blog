@@ -10,7 +10,7 @@ In graduate school I was introduced to programming, first `base-R` then `Python`
 
 I'm a nerd 🤓 when it comes to automating data manipulation - there's something intoxicating about the process of wrangling data using `code`, it's simply amazing! 
 
-I find immense satisfaction in determining the shape data needs to be in, then programmatically crafting a solution to translate the raw-data into something useful.
+I find immense satisfaction in determining the shape data needs to be in, then programmatically crafting a solution to transform the raw-data into something useful.
 
 
 ### R-CENTRIC
