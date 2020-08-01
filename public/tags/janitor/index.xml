@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>janitor on Exploring Data</title>
+    <link>/tags/janitor/</link>
+    <description>Recent content in janitor on Exploring Data</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 31 Jul 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/janitor/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>R Packages: {janitor} for Data Cleaning</title>
+      <link>/post/r-packages-janitor-for-data-cleaning/</link>
+      <pubDate>Fri, 31 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/r-packages-janitor-for-data-cleaning/</guid>
+      <description> Janitor Package in R  </description>
+    </item>
+    
+  </channel>
+</rss>

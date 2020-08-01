@@ -6,10 +6,19 @@
     <description>Recent content on Exploring Data</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 20 Jun 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 31 Jul 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>R Packages: {janitor} for Data Cleaning</title>
+      <link>/post/r-packages-janitor-for-data-cleaning/</link>
+      <pubDate>Fri, 31 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/r-packages-janitor-for-data-cleaning/</guid>
+      <description> Janitor Package in R  </description>
+    </item>
     
     <item>
       <title>Exploratory Data Analysis Guide</title>
@@ -77,24 +86,12 @@ str_glue() from the stringr library is one of my favorite functions in R - It’
     </item>
     
     <item>
-      <title>Up and Running with R &#43; RStudio</title>
-      <link>/post/up-and-running-with-r-rstudio/</link>
-      <pubDate>Sat, 02 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/post/up-and-running-with-r-rstudio/</guid>
-      <description> Let’s dive right in!
-This post will get new users of R up and running quickly.
-Getting Started If you’ve never used R before, then you are in for a treat! The awesome people at RStudio are doing incredible work to help users of R be productive. RStudio is an open source (+commercial editions) Integrated Development Environment (IDE).
- </description>
-    </item>
-    
-    <item>
       <title>About</title>
       <link>/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/about/</guid>
-      <description>CONTEXT My name is Jason Dexter and I&amp;rsquo;m an R-Programmer and Data-Analyst based out of Berkeley, CA, where I live with my lovely wife 💃 and our two cats 🐈 🐈
+      <description>CONTEXT My name is Jason Dexter and I&amp;rsquo;m an R-Programmer and Data-Analyst based out of Berkeley, CA, where I live with my wife 💃 and our two cats 🐈 🐈
 In graduate school I was introduced to programming, first base-R then Python. The idea 💡 of solving problems programmatically resonated deeply with me and I&amp;rsquo;ve been hooked ever since.
 I&amp;rsquo;m a nerd 🤓 when it comes to automating data manipulation - there&amp;rsquo;s something intoxicating about the process of wrangling data using code, it&amp;rsquo;s simply amazing!</description>
     </item>
