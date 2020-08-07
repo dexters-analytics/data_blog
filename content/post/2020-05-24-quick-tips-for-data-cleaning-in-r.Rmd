@@ -53,7 +53,7 @@ library(purrr)          # Functional Programming Toolkit
 
 I'm grabbing a couple of data-sets from the [Tidy Tuesday Project](https://github.com/rfordatascience/tidytuesday){target="_blank"} that will help us walk through a couple of examples together.
 
-```{r}
+```{r, results="hide"}
 # Get Marine Mammal Data
 cetacean_week    <- tidytuesdayR::tt_load("2018-12-18")
 cetacean_raw_tbl <- cetacean_week$allCetaceanData 

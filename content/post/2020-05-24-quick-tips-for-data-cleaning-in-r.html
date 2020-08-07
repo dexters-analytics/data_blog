@@ -43,16 +43,12 @@ library(purrr)          # Functional Programming Toolkit</code></pre>
 <h3>Let’s Get Some Data</h3>
 <p>I’m grabbing a couple of data-sets from the <a href="https://github.com/rfordatascience/tidytuesday" target="_blank">Tidy Tuesday Project</a> that will help us walk through a couple of examples together.</p>
 <pre class="r"><code># Get Marine Mammal Data
-cetacean_week    &lt;- tidytuesdayR::tt_load(&quot;2018-12-18&quot;)</code></pre>
-<pre><code>## 
-##  Downloading file 1 of 1: `allCetaceanData.csv`</code></pre>
-<pre class="r"><code>cetacean_raw_tbl &lt;- cetacean_week$allCetaceanData 
+cetacean_week    &lt;- tidytuesdayR::tt_load(&quot;2018-12-18&quot;)
+cetacean_raw_tbl &lt;- cetacean_week$allCetaceanData 
 
 # Get NFL Salary Data
-nfl_salary_week    &lt;- tidytuesdayR::tt_load(&quot;2018-04-09&quot;)</code></pre>
-<pre><code>## 
-##  Downloading file 1 of 1: `nfl_salary.xlsx`</code></pre>
-<pre class="r"><code>nfl_salary_raw_tbl &lt;- nfl_salary_week$nfl_salary</code></pre>
+nfl_salary_week    &lt;- tidytuesdayR::tt_load(&quot;2018-04-09&quot;)
+nfl_salary_raw_tbl &lt;- nfl_salary_week$nfl_salary</code></pre>
 <p>Each of these data-sets contain column naming useful for emphasizing the value in the aforementioned functions.</p>
 <p>Let’s start with the <code>janitor</code> library and it’s nifty function called <code>clean_names()</code>.</p>
 </div>

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>R Packages: {janitor} for Data Cleaning</title>
+        
+        <style>
+
+    html body {
+        font-family: 'Raleway', sans-serif;
+        background-color: white;
+    }
+
+    :root {
+        --accent: black;
+        --border-width:  5px ;
+    }
+
+</style>
+
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+
+
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-dark.min.css"> 
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+ 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/haskell.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/scala.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/swift.min.js"></script>
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<script>$(document).on('click', function() { $('.collapse').collapse('hide'); })</script>
+ <meta name="generator" content="Hugo 0.69.2" />
+        
+
+        
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-134222974-1"></script>
+            <script>
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments)};
+              gtag('js', new Date());
+              gtag('config', 'UA-134222974-1');
+            </script>
+        
+
+        
+            <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+
+        
+
+    </head>
+
+    <body>
+        
+
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand visible-xs" href="#">R Packages: {janitor} for Data Cleaning</a>
+                    <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse">
+                    
+                        <ul class="nav navbar-nav">
+                            
+                                <li><a href="/">Home</a></li>
+                            
+                                <li><a href="/about/">About</a></li>
+                            
+                                <li><a href="/post/">Posts</a></li>
+                            
+                        </ul>
+                    
+                    
+                        <ul class="nav navbar-nav navbar-right">
+                            
+                                <li class="navbar-icon"><a href="https://www.linkedin.com/in/jdex/"><i class="fa fa-linkedin"></i></a></li>
+                            
+                                <li class="navbar-icon"><a href="https://github.com/dexters-analytics"><i class="fa fa-github"></i></a></li>
+                            
+                        </ul>
+                    
+                </div>
+            </div>
+        </nav>
+
+
+<main>
+
+    <div>
+        <h2>R Packages: {janitor} for Data Cleaning</h2>
+        <h5>July 31, 2020</h5>
+        
+<a href="/tags/r-packages"><kbd class="item-tag">r packages</kbd></a>
+
+<a href="/tags/janitor"><kbd class="item-tag">janitor</kbd></a>
+
+<a href="/tags/data-cleaning"><kbd class="item-tag">data cleaning</kbd></a>
+
+<a href="/tags/eda"><kbd class="item-tag">EDA</kbd></a>
+
+
+    </div>
+
+    <div align="start" class="content">
+
+
+<p><br/></p>
+<div class="figure">
+<img src="/post/2020-07-31-r-packages-janitor-for-data-cleaning_files/janitor_package.png" alt="" />
+<p class="caption">Snapshot of janitor package Github Page</p>
+</div>
+<div id="quick-overview" class="section level3">
+<h3>Quick Overview</h3>
+<p><code>Exploring Data</code> is a place where I share easily digestible content aimed at making the wrangling and exploration of data more efficient (+more fun).</p>
+<p>Sign up <a href="https://tinyletter.com/dexters-analytics" target="_blank">Here</a> to join the many other subscribers who also nerd out on new tips and tricks 🤓</p>
+</div>
+<div id="new-series-exploring-r-packages" class="section level3">
+<h3>New Series: Exploring R {packages}</h3>
+<p>When I discover new and helpful <code>functions</code> I light up 💡 with excitement.</p>
+<p>Interestingly, I have a pattern of finding one or two useful <code>functions</code> in a <code>{package}</code>, but rarely explore <code>{packages}</code> further for other useful <code>functionality</code>.</p>
+<p>That’s what this New Series is all about 😎</p>
+<p>Each post will share a bit about how I was using the <code>{package}</code> and then use a case-study to highlight other <code>functionality</code> I found to be useful.</p>
+</div>
+<div id="janitor-package" class="section level3">
+<h3>janitor {package}</h3>
+<p>This a wonderful <code>{package}</code> built by <a href="https://github.com/sfirke" target="_blank">Sam Firke</a>.</p>
+<p>Take the time to explore the <a href="https://github.com/sfirke/janitor" target="_blank">Github page for the <code>{package}</code></a> where Sam describes the packages as follow:</p>
+<blockquote>
+<p>janitor has simple functions for examining and cleaning dirty data. It was built with beginning and intermediate R users in mind and is optimized for user-friendliness. Advanced R users can already do everything covered here, but with janitor they can do it faster and save their thinking for the fun stuff.</p>
+</blockquote>
+<p>Let’s dive into our case-study. We will be going over the following:</p>
+<ol style="list-style-type: decimal">
+<li>A tip for setting up a pre-processing pipepline.</li>
+<li>The <code>function</code> I use all the time: <code>janitor::clean_names</code></li>
+<li>Two newly discovered <code>functions</code>:</li>
+</ol>
+</div>
+<div id="load-our-libraries" class="section level3">
+<h3>Load our Libraries</h3>
+<pre class="r"><code>library(tidyverse) 
+library(janitor)
+# lsf.str(&quot;package:janitor&quot;) %&gt;% tibble()</code></pre>
+</div>
+<div id="import-data" class="section level3">
+<h3>Import data</h3>
+<p>For our case-study we are using data from the <a href="https://github.com/rfordatascience/tidytuesday" target="_blank">Tidy Tuesday Project</a>.</p>
+<pre class="r"><code># Import Data ----
+tuesdata &lt;- tidytuesdayR::tt_load(&quot;2018-05-07&quot;) 
+coffee_chains &lt;- tuesdata$week6_coffee_chains</code></pre>
+<pre class="r"><code>coffee_chains %&gt;%
+  clean_names() %&gt;%
+  select(brand, store_number, store_name, country, city) %&gt;%
+  get_dupes()</code></pre>
+<pre><code>## # A tibble: 2 x 6
+##   brand     store_number store_name          country city  dupe_count
+##   &lt;chr&gt;     &lt;chr&gt;        &lt;chr&gt;               &lt;chr&gt;   &lt;chr&gt;      &lt;int&gt;
+## 1 Starbucks 19773-160973 Yoido IFC Mall - 1F KR      Seoul          2
+## 2 Starbucks 19773-160973 Yoido IFC Mall - 1F KR      Seoul          2</code></pre>
+</div>
+</div>
+
+    
+    
+    
+        <h4 class="page-header">Related</h4>
+         <div class="item">
+
+    
+    
+    
+
+    
+    
+
+    <h4><a href="/post/exploratory-data-analysis-eda-guide/">Exploratory Data Analysis Guide</a></h4>
+    <h5>June 20, 2020</h5>
+    
+<a href="/tags/r"><kbd class="item-tag">R</kbd></a>
+
+<a href="/tags/eda"><kbd class="item-tag">EDA</kbd></a>
+
+<a href="/tags/r-for-data-science"><kbd class="item-tag">R for Data Science</kbd></a>
+
+
+
+</div>
+ 
+    
+
+    
+    
+        <h4 class="page-header">Comments</h4>
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "https-www-exploringdata-org" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
+
+</main>
+
+        <footer>
+            <p class="copyright text-muted">© All rights reserved. Powered by <a href="https://gohugo.io">Hugo</a> and <a href="https://github.com/calintat/minimal">Minimal</a>.</p>
+        </footer>
+
+        
+
+        
+    </body>
+
+</html>
+
