@@ -3,6 +3,7 @@ title: 'R Packages: {janitor} for Data Cleaning'
 author: Jason Dexter
 date: '2020-07-31'
 slug: r-packages-janitor-for-data-cleaning
+draft: yes
 categories:
   - R
 tags:
@@ -10,7 +11,80 @@ tags:
   - janitor
   - data cleaning
   - EDA
+editor_options: 
+  chunk_output_type: console
 ---
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  message = FALSE,
+  warning = FALSE)
+```
 
-### Janitor Package in R
+<br/> 
+
+![Snapshot of janitor package Github Page](/post/2020-07-31-r-packages-janitor-for-data-cleaning_files/janitor_package.png)
+
+### Quick Overview
+
+`Exploring Data` is a place where I share easily digestible content aimed at making the wrangling and exploration of data more efficient (+more fun).
+
+Sign up [Here](https://tinyletter.com/dexters-analytics){target="_blank"} to join the many other subscribers who also nerd out on new tips and tricks 🤓
+
+
+### New Series: Exploring R {packages}
+
+When I discover new and helpful `functions` I light up 💡 with excitement. 
+
+Interestingly, I have a pattern of finding one or two useful `functions` in a `{package}`, but rarely explore `{packages}` further for other useful `functionality`.
+
+That's what this New Series is all about 😎
+
+Each post will share a bit about how I was using the `{package}` and then use a case-study to highlight other `functionality` I found to be useful.
+
+
+
+### janitor {package}
+
+This a wonderful `{package}` built by [Sam Firke](https://github.com/sfirke){target="_blank"}.
+
+Take the time to explore the [Github page for the `{package}`](https://github.com/sfirke/janitor){target="_blank"} where Sam describes the packages as follow:
+
+> janitor has simple functions for examining and cleaning dirty data. It was built with beginning and intermediate R users in mind and is optimized for user-friendliness. Advanced R users can already do everything covered here, but with janitor they can do it faster and save their thinking for the fun stuff.
+
+Let's dive into our case-study. We will be going over the following:
+
+1. A tip for setting up a pre-processing pipepline.
+2. The `function` I use all the time: `janitor::clean_names`
+3. Two newly discovered `functions`: 
+
+
+### Load our Libraries
+
+```{r}
+library(tidyverse) 
+library(janitor)
+# lsf.str("package:janitor") %>% tibble()
+```
+
+### Import data
+
+For our case-study we are using data from the [Tidy Tuesday Project](https://github.com/rfordatascience/tidytuesday){target="_blank"}.
+
+```{r, results="hide"}
+# Import Data ----
+tuesdata <- tidytuesdayR::tt_load("2018-05-07") 
+coffee_chains <- tuesdata$week6_coffee_chains
+```
+
+
+```{r}
+coffee_chains %>%
+  clean_names() %>%
+  select(brand, store_number, store_name, country, city) %>%
+  get_dupes()
+```
+
+
+
+

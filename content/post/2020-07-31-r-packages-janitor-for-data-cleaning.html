@@ -3,6 +3,7 @@ title: 'R Packages: {janitor} for Data Cleaning'
 author: Jason Dexter
 date: '2020-07-31'
 slug: r-packages-janitor-for-data-cleaning
+draft: yes
 categories:
   - R
 tags:
@@ -10,10 +11,62 @@ tags:
   - janitor
   - data cleaning
   - EDA
+editor_options: 
+  chunk_output_type: console
 ---
 
 
 
-<div id="janitor-package-in-r" class="section level3">
-<h3>Janitor Package in R</h3>
+<p><br/></p>
+<div class="figure">
+<img src="/post/2020-07-31-r-packages-janitor-for-data-cleaning_files/janitor_package.png" alt="" />
+<p class="caption">Snapshot of janitor package Github Page</p>
+</div>
+<div id="quick-overview" class="section level3">
+<h3>Quick Overview</h3>
+<p><code>Exploring Data</code> is a place where I share easily digestible content aimed at making the wrangling and exploration of data more efficient (+more fun).</p>
+<p>Sign up <a href="https://tinyletter.com/dexters-analytics" target="_blank">Here</a> to join the many other subscribers who also nerd out on new tips and tricks 🤓</p>
+</div>
+<div id="new-series-exploring-r-packages" class="section level3">
+<h3>New Series: Exploring R {packages}</h3>
+<p>When I discover new and helpful <code>functions</code> I light up 💡 with excitement.</p>
+<p>Interestingly, I have a pattern of finding one or two useful <code>functions</code> in a <code>{package}</code>, but rarely explore <code>{packages}</code> further for other useful <code>functionality</code>.</p>
+<p>That’s what this New Series is all about 😎</p>
+<p>Each post will share a bit about how I was using the <code>{package}</code> and then use a case-study to highlight other <code>functionality</code> I found to be useful.</p>
+</div>
+<div id="janitor-package" class="section level3">
+<h3>janitor {package}</h3>
+<p>This a wonderful <code>{package}</code> built by <a href="https://github.com/sfirke" target="_blank">Sam Firke</a>.</p>
+<p>Take the time to explore the <a href="https://github.com/sfirke/janitor" target="_blank">Github page for the <code>{package}</code></a> where Sam describes the packages as follow:</p>
+<blockquote>
+<p>janitor has simple functions for examining and cleaning dirty data. It was built with beginning and intermediate R users in mind and is optimized for user-friendliness. Advanced R users can already do everything covered here, but with janitor they can do it faster and save their thinking for the fun stuff.</p>
+</blockquote>
+<p>Let’s dive into our case-study. We will be going over the following:</p>
+<ol style="list-style-type: decimal">
+<li>A tip for setting up a pre-processing pipepline.</li>
+<li>The <code>function</code> I use all the time: <code>janitor::clean_names</code></li>
+<li>Two newly discovered <code>functions</code>:</li>
+</ol>
+</div>
+<div id="load-our-libraries" class="section level3">
+<h3>Load our Libraries</h3>
+<pre class="r"><code>library(tidyverse) 
+library(janitor)
+# lsf.str(&quot;package:janitor&quot;) %&gt;% tibble()</code></pre>
+</div>
+<div id="import-data" class="section level3">
+<h3>Import data</h3>
+<p>For our case-study we are using data from the <a href="https://github.com/rfordatascience/tidytuesday" target="_blank">Tidy Tuesday Project</a>.</p>
+<pre class="r"><code># Import Data ----
+tuesdata &lt;- tidytuesdayR::tt_load(&quot;2018-05-07&quot;) 
+coffee_chains &lt;- tuesdata$week6_coffee_chains</code></pre>
+<pre class="r"><code>coffee_chains %&gt;%
+  clean_names() %&gt;%
+  select(brand, store_number, store_name, country, city) %&gt;%
+  get_dupes()</code></pre>
+<pre><code>## # A tibble: 2 x 6
+##   brand     store_number store_name          country city  dupe_count
+##   &lt;chr&gt;     &lt;chr&gt;        &lt;chr&gt;               &lt;chr&gt;   &lt;chr&gt;      &lt;int&gt;
+## 1 Starbucks 19773-160973 Yoido IFC Mall - 1F KR      Seoul          2
+## 2 Starbucks 19773-160973 Yoido IFC Mall - 1F KR      Seoul          2</code></pre>
 </div>
