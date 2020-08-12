@@ -22,7 +22,7 @@
 </style>
 
 
-<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="https://www.exploringdata.org/css/main.css">
 
 
 
@@ -132,18 +132,20 @@
         <h2>R Packages: {janitor} for Data Cleaning</h2>
         <h5>July 31, 2020</h5>
         
-<a href="/tags/r-packages"><kbd class="item-tag">r packages</kbd></a>
+<a href="https://www.exploringdata.org/tags/r-packages"><kbd class="item-tag">r packages</kbd></a>
 
-<a href="/tags/janitor"><kbd class="item-tag">janitor</kbd></a>
+<a href="https://www.exploringdata.org/tags/janitor"><kbd class="item-tag">janitor</kbd></a>
 
-<a href="/tags/data-cleaning"><kbd class="item-tag">data cleaning</kbd></a>
+<a href="https://www.exploringdata.org/tags/data-cleaning"><kbd class="item-tag">data cleaning</kbd></a>
 
-<a href="/tags/eda"><kbd class="item-tag">EDA</kbd></a>
+<a href="https://www.exploringdata.org/tags/eda"><kbd class="item-tag">EDA</kbd></a>
 
 
     </div>
 
     <div align="start" class="content">
+<link href="/rmarkdown-libs/pagedtable/css/pagedtable.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/pagedtable/js/pagedtable.js"></script>
 
 
 <p><br/></p>
@@ -153,51 +155,363 @@
 </div>
 <div id="quick-overview" class="section level3">
 <h3>Quick Overview</h3>
-<p><code>Exploring Data</code> is a place where I share easily digestible content aimed at making the wrangling and exploration of data more efficient (+more fun).</p>
+<p><code>Exploring-Data</code> is a place where I share easily digestible content aimed at making the wrangling and exploration of data more efficient (+fun).</p>
 <p>Sign up <a href="https://tinyletter.com/dexters-analytics" target="_blank">Here</a> to join the many other subscribers who also nerd out on new tips and tricks 🤓</p>
 </div>
 <div id="new-series-exploring-r-packages" class="section level3">
 <h3>New Series: Exploring R {packages}</h3>
 <p>When I discover new and helpful <code>functions</code> I light up 💡 with excitement.</p>
-<p>Interestingly, I have a pattern of finding one or two useful <code>functions</code> in a <code>{package}</code>, but rarely explore <code>{packages}</code> further for other useful <code>functionality</code>.</p>
-<p>That’s what this New Series is all about 😎</p>
-<p>Each post will share a bit about how I was using the <code>{package}</code> and then use a case-study to highlight other <code>functionality</code> I found to be useful.</p>
+<p>Interestingly, I have a pattern of finding one or two useful <code>functions</code> in a <code>{package}</code>, but rarely explore further to discover other useful <code>functionality</code>.</p>
+<p>That’s what this New Series is all about, <code>Exploration</code>.</p>
+<p>In each post I will share a bit about how I was using a <code>{package}</code> and then use a case-study to highlight other <code>functionality</code> I discovered to be useful.</p>
+</div>
+<div id="leave-a-comment" class="section level3">
+<h3>Leave a Comment</h3>
+<p>Leave a comment at the end to let me know if you like this style of post. The feedback will be considered in determining the direction of this series.</p>
+<div id="examples-of-feedback" class="section level4">
+<h4>Examples of feedback:</h4>
+<ol style="list-style-type: decimal">
+<li>Was the post to long?</li>
+<li>Do you like the case-study approach?</li>
+<li>Could I have just shared the functions without the case-study?</li>
+<li>Was sharing about the pre-processing pro-tip helpful or distracting?</li>
+</ol>
+</div>
 </div>
 <div id="janitor-package" class="section level3">
 <h3>janitor {package}</h3>
 <p>This a wonderful <code>{package}</code> built by <a href="https://github.com/sfirke" target="_blank">Sam Firke</a>.</p>
-<p>Take the time to explore the <a href="https://github.com/sfirke/janitor" target="_blank">Github page for the <code>{package}</code></a> where Sam describes the packages as follow:</p>
+<p>Take the time to explore the <a href="https://github.com/sfirke/janitor" target="_blank">Github Page</a> for the <code>{janitor:package}</code>, where Sam describes it as follow:</p>
 <blockquote>
 <p>janitor has simple functions for examining and cleaning dirty data. It was built with beginning and intermediate R users in mind and is optimized for user-friendliness. Advanced R users can already do everything covered here, but with janitor they can do it faster and save their thinking for the fun stuff.</p>
 </blockquote>
-<p>Let’s dive into our case-study. We will be going over the following:</p>
+<p>There are many more functions (20+) in the package that we will not cover - head over to the following page to learn more about them: <a href="http://sfirke.github.io/janitor/articles/janitor.html" target="_blank">Overview of janitor functions.</a></p>
+</div>
+<div id="case-study" class="section level3">
+<h3>Case-Study</h3>
+<p>The case-study will provide and illustrate the following:</p>
 <ol style="list-style-type: decimal">
-<li>A tip for setting up a pre-processing pipepline.</li>
-<li>The <code>function</code> I use all the time: <code>janitor::clean_names</code></li>
-<li>Two newly discovered <code>functions</code>:</li>
+<li>A pro-tip for setting up a pre-processing data pipepline.</li>
+<li>The <code>function</code> I use often: <code>janitor::clean_names()</code>.</li>
+<li>Newly discovered <code>functions</code> from <code>{janitor}</code>.</li>
 </ol>
+</div>
+<div id="lets-dive-in" class="section level3">
+<h3>Let’s dive in…</h3>
+<p>Imagine being tasked with doing an analysis on Starbucks coffee locations. Your manager has provided you with <code>raw-data</code> from coffee chains and requested that you:</p>
+<ol style="list-style-type: decimal">
+<li>QA the data for duplicates (by store and by location).</li>
+<li>Deliver a map of US Starbucks locations (by ownership type).</li>
+<li>Tabulate the various types of Starbucks Ownership:
+<ul>
+<li>Worldwide &amp;</li>
+<li>US (lower 48)</li>
+</ul></li>
+</ol>
+<p>To streamline your efforts and get swiftly to making that map, you decide to leverage the <code>{janitor:package}</code>.</p>
 </div>
 <div id="load-our-libraries" class="section level3">
 <h3>Load our Libraries</h3>
-<pre class="r"><code>library(tidyverse) 
-library(janitor)
-# lsf.str(&quot;package:janitor&quot;) %&gt;% tibble()</code></pre>
+<pre class="r"><code>library(tidyverse) # Work-Horse Package
+library(janitor)   # Data cleaning (+tabulating data)
+library(janitor)   # Business Ready Plots
+library(ggthemes)  # Clean ggplot theme for Maps</code></pre>
 </div>
-<div id="import-data" class="section level3">
-<h3>Import data</h3>
-<p>For our case-study we are using data from the <a href="https://github.com/rfordatascience/tidytuesday" target="_blank">Tidy Tuesday Project</a>.</p>
+<div id="lets-get-some-data" class="section level3">
+<h3>Let’s Get Some Data</h3>
+<p>For our case-study we are using data from the <a href="https://github.com/rfordatascience/tidytuesday" target="_blank">Tidy Tuesday Project</a> archive.</p>
 <pre class="r"><code># Import Data ----
-tuesdata &lt;- tidytuesdayR::tt_load(&quot;2018-05-07&quot;) 
-coffee_chains &lt;- tuesdata$week6_coffee_chains</code></pre>
-<pre class="r"><code>coffee_chains %&gt;%
-  clean_names() %&gt;%
-  select(brand, store_number, store_name, country, city) %&gt;%
-  get_dupes()</code></pre>
+#tuesdata &lt;- tidytuesdayR::tt_load(&quot;2018-05-07&quot;) 
+#readxl::read_xlsx(&quot;static/01_data/week6_coffee_chains.xlsx&quot;)</code></pre>
+</div>
+<div id="pro-tip-pre-processing-pipeline" class="section level3">
+<h3>Pro-Tip: Pre-Processing Pipeline</h3>
+<p>When working with new data, I’ll typically setup up a pre-processing step at the beginning of the script. It typically starts out with no steps and then they get added as I move through my analysis.</p>
+<p>The idea is that as you conduct your Exploratory Data Analysis <code>(EDA)</code>, you will discover pre-processing +/or cleaning steps that need to be added to your pipeline.</p>
+<p>In this post, I’ll illustrate this technique by adding to our pipeline as we go; however, this data pipeline would live near the top of the script and would not move.</p>
+<div id="step-1" class="section level4">
+<h4>Step 1</h4>
+<p>Save <code>raw</code> data to a variable.</p>
+<pre class="r"><code>#coffee_chains_raw &lt;- tuesdata$week6_coffee_chains
+coffee_chains_raw &lt;- readxl::read_xlsx(&quot;../../static/01_data/week6_coffee_chains.xlsx&quot;)</code></pre>
+</div>
+<div id="step-2" class="section level4">
+<h4>Step 2</h4>
+<p>Immediately save the <code>raw</code> data to new variable labeled with the suffix, <code>processed</code>.</p>
+<pre class="r"><code># Beginning of Pre-Processing Pipeline
+coffee_chains_processed &lt;- coffee_chains_raw</code></pre>
+<p>This obviously has ZERO pre-processing done to the data at this point. The point though is that as you discover areas of your data that require attention, you then can circle back to this pipeline and add those steps.</p>
+<p>This may seem odd, but the beauty comes in not having to get further along in your analysis before realizing that you need to do data cleaning steps; if you approach it that way, then you have to go back and rename your variables created along the way - this method allows you to keep working with your <code>processed</code> data as you move swiftly through your analysis.</p>
+<p>I picked up this <code>pro-tip</code> while watching <code>David Robinson</code> in his <code>Tidy Tuesday Screencasts</code> - check those out here: <a href="https://www.youtube.com/playlist?list=PL19ev-r1GBwkuyiwnxoHTRC8TTqP8OEi8" target="_blank">Tidy Tuesday R Screencasts</a></p>
+</div>
+<div id="step-3" class="section level4">
+<h4>Step 3</h4>
+<p>Begin <code>Exploring</code> your <code>Data</code> and conducting your analysis.</p>
+<p>At this point, I’ll do a bit of <code>EDA</code> to familiarize myself with the data I’m working with; this process is always to get a high-level understanding of the data so that I can pick up on nuances along with data integrity issues that need attention (dealt with in the pre-processing pipeline).</p>
+</div>
+</div>
+<div id="initial-exploration" class="section level3">
+<h3>Initial Exploration</h3>
+<p>Let’s look at these <code>raw</code> data using the <code>tibble::glimpse()</code> function.</p>
+<p>The <code>glimpse()</code> function allows us to quickly assess column names, data-types, and also view a sample of the values contained in each column - you can read more about the <code>glimpse()</code> function in my archive post, <a href="https://www.exploringdata.org/post/examining-data-with-glimpse/" target="_blank">Examining Data with glimpse()</a>.</p>
+<pre class="r"><code>coffee_chains_processed %&gt;% 
+  tibble::glimpse()</code></pre>
+<pre><code>## Rows: 25,600
+## Columns: 13
+## $ Brand            &lt;chr&gt; &quot;Starbucks&quot;, &quot;Starbucks&quot;, &quot;Starbucks&quot;, &quot;Starbucks&quot;, …
+## $ `Store Number`   &lt;chr&gt; &quot;47370-257954&quot;, &quot;22331-212325&quot;, &quot;47089-256771&quot;, &quot;221…
+## $ `Store Name`     &lt;chr&gt; &quot;Meritxell, 96&quot;, &quot;Ajman Drive Thru&quot;, &quot;Dana Mall&quot;, &quot;T…
+## $ `Ownership Type` &lt;chr&gt; &quot;Licensed&quot;, &quot;Licensed&quot;, &quot;Licensed&quot;, &quot;Licensed&quot;, &quot;Lic…
+## $ `Street Address` &lt;chr&gt; &quot;Av. Meritxell, 96&quot;, &quot;1 Street 69, Al Jarf&quot;, &quot;Sheikh…
+## $ City             &lt;chr&gt; &quot;Andorra la Vella&quot;, &quot;Ajman&quot;, &quot;Ajman&quot;, &quot;Abu Dhabi&quot;, &quot;…
+## $ `State/Province` &lt;chr&gt; &quot;7&quot;, &quot;AJ&quot;, &quot;AJ&quot;, &quot;AZ&quot;, &quot;AZ&quot;, &quot;AZ&quot;, &quot;AZ&quot;, &quot;AZ&quot;, &quot;AZ&quot;,…
+## $ Country          &lt;chr&gt; &quot;AD&quot;, &quot;AE&quot;, &quot;AE&quot;, &quot;AE&quot;, &quot;AE&quot;, &quot;AE&quot;, &quot;AE&quot;, &quot;AE&quot;, &quot;AE&quot;…
+## $ Postcode         &lt;chr&gt; &quot;AD500&quot;, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, &quot;31…
+## $ `Phone Number`   &lt;chr&gt; &quot;376818720&quot;, NA, NA, NA, NA, NA, NA, NA, &quot;26670052&quot;,…
+## $ Timezone         &lt;chr&gt; &quot;GMT+1:00 Europe/Andorra&quot;, &quot;GMT+04:00 Asia/Dubai&quot;, &quot;…
+## $ Longitude        &lt;dbl&gt; 1.53, 55.47, 55.47, 54.38, 54.54, 54.49, 54.49, 54.6…
+## $ Latitude         &lt;dbl&gt; 42.51, 25.42, 25.39, 24.48, 24.51, 24.40, 24.40, 24.…</code></pre>
+<p>Immediately, we can see that our column names are not optimal for analysis. Personally, I’m VERY biased towards <code>snake_case</code> and therefore always like to get column names into that format.</p>
+</div>
+<div id="janitorclean_names" class="section level3">
+<h3>janitor::clean_names()</h3>
+<p>In comes <code>{janitor::clean_names}</code> to the rescue ⛑️</p>
+<p>By default, <code>clean_names()</code> outputs column naming with the <code>snake_case</code> format - maybe this is one of the reasons that it’s in my top 10 for favorite functions in <code>R</code>.</p>
+<p>Let’s test it out on our coffee data.</p>
+<pre class="r"><code># clean_names() with default naming
+coffee_chains_processed %&gt;% 
+  janitor::clean_names() %&gt;% 
+  base::names()</code></pre>
+<pre><code>##  [1] &quot;brand&quot;          &quot;store_number&quot;   &quot;store_name&quot;     &quot;ownership_type&quot;
+##  [5] &quot;street_address&quot; &quot;city&quot;           &quot;state_province&quot; &quot;country&quot;       
+##  [9] &quot;postcode&quot;       &quot;phone_number&quot;   &quot;timezone&quot;       &quot;longitude&quot;     
+## [13] &quot;latitude&quot;</code></pre>
+<div id="awesome" class="section level4">
+<h4>Awesome!</h4>
+<p>You’ll notice the <code>function</code> took care of the <code>/</code> in <code>State/Province</code> and replaced it with an underscore - simply amazing 😎</p>
+</div>
+<div id="naming-convention-options" class="section level4">
+<h4>Naming Convention Options</h4>
+<p>If you prefer a different naming convention - I’m not sure why you would 🙄 - then you can use the <code>case</code> argument.</p>
+<pre class="r"><code># clean_names() with diff. naming convention
+coffee_chains_processed %&gt;% 
+  clean_names(case = &quot;small_camel&quot;) %&gt;% 
+  names()</code></pre>
+<pre><code>##  [1] &quot;brand&quot;         &quot;storeNumber&quot;   &quot;storeName&quot;     &quot;ownershipType&quot;
+##  [5] &quot;streetAddress&quot; &quot;city&quot;          &quot;stateProvince&quot; &quot;country&quot;      
+##  [9] &quot;postcode&quot;      &quot;phoneNumber&quot;   &quot;timezone&quot;      &quot;longitude&quot;    
+## [13] &quot;latitude&quot;</code></pre>
+</div>
+</div>
+<div id="pre-processing-addition" class="section level3">
+<h3>Pre-Processing Addition</h3>
+<p>Now let’s add this step to our pre-processing pipeline.</p>
+<pre class="r"><code># Adding to our Pre-Processing Pipeline
+coffee_chains_processed &lt;- coffee_chains_raw %&gt;% 
+  
+  # clean up column names
+  janitor::clean_names()</code></pre>
+</div>
+<div id="janitorget_dupes" class="section level3">
+<h3>janitor::get_dupes()</h3>
+<p><code>janitor::get_dupes()</code> is at the top of the list for newly discovered <code>functionality</code> within the <code>{janitor}</code> package.</p>
+<p>This is one of those things you need to do often (check for duplicates) and <code>{janitor}</code> makes it simple.</p>
+<p>Going back to our <code>case-study</code>, our manager asked us to check for duplicated records (a common <code>data-cleaning</code> and <code>EDA</code> step).</p>
+<p>Let’s subset our data and investigate.</p>
+<pre class="r"><code>coffee_chains_processed %&gt;% 
+  
+  # subset data by store and by location
+  dplyr::select(brand, store_number, 
+                city, state_province, country) %&gt;% 
+  
+  # identify duplicated records
+  janitor::get_dupes()</code></pre>
 <pre><code>## # A tibble: 2 x 6
-##   brand     store_number store_name          country city  dupe_count
-##   &lt;chr&gt;     &lt;chr&gt;        &lt;chr&gt;               &lt;chr&gt;   &lt;chr&gt;      &lt;int&gt;
-## 1 Starbucks 19773-160973 Yoido IFC Mall - 1F KR      Seoul          2
-## 2 Starbucks 19773-160973 Yoido IFC Mall - 1F KR      Seoul          2</code></pre>
+##   brand     store_number city  state_province country dupe_count
+##   &lt;chr&gt;     &lt;chr&gt;        &lt;chr&gt; &lt;chr&gt;          &lt;chr&gt;        &lt;int&gt;
+## 1 Starbucks 19773-160973 Seoul 11             KR               2
+## 2 Starbucks 19773-160973 Seoul 11             KR               2</code></pre>
+<p>Using <code>janitor::get_dupes()</code> we’ve quickly identified a potential issue: store number <code>19773-160973</code> has duplicated records.</p>
+<p>Let’s investigate further.</p>
+<pre class="r"><code># filter to store with dupes
+coffee_chains_processed %&gt;% 
+  
+  # filter to store and glimpse data
+  dplyr::filter(store_number == &quot;19773-160973&quot;) %&gt;% 
+  glimpse()</code></pre>
+<pre><code>## Rows: 2
+## Columns: 13
+## $ brand          &lt;chr&gt; &quot;Starbucks&quot;, &quot;Starbucks&quot;
+## $ store_number   &lt;chr&gt; &quot;19773-160973&quot;, &quot;19773-160973&quot;
+## $ store_name     &lt;chr&gt; &quot;Yoido IFC Mall - 1F&quot;, &quot;Yoido IFC Mall - 1F&quot;
+## $ ownership_type &lt;chr&gt; &quot;Joint Venture&quot;, &quot;Joint Venture&quot;
+## $ street_address &lt;chr&gt; &quot;23 &amp; 23-1, Yoido-Dong, Yongdongpo-Gu, 1F, #101&quot;, &quot;23 …
+## $ city           &lt;chr&gt; &quot;Seoul&quot;, &quot;Seoul&quot;
+## $ state_province &lt;chr&gt; &quot;11&quot;, &quot;11&quot;
+## $ country        &lt;chr&gt; &quot;KR&quot;, &quot;KR&quot;
+## $ postcode       &lt;chr&gt; &quot;153-023&quot;, &quot;153-023&quot;
+## $ phone_number   &lt;chr&gt; NA, NA
+## $ timezone       &lt;chr&gt; &quot;GMT+09:00 Asia/Seoul&quot;, &quot;GMT+09:00 Asia/Seoul&quot;
+## $ longitude      &lt;dbl&gt; NA, 126.92
+## $ latitude       &lt;dbl&gt; NA, 37.53</code></pre>
+<p>Look carefully and you’ll notice that the latitude/longitude are missing for one of these records.</p>
+<p>We need lat/long for mapping and so we will want to prioritize the records with those data. Also, we don’t want duplicated records to interfere with our tabulations later on in this analysis.</p>
+<p>Let’s quickly look and see how much data is missing from the lat/long columns.</p>
+<pre class="r"><code># plot missing data (using raw data)
+DataExplorer::plot_missing(
+  title   = &quot;% of Missing Data (filtered to cols w/missing data)&quot;,
+  data    = coffee_chains_raw,
+  ggtheme = tidyquant::theme_tq(), 
+  missing_only = TRUE) </code></pre>
+<p><img src="/post/2020-07-31-r-packages-janitor-for-data-cleaning_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p>The plot shows that <code>0%</code> of data are missing for lat/long leading me to believe that the store identified earlier is the only record with missing data (insignificant amount when plotted).</p>
+<p>We will filter that record out in our <code>data-cleaning</code> step.</p>
+</div>
+<div id="pre-processing-addition-1" class="section level3">
+<h3>Pre-Processing Addition</h3>
+<p>Now let’s add this step to our pre-processing pipeline</p>
+<pre class="r"><code># Adding to our Pre-Processing Pipeline
+coffee_chains_processed &lt;- coffee_chains_raw %&gt;% 
+  
+  # clean up column names
+  janitor::clean_names() %&gt;% 
+  
+  # filter out records missing lat/long values
+  dplyr::filter(!is.na(latitude), !is.na(longitude))</code></pre>
+<p>Let’s use <code>get_dupes()</code> to confirm the problem is solved</p>
+<pre class="r"><code>coffee_chains_processed %&gt;% 
+  
+  # subset data
+  dplyr::select(brand, store_number, city, state_province, country) %&gt;% 
+  
+  # identify duplicated records
+  janitor::get_dupes()</code></pre>
+<pre><code>## # A tibble: 0 x 6
+## # … with 6 variables: brand &lt;chr&gt;, store_number &lt;chr&gt;, city &lt;chr&gt;,
+## #   state_province &lt;chr&gt;, country &lt;chr&gt;, dupe_count &lt;int&gt;</code></pre>
+</div>
+<div id="wrapping-up-the-analysis" class="section level3">
+<h3>Wrapping up the Analysis</h3>
+<p>Now that we’ve done our due diligence in being sure we’ve dealt with data issues, let’s wrap up this analysis by compiling a map along with the requested tabulated data.</p>
+<p>Before doing so, let’s add one final step to our pre-processing data pipeline.</p>
+</div>
+<div id="pre-processing-addition-2" class="section level3">
+<h3>Pre-Processing Addition</h3>
+<p>The final step is to subset the columns needed to complete the analysis.</p>
+<pre class="r"><code># Adding to our Pre-Processing Pipeline
+coffee_chains_processed &lt;- coffee_chains_raw %&gt;% 
+  
+  # clean up column names
+  janitor::clean_names() %&gt;% 
+  
+  # filter out records missing lat/long values
+  dplyr::filter(!is.na(latitude), !is.na(longitude)) %&gt;% 
+  
+  # subset columns for analysis
+  dplyr::select(brand, ownership_type, country, 
+                state_province, latitude, longitude)
+
+# view first 5 rows
+coffee_chains_processed %&gt;% head(5)</code></pre>
+<pre><code>## # A tibble: 5 x 6
+##   brand     ownership_type country state_province latitude longitude
+##   &lt;chr&gt;     &lt;chr&gt;          &lt;chr&gt;   &lt;chr&gt;             &lt;dbl&gt;     &lt;dbl&gt;
+## 1 Starbucks Licensed       AD      7                  42.5      1.53
+## 2 Starbucks Licensed       AE      AJ                 25.4     55.5 
+## 3 Starbucks Licensed       AE      AJ                 25.4     55.5 
+## 4 Starbucks Licensed       AE      AZ                 24.5     54.4 
+## 5 Starbucks Licensed       AE      AZ                 24.5     54.5</code></pre>
+</div>
+<div id="map-starbucks-locations" class="section level3">
+<h3>Map Starbucks Locations</h3>
+<p>Now that our data has been cleaned up a bit, we can finally make that map.</p>
+<pre class="r"><code># Map Starbucks locations (lower 48)
+coffee_chains_processed %&gt;% 
+  
+  # filter data
+  dplyr::filter(brand   == &quot;Starbucks&quot;, 
+                country == &quot;US&quot;, 
+                state_province != &quot;AK&quot;, 
+                state_province != &quot;HI&quot;) %&gt;% 
+  
+  # setup ggplot canvas + US borders
+  ggplot(aes(longitude, latitude, color = ownership_type)) +
+  ggplot2::borders(&quot;state&quot;) +
+  # add geometries
+  geom_point(size = 1, alpha = 0.8) +
+  
+  # formatting
+  ggthemes::theme_map() +   # remove x/y for tidy map
+  coord_map() +             # scales map (simple approach)
+  scale_color_manual(values = c(&quot;#2c3e50&quot;, &quot;#18BC9C&quot;)) +
+  labs(title = &quot;Starbucks Locations by Ownership Type (Lower 48)&quot;,
+       color = &quot;Ownership Type&quot;)</code></pre>
+<p><img src="/post/2020-07-31-r-packages-janitor-for-data-cleaning_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+</div>
+<div id="tabulate-data-worldwide" class="section level3">
+<h3>Tabulate Data (worldwide)</h3>
+<p>Let’s start with looking at Ownership Types worldwide.</p>
+<p><code>janitor::tabyl</code> stuck out to me because the ease with which to generate frequency tables.</p>
+<p>Check it out.</p>
+<pre class="r"><code># generate frequency table
+table &lt;- coffee_chains_processed %&gt;% 
+  
+  # filter data
+  dplyr::filter(brand   == &quot;Starbucks&quot;) %&gt;% 
+  
+  # tabulate and arrange data
+  janitor::tabyl(ownership_type) %&gt;% 
+  arrange(desc(percent)) %&gt;% 
+  
+  # formatting
+  janitor::adorn_totals() %&gt;% 
+  janitor::adorn_pct_formatting() %&gt;% 
+  rmarkdown::paged_table()</code></pre>
+<p>Using just the <code>tabyl</code> function we were able to generate frequencies along with the percent of total.</p>
+<p>However, <code>{janitor}</code> is packed full of other goodies - the creators have crafted a number of <code>adorn</code> options for formatting our outputs. I used the <code>adorn_totals</code> and <code>adorn_pct_formatting</code> to tidy up and make our table ready for presentation.</p>
+<p>Simply Amazing 😎</p>
+</div>
+<div id="tabulate-data-us-lower-48" class="section level3">
+<h3>Tabulate Data (US, lower 48)</h3>
+<pre class="r"><code># generate frequency table
+coffee_chains_processed %&gt;% 
+  
+  # filter data
+  dplyr::filter(brand   == &quot;Starbucks&quot;, 
+                country == &quot;US&quot;, 
+                state_province != &quot;AK&quot;, 
+                state_province != &quot;HI&quot;) %&gt;% 
+  
+  # tabulate and arrange data
+  janitor::tabyl(ownership_type) %&gt;% 
+  arrange(desc(percent)) %&gt;% 
+  
+  # formatting
+  janitor::adorn_totals() %&gt;% 
+  janitor::adorn_pct_formatting() %&gt;% 
+  rmarkdown::paged_table()</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["ownership_type"],"name":[1],"type":["chr"],"align":["left"]},{"label":["n"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["percent"],"name":[3],"type":["chr"],"align":["left"]}],"data":[{"1":"Company Owned","2":"7859","3":"59.7%","_rn_":"1"},{"1":"Licensed","2":"5306","3":"40.3%","_rn_":"2"},{"1":"Total","2":"13165","3":"100.0%","_rn_":"3"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<div id="wrap-up" class="section level3">
+<h3>Wrap Up</h3>
+<p>I hope you enjoyed the first post in this new series.</p>
+<p>Please leave a comment to let me know your thoughts.</p>
+</div>
+<div id="learn-r-fast" class="section level3">
+<h3>Learn R Fast 👇</h3>
+<p>I’ve been learning Data Science at <a href="http://bit.ly/2UbPat2" target="_blank">Business Science University</a> where Matt Dancho (the owner) has been teaching me how to succeed - the courses helped me land a full-time gig at Sephora on the Analytics team (Thank you, Matt Dancho).</p>
+<p>Join me on the journey. Check out this link to get 15% off of the courses that are helping me take my career in Analytics to the next level: <a href="http://bit.ly/2UbPat2" target="_blank">Business Science Courses in Data Science</a></p>
+<p>Good luck.</p>
+</div>
+<div id="stay-connected" class="section level3">
+<h3>Stay Connected</h3>
+<p>Enter your <a href="https://tinyletter.com/dexters-analytics" target="_blank">Email Here</a> to join the many other subscribers leveling up there skills here at <code>Exploring-Data</code>.<br/></p>
+<p>PS: Be Kind and Tidy your Data 😎<br/></p>
+<p>PSS: Leave a comment to help guide the subsequent posts in this series.</p>
 </div>
 </div>
 
@@ -217,11 +531,11 @@ coffee_chains &lt;- tuesdata$week6_coffee_chains</code></pre>
     <h4><a href="/post/exploratory-data-analysis-eda-guide/">Exploratory Data Analysis Guide</a></h4>
     <h5>June 20, 2020</h5>
     
-<a href="/tags/r"><kbd class="item-tag">R</kbd></a>
+<a href="https://www.exploringdata.org/tags/r"><kbd class="item-tag">R</kbd></a>
 
-<a href="/tags/eda"><kbd class="item-tag">EDA</kbd></a>
+<a href="https://www.exploringdata.org/tags/eda"><kbd class="item-tag">EDA</kbd></a>
 
-<a href="/tags/r-for-data-science"><kbd class="item-tag">R for Data Science</kbd></a>
+<a href="https://www.exploringdata.org/tags/r-for-data-science"><kbd class="item-tag">R for Data Science</kbd></a>
 
 
 

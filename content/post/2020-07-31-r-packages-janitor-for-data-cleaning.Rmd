@@ -3,7 +3,7 @@ title: 'R Packages: {janitor} for Data Cleaning'
 author: Jason Dexter
 date: '2020-07-31'
 slug: r-packages-janitor-for-data-cleaning
-draft: yes
+#draft: yes
 categories:
   - R
 tags:
@@ -15,6 +15,8 @@ editor_options:
   chunk_output_type: console
 ---
 
+
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(
   message = FALSE,
@@ -25,9 +27,10 @@ knitr::opts_chunk$set(
 
 ![Snapshot of janitor package Github Page](/post/2020-07-31-r-packages-janitor-for-data-cleaning_files/janitor_package.png)
 
+
 ### Quick Overview
 
-`Exploring Data` is a place where I share easily digestible content aimed at making the wrangling and exploration of data more efficient (+more fun).
+`Exploring-Data` is a place where I share easily digestible content aimed at making the wrangling and exploration of data more efficient (+fun).
 
 Sign up [Here](https://tinyletter.com/dexters-analytics){target="_blank"} to join the many other subscribers who also nerd out on new tips and tricks 🤓
 
@@ -36,55 +39,400 @@ Sign up [Here](https://tinyletter.com/dexters-analytics){target="_blank"} to joi
 
 When I discover new and helpful `functions` I light up 💡 with excitement. 
 
-Interestingly, I have a pattern of finding one or two useful `functions` in a `{package}`, but rarely explore `{packages}` further for other useful `functionality`.
+Interestingly, I have a pattern of finding one or two useful `functions` in a `{package}`, but rarely explore further to discover other useful `functionality`.
 
-That's what this New Series is all about 😎
+That's what this New Series is all about, `Exploration`.
 
-Each post will share a bit about how I was using the `{package}` and then use a case-study to highlight other `functionality` I found to be useful.
+In each post I will share a bit about how I was using a `{package}` and then use a case-study to highlight other `functionality` I discovered to be useful.
 
+
+### Leave a Comment
+
+Leave a comment at the end to let me know if you like this style of post. The feedback will be considered in determining the direction of this series.
+
+
+#### Examples of feedback:  
+
+  1. Was the post to long?
+  2. Do you like the case-study approach?
+  3. Could I have just shared the functions without the case-study?
+  4. Was sharing about the pre-processing pro-tip helpful or distracting?
 
 
 ### janitor {package}
 
 This a wonderful `{package}` built by [Sam Firke](https://github.com/sfirke){target="_blank"}.
 
-Take the time to explore the [Github page for the `{package}`](https://github.com/sfirke/janitor){target="_blank"} where Sam describes the packages as follow:
+Take the time to explore the [Github Page](https://github.com/sfirke/janitor){target="_blank"} for the `{janitor:package}`, where Sam describes it as follow:
 
 > janitor has simple functions for examining and cleaning dirty data. It was built with beginning and intermediate R users in mind and is optimized for user-friendliness. Advanced R users can already do everything covered here, but with janitor they can do it faster and save their thinking for the fun stuff.
 
-Let's dive into our case-study. We will be going over the following:
+There are many more functions (20+) in the package that we will not cover - head over to the following page to learn more about them: [Overview of janitor functions.](http://sfirke.github.io/janitor/articles/janitor.html){target="_blank"}
 
-1. A tip for setting up a pre-processing pipepline.
-2. The `function` I use all the time: `janitor::clean_names`
-3. Two newly discovered `functions`: 
+
+### Case-Study
+
+The case-study will provide and illustrate the following:
+
+1. A pro-tip for setting up a pre-processing data pipepline.
+2. The `function` I use often: `janitor::clean_names()`.
+3. Newly discovered `functions` from `{janitor}`.   
+
+
+### Let's dive in...
+
+Imagine being tasked with doing an analysis on Starbucks coffee locations. Your manager has provided you with `raw-data` from coffee chains and requested that you:
+
+1. QA the data for duplicates (by store and by location).
+2. Deliver a map of US Starbucks locations (by ownership type).
+3. Tabulate the various types of Starbucks Ownership:
+    * Worldwide & 
+    * US (lower 48)
+
+To streamline your efforts and get swiftly to making that map, you decide to leverage the `{janitor:package}`.
 
 
 ### Load our Libraries
 
 ```{r}
-library(tidyverse) 
-library(janitor)
-# lsf.str("package:janitor") %>% tibble()
+library(tidyverse) # Work-Horse Package
+library(janitor)   # Data cleaning (+tabulating data)
+library(janitor)   # Business Ready Plots
+library(ggthemes)  # Clean ggplot theme for Maps
 ```
 
-### Import data
 
-For our case-study we are using data from the [Tidy Tuesday Project](https://github.com/rfordatascience/tidytuesday){target="_blank"}.
+### Let's Get Some Data
+
+For our case-study we are using data from the [Tidy Tuesday Project](https://github.com/rfordatascience/tidytuesday){target="_blank"} archive.
 
 ```{r, results="hide"}
 # Import Data ----
-tuesdata <- tidytuesdayR::tt_load("2018-05-07") 
-coffee_chains <- tuesdata$week6_coffee_chains
+#tuesdata <- tidytuesdayR::tt_load("2018-05-07") 
+#readxl::read_xlsx("static/01_data/week6_coffee_chains.xlsx")
 ```
+
+
+### Pro-Tip: Pre-Processing Pipeline
+
+When working with new data, I'll typically setup up a pre-processing step at the beginning of the script. It typically starts out with no steps and then they get added as I move through my analysis.
+
+The idea is that as you conduct your Exploratory Data Analysis `(EDA)`, you will discover pre-processing +/or cleaning steps that need to be added to your pipeline. 
+
+In this post, I'll illustrate this technique by adding to our pipeline as we go; however, this data pipeline would live near the top of the script and would not move.
+
+#### Step 1
+
+Save `raw` data to a variable.
+
+```{r}
+#coffee_chains_raw <- tuesdata$week6_coffee_chains
+coffee_chains_raw <- readxl::read_xlsx("../../static/01_data/week6_coffee_chains.xlsx")
+```
+
+#### Step 2 
+
+Immediately save the `raw` data to new variable labeled with the suffix, `processed`.
+
+```{r}
+# Beginning of Pre-Processing Pipeline
+coffee_chains_processed <- coffee_chains_raw
+```
+
+This obviously has ZERO pre-processing done to the data at this point. The point though is that as you discover areas of your data that require attention, you then can circle back to this pipeline and add those steps.
+
+This may seem odd, but the beauty comes in not having to get further along in your analysis before realizing that you need to do data cleaning steps; if you approach it that way, then you have to go back and rename your variables created along the way - this method allows you to keep working with your `processed` data as you move swiftly through your analysis.
+
+I picked up this `pro-tip` while watching `David Robinson` in his `Tidy Tuesday Screencasts` - check those out here: [Tidy Tuesday R Screencasts](https://www.youtube.com/playlist?list=PL19ev-r1GBwkuyiwnxoHTRC8TTqP8OEi8){target="_blank"}
+
+
+#### Step 3
+
+Begin `Exploring` your `Data` and conducting your analysis.
+
+At this point, I'll do a bit of `EDA` to familiarize myself with the data I'm working with; this process is always to get a high-level understanding of the data so that I can pick up on nuances along with data integrity issues that need attention (dealt with in the pre-processing pipeline).
+
+
+### Initial Exploration
+
+Let's look at these `raw` data using the `tibble::glimpse()` function.
+
+The `glimpse()` function allows us to quickly assess column names, data-types, and also view a sample of the values contained in each column - you can read more about the `glimpse()` function in my archive post, [Examining Data with glimpse()](https://www.exploringdata.org/post/examining-data-with-glimpse/){target="_blank"}.
+
+```{r}
+coffee_chains_processed %>% 
+  tibble::glimpse()
+```
+
+Immediately, we can see that our column names are not optimal for analysis. Personally, I'm VERY biased towards `snake_case` and therefore always like to get column names into that format.
+
+
+### janitor::clean_names()
+
+In comes `{janitor::clean_names}` to the rescue ⛑️ 
+
+By default, `clean_names()` outputs column naming with the `snake_case` format - maybe this is one of the reasons that it's in my top 10 for favorite functions in `R`.
+
+Let's test it out on our coffee data.
+
+```{r}
+# clean_names() with default naming
+coffee_chains_processed %>% 
+  janitor::clean_names() %>% 
+  base::names()
+```
+
+  
+  
+  
+#### Awesome!
+
+You'll notice the `function`  took care of the `/` in `State/Province` and replaced it with an underscore - simply amazing 😎
+
+#### Naming Convention Options
+
+If you prefer a different naming convention - I'm not sure why you would 🙄 - then you can use the `case` argument.
+
+```{r}
+# clean_names() with diff. naming convention
+coffee_chains_processed %>% 
+  clean_names(case = "small_camel") %>% 
+  names()
+```
+
+
+### Pre-Processing Addition
+
+Now let's add this step to our pre-processing pipeline.
+
+```{r}
+# Adding to our Pre-Processing Pipeline
+coffee_chains_processed <- coffee_chains_raw %>% 
+  
+  # clean up column names
+  janitor::clean_names()
+```
+
+
+### janitor::get_dupes()
+
+`janitor::get_dupes()` is at the top of the list for newly discovered `functionality` within the `{janitor}` package.
+
+This is one of those things you need to do often (check for duplicates) and `{janitor}` makes it simple.
+
+Going back to our `case-study`, our manager asked us to check for duplicated records (a common `data-cleaning` and `EDA` step).
+
+Let's subset our data and investigate.
 
 
 ```{r}
-coffee_chains %>%
-  clean_names() %>%
-  select(brand, store_number, store_name, country, city) %>%
-  get_dupes()
+coffee_chains_processed %>% 
+  
+  # subset data by store and by location
+  dplyr::select(brand, store_number, 
+                city, state_province, country) %>% 
+  
+  # identify duplicated records
+  janitor::get_dupes()
 ```
 
 
+Using `janitor::get_dupes()` we've quickly identified a potential issue: store number `19773-160973` has duplicated records.
 
+Let's investigate further.
+
+```{r}
+# filter to store with dupes
+coffee_chains_processed %>% 
+  
+  # filter to store and glimpse data
+  dplyr::filter(store_number == "19773-160973") %>% 
+  glimpse()
+```
+
+Look carefully and you'll notice that the latitude/longitude are missing for one of these records.
+
+We need lat/long for mapping and so we will want to prioritize the records with those data. Also, we don't want duplicated records to interfere with our tabulations later on in this analysis.
+
+Let's quickly look and see how much data is missing from the lat/long columns. 
+
+```{r, fig.height=3}
+# plot missing data (using raw data)
+DataExplorer::plot_missing(
+  title   = "% of Missing Data (filtered to cols w/missing data)",
+  data    = coffee_chains_raw,
+  ggtheme = tidyquant::theme_tq(), 
+  missing_only = TRUE) 
+```
+
+The plot shows that `0%` of data are missing for lat/long leading me to believe that the store identified earlier is the only record with missing data (insignificant amount when plotted).
+
+We will filter that record out in our `data-cleaning` step.
+
+### Pre-Processing Addition
+
+Now let's add this step to our pre-processing pipeline
+
+```{r}
+# Adding to our Pre-Processing Pipeline
+coffee_chains_processed <- coffee_chains_raw %>% 
+  
+  # clean up column names
+  janitor::clean_names() %>% 
+  
+  # filter out records missing lat/long values
+  dplyr::filter(!is.na(latitude), !is.na(longitude))
+```
+
+
+Let's use `get_dupes()` to confirm the problem is solved
+
+```{r}
+coffee_chains_processed %>% 
+  
+  # subset data
+  dplyr::select(brand, store_number, city, state_province, country) %>% 
+  
+  # identify duplicated records
+  janitor::get_dupes()
+```
+
+
+### Wrapping up the Analysis
+
+Now that we've done our due diligence in being sure we've dealt with data issues, let's wrap up this analysis by compiling a map along with the requested tabulated data.
+
+Before doing so, let's add one final step to our pre-processing data pipeline.
+
+### Pre-Processing Addition
+
+The final step is to subset the columns needed to complete the analysis.
+
+```{r}
+# Adding to our Pre-Processing Pipeline
+coffee_chains_processed <- coffee_chains_raw %>% 
+  
+  # clean up column names
+  janitor::clean_names() %>% 
+  
+  # filter out records missing lat/long values
+  dplyr::filter(!is.na(latitude), !is.na(longitude)) %>% 
+  
+  # subset columns for analysis
+  dplyr::select(brand, ownership_type, country, 
+                state_province, latitude, longitude)
+
+# view first 5 rows
+coffee_chains_processed %>% head(5)
+```
+
+
+### Map Starbucks Locations
+
+Now that our data has been cleaned up a bit, we can finally make that map.
+
+```{r, fig.height=4}
+# Map Starbucks locations (lower 48)
+coffee_chains_processed %>% 
+  
+  # filter data
+  dplyr::filter(brand   == "Starbucks", 
+                country == "US", 
+                state_province != "AK", 
+                state_province != "HI") %>% 
+  
+  # setup ggplot canvas + US borders
+  ggplot(aes(longitude, latitude, color = ownership_type)) +
+  ggplot2::borders("state") +
+  # add geometries
+  geom_point(size = 1, alpha = 0.8) +
+  
+  # formatting
+  ggthemes::theme_map() +   # remove x/y for tidy map
+  coord_map() +             # scales map (simple approach)
+  scale_color_manual(values = c("#2c3e50", "#18BC9C")) +
+  labs(title = "Starbucks Locations by Ownership Type (Lower 48)",
+       color = "Ownership Type")
+```
+
+
+### Tabulate Data (worldwide)
+
+Let's start with looking at Ownership Types worldwide.
+
+`janitor::tabyl` stuck out to me because the ease with which to generate frequency tables.
+
+Check it out.
+
+```{r}
+# generate frequency table
+table <- coffee_chains_processed %>% 
+  
+  # filter data
+  dplyr::filter(brand   == "Starbucks") %>% 
+  
+  # tabulate and arrange data
+  janitor::tabyl(ownership_type) %>% 
+  arrange(desc(percent)) %>% 
+  
+  # formatting
+  janitor::adorn_totals() %>% 
+  janitor::adorn_pct_formatting() %>% 
+  rmarkdown::paged_table()
+```
+
+Using just the `tabyl` function we were able to generate frequencies along with the percent of total.
+
+However, `{janitor}` is packed full of other goodies - the creators have crafted a number of `adorn` options for formatting our outputs. I used the `adorn_totals` and `adorn_pct_formatting` to tidy up and make our table ready for presentation.
+
+Simply Amazing 😎
+
+
+### Tabulate Data (US, lower 48)
+
+
+```{r}
+# generate frequency table
+coffee_chains_processed %>% 
+  
+  # filter data
+  dplyr::filter(brand   == "Starbucks", 
+                country == "US", 
+                state_province != "AK", 
+                state_province != "HI") %>% 
+  
+  # tabulate and arrange data
+  janitor::tabyl(ownership_type) %>% 
+  arrange(desc(percent)) %>% 
+  
+  # formatting
+  janitor::adorn_totals() %>% 
+  janitor::adorn_pct_formatting() %>% 
+  rmarkdown::paged_table()
+```
+
+
+### Wrap Up
+
+I hope you enjoyed the first post in this new series.
+
+Please leave a comment to let me know your thoughts.
+
+
+### Learn R Fast 👇
+
+I've been learning Data Science at [Business Science University](http://bit.ly/2UbPat2){target="_blank"} where Matt Dancho (the owner) has been teaching me how to succeed - the courses helped me land a full-time gig at Sephora on the Analytics team (Thank you, Matt Dancho).
+
+Join me on the journey. Check out this link to get 15% off of the courses that are helping me take my career in Analytics to the next level: [Business Science Courses in Data Science](http://bit.ly/2UbPat2){target="_blank"}
+
+Good luck.
+
+
+### Stay Connected
+
+Enter your [Email Here](https://tinyletter.com/dexters-analytics){target="_blank"} to join the many other subscribers leveling up there skills here at `Exploring-Data`.<br/>  
+
+PS: Be Kind and Tidy your Data 😎<br/>
+
+PSS: Leave a comment to help guide the subsequent posts in this series.
 

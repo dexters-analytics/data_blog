@@ -6,10 +6,22 @@
     <description>Recent content in Posts on Exploring Data</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 20 Jun 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 31 Jul 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://www.exploringdata.org/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>R Packages: {janitor} for Data Cleaning</title>
+      <link>https://www.exploringdata.org/post/r-packages-janitor-for-data-cleaning/</link>
+      <pubDate>Fri, 31 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.exploringdata.org/post/r-packages-janitor-for-data-cleaning/</guid>
+      <description>Snapshot of janitor package Github Page
+ Quick Overview Exploring-Data is a place where I share easily digestible content aimed at making the wrangling and exploration of data more efficient (+fun).
+Sign up Here to join the many other subscribers who also nerd out on new tips and tricks 🤓
+ New Series: Exploring R {packages} When I discover new and helpful functions I light up 💡 with excitement.</description>
+    </item>
     
     <item>
       <title>Exploratory Data Analysis Guide</title>
