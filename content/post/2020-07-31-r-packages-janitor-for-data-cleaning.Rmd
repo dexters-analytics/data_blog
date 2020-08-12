@@ -420,14 +420,16 @@ coffee_chains_processed %>%
 
 I hope you enjoyed the first post in this new series.
 
-Please leave a comment to let me know your thoughts.
+Leave a comment and let me know.
 
 
-### Learn R Fast 👇
+### Learn R Fast
 
-I've been learning Data Science at [Business Science University](http://bit.ly/2UbPat2){target="_blank"} where Matt Dancho (the owner) has been teaching me how to succeed - the courses helped me land a full-time gig at Sephora on the Analytics team (Thank you, Matt Dancho).
+I've been learning Data Science at [Business Science University](http://bit.ly/2UbPat2){target="_blank"}.
 
-Join me on the journey. Check out this link to get 15% off of the courses that are helping me take my career in Analytics to the next level: [Business Science Courses in Data Science](http://bit.ly/2UbPat2){target="_blank"}
+Join me on the journey. 
+
+Check out this link to get 15% off of the courses that are helping 1000s of analytics professionals take their careers to the next level: [Business Science Courses](http://bit.ly/2UbPat2){target="_blank"}
 
 Good luck.
 
