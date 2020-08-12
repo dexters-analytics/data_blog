@@ -92,8 +92,7 @@ library(ggthemes)  # Clean ggplot theme for Maps</code></pre>
 <h3>Let’s Get Some Data</h3>
 <p>For our case-study we are using data from the <a href="https://github.com/rfordatascience/tidytuesday" target="_blank">Tidy Tuesday Project</a> archive.</p>
 <pre class="r"><code># Import Data ----
-#tuesdata &lt;- tidytuesdayR::tt_load(&quot;2018-05-07&quot;) 
-#readxl::read_xlsx(&quot;static/01_data/week6_coffee_chains.xlsx&quot;)</code></pre>
+tuesdata &lt;- tidytuesdayR::tt_load(&quot;2018-05-07&quot;) </code></pre>
 </div>
 <div id="pro-tip-pre-processing-pipeline" class="section level3">
 <h3>Pro-Tip: Pre-Processing Pipeline</h3>
@@ -103,8 +102,8 @@ library(ggthemes)  # Clean ggplot theme for Maps</code></pre>
 <div id="step-1" class="section level4">
 <h4>Step 1</h4>
 <p>Save <code>raw</code> data to a variable.</p>
-<pre class="r"><code>#coffee_chains_raw &lt;- tuesdata$week6_coffee_chains
-coffee_chains_raw &lt;- readxl::read_xlsx(&quot;../../static/01_data/week6_coffee_chains.xlsx&quot;)</code></pre>
+<pre class="r"><code>coffee_chains_raw &lt;- tuesdata$week6_coffee_chains</code></pre>
+<pre class="r"><code>coffee_chains_raw &lt;- readxl::read_xlsx(&quot;../../static/01_data/week6_coffee_chains.xlsx&quot;)</code></pre>
 </div>
 <div id="step-2" class="section level4">
 <h4>Step 2</h4>
@@ -234,7 +233,7 @@ DataExplorer::plot_missing(
   data    = coffee_chains_raw,
   ggtheme = tidyquant::theme_tq(), 
   missing_only = TRUE) </code></pre>
-<p><img src="/post/2020-07-31-r-packages-janitor-for-data-cleaning_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p><img src="/post/2020-07-31-r-packages-janitor-for-data-cleaning_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
 <p>The plot shows that <code>0%</code> of data are missing for lat/long leading me to believe that the store identified earlier is the only record with missing data (insignificant amount when plotted).</p>
 <p>We will filter that record out in our <code>data-cleaning</code> step.</p>
 </div>
@@ -317,7 +316,7 @@ coffee_chains_processed %&gt;%
   scale_color_manual(values = c(&quot;#2c3e50&quot;, &quot;#18BC9C&quot;)) +
   labs(title = &quot;Starbucks Locations by Ownership Type (Lower 48)&quot;,
        color = &quot;Ownership Type&quot;)</code></pre>
-<p><img src="/post/2020-07-31-r-packages-janitor-for-data-cleaning_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<p><img src="/post/2020-07-31-r-packages-janitor-for-data-cleaning_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
 </div>
 <div id="tabulate-data-worldwide" class="section level3">
 <h3>Tabulate Data (worldwide)</h3>
@@ -325,7 +324,7 @@ coffee_chains_processed %&gt;%
 <p><code>janitor::tabyl</code> stuck out to me because the ease with which to generate frequency tables.</p>
 <p>Check it out.</p>
 <pre class="r"><code># generate frequency table
-table &lt;- coffee_chains_processed %&gt;% 
+coffee_chains_processed %&gt;% 
   
   # filter data
   dplyr::filter(brand   == &quot;Starbucks&quot;) %&gt;% 
@@ -338,6 +337,11 @@ table &lt;- coffee_chains_processed %&gt;%
   janitor::adorn_totals() %&gt;% 
   janitor::adorn_pct_formatting() %&gt;% 
   rmarkdown::paged_table()</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["ownership_type"],"name":[1],"type":["chr"],"align":["left"]},{"label":["n"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["percent"],"name":[3],"type":["chr"],"align":["left"]}],"data":[{"1":"Company Owned","2":"11581","3":"45.9%","_rn_":"1"},{"1":"Licensed","2":"9375","3":"37.1%","_rn_":"2"},{"1":"Joint Venture","2":"3975","3":"15.7%","_rn_":"3"},{"1":"Franchise","2":"317","3":"1.3%","_rn_":"4"},{"1":"Total","2":"25248","3":"100.0%","_rn_":"5"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 <p>Using just the <code>tabyl</code> function we were able to generate frequencies along with the percent of total.</p>
 <p>However, <code>{janitor}</code> is packed full of other goodies - the creators have crafted a number of <code>adorn</code> options for formatting our outputs. I used the <code>adorn_totals</code> and <code>adorn_pct_formatting</code> to tidy up and make our table ready for presentation.</p>
 <p>Simply Amazing 😎</p>

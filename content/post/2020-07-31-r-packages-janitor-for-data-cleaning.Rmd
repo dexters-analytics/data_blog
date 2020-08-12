@@ -108,8 +108,7 @@ For our case-study we are using data from the [Tidy Tuesday Project](https://git
 
 ```{r, results="hide"}
 # Import Data ----
-#tuesdata <- tidytuesdayR::tt_load("2018-05-07") 
-#readxl::read_xlsx("static/01_data/week6_coffee_chains.xlsx")
+tuesdata <- tidytuesdayR::tt_load("2018-05-07") 
 ```
 
 
@@ -126,9 +125,13 @@ In this post, I'll illustrate this technique by adding to our pipeline as we go;
 Save `raw` data to a variable.
 
 ```{r}
-#coffee_chains_raw <- tuesdata$week6_coffee_chains
+coffee_chains_raw <- tuesdata$week6_coffee_chains
+```
+
+```{r, results="hide"}
 coffee_chains_raw <- readxl::read_xlsx("../../static/01_data/week6_coffee_chains.xlsx")
 ```
+
 
 #### Step 2 
 
@@ -366,7 +369,7 @@ Check it out.
 
 ```{r}
 # generate frequency table
-table <- coffee_chains_processed %>% 
+coffee_chains_processed %>% 
   
   # filter data
   dplyr::filter(brand   == "Starbucks") %>% 
@@ -380,6 +383,7 @@ table <- coffee_chains_processed %>%
   janitor::adorn_pct_formatting() %>% 
   rmarkdown::paged_table()
 ```
+
 
 Using just the `tabyl` function we were able to generate frequencies along with the percent of total.
 
