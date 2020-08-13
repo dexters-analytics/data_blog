@@ -34,6 +34,9 @@ knitr::opts_chunk$set(
 
 Sign up [Here](https://tinyletter.com/dexters-analytics){target="_blank"} to join the many other subscribers who also nerd out on new tips and tricks 🤓
 
+And if you enjoy the post be sure to share it
+
+<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
 
 ### New Series: Exploring R {packages}
 
@@ -372,7 +375,7 @@ Check it out.
 coffee_chains_processed %>% 
   
   # filter data
-  dplyr::filter(brand   == "Starbucks") %>% 
+  dplyr::filter(brand == "Starbucks") %>% 
   
   # tabulate and arrange data
   janitor::tabyl(ownership_type) %>% 
@@ -420,7 +423,9 @@ coffee_chains_processed %>%
 
 I hope you enjoyed the first post in this new series.
 
-Leave a comment and let me know.
+Leave a comment and let me know. Also, be sure to share the post
+
+<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
 
 
 ### Learn R Fast
