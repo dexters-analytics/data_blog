@@ -2,147 +2,147 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Exploring Data</title>
-    <link>/tags/</link>
+    <link>https://www.exploringdata.org/tags/</link>
     <description>Recent content in Tags on Exploring Data</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 31 Jul 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 10 Aug 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.exploringdata.org/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>data</title>
-      <link>/tags/data/</link>
-      <pubDate>Fri, 31 Jul 2020 00:00:00 +0000</pubDate>
+      <link>https://www.exploringdata.org/tags/data/</link>
+      <pubDate>Mon, 10 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/data/</guid>
+      <guid>https://www.exploringdata.org/tags/data/</guid>
       <description></description>
     </item>
     
     <item>
       <title>data cleaning</title>
-      <link>/tags/data-cleaning/</link>
-      <pubDate>Fri, 31 Jul 2020 00:00:00 +0000</pubDate>
+      <link>https://www.exploringdata.org/tags/data-cleaning/</link>
+      <pubDate>Mon, 10 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/data-cleaning/</guid>
+      <guid>https://www.exploringdata.org/tags/data-cleaning/</guid>
       <description></description>
     </item>
     
     <item>
       <title>EDA</title>
-      <link>/tags/eda/</link>
-      <pubDate>Fri, 31 Jul 2020 00:00:00 +0000</pubDate>
+      <link>https://www.exploringdata.org/tags/eda/</link>
+      <pubDate>Mon, 10 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/eda/</guid>
+      <guid>https://www.exploringdata.org/tags/eda/</guid>
       <description></description>
     </item>
     
     <item>
       <title>janitor</title>
-      <link>/tags/janitor/</link>
-      <pubDate>Fri, 31 Jul 2020 00:00:00 +0000</pubDate>
+      <link>https://www.exploringdata.org/tags/janitor/</link>
+      <pubDate>Mon, 10 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/janitor/</guid>
+      <guid>https://www.exploringdata.org/tags/janitor/</guid>
       <description></description>
     </item>
     
     <item>
       <title>R</title>
-      <link>/tags/r/</link>
-      <pubDate>Fri, 31 Jul 2020 00:00:00 +0000</pubDate>
+      <link>https://www.exploringdata.org/tags/r/</link>
+      <pubDate>Mon, 10 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/r/</guid>
+      <guid>https://www.exploringdata.org/tags/r/</guid>
       <description></description>
     </item>
     
     <item>
       <title>r packages</title>
-      <link>/tags/r-packages/</link>
-      <pubDate>Fri, 31 Jul 2020 00:00:00 +0000</pubDate>
+      <link>https://www.exploringdata.org/tags/r-packages/</link>
+      <pubDate>Mon, 10 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/r-packages/</guid>
+      <guid>https://www.exploringdata.org/tags/r-packages/</guid>
       <description></description>
     </item>
     
     <item>
       <title>R for Data Science</title>
-      <link>/tags/r-for-data-science/</link>
-      <pubDate>Sat, 20 Jun 2020 00:00:00 +0000</pubDate>
+      <link>https://www.exploringdata.org/tags/r-for-data-science/</link>
+      <pubDate>Wed, 15 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/r-for-data-science/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ggplot</title>
-      <link>/tags/ggplot/</link>
-      <pubDate>Sat, 30 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/ggplot/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tidyquant</title>
-      <link>/tags/tidyquant/</link>
-      <pubDate>Sat, 30 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/tidyquant/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>visualizations</title>
-      <link>/tags/visualizations/</link>
-      <pubDate>Sat, 30 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/visualizations/</guid>
+      <guid>https://www.exploringdata.org/tags/r-for-data-science/</guid>
       <description></description>
     </item>
     
     <item>
       <title>data wrangling</title>
-      <link>/tags/data-wrangling/</link>
-      <pubDate>Sun, 24 May 2020 00:00:00 +0000</pubDate>
+      <link>https://www.exploringdata.org/tags/data-wrangling/</link>
+      <pubDate>Sat, 20 Jun 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/data-wrangling/</guid>
+      <guid>https://www.exploringdata.org/tags/data-wrangling/</guid>
       <description></description>
     </item>
     
     <item>
       <title>tidyverse</title>
-      <link>/tags/tidyverse/</link>
-      <pubDate>Sun, 24 May 2020 00:00:00 +0000</pubDate>
+      <link>https://www.exploringdata.org/tags/tidyverse/</link>
+      <pubDate>Sat, 20 Jun 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/tidyverse/</guid>
+      <guid>https://www.exploringdata.org/tags/tidyverse/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ggplot</title>
+      <link>https://www.exploringdata.org/tags/ggplot/</link>
+      <pubDate>Tue, 02 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.exploringdata.org/tags/ggplot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tidyquant</title>
+      <link>https://www.exploringdata.org/tags/tidyquant/</link>
+      <pubDate>Tue, 02 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.exploringdata.org/tags/tidyquant/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>visualizations</title>
+      <link>https://www.exploringdata.org/tags/visualizations/</link>
+      <pubDate>Tue, 02 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.exploringdata.org/tags/visualizations/</guid>
       <description></description>
     </item>
     
     <item>
       <title>dplyr</title>
-      <link>/tags/dplyr/</link>
+      <link>https://www.exploringdata.org/tags/dplyr/</link>
       <pubDate>Fri, 15 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/dplyr/</guid>
+      <guid>https://www.exploringdata.org/tags/dplyr/</guid>
       <description></description>
     </item>
     
     <item>
       <title>stringr</title>
-      <link>/tags/stringr/</link>
+      <link>https://www.exploringdata.org/tags/stringr/</link>
       <pubDate>Sun, 03 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/stringr/</guid>
+      <guid>https://www.exploringdata.org/tags/stringr/</guid>
       <description></description>
     </item>
     
     <item>
       <title>data engineering</title>
-      <link>/tags/data-engineering/</link>
+      <link>https://www.exploringdata.org/tags/data-engineering/</link>
       <pubDate>Sat, 02 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/data-engineering/</guid>
+      <guid>https://www.exploringdata.org/tags/data-engineering/</guid>
       <description></description>
     </item>
     

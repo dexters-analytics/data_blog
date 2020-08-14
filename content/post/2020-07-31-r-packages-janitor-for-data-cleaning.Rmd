@@ -1,7 +1,7 @@
 ---
 title: 'R Packages: {janitor} for Data Cleaning'
 author: Jason Dexter
-date: '2020-07-31'
+date: '2020-08-10'
 slug: r-packages-janitor-for-data-cleaning
 #draft: yes
 categories:

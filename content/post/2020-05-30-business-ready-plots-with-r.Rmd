@@ -1,7 +1,7 @@
 ---
 title: "Business Ready Plots with R"
 author: "Jason Dexter"
-date: '2020-05-30'
+date: '2020-06-02'
 #draft: yes
 slug: business-ready-plots-with-r
 categories: R

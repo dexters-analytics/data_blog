@@ -1,7 +1,7 @@
 ---
 title: Exploratory Data Analysis Guide
 author: Jason Dexter
-date: '2020-06-20'
+date: '2020-07-15'
 slug: exploratory-data-analysis-eda-guide
 categories: []
 tags:

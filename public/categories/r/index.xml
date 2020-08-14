@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>R on Exploring Data</title>
-    <link>/categories/r/</link>
+    <link>https://www.exploringdata.org/categories/r/</link>
     <description>Recent content in R on Exploring Data</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 31 Jul 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 10 Aug 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/categories/r/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.exploringdata.org/categories/r/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>R Packages: {janitor} for Data Cleaning</title>
-      <link>/post/r-packages-janitor-for-data-cleaning/</link>
-      <pubDate>Fri, 31 Jul 2020 00:00:00 +0000</pubDate>
+      <link>https://www.exploringdata.org/post/r-packages-janitor-for-data-cleaning/</link>
+      <pubDate>Mon, 10 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/r-packages-janitor-for-data-cleaning/</guid>
+      <guid>https://www.exploringdata.org/post/r-packages-janitor-for-data-cleaning/</guid>
       <description>Snapshot of janitor package Github Page
  Quick Overview Exploring-Data is a place where I share easily digestible content aimed at making the wrangling and exploration of data more efficient (+fun).
 Sign up Here to join the many other subscribers who also nerd out on new tips and tricks 🤓
@@ -25,26 +25,26 @@ Tweet   New Series: Exploring R {packages} When I discover new and helpful funct
     </item>
     
     <item>
-      <title>Business Ready Plots with R</title>
-      <link>/post/business-ready-plots-with-r/</link>
-      <pubDate>Sat, 30 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/post/business-ready-plots-with-r/</guid>
-      <description>Quick Overview Recently, I completed the Data Science for Business 101 course over at Business Science University. In the course, Matt Dancho teaches students the fundamentals of data science for business with the tidyverse.
-The course is jam packed with material: from basic data wrangling all the way to applied machine learning - I highly recommend it to anyone looking to advance their skills 🤓
-Clink this LINK to access the course.</description>
-    </item>
-    
-    <item>
       <title>Quick Tips for Data Cleaning in R</title>
-      <link>/post/quick-tips-for-data-cleaning-in-r/</link>
-      <pubDate>Sun, 24 May 2020 00:00:00 +0000</pubDate>
+      <link>https://www.exploringdata.org/post/quick-tips-for-data-cleaning-in-r/</link>
+      <pubDate>Sat, 20 Jun 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/quick-tips-for-data-cleaning-in-r/</guid>
+      <guid>https://www.exploringdata.org/post/quick-tips-for-data-cleaning-in-r/</guid>
       <description>Data Cleaning (istockphoto)
  What to Expect I’m excited to share pro-tips that will expedite your process for cleaning and standardizing column names in your data; this is a critical yet sometimes overlooked step in the cleaning + tidying of data.
 There are a couple of handy functions() available in R to help effectively execute these tasks.
 By the end of this short article you’ll have a couple of new tricks up your sleeve for getting those column names just the way you want them 😎</description>
+    </item>
+    
+    <item>
+      <title>Business Ready Plots with R</title>
+      <link>https://www.exploringdata.org/post/business-ready-plots-with-r/</link>
+      <pubDate>Tue, 02 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.exploringdata.org/post/business-ready-plots-with-r/</guid>
+      <description>Quick Overview Recently, I completed the Data Science for Business 101 course over at Business Science University. In the course, Matt Dancho teaches students the fundamentals of data science for business with the tidyverse.
+The course is jam packed with material: from basic data wrangling all the way to applied machine learning - I highly recommend it to anyone looking to advance their skills 🤓
+Clink this LINK to access the course.</description>
     </item>
     
   </channel>
