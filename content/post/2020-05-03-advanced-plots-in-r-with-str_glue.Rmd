@@ -18,8 +18,7 @@ editor_options:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(
   message = FALSE,
-  warning = FALSE
-)
+  warning = FALSE)
 ```
 
 <br/> 
@@ -46,7 +45,8 @@ library(tidyquant)
 library(scales)
 library(DataExplorer)
 
-sf_trees_data_raw_tbl <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-01-28/sf_trees.csv')
+tuesdata <- tidytuesdayR::tt_load('2020-01-28') 
+sf_trees_data_raw_tbl <- tuesdata$sf_trees
 ```
 
 ### Data Exploration 
@@ -54,10 +54,11 @@ sf_trees_data_raw_tbl <- readr::read_csv('https://raw.githubusercontent.com/rfor
 Let's take a quick peak and inspect the SF Trees Data.
 
 ```{r, fig.height=4}
-plot_missing(sf_trees_data_raw_tbl,
-             ggtheme = theme_tq(),
-             title = str_glue(
-               'Exploring Missing Data (N = {count(sf_trees_data_raw_tbl)})'))
+plot_missing(
+    sf_trees_data_raw_tbl,
+    ggtheme = theme_tq(),
+    title = str_glue(
+    'Exploring Missing Data (N = {count(sf_trees_data_raw_tbl)})'))
 ```
 
 This is a fairly small data-set with only 12 columns. For the purpose of demonstration, let's see what we can do with just the species column.
@@ -115,8 +116,7 @@ redwood_labeled_text_tbl <- redwood_tbl %>%
         'Scientific Name:
         {species}
         Count: {n} of {sum(n)}
-        Pct (%): {pct_text}'
-    ),
+        Pct (%): {pct_text}'),
     
     # add 'forward-slash' to wrap-text on our plots y-axis
     common_name = str_replace(common_name, pattern = ' ', 
@@ -132,7 +132,9 @@ redwood_labeled_text_tbl <- redwood_tbl %>%
 Here is the manipulated text that will be useful once we plot these data; this setup is critical for the labels on our final plot e.g., the `\n` will wrap the text at those locations.
 
 ```{r}
-redwood_labeled_text_tbl %>% select(label_text) %>% rmarkdown::paged_table()
+redwood_labeled_text_tbl %>% 
+    select(label_text) %>% 
+    rmarkdown::paged_table()
 ```
 
 

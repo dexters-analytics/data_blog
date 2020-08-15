@@ -34,15 +34,20 @@ library(tidyquant)
 library(scales)
 library(DataExplorer)
 
-sf_trees_data_raw_tbl &lt;- readr::read_csv(&#39;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-01-28/sf_trees.csv&#39;)</code></pre>
+tuesdata &lt;- tidytuesdayR::tt_load(&#39;2020-01-28&#39;) </code></pre>
+<pre><code>## 
+##  Downloading file 1 of 2: `sf_trees.csv`
+##  Downloading file 2 of 2: `Street_Tree_Map.csv`</code></pre>
+<pre class="r"><code>sf_trees_data_raw_tbl &lt;- tuesdata$sf_trees</code></pre>
 </div>
 <div id="data-exploration" class="section level3">
 <h3>Data Exploration</h3>
 <p>Let’s take a quick peak and inspect the SF Trees Data.</p>
-<pre class="r"><code>plot_missing(sf_trees_data_raw_tbl,
-             ggtheme = theme_tq(),
-             title = str_glue(
-               &#39;Exploring Missing Data (N = {count(sf_trees_data_raw_tbl)})&#39;))</code></pre>
+<pre class="r"><code>plot_missing(
+    sf_trees_data_raw_tbl,
+    ggtheme = theme_tq(),
+    title = str_glue(
+    &#39;Exploring Missing Data (N = {count(sf_trees_data_raw_tbl)})&#39;))</code></pre>
 <p><img src="/post/2020-05-03-advanced-plots-in-r-with-str_glue_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <p>This is a fairly small data-set with only 12 columns. For the purpose of demonstration, let’s see what we can do with just the species column.</p>
 <p>The Coastal Redwoods in the SF area are incredible and one of my favorite species. I’m curious if other species of Redwoods are in SF and if so, at what proportions do they exist relative to the Coastal Redwoods.</p>
@@ -92,8 +97,7 @@ redwood_labeled_text_tbl &lt;- redwood_tbl %&gt;%
         &#39;Scientific Name:
         {species}
         Count: {n} of {sum(n)}
-        Pct (%): {pct_text}&#39;
-    ),
+        Pct (%): {pct_text}&#39;),
     
     # add &#39;forward-slash&#39; to wrap-text on our plots y-axis
     common_name = str_replace(common_name, pattern = &#39; &#39;, 
@@ -105,7 +109,9 @@ redwood_labeled_text_tbl &lt;- redwood_tbl %&gt;%
 <div id="manipulated-text-ready-to-plot" class="section level3">
 <h3>Manipulated Text (ready to plot)</h3>
 <p>Here is the manipulated text that will be useful once we plot these data; this setup is critical for the labels on our final plot e.g., the <code>\n</code> will wrap the text at those locations.</p>
-<pre class="r"><code>redwood_labeled_text_tbl %&gt;% select(label_text) %&gt;% rmarkdown::paged_table()</code></pre>
+<pre class="r"><code>redwood_labeled_text_tbl %&gt;% 
+    select(label_text) %&gt;% 
+    rmarkdown::paged_table()</code></pre>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":["label_text"],"name":[1],"type":["S3: glue"],"align":["right"]}],"data":[{"1":"Scientific Name:\\nSequoia sempervirens\\nCount: 341 of 369\\nPct (%): 92.41%"},{"1":"Scientific Name:\\nMetasequoia glyplostroboides\\nCount: 15 of 369\\nPct (%): 4.07%"},{"1":"Scientific Name:\\nSequoiadendron giganteum\\nCount: 13 of 369\\nPct (%): 3.52%"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
