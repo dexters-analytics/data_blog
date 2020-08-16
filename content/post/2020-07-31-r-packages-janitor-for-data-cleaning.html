@@ -22,7 +22,7 @@ editor_options:
 <p><br/></p>
 <div class="figure">
 <img src="/post/2020-07-31-r-packages-janitor-for-data-cleaning_files/janitor_package.png" alt="" />
-<p class="caption">Snapshot of janitor package Github Page</p>
+<p class="caption">Snapshot of janitor package Github (as of 8/10/20) Page</p>
 </div>
 <div id="quick-overview" class="section level3">
 <h3>Quick Overview</h3>
@@ -36,8 +36,8 @@ editor_options:
 <h3>New Series: Exploring R {packages}</h3>
 <p>When I discover new and helpful <code>functions</code> I light up 💡 with excitement.</p>
 <p>Interestingly, I have a pattern of finding one or two useful <code>functions</code> in a <code>{package}</code>, but rarely explore further to discover other useful <code>functionality</code>.</p>
-<p>That’s what this New Series is all about, <code>Exploration</code>.</p>
-<p>In each post I will share a bit about how I was using a <code>{package}</code> and then use a case-study to highlight other <code>functionality</code> I discovered to be useful.</p>
+<p>That’s what this New Series is all about - <code>Exploration</code>.</p>
+<p>In each post, I will share a bit about how I was using a <code>{package}</code> and then use a case-study to highlight other <code>functionality</code> I discovered to be useful.</p>
 </div>
 <div id="leave-a-comment" class="section level3">
 <h3>Leave a Comment</h3>
@@ -66,7 +66,7 @@ editor_options:
 <p>The case-study will provide and illustrate the following:</p>
 <ol style="list-style-type: decimal">
 <li>A pro-tip for setting up a pre-processing data pipepline.</li>
-<li>The <code>function</code> I use often: <code>janitor::clean_names()</code>.</li>
+<li>The <code>function</code> I use often: <code>clean_names()</code>.</li>
 <li>Newly discovered <code>functions</code> from <code>{janitor}</code>.</li>
 </ol>
 </div>
@@ -75,38 +75,38 @@ editor_options:
 <p>Imagine being tasked with doing an analysis on Starbucks coffee locations. Your manager has provided you with <code>raw-data</code> from coffee chains and requested that you:</p>
 <ol style="list-style-type: decimal">
 <li>QA the data for duplicates (by store and by location).</li>
-<li>Deliver a map of US Starbucks locations (by ownership type).</li>
 <li>Tabulate the various types of Starbucks Ownership:
 <ul>
 <li>Worldwide &amp;</li>
 <li>US (lower 48)</li>
 </ul></li>
+<li>Deliver a US map that identifies patterns in ownership types.</li>
 </ol>
 <p>To streamline your efforts and get swiftly to making that map, you decide to leverage the <code>{janitor:package}</code>.</p>
 </div>
 <div id="load-our-libraries" class="section level3">
 <h3>Load our Libraries</h3>
-<pre class="r"><code>library(tidyverse) # Work-Horse Package
-library(janitor)   # Data cleaning (+tabulating data)
-library(janitor)   # Business Ready Plots
-library(ggthemes)  # Clean ggplot theme for Maps</code></pre>
+<pre class="r"><code>library(tidyverse)     # Work-Horse Package
+library(janitor)       # Data cleaning (+tabulating data)
+library(janitor)       # Business Ready Plots
+library(ggthemes)      # Clean ggplot theme for Maps
+library(USAboundaries) # Get state name/code mapping</code></pre>
 </div>
 <div id="lets-get-some-data" class="section level3">
 <h3>Let’s Get Some Data</h3>
 <p>For our case-study we are using data from the <a href="https://github.com/rfordatascience/tidytuesday" target="_blank">Tidy Tuesday Project</a> archive.</p>
 <pre class="r"><code># Import Data ----
-tuesdata &lt;- tidytuesdayR::tt_load(&quot;2018-05-07&quot;) </code></pre>
+# tuesdata &lt;- tidytuesdayR::tt_load(&quot;2018-05-07&quot;) </code></pre>
 </div>
 <div id="pro-tip-pre-processing-pipeline" class="section level3">
 <h3>Pro-Tip: Pre-Processing Pipeline</h3>
 <p>When working with new data, I’ll typically setup up a pre-processing step at the beginning of the script. It typically starts out with no steps and then they get added as I move through my analysis.</p>
-<p>The idea is that as you conduct your Exploratory Data Analysis <code>(EDA)</code>, you will discover pre-processing +/or cleaning steps that need to be added to your pipeline.</p>
+<p>The idea is that as you conduct your Exploratory Data Analysis <code>(EDA)</code>, you will discover pre-processing steps that need to be added to your pipeline.</p>
 <p>In this post, I’ll illustrate this technique by adding to our pipeline as we go; however, this data pipeline would live near the top of the script and would not move.</p>
 <div id="step-1" class="section level4">
 <h4>Step 1</h4>
 <p>Save <code>raw</code> data to a variable.</p>
-<pre class="r"><code>coffee_chains_raw &lt;- tuesdata$week6_coffee_chains</code></pre>
-<pre class="r"><code>coffee_chains_raw &lt;- readxl::read_xlsx(&quot;../../static/01_data/week6_coffee_chains.xlsx&quot;)</code></pre>
+<pre class="r"><code># coffee_chains_raw &lt;- tuesdata$week6_coffee_chains</code></pre>
 </div>
 <div id="step-2" class="section level4">
 <h4>Step 2</h4>
@@ -116,6 +116,7 @@ coffee_chains_processed &lt;- coffee_chains_raw</code></pre>
 <p>This obviously has ZERO pre-processing done to the data at this point. The point though is that as you discover areas of your data that require attention, you then can circle back to this pipeline and add those steps.</p>
 <p>This may seem odd, but the beauty comes in not having to get further along in your analysis before realizing that you need to do data cleaning steps; if you approach it that way, then you have to go back and rename your variables created along the way - this method allows you to keep working with your <code>processed</code> data as you move swiftly through your analysis.</p>
 <p>I picked up this <code>pro-tip</code> while watching <code>David Robinson</code> in his <code>Tidy Tuesday Screencasts</code> - check those out here: <a href="https://www.youtube.com/playlist?list=PL19ev-r1GBwkuyiwnxoHTRC8TTqP8OEi8" target="_blank">Tidy Tuesday R Screencasts</a></p>
+<pre class="r"><code># Hat-Tip to D-Rob</code></pre>
 </div>
 <div id="step-3" class="section level4">
 <h4>Step 3</h4>
@@ -126,7 +127,7 @@ coffee_chains_processed &lt;- coffee_chains_raw</code></pre>
 <div id="initial-exploration" class="section level3">
 <h3>Initial Exploration</h3>
 <p>Let’s look at these <code>raw</code> data using the <code>tibble::glimpse()</code> function.</p>
-<p>The <code>glimpse()</code> function allows us to quickly assess column names, data-types, and also view a sample of the values contained in each column - you can read more about the <code>glimpse()</code> function in my archive post, <a href="https://www.exploringdata.org/post/examining-data-with-glimpse/" target="_blank">Examining Data with glimpse()</a>.</p>
+<p>The <code>glimpse()</code> function allows us to quickly assess column names, data-types, and also view a sample of the values contained in each column - you can read more about the <code>glimpse()</code> function in my archived post, <a href="https://www.exploringdata.org/post/examining-data-with-glimpse/" target="_blank">Examining Data with glimpse()</a>.</p>
 <pre class="r"><code>coffee_chains_processed %&gt;% 
   tibble::glimpse()</code></pre>
 <pre><code>## Rows: 25,600
@@ -187,7 +188,7 @@ coffee_chains_processed &lt;- coffee_chains_raw %&gt;%
 </div>
 <div id="janitorget_dupes" class="section level3">
 <h3>janitor::get_dupes()</h3>
-<p><code>janitor::get_dupes()</code> is at the top of the list for newly discovered <code>functionality</code> within the <code>{janitor}</code> package.</p>
+<p><code>get_dupes()</code> is at the top of the list for newly discovered <code>functionality</code> within the <code>{janitor}</code> package.</p>
 <p>This is one of those things you need to do often (check for duplicates) and <code>{janitor}</code> makes it simple.</p>
 <p>Going back to our <code>case-study</code>, our manager asked us to check for duplicated records (a common <code>data-cleaning</code> and <code>EDA</code> step).</p>
 <p>Let’s subset our data and investigate.</p>
@@ -236,7 +237,7 @@ DataExplorer::plot_missing(
   data    = coffee_chains_raw,
   ggtheme = tidyquant::theme_tq(), 
   missing_only = TRUE) </code></pre>
-<p><img src="/post/2020-07-31-r-packages-janitor-for-data-cleaning_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<p><img src="/post/2020-07-31-r-packages-janitor-for-data-cleaning_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
 <p>The plot shows that <code>0%</code> of data are missing for lat/long leading me to believe that the store identified earlier is the only record with missing data (insignificant amount when plotted).</p>
 <p>We will filter that record out in our <code>data-cleaning</code> step.</p>
 </div>
@@ -263,9 +264,10 @@ coffee_chains_processed &lt;- coffee_chains_raw %&gt;%
 ## # … with 6 variables: brand &lt;chr&gt;, store_number &lt;chr&gt;, city &lt;chr&gt;,
 ## #   state_province &lt;chr&gt;, country &lt;chr&gt;, dupe_count &lt;int&gt;</code></pre>
 </div>
-<div id="wrapping-up-the-analysis" class="section level3">
-<h3>Wrapping up the Analysis</h3>
-<p>Now that we’ve done our due diligence in being sure we’ve dealt with data issues, let’s wrap up this analysis by compiling a map along with the requested tabulated data.</p>
+<div id="starbucks-analysis" class="section level3">
+<h3>Starbucks Analysis</h3>
+<p>Now that we’ve done our due diligence in being sure we’ve dealt with data issues, let’s knock out this analysis by
+tabulating these data and compiling a map, or two 🤓</p>
 <p>Before doing so, let’s add one final step to our pre-processing data pipeline.</p>
 </div>
 <div id="pre-processing-addition-2" class="section level3">
@@ -282,9 +284,10 @@ coffee_chains_processed &lt;- coffee_chains_raw %&gt;%
   
   # subset columns for analysis
   dplyr::select(brand, ownership_type, country, 
-                state_province, latitude, longitude)
-
-# view first 5 rows
+                state_province, latitude, longitude)</code></pre>
+<div id="view-data" class="section level4">
+<h4>View Data</h4>
+<pre class="r"><code># view first 5 rows
 coffee_chains_processed %&gt;% head(5)</code></pre>
 <pre><code>## # A tibble: 5 x 6
 ##   brand     ownership_type country state_province latitude longitude
@@ -295,31 +298,6 @@ coffee_chains_processed %&gt;% head(5)</code></pre>
 ## 4 Starbucks Licensed       AE      AZ                 24.5     54.4 
 ## 5 Starbucks Licensed       AE      AZ                 24.5     54.5</code></pre>
 </div>
-<div id="map-starbucks-locations" class="section level3">
-<h3>Map Starbucks Locations</h3>
-<p>Now that our data has been cleaned up a bit, we can finally make that map.</p>
-<pre class="r"><code># Map Starbucks locations (lower 48)
-coffee_chains_processed %&gt;% 
-  
-  # filter data
-  dplyr::filter(brand   == &quot;Starbucks&quot;, 
-                country == &quot;US&quot;, 
-                state_province != &quot;AK&quot;, 
-                state_province != &quot;HI&quot;) %&gt;% 
-  
-  # setup ggplot canvas + US borders
-  ggplot(aes(longitude, latitude, color = ownership_type)) +
-  ggplot2::borders(&quot;state&quot;) +
-  # add geometries
-  geom_point(size = 1, alpha = 0.8) +
-  
-  # formatting
-  ggthemes::theme_map() +   # remove x/y for tidy map
-  coord_map() +             # scales map (simple approach)
-  scale_color_manual(values = c(&quot;#2c3e50&quot;, &quot;#18BC9C&quot;)) +
-  labs(title = &quot;Starbucks Locations by Ownership Type (Lower 48)&quot;,
-       color = &quot;Ownership Type&quot;)</code></pre>
-<p><img src="/post/2020-07-31-r-packages-janitor-for-data-cleaning_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
 </div>
 <div id="tabulate-data-worldwide" class="section level3">
 <h3>Tabulate Data (worldwide)</h3>
@@ -346,7 +324,7 @@ coffee_chains_processed %&gt;%
   </script>
 </div>
 <p>Using just the <code>tabyl</code> function we were able to generate frequencies along with the percent of total.</p>
-<p>However, <code>{janitor}</code> is packed full of other goodies - the creators have crafted a number of <code>adorn</code> options for formatting our outputs. I used the <code>adorn_totals</code> and <code>adorn_pct_formatting</code> to tidy up and make our table ready for presentation.</p>
+<p>However, <code>{janitor}</code> is packed full of other goodies - the creator(s) have crafted a number of <code>adorn</code> options for formatting our outputs. I used the <code>adorn_totals</code> and <code>adorn_pct_formatting</code> to tidy up and make our table ready for presentation.</p>
 <p>Simply Amazing 😎</p>
 </div>
 <div id="tabulate-data-us-lower-48" class="section level3">
@@ -373,6 +351,116 @@ coffee_chains_processed %&gt;%
 {"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["ownership_type"],"name":[1],"type":["chr"],"align":["left"]},{"label":["n"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["percent"],"name":[3],"type":["chr"],"align":["left"]}],"data":[{"1":"Company Owned","2":"7859","3":"59.7%","_rn_":"1"},{"1":"Licensed","2":"5306","3":"40.3%","_rn_":"2"},{"1":"Total","2":"13165","3":"100.0%","_rn_":"3"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
+<blockquote>
+<p>All Starbucks are either company owned, which is almost all of them, or else they’re “licensed” locations, which are the Starbucks in airports, supermarkets, etc. - Charles Partrick</p>
+</blockquote>
+</div>
+<div id="map-starbucks-locations" class="section level3">
+<h3>Map Starbucks Locations</h3>
+<p>Now lets make those maps and get this analysis wrapped up.</p>
+<p>Lets start by getting a general sense of where in the US these Starbucks are located.</p>
+<div id="data-manipulation" class="section level4">
+<h4>Data Manipulation</h4>
+<pre class="r"><code># Data Manipulation
+starbucks_lower_48 &lt;- coffee_chains_processed %&gt;% 
+  
+  # filter data
+  dplyr::filter(brand   == &quot;Starbucks&quot;, 
+                country == &quot;US&quot;, 
+                state_province != &quot;AK&quot;, 
+                state_province != &quot;HI&quot;) </code></pre>
+</div>
+<div id="data-visualization" class="section level4">
+<h4>Data Visualization</h4>
+<pre class="r"><code># Data Visualization
+starbucks_lower_48 %&gt;% 
+  
+  # setup ggplot canvas + US borders
+  ggplot(aes(longitude, latitude, color = ownership_type)) +
+  
+  # add geometries
+  borders(&quot;state&quot;) +
+  geom_point(size = .75, alpha = 0.5) +
+  
+  # formatting
+  ggthemes::theme_map() +   # remove x/y for tidy map
+  coord_map() +             # scales map (simple approach)
+  scale_color_manual(values = c(&quot;#2c3e50&quot;, &quot;#18BC9C&quot;)) +
+  labs(title = &quot;Starbucks Locations by Ownership Type (Lower 48)&quot;,
+       color = &quot;Ownership Type&quot;)</code></pre>
+<p><img src="/post/2020-07-31-r-packages-janitor-for-data-cleaning_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
+<p>That’s a solid map but I think we can do better to identify patterns in ownership types.</p>
+<p>Let’s calculate the ratio of Corporate (Company Owned) vs. Licensed ownership and map that at the state level.</p>
+</div>
+<div id="data-acquisition-state-boundaries" class="section level4">
+<h4>Data Acquisition (state boundaries)</h4>
+<pre class="r"><code># Get state level lat/long table
+states &lt;- ggplot2::map_data(&quot;state&quot;) %&gt;% 
+  tibble() %&gt;% 
+  mutate(region = str_to_title(region))</code></pre>
+</div>
+<div id="data-manipulation-1" class="section level4">
+<h4>Data Manipulation</h4>
+<pre class="r"><code># Data Manipulation
+ownership_ratios_by_state &lt;- starbucks_lower_48 %&gt;% 
+  
+  # count ownership types by state
+  group_by(state_province, ownership_type) %&gt;% 
+  summarize(n = n()) %&gt;% 
+  ungroup() %&gt;% 
+  
+  # pivot data and calculate ratios
+  pivot_wider(names_from = ownership_type, 
+              values_from = n) %&gt;% 
+  clean_names() %&gt;% 
+  mutate(corp_vs_lic = company_owned/licensed) %&gt;% 
+  
+  # join to get state names from codes
+  left_join(USAboundaries::state_codes %&gt;% 
+          select(state_name, state_abbr),
+          by = c(&quot;state_province&quot; = &quot;state_abbr&quot;)) %&gt;% 
+  
+  # reorder columns
+  select(state_name, everything())</code></pre>
+</div>
+<div id="view-data-1" class="section level4">
+<h4>View Data</h4>
+<pre class="r"><code>ownership_ratios_by_state %&gt;% head()</code></pre>
+<pre><code>## # A tibble: 6 x 5
+##   state_name  state_province company_owned licensed corp_vs_lic
+##   &lt;chr&gt;       &lt;chr&gt;                  &lt;int&gt;    &lt;int&gt;       &lt;dbl&gt;
+## 1 Alabama     AL                        48       36       1.33 
+## 2 Arkansas    AR                        35       19       1.84 
+## 3 Arizona     AZ                       196      283       0.693
+## 4 California  CA                      1943      839       2.32 
+## 5 Colorado    CO                       227      250       0.908
+## 6 Connecticut CT                        83       35       2.37</code></pre>
+</div>
+</div>
+<div id="data-visualization-1" class="section level3">
+<h3>Data Visualization</h3>
+<pre class="r"><code>ownership_ratios_by_state %&gt;% 
+  
+  # join to get state boundaries (lat/long)
+  left_join(states, by = c(&quot;state_name&quot; = &quot;region&quot;)) %&gt;% 
+  
+  # setup ggplot canvas + US borders
+  ggplot(aes(long, lat, fill = corp_vs_lic, group = group)) +
+  
+  # add geometries
+  geom_polygon() +
+  ggplot2::borders(&quot;state&quot;) +
+  
+  # formatting
+  ggthemes::theme_map() + # remove x/y for tidy map
+  theme(legend.position = c(.9, .05)) +
+  coord_map(projection = &quot;mercator&quot;) + # scales map projection 
+  scale_fill_gradient2(low = &quot;white&quot;, high = &quot;#18BC9C&quot;, ) + 
+  labs(title = &quot;Ratio of Corporate vs. Licensed Starbucks in the US (Lower 48)&quot;,
+       subtitle = &quot;Darker green equates to more corporate locations compared to licensed establishments.&quot;,
+       fill = &quot;Ratio of\nCorporate/\nLicensed&quot;) </code></pre>
+<p><img src="/post/2020-07-31-r-packages-janitor-for-data-cleaning_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
+<p>This represent the data in a way that helps us identify patterns - our manager will be pleased 👍</p>
 </div>
 <div id="wrap-up" class="section level3">
 <h3>Wrap Up</h3>

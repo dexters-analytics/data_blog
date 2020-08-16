@@ -25,7 +25,7 @@ knitr::opts_chunk$set(
 
 <br/> 
 
-![Snapshot of janitor package Github Page](/post/2020-07-31-r-packages-janitor-for-data-cleaning_files/janitor_package.png)
+![Snapshot of janitor package Github (as of 8/10/20) Page](/post/2020-07-31-r-packages-janitor-for-data-cleaning_files/janitor_package.png)
 
 
 ### Quick Overview
@@ -44,9 +44,9 @@ When I discover new and helpful `functions` I light up 💡 with excitement.
 
 Interestingly, I have a pattern of finding one or two useful `functions` in a `{package}`, but rarely explore further to discover other useful `functionality`.
 
-That's what this New Series is all about, `Exploration`.
+That's what this New Series is all about - `Exploration`.
 
-In each post I will share a bit about how I was using a `{package}` and then use a case-study to highlight other `functionality` I discovered to be useful.
+In each post, I will share a bit about how I was using a `{package}` and then use a case-study to highlight other `functionality` I discovered to be useful.
 
 
 ### Leave a Comment
@@ -78,7 +78,7 @@ There are many more functions (20+) in the package that we will not cover - head
 The case-study will provide and illustrate the following:
 
 1. A pro-tip for setting up a pre-processing data pipepline.
-2. The `function` I use often: `janitor::clean_names()`.
+2. The `function` I use often: `clean_names()`.
 3. Newly discovered `functions` from `{janitor}`.   
 
 
@@ -87,10 +87,10 @@ The case-study will provide and illustrate the following:
 Imagine being tasked with doing an analysis on Starbucks coffee locations. Your manager has provided you with `raw-data` from coffee chains and requested that you:
 
 1. QA the data for duplicates (by store and by location).
-2. Deliver a map of US Starbucks locations (by ownership type).
-3. Tabulate the various types of Starbucks Ownership:
+2. Tabulate the various types of Starbucks Ownership:
     * Worldwide & 
     * US (lower 48)
+3. Deliver a US map that identifies patterns in ownership types.
 
 To streamline your efforts and get swiftly to making that map, you decide to leverage the `{janitor:package}`.
 
@@ -98,10 +98,11 @@ To streamline your efforts and get swiftly to making that map, you decide to lev
 ### Load our Libraries
 
 ```{r}
-library(tidyverse) # Work-Horse Package
-library(janitor)   # Data cleaning (+tabulating data)
-library(janitor)   # Business Ready Plots
-library(ggthemes)  # Clean ggplot theme for Maps
+library(tidyverse)     # Work-Horse Package
+library(janitor)       # Data cleaning (+tabulating data)
+library(janitor)       # Business Ready Plots
+library(ggthemes)      # Clean ggplot theme for Maps
+library(USAboundaries) # Get state name/code mapping
 ```
 
 
@@ -111,7 +112,7 @@ For our case-study we are using data from the [Tidy Tuesday Project](https://git
 
 ```{r, results="hide"}
 # Import Data ----
-tuesdata <- tidytuesdayR::tt_load("2018-05-07") 
+# tuesdata <- tidytuesdayR::tt_load("2018-05-07") 
 ```
 
 
@@ -119,7 +120,7 @@ tuesdata <- tidytuesdayR::tt_load("2018-05-07")
 
 When working with new data, I'll typically setup up a pre-processing step at the beginning of the script. It typically starts out with no steps and then they get added as I move through my analysis.
 
-The idea is that as you conduct your Exploratory Data Analysis `(EDA)`, you will discover pre-processing +/or cleaning steps that need to be added to your pipeline. 
+The idea is that as you conduct your Exploratory Data Analysis `(EDA)`, you will discover pre-processing steps that need to be added to your pipeline. 
 
 In this post, I'll illustrate this technique by adding to our pipeline as we go; however, this data pipeline would live near the top of the script and would not move.
 
@@ -128,10 +129,10 @@ In this post, I'll illustrate this technique by adding to our pipeline as we go;
 Save `raw` data to a variable.
 
 ```{r}
-coffee_chains_raw <- tuesdata$week6_coffee_chains
+# coffee_chains_raw <- tuesdata$week6_coffee_chains
 ```
 
-```{r, results="hide"}
+```{r, include=FALSE}
 coffee_chains_raw <- readxl::read_xlsx("../../static/01_data/week6_coffee_chains.xlsx")
 ```
 
@@ -151,6 +152,11 @@ This may seem odd, but the beauty comes in not having to get further along in yo
 
 I picked up this `pro-tip` while watching `David Robinson` in his `Tidy Tuesday Screencasts` - check those out here: [Tidy Tuesday R Screencasts](https://www.youtube.com/playlist?list=PL19ev-r1GBwkuyiwnxoHTRC8TTqP8OEi8){target="_blank"}
 
+```{r}
+# Hat-Tip to D-Rob
+```
+
+
 
 #### Step 3
 
@@ -163,7 +169,7 @@ At this point, I'll do a bit of `EDA` to familiarize myself with the data I'm wo
 
 Let's look at these `raw` data using the `tibble::glimpse()` function.
 
-The `glimpse()` function allows us to quickly assess column names, data-types, and also view a sample of the values contained in each column - you can read more about the `glimpse()` function in my archive post, [Examining Data with glimpse()](https://www.exploringdata.org/post/examining-data-with-glimpse/){target="_blank"}.
+The `glimpse()` function allows us to quickly assess column names, data-types, and also view a sample of the values contained in each column - you can read more about the `glimpse()` function in my archived post, [Examining Data with glimpse()](https://www.exploringdata.org/post/examining-data-with-glimpse/){target="_blank"}.
 
 ```{r}
 coffee_chains_processed %>% 
@@ -222,7 +228,7 @@ coffee_chains_processed <- coffee_chains_raw %>%
 
 ### janitor::get_dupes()
 
-`janitor::get_dupes()` is at the top of the list for newly discovered `functionality` within the `{janitor}` package.
+`get_dupes()` is at the top of the list for newly discovered `functionality` within the `{janitor}` package.
 
 This is one of those things you need to do often (check for duplicates) and `{janitor}` makes it simple.
 
@@ -304,11 +310,13 @@ coffee_chains_processed %>%
 ```
 
 
-### Wrapping up the Analysis
+### Starbucks Analysis
 
-Now that we've done our due diligence in being sure we've dealt with data issues, let's wrap up this analysis by compiling a map along with the requested tabulated data.
+Now that we've done our due diligence in being sure we've dealt with data issues, let's knock out this analysis by 
+tabulating these data and compiling a map, or two 🤓
 
 Before doing so, let's add one final step to our pre-processing data pipeline.
+
 
 ### Pre-Processing Addition
 
@@ -327,38 +335,14 @@ coffee_chains_processed <- coffee_chains_raw %>%
   # subset columns for analysis
   dplyr::select(brand, ownership_type, country, 
                 state_province, latitude, longitude)
-
-# view first 5 rows
-coffee_chains_processed %>% head(5)
 ```
 
 
-### Map Starbucks Locations
+#### View Data
 
-Now that our data has been cleaned up a bit, we can finally make that map.
-
-```{r, fig.height=4}
-# Map Starbucks locations (lower 48)
-coffee_chains_processed %>% 
-  
-  # filter data
-  dplyr::filter(brand   == "Starbucks", 
-                country == "US", 
-                state_province != "AK", 
-                state_province != "HI") %>% 
-  
-  # setup ggplot canvas + US borders
-  ggplot(aes(longitude, latitude, color = ownership_type)) +
-  ggplot2::borders("state") +
-  # add geometries
-  geom_point(size = 1, alpha = 0.8) +
-  
-  # formatting
-  ggthemes::theme_map() +   # remove x/y for tidy map
-  coord_map() +             # scales map (simple approach)
-  scale_color_manual(values = c("#2c3e50", "#18BC9C")) +
-  labs(title = "Starbucks Locations by Ownership Type (Lower 48)",
-       color = "Ownership Type")
+```{r}
+# view first 5 rows
+coffee_chains_processed %>% head(5)
 ```
 
 
@@ -390,7 +374,7 @@ coffee_chains_processed %>%
 
 Using just the `tabyl` function we were able to generate frequencies along with the percent of total.
 
-However, `{janitor}` is packed full of other goodies - the creators have crafted a number of `adorn` options for formatting our outputs. I used the `adorn_totals` and `adorn_pct_formatting` to tidy up and make our table ready for presentation.
+However, `{janitor}` is packed full of other goodies - the creator(s) have crafted a number of `adorn` options for formatting our outputs. I used the `adorn_totals` and `adorn_pct_formatting` to tidy up and make our table ready for presentation.
 
 Simply Amazing 😎
 
@@ -417,6 +401,126 @@ coffee_chains_processed %>%
   janitor::adorn_pct_formatting() %>% 
   rmarkdown::paged_table()
 ```
+
+>All Starbucks are either company owned, which is almost all of them, or else they’re “licensed” locations, which are the Starbucks in airports, supermarkets, etc. - Charles Partrick
+
+
+### Map Starbucks Locations
+
+Now lets make those maps and get this analysis wrapped up.
+
+Lets start by getting a general sense of where in the US these Starbucks are located.
+
+
+#### Data Manipulation
+
+```{r}
+# Data Manipulation
+starbucks_lower_48 <- coffee_chains_processed %>% 
+  
+  # filter data
+  dplyr::filter(brand   == "Starbucks", 
+                country == "US", 
+                state_province != "AK", 
+                state_province != "HI") 
+```
+
+#### Data Visualization
+
+```{r, fig.height=4}
+# Data Visualization
+starbucks_lower_48 %>% 
+  
+  # setup ggplot canvas + US borders
+  ggplot(aes(longitude, latitude, color = ownership_type)) +
+  
+  # add geometries
+  borders("state") +
+  geom_point(size = .75, alpha = 0.5) +
+  
+  # formatting
+  ggthemes::theme_map() +   # remove x/y for tidy map
+  coord_map() +             # scales map (simple approach)
+  scale_color_manual(values = c("#2c3e50", "#18BC9C")) +
+  labs(title = "Starbucks Locations by Ownership Type (Lower 48)",
+       color = "Ownership Type")
+```
+
+
+That's a solid map but I think we can do better to identify patterns in ownership types.
+
+Let's calculate the ratio of Corporate (Company Owned) vs. Licensed ownership and map that at the state level.
+
+
+#### Data Acquisition (state boundaries)
+
+```{r}
+# Get state level lat/long table
+states <- ggplot2::map_data("state") %>% 
+  tibble() %>% 
+  mutate(region = str_to_title(region))
+```
+
+
+#### Data Manipulation
+
+```{r}
+# Data Manipulation
+ownership_ratios_by_state <- starbucks_lower_48 %>% 
+  
+  # count ownership types by state
+  group_by(state_province, ownership_type) %>% 
+  summarize(n = n()) %>% 
+  ungroup() %>% 
+  
+  # pivot data and calculate ratios
+  pivot_wider(names_from = ownership_type, 
+              values_from = n) %>% 
+  clean_names() %>% 
+  mutate(corp_vs_lic = company_owned/licensed) %>% 
+  
+  # join to get state names from codes
+  left_join(USAboundaries::state_codes %>% 
+          select(state_name, state_abbr),
+          by = c("state_province" = "state_abbr")) %>% 
+  
+  # reorder columns
+  select(state_name, everything())
+```
+
+#### View Data
+
+```{r}
+ownership_ratios_by_state %>% head()
+```
+
+
+### Data Visualization
+
+```{r}
+ownership_ratios_by_state %>% 
+  
+  # join to get state boundaries (lat/long)
+  left_join(states, by = c("state_name" = "region")) %>% 
+  
+  # setup ggplot canvas + US borders
+  ggplot(aes(long, lat, fill = corp_vs_lic, group = group)) +
+  
+  # add geometries
+  geom_polygon() +
+  ggplot2::borders("state") +
+  
+  # formatting
+  ggthemes::theme_map() + # remove x/y for tidy map
+  theme(legend.position = c(.9, .05)) +
+  coord_map(projection = "mercator") + # scales map projection 
+  scale_fill_gradient2(low = "white", high = "#18BC9C", ) + 
+  labs(title = "Ratio of Corporate vs. Licensed Starbucks in the US (Lower 48)",
+       subtitle = "Darker green equates to more corporate locations compared to licensed establishments.",
+       fill = "Ratio of\nCorporate/\nLicensed") 
+```
+
+This represent the data in a way that helps us identify patterns - our manager will be pleased 👍
 
 
 ### Wrap Up
@@ -446,4 +550,67 @@ Enter your [Email Here](https://tinyletter.com/dexters-analytics){target="_blank
 PS: Be Kind and Tidy your Data 😎<br/>
 
 PSS: Leave a comment to help guide the subsequent posts in this series.
+
+
+
+
+```{r include=FALSE}
+knitr::knit_exit()
+```
+
+
+
+```{r}
+# get data for code matching/joining
+#maps::iso3166 %>% tibble()
+states <- ggplot2::map_data("state") %>% tibble() %>% 
+  mutate(region = str_to_title(region))
+states
+
+# Map Starbucks locations (lower 48)
+usa_starbucks_by_ownership <- coffee_chains_processed %>% 
+  
+  # filter data
+  dplyr::filter(brand   == "Starbucks", 
+                country == "US", 
+                state_province != "AK", 
+                state_province != "HI") %>% 
+  
+  group_by(state_province, ownership_type) %>% 
+  summarize(n = n()) %>% 
+  ungroup() %>% 
+  
+  pivot_wider(names_from = ownership_type, values_from = n) %>% 
+  clean_names() %>% 
+  mutate(lic_vs_corp = company_owned/licensed) %>% 
+  
+  left_join(USAboundaries::state_codes %>% select(state_name, state_abbr),
+            by = c("state_province" = "state_abbr")) %>% 
+  
+  select(state_name, everything())
+
+
+usa_starbucks_by_ownership %>% 
+  
+  left_join(states, by = c("state_name" = "region")) %>% 
+  
+  # setup ggplot canvas + US borders
+  ggplot(aes(long, lat, fill = lic_vs_corp, group = group)) +
+  # add geometries
+  geom_polygon() +
+  #geom_label(aes(label = state_province)) +
+  ggplot2::borders("state") +
+  #geom_point(size = 1, alpha = 0.8) +
+  
+  # formatting
+  ggthemes::theme_map() +   # remove x/y for tidy map
+  theme(legend.position = "right") +
+  coord_map(projection = "mercator") +             # scales map (simple approach)
+  scale_fill_gradient2(low = "white", high = "#18BC9C", ) + #"#2c3e50") +
+  #scale_color_manual(values = c("#2c3e50", "#18BC9C")) +
+  labs(title = "Starbucks Locations by Ownership Type (Lower 48)",
+       color = "Ownership Type",
+       fill = "Ratio of\nCorporate/\nLicensed") 
+```
+
 
