@@ -29,7 +29,7 @@ The course is jam packed with material: from basic data wrangling all the way to
       
       <guid>/post/advanced-plots-in-r-with-str_glue/</guid>
       <description>Source: https://bit.ly/2CGyS6I
- Enter your Email Here to get the latest from Exploring-Data in your inbox.
+  Enter your Email Here to get the latest from Exploring-Data in your inbox.
 Let’s Dive Into an Example I’d like to share a technique using str_glue() that I learned from Matt Dancho, a Data-Science instructor at Business Science University. Check out my favorite course here: Business Analysis With R.
 str_glue() from the stringr library is one of my favorite functions in R - It’s super helpful for wrangling and manipulating text in preparation for building advanced plots.</description>
     </item>

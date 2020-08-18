@@ -24,6 +24,7 @@ knitr::opts_chunk$set(
 
 ![Source: https://bit.ly/3g9sNgK](/post/2020-05-15-examining-data-with-glimpse_files/examining_data_2.png)
 
+<div style="height:2px;"><br></div>
 
 Enter your [Email Here](https://tinyletter.com/dexters-analytics){target="_blank"} to get the latest from Exploring-Data in your inbox.<br/> 
 

@@ -24,6 +24,7 @@ knitr::opts_chunk$set(
 
 ![Source: https://bit.ly/2CGyS6I](/post/2020-05-03-advanced-plots-in-r-with-str_glue_files/Screen Shot 2020-08-17 at 8.52.51 PM.png){target="_blank"}
 
+<div style="height:2px;"><br></div>
 
 Enter your [Email Here](https://tinyletter.com/dexters-analytics){target="_blank"} to get the latest from Exploring-Data in your inbox.<br/> 
 
