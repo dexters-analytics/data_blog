@@ -25,6 +25,8 @@ theme_set(theme_tq())
 ```
 
 
+Enter your [Email Here](https://tinyletter.com/dexters-analytics){target="_blank"} to get the latest from Exploring-Data in your inbox.<br/> 
+
 <br/> 
 
 ### Quick Overview
@@ -220,9 +222,10 @@ The instructor, Matt Dancho, has given me a 15% discount to share with my audien
 
 Link to my favorite `R` course (with 15% off discount): [Data Science for Business 101](https://university.business-science.io/p/ds4b-101-r-business-analysis-r/?coupon_code=DS4B15&affcode=173166_vnvxtqbd){target="_blank"}
 
-### Stay Connected
+### Subscribe
 
-Enter your [Email Here](https://tinyletter.com/dexters-analytics){target="_blank"} to receive notifications when new content is posted.<br/>  
+Enter your [Email Here](https://tinyletter.com/dexters-analytics){target="_blank"} to get the latest from Exploring-Data in your inbox.<br/> 
+
 
 PS: Be Kind and Tidy your Data 😎
 

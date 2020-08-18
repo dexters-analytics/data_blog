@@ -14,6 +14,7 @@ editor_options:
 ---
 
 
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(
   message = FALSE,
@@ -21,7 +22,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-<br/> 
+Enter your [Email Here](https://tinyletter.com/dexters-analytics){target="_blank"} to get the latest from Exploring-Data in your inbox.<br/> 
 
 
 ### Let's Dive into an Example
@@ -260,11 +261,11 @@ That's it for today!
 We used `glimpse()` to quickly examine our data prior to `Wrangling` and `Exploring` it further. 
 
 
-### Stay Connected
+### Subscribe
 
 Stay tuned for more posts on `Wrangling` + `Exploring` data..
 
-Enter your [Email Here](https://tinyletter.com/dexters-analytics){target="_blank"} to receive notifications when new content is posted.<br/>  
+Enter your [Email Here](https://tinyletter.com/dexters-analytics){target="_blank"} to get the latest from Exploring-Data in your inbox.<br/> 
 
 PS: Be Kind and Tidy your Data 😎
 

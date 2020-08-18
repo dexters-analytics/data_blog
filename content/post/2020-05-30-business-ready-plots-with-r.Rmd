@@ -22,7 +22,10 @@ knitr::opts_chunk$set(
 )
 ```
 
-<br/> 
+
+Enter your [Email Here](https://tinyletter.com/dexters-analytics){target="_blank"} to get the latest from Exploring-Data in your inbox.<br/> 
+
+
 
 ### Quick Overview
 
@@ -209,9 +212,10 @@ That's it for today!
 
 You learned how to turn a generic `ggplot()` into one that is `Business-Ready` 👍
 
-### Stay Connected
+### Subscribe
 
-Enter your [Email Here](https://tinyletter.com/dexters-analytics){target="_blank"} to receive notifications when new content is posted.<br/>  
+Enter your [Email Here](https://tinyletter.com/dexters-analytics){target="_blank"} to get the latest from Exploring-Data in your inbox.<br/> 
+
 
 PS: Be Kind and Tidy your Data 😎<br/>
 
