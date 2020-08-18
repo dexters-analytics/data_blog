@@ -26,7 +26,7 @@ It's called [Business Science Unviersity](https://www.business-science.io/?affco
 
 ### WHAT TO EXPECT
 
-Posts at `Exploring` `Data` will take an `R`-Centric approach to Wrangling + Exploring data. The posts will typically be bite-size with content that is applicable - my goal is to have the posts act as a library of useful tips + tricks for programmatically solving problems related to data.
+Posts at `Exploring-Data` will take an `R`-Centric approach to Wrangling + Exploring data. The posts will typically be bite-size with content that is applicable - my goal is to have the posts act as a library of useful tips + tricks for programmatically solving problems related to data.
 
 I personally find the `R` language to be deeply satisfying to learn. The options really are endless.
 
@@ -34,8 +34,6 @@ More importantly, the `R-Community` is hands down top-notch 😎
 
 ### SUBSCRIBE
 
-Get the latest from the `Exploring` `Data` blog in your inbox.
-
-Enter your [Email Here](https://tinyletter.com/dexters-analytics).
+Enter your [Email Here](https://tinyletter.com/dexters-analytics) to get the latest from `Exploring-Data` in your inbox.
    
 PS: Be Kind and Tidy your Data 🤓

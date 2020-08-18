@@ -28,7 +28,9 @@ Clink this LINK to access the course.</description>
       <pubDate>Sun, 03 May 2020 00:00:00 +0000</pubDate>
       
       <guid>/post/advanced-plots-in-r-with-str_glue/</guid>
-      <description>Enter your Email Here to receive notifications when new content is posted.
+      <description>Source: https://bit.ly/2CGyS6I
+ 
+Enter your Email Here to get the latest from Exploring-Data in your inbox.
 Let’s Dive Into an Example I’d like to share a technique using str_glue() that I learned from Matt Dancho, a Data-Science instructor at Business Science University. Check out my favorite course here: Business Analysis With R.
 str_glue() from the stringr library is one of my favorite functions in R - It’s super helpful for wrangling and manipulating text in preparation for building advanced plots.</description>
     </item>

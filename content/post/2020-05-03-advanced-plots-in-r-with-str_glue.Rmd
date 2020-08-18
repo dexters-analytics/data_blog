@@ -14,6 +14,8 @@ editor_options:
 ---
 
 
+![Source: https://bit.ly/2CGyS6I](/post/2020-05-03-advanced-plots-in-r-with-str_glue_files/Screen Shot 2020-08-17 at 8.52.51 PM.png){target="_blank"}
+
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(
@@ -23,7 +25,8 @@ knitr::opts_chunk$set(
 
 <br/> 
 
-Enter your [Email Here](https://tinyletter.com/dexters-analytics){target="_blank"} to receive notifications when new content is posted.<br/> 
+Enter your [Email Here](https://tinyletter.com/dexters-analytics){target="_blank"} to get the latest from `Exploring-Data` in your inbox.<br/> 
+
 
 ### Let's Dive Into an Example
 
@@ -35,10 +38,10 @@ I'd like to share a technique using `str_glue()` that I learned from [Matt Danch
 
 The [Tidy Tuesday Project](https://github.com/rfordatascience/tidytuesday){target="_blank"} is an awesome repository of useful data for practicing your data `Wrangling` skills.
 
-We will work with the 'San Francisco Trees' data as a case study for using `str_glue()` for advanced plotting techniques.
+We will work with the `San Francisco Trees` data as a case-study for using `str_glue()` for advanced plotting techniques.
 
 
-```{r}
+```{r, results="hide"}
 library(tidyverse)
 library(stringr)
 library(tidyquant)
@@ -118,7 +121,7 @@ redwood_labeled_text_tbl <- redwood_tbl %>%
         Count: {n} of {sum(n)}
         Pct (%): {pct_text}'),
     
-    # add 'forward-slash' to wrap-text on our plots y-axis
+    # add 'forward-slash' to wrap-text on our plot
     common_name = str_replace(common_name, pattern = ' ', 
                               replacement = ' \n ')) %>% 
     
@@ -146,6 +149,7 @@ Now that we've done our `Data Wrangling`, lets get into a bit of `Data Visualiza
 # Save Plot
 g <- redwood_labeled_text_tbl %>% 
     
+    # Canvas
     ggplot(aes(pct, common_name), color = '#2c3e50') +
     
     # Geometries
@@ -181,30 +185,21 @@ That's it for today!
 
 We used `str_glue()` to manipulate our text and add awesome labels to our `ggplot()` - the plot is now `Business-Ready` 👍
 
-Stay tuned for more posts on Wrangling + Exploring data (`programmatically`).
+Stay tuned for more posts on `Wrangling` + `Exploring-Data` - `programmatically`.
 
 
-### Stay Connected
+### Subscribe
 
-Enter your [Email Here](https://tinyletter.com/dexters-analytics){target="_blank"} to receive notifications when new content is posted.<br/>  
+Enter your [Email Here](https://tinyletter.com/dexters-analytics){target="_blank"} to get the latest from `Exploring-Data` in your inbox.<br/>  
 
 PS: Be Kind and Tidy your Data 😎<br/>
 <br/>
 
 
-### Learn R Fast 👇
+### Learn R Fast
 
 Interested in expediting your learning path? Head on over to [Business Science](https://www.business-science.io/?affcode=173166_vnvxtqbd){target="_blank"} and join me on the journey.
 
 [Business Science: FREE Jumpstart Data-Science Course](https://university.business-science.io/p/jumpstart-with-r/?affcode=173166_vnvxtqbd){target="_blank"} (opened for a limited time)
 
 
-
-
-
-```{r include=FALSE}
-knitr::knit_exit()
-```
-
-
-### test?

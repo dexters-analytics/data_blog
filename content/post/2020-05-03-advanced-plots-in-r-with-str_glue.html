@@ -17,8 +17,12 @@ editor_options:
 <script src="/rmarkdown-libs/pagedtable/js/pagedtable.js"></script>
 
 
+<div class="figure">
+<img src="/post/2020-05-03-advanced-plots-in-r-with-str_glue_files/Screen%20Shot%202020-08-17%20at%208.52.51%20PM.png" target="_blank" alt="" />
+<p class="caption">Source: <a href="https://bit.ly/2CGyS6I" class="uri">https://bit.ly/2CGyS6I</a></p>
+</div>
 <p><br/></p>
-<p>Enter your <a href="https://tinyletter.com/dexters-analytics" target="_blank">Email Here</a> to receive notifications when new content is posted.<br/></p>
+<p>Enter your <a href="https://tinyletter.com/dexters-analytics" target="_blank">Email Here</a> to get the latest from <code>Exploring-Data</code> in your inbox.<br/></p>
 <div id="lets-dive-into-an-example" class="section level3">
 <h3>Let’s Dive Into an Example</h3>
 <p>I’d like to share a technique using <code>str_glue()</code> that I learned from <a href="https://www.linkedin.com/in/mattdancho/" target="_blank">Matt Dancho</a>, a Data-Science instructor at <a href="https://www.business-science.io/?affcode=173166_vnvxtqbd" target="_blank">Business Science University</a>. Check out my favorite course here: <a href="http://bit.ly/2Z9SHsd" target="_blank">Business Analysis With R</a>.</p>
@@ -27,18 +31,15 @@ editor_options:
 <div id="lets-get-some-data" class="section level3">
 <h3>Let’s Get Some Data 🤓</h3>
 <p>The <a href="https://github.com/rfordatascience/tidytuesday" target="_blank">Tidy Tuesday Project</a> is an awesome repository of useful data for practicing your data <code>Wrangling</code> skills.</p>
-<p>We will work with the ‘San Francisco Trees’ data as a case study for using <code>str_glue()</code> for advanced plotting techniques.</p>
+<p>We will work with the <code>San Francisco Trees</code> data as a case-study for using <code>str_glue()</code> for advanced plotting techniques.</p>
 <pre class="r"><code>library(tidyverse)
 library(stringr)
 library(tidyquant)
 library(scales)
 library(DataExplorer)
 
-tuesdata &lt;- tidytuesdayR::tt_load(&#39;2020-01-28&#39;) </code></pre>
-<pre><code>## 
-##  Downloading file 1 of 2: `sf_trees.csv`
-##  Downloading file 2 of 2: `Street_Tree_Map.csv`</code></pre>
-<pre class="r"><code>sf_trees_data_raw_tbl &lt;- tuesdata$sf_trees</code></pre>
+tuesdata &lt;- tidytuesdayR::tt_load(&#39;2020-01-28&#39;) 
+sf_trees_data_raw_tbl &lt;- tuesdata$sf_trees</code></pre>
 </div>
 <div id="data-exploration" class="section level3">
 <h3>Data Exploration</h3>
@@ -99,7 +100,7 @@ redwood_labeled_text_tbl &lt;- redwood_tbl %&gt;%
         Count: {n} of {sum(n)}
         Pct (%): {pct_text}&#39;),
     
-    # add &#39;forward-slash&#39; to wrap-text on our plots y-axis
+    # add &#39;forward-slash&#39; to wrap-text on our plot
     common_name = str_replace(common_name, pattern = &#39; &#39;, 
                               replacement = &#39; \n &#39;)) %&gt;% 
     
@@ -124,6 +125,7 @@ redwood_labeled_text_tbl &lt;- redwood_tbl %&gt;%
 <pre class="r"><code># Save Plot
 g &lt;- redwood_labeled_text_tbl %&gt;% 
     
+    # Canvas
     ggplot(aes(pct, common_name), color = &#39;#2c3e50&#39;) +
     
     # Geometries
@@ -151,15 +153,15 @@ g &lt;- redwood_labeled_text_tbl %&gt;%
 <p><img src="/post/2020-05-03-advanced-plots-in-r-with-str_glue_files/figure-html/unnamed-chunk-8-1.png" width="768" /></p>
 <p>That’s it for today!</p>
 <p>We used <code>str_glue()</code> to manipulate our text and add awesome labels to our <code>ggplot()</code> - the plot is now <code>Business-Ready</code> 👍</p>
-<p>Stay tuned for more posts on Wrangling + Exploring data (<code>programmatically</code>).</p>
-<div id="stay-connected" class="section level3">
-<h3>Stay Connected</h3>
-<p>Enter your <a href="https://tinyletter.com/dexters-analytics" target="_blank">Email Here</a> to receive notifications when new content is posted.<br/></p>
+<p>Stay tuned for more posts on <code>Wrangling</code> + <code>Exploring-Data</code> - <code>programmatically</code>.</p>
+<div id="subscribe" class="section level3">
+<h3>Subscribe</h3>
+<p>Enter your <a href="https://tinyletter.com/dexters-analytics" target="_blank">Email Here</a> to get the latest from <code>Exploring-Data</code> in your inbox.<br/></p>
 <p>PS: Be Kind and Tidy your Data 😎<br/>
 <br/></p>
 </div>
 <div id="learn-r-fast" class="section level3">
-<h3>Learn R Fast 👇</h3>
+<h3>Learn R Fast</h3>
 <p>Interested in expediting your learning path? Head on over to <a href="https://www.business-science.io/?affcode=173166_vnvxtqbd" target="_blank">Business Science</a> and join me on the journey.</p>
 <p><a href="https://university.business-science.io/p/jumpstart-with-r/?affcode=173166_vnvxtqbd" target="_blank">Business Science: FREE Jumpstart Data-Science Course</a> (opened for a limited time)</p>
 </div>

@@ -25,7 +25,7 @@ knitr::opts_chunk$set(
 
 <br/> 
 
-![Snapshot of janitor package Github (as of 8/10/20) Page](/post/2020-07-31-r-packages-janitor-for-data-cleaning_files/janitor_package.png)
+![Github Page as of 8/10/20](/post/2020-07-31-r-packages-janitor-for-data-cleaning_files/janitor_package.png)
 
 
 ### Quick Overview
