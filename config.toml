@@ -6,10 +6,6 @@ disqusShortname = "https-www-exploringdata-org" # delete this to disable disqus 
 
 googleAnalytics = "UA-134222974-1"
 
-#[blackfriday]
-#  hrefTargetBlank = true
-#  noreferrerLinks = true
-#  nofollowLinks   = true
 
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"] 
 
