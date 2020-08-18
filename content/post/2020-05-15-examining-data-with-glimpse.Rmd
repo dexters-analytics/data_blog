@@ -88,12 +88,11 @@ A clean view is returned with information that allows the user to quickly examin
 print(volcano_raw_tbl, n = 5)
 ```
 
-
-### Data Examination with `glimpse()`
-
 Printing that many columns into the console makes the process of examining the data cumbersome - the columns being wrapped show the data-type for the columns but it's difficult to extract that info. Also, for the wrapped columns you don't see example values.
 
 So why not just use the `tibble::view()` function and open the data in the RStudio Data Window? That's a great idea but even before we go there we really want to get a sense of our data and the associated data-types.
+
+### Data Examination with `glimpse()`
 
 I recommend using the `glimpse()` function and using it early 😎
 
@@ -113,7 +112,7 @@ We immediately gain insights into potential issues such as those we are seeing w
 
 We also see that these data are not tidy because headers of our columns in some instances are values, not names of variables - this is the case with the `rock features` and the `population features`.
 
-The `glimpse()` function aloud us to quickly examine our data - now let's have fun!
+The `glimpse()` function allowed us to quickly examine our data - now let's have fun!
 
 ### Subsetting Data for Exploration
 

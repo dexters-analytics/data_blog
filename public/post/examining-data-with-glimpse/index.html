@@ -22,7 +22,7 @@
 </style>
 
 
-<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="https://www.exploringdata.org/css/main.css">
 
 
 
@@ -132,11 +132,11 @@
         <h2>Examining Data with glimpse()</h2>
         <h5>May 15, 2020</h5>
         
-<a href="/tags/r"><kbd class="item-tag">R</kbd></a>
+<a href="https://www.exploringdata.org/tags/r"><kbd class="item-tag">R</kbd></a>
 
-<a href="/tags/tidyverse"><kbd class="item-tag">tidyverse</kbd></a>
+<a href="https://www.exploringdata.org/tags/tidyverse"><kbd class="item-tag">tidyverse</kbd></a>
 
-<a href="/tags/dplyr"><kbd class="item-tag">dplyr</kbd></a>
+<a href="https://www.exploringdata.org/tags/dplyr"><kbd class="item-tag">dplyr</kbd></a>
 
 
     </div>
@@ -223,11 +223,11 @@ print(volcano_raw_tbl[ , 0:4], n = 3) </code></pre>
 ## #   minor_rock_4 &lt;chr&gt;, minor_rock_5 &lt;chr&gt;, population_within_5_km &lt;dbl&gt;,
 ## #   population_within_10_km &lt;dbl&gt;, population_within_30_km &lt;dbl&gt;,
 ## #   population_within_100_km &lt;dbl&gt;</code></pre>
+<p>Printing that many columns into the console makes the process of examining the data cumbersome - the columns being wrapped show the data-type for the columns but it’s difficult to extract that info. Also, for the wrapped columns you don’t see example values.</p>
+<p>So why not just use the <code>tibble::view()</code> function and open the data in the RStudio Data Window? That’s a great idea but even before we go there we really want to get a sense of our data and the associated data-types.</p>
 </div>
 <div id="data-examination-with-glimpse" class="section level3">
 <h3>Data Examination with <code>glimpse()</code></h3>
-<p>Printing that many columns into the console makes the process of examining the data cumbersome - the columns being wrapped show the data-type for the columns but it’s difficult to extract that info. Also, for the wrapped columns you don’t see example values.</p>
-<p>So why not just use the <code>tibble::view()</code> function and open the data in the RStudio Data Window? That’s a great idea but even before we go there we really want to get a sense of our data and the associated data-types.</p>
 <p>I recommend using the <code>glimpse()</code> function and using it early 😎</p>
 <p><strong>NOTE:</strong> On a mobile device (esp. a phone) this will not look good; check it out on a laptop or desktop 😉</p>
 <pre class="r"><code>volcano_raw_tbl %&gt;% glimpse()</code></pre>
@@ -266,7 +266,7 @@ print(volcano_raw_tbl[ , 0:4], n = 3) </code></pre>
 <p>We’ve now got a <code>glimpse()</code> of an incredible amount of detail to help inform our next steps in <code>examining</code> and <code>exploring</code> these data. I love that in one view we can quickly see row/column counts, each column printed cleanly, the data-type of each column, and a handful of example <code>values</code> for each column.</p>
 <p>We immediately gain insights into potential issues such as those we are seeing with the empty values being spaces (e.g., <code>" "</code>) instead of <code>NA</code> values.</p>
 <p>We also see that these data are not tidy because headers of our columns in some instances are values, not names of variables - this is the case with the <code>rock features</code> and the <code>population features</code>.</p>
-<p>The <code>glimpse()</code> function aloud us to quickly examine our data - now let’s have fun!</p>
+<p>The <code>glimpse()</code> function allowed us to quickly examine our data - now let’s have fun!</p>
 </div>
 <div id="subsetting-data-for-exploration" class="section level3">
 <h3>Subsetting Data for Exploration</h3>
@@ -451,11 +451,11 @@ indonesia_tidy_tbl %&gt;% paged_table(list(rows.print = 5))</code></pre>
     <h4><a href="/post/exploratory-data-analysis-eda-guide/">Exploratory Data Analysis Guide</a></h4>
     <h5>July 15, 2020</h5>
     
-<a href="/tags/r"><kbd class="item-tag">R</kbd></a>
+<a href="https://www.exploringdata.org/tags/r"><kbd class="item-tag">R</kbd></a>
 
-<a href="/tags/eda"><kbd class="item-tag">EDA</kbd></a>
+<a href="https://www.exploringdata.org/tags/eda"><kbd class="item-tag">EDA</kbd></a>
 
-<a href="/tags/r-for-data-science"><kbd class="item-tag">R for Data Science</kbd></a>
+<a href="https://www.exploringdata.org/tags/r-for-data-science"><kbd class="item-tag">R for Data Science</kbd></a>
 
 
 
@@ -472,11 +472,11 @@ indonesia_tidy_tbl %&gt;% paged_table(list(rows.print = 5))</code></pre>
     <h4><a href="/post/quick-tips-for-data-cleaning-in-r/">Quick Tips for Data Cleaning in R</a></h4>
     <h5>June 20, 2020</h5>
     
-<a href="/tags/r"><kbd class="item-tag">R</kbd></a>
+<a href="https://www.exploringdata.org/tags/r"><kbd class="item-tag">R</kbd></a>
 
-<a href="/tags/tidyverse"><kbd class="item-tag">tidyverse</kbd></a>
+<a href="https://www.exploringdata.org/tags/tidyverse"><kbd class="item-tag">tidyverse</kbd></a>
 
-<a href="/tags/data-wrangling"><kbd class="item-tag">data wrangling</kbd></a>
+<a href="https://www.exploringdata.org/tags/data-wrangling"><kbd class="item-tag">data wrangling</kbd></a>
 
 
 
@@ -493,13 +493,13 @@ indonesia_tidy_tbl %&gt;% paged_table(list(rows.print = 5))</code></pre>
     <h4><a href="/post/business-ready-plots-with-r/">Business Ready Plots with R</a></h4>
     <h5>June 2, 2020</h5>
     
-<a href="/tags/r"><kbd class="item-tag">R</kbd></a>
+<a href="https://www.exploringdata.org/tags/r"><kbd class="item-tag">R</kbd></a>
 
-<a href="/tags/ggplot"><kbd class="item-tag">ggplot</kbd></a>
+<a href="https://www.exploringdata.org/tags/ggplot"><kbd class="item-tag">ggplot</kbd></a>
 
-<a href="/tags/visualizations"><kbd class="item-tag">visualizations</kbd></a>
+<a href="https://www.exploringdata.org/tags/visualizations"><kbd class="item-tag">visualizations</kbd></a>
 
-<a href="/tags/tidyquant"><kbd class="item-tag">tidyquant</kbd></a>
+<a href="https://www.exploringdata.org/tags/tidyquant"><kbd class="item-tag">tidyquant</kbd></a>
 
 
 
