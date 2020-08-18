@@ -23,9 +23,8 @@ knitr::opts_chunk$set(
   warning = FALSE)
 ```
 
-<br/> 
 
-Enter your [Email Here](https://tinyletter.com/dexters-analytics){target="_blank"} to get the latest from `Exploring-Data` in your inbox.<br/> 
+Enter your [Email Here](https://tinyletter.com/dexters-analytics){target="_blank"} to get the latest from Exploring-Data in your inbox.<br/> 
 
 
 ### Let's Dive Into an Example
@@ -190,7 +189,7 @@ Stay tuned for more posts on `Wrangling` + `Exploring-Data` - `programmatically`
 
 ### Subscribe
 
-Enter your [Email Here](https://tinyletter.com/dexters-analytics){target="_blank"} to get the latest from `Exploring-Data` in your inbox.<br/>  
+Enter your [Email Here](https://tinyletter.com/dexters-analytics){target="_blank"} to get the latest from Exploring-Data in your inbox.<br/>  
 
 PS: Be Kind and Tidy your Data 😎<br/>
 <br/>

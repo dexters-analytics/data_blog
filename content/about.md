@@ -34,6 +34,6 @@ More importantly, the `R-Community` is hands down top-notch 😎
 
 ### SUBSCRIBE
 
-Enter your [Email Here](https://tinyletter.com/dexters-analytics) to get the latest from `Exploring-Data` in your inbox.
+Enter your [Email Here](https://tinyletter.com/dexters-analytics) to get the latest from Exploring-Data in your inbox.
    
 PS: Be Kind and Tidy your Data 🤓
