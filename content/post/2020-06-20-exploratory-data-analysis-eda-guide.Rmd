@@ -224,7 +224,6 @@ Enter your [Email Here](https://tinyletter.com/dexters-analytics){target="_blank
 PS: Be Kind and Tidy your Data 😎<br/>
 
 
-
 ### Learn R Quickly
 
 I've expedited my `R` and `Data-Science` journey using the courses over at [Business Science University](https://www.business-science.io/?affcode=173166_vnvxtqbd){target="_blank"}

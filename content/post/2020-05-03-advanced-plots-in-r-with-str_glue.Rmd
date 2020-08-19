@@ -198,7 +198,6 @@ Enter your [Email Here](https://tinyletter.com/dexters-analytics){target="_blank
 <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
 
 PS: Be Kind and Tidy your Data 😎<br/>
-<br/>
 
 
 ### Learn R Fast
