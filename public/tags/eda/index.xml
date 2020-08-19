@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>EDA on Exploring Data</title>
-    <link>https://www.exploringdata.org/tags/eda/</link>
-    <description>Recent content in EDA on Exploring Data</description>
+    <title>eda on Exploring Data</title>
+    <link>/tags/eda/</link>
+    <description>Recent content in eda on Exploring Data</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 10 Aug 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://www.exploringdata.org/tags/eda/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/eda/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>R Packages: {janitor} for Data Cleaning</title>
-      <link>https://www.exploringdata.org/post/r-packages-janitor-for-data-cleaning/</link>
+      <link>/post/r-packages-janitor-for-data-cleaning/</link>
       <pubDate>Mon, 10 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.exploringdata.org/post/r-packages-janitor-for-data-cleaning/</guid>
+      <guid>/post/r-packages-janitor-for-data-cleaning/</guid>
       <description>Github Page as of 8/10/20
  Quick Overview Exploring-Data is a place where I share easily digestible content aimed at making the wrangling and exploration of data more efficient (+fun).
 Sign up Here to join the many other subscribers who also nerd out on new tips and tricks 🤓
@@ -26,13 +26,25 @@ Tweet   New Series: Exploring R {packages} When I discover new and helpful funct
     
     <item>
       <title>Exploratory Data Analysis Guide</title>
-      <link>https://www.exploringdata.org/post/exploratory-data-analysis-eda-guide/</link>
+      <link>/post/exploratory-data-analysis-eda-guide/</link>
       <pubDate>Wed, 15 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.exploringdata.org/post/exploratory-data-analysis-eda-guide/</guid>
+      <guid>/post/exploratory-data-analysis-eda-guide/</guid>
       <description>Enter your Email Here to get the latest from Exploring-Data in your inbox.
 
 Quick Overview Hadley Wickham and Garrett Grolemund wrote an incredible book called R for Data Science (R4DS). In the book they teach how to “turn raw data into understanding, insight, and knowledge.” The authors do this by being laser focused on the tools that help the data-practitioner import, tidy, transform, visualize, and model data (+communicate findings):</description>
+    </item>
+    
+    <item>
+      <title>Examining Data with glimpse()</title>
+      <link>/post/examining-data-with-glimpse/</link>
+      <pubDate>Fri, 15 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/examining-data-with-glimpse/</guid>
+      <description>Source: https://bit.ly/3g9sNgK
+  Enter your Email Here to get the latest from Exploring-Data in your inbox.
+Let’s Dive into an Example I’m a nerd 🤓 when it comes to programming (esp. in R) and love learning about new functions.
+Matt Dancho, early in his Data Science Foundations with R Course, teaches students the importance of examining data before diving into wrangling and exploring it further.</description>
     </item>
     
   </channel>

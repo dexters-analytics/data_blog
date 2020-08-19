@@ -2,26 +2,38 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>data cleaning on Exploring Data</title>
-    <link>https://www.exploringdata.org/tags/data-cleaning/</link>
+    <link>/tags/data-cleaning/</link>
     <description>Recent content in data cleaning on Exploring Data</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 10 Aug 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://www.exploringdata.org/tags/data-cleaning/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/data-cleaning/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>R Packages: {janitor} for Data Cleaning</title>
-      <link>https://www.exploringdata.org/post/r-packages-janitor-for-data-cleaning/</link>
+      <link>/post/r-packages-janitor-for-data-cleaning/</link>
       <pubDate>Mon, 10 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.exploringdata.org/post/r-packages-janitor-for-data-cleaning/</guid>
+      <guid>/post/r-packages-janitor-for-data-cleaning/</guid>
       <description>Github Page as of 8/10/20
  Quick Overview Exploring-Data is a place where I share easily digestible content aimed at making the wrangling and exploration of data more efficient (+fun).
 Sign up Here to join the many other subscribers who also nerd out on new tips and tricks 🤓
 And if you enjoy the post be sure to share it
 Tweet   New Series: Exploring R {packages} When I discover new and helpful functions I light up 💡 with excitement.</description>
+    </item>
+    
+    <item>
+      <title>Quick Tips for Data Cleaning in R</title>
+      <link>/post/quick-tips-for-data-cleaning-in-r/</link>
+      <pubDate>Sat, 20 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/quick-tips-for-data-cleaning-in-r/</guid>
+      <description>Data Cleaning (istockphoto)
+ Enter your Email Here to get the latest from Exploring-Data in your inbox.
+What to Expect I’m excited to share pro-tips that will expedite your process for cleaning and standardizing column names in your data; this is a critical yet sometimes overlooked step in the cleaning + tidying of data.
+There are a couple of handy functions() available in R to help effectively execute these tasks.</description>
     </item>
     
   </channel>

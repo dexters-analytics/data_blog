@@ -5,8 +5,8 @@ date: '2020-06-20'
 slug: quick-tips-for-data-cleaning-in-r
 categories: R
 tags:
-- R
 - tidyverse
+- data cleaning
 - data wrangling
 editor_options:
   chunk_output_type: console
@@ -179,11 +179,13 @@ We used `clean_names()` and `set_names()` to effectively standardize our column 
 If anyone has more insights to the `dot` (.) functionality used here, I humbly ask that you provide insights or links to resources that will better help others understand it - `myself included`
 
 
-### Subscribe
+### Subscribe + Share
 
-Enter your [Email Here](https://tinyletter.com/dexters-analytics){target="_blank"} to get the latest from Exploring-Data in your inbox.<br/>
+Enter your [Email Here](https://tinyletter.com/dexters-analytics){target="_blank"} to get the latest from Exploring-Data in your inbox.<br/>  
 
-PS: Be Kind and Tidy your Data 😎
+<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+
+PS: Be Kind and Tidy your Data 😎<br/>
 
 
 ### Learn R Fast 👇

@@ -4,11 +4,12 @@ author: "Jason Dexter"
 date: '2020-05-15'
 #draft: yes
 slug: examining-data-with-glimpse
-categories: []
+categories: R
 tags:
-- R
 - tidyverse
 - dplyr
+- eda
+- data wrangling
 editor_options:
   chunk_output_type: console
 ---
@@ -264,13 +265,15 @@ That's it for today!
 We used `glimpse()` to quickly examine our data prior to `Wrangling` and `Exploring` it further. 
 
 
-### Subscribe
+### Subscribe + Share
 
-Stay tuned for more posts on `Wrangling` + `Exploring` data..
+Stay tuned for more posts on `Wrangling` + `Exploring` data.
 
-Enter your [Email Here](https://tinyletter.com/dexters-analytics){target="_blank"} to get the latest from Exploring-Data in your inbox.<br/> 
+Enter your [Email Here](https://tinyletter.com/dexters-analytics){target="_blank"} to get the latest from Exploring-Data in your inbox.<br/>  
 
-PS: Be Kind and Tidy your Data 😎
+<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+
+PS: Be Kind and Tidy your Data 😎<br/>
 
 
 ### Learn R Fast 👇
@@ -282,6 +285,10 @@ Head on over to [Business Science](https://www.business-science.io/?affcode=1731
 Link to my favorite `R` course: [Data Science for Business 101](https://university.business-science.io/p/ds4b-101-r-business-analysis-r/?coupon_code=DS4B15&affcode=173166_vnvxtqbd)
 
 [FREE Jumpstart Data-Science Course](https://university.business-science.io/p/jumpstart-with-r/?affcode=173166_vnvxtqbd){target="_blank"} (opened for a limited time)
+
+
+
+
 
 
 

@@ -3,11 +3,11 @@ title: Exploratory Data Analysis Guide
 author: Jason Dexter
 date: '2020-07-15'
 slug: exploratory-data-analysis-eda-guide
-categories: []
+categories: R
 tags:
-  - R
-  - EDA
-  - R for Data Science
+  - eda
+  - r for data science
+  - data visualization
 editor_options: 
   chunk_output_type: console
 output: html_document
@@ -214,6 +214,17 @@ I watch these videos often to get insights into how to think analytically when d
 
 You can check them out here at his YouTube channel: [Tidy Tuesday R Screencasts](https://www.youtube.com/playlist?list=PL19ev-r1GBwkuyiwnxoHTRC8TTqP8OEi8){target="_blank"}
 
+
+### Subscribe + Share
+
+Enter your [Email Here](https://tinyletter.com/dexters-analytics){target="_blank"} to get the latest from Exploring-Data in your inbox.<br/>  
+
+<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+
+PS: Be Kind and Tidy your Data 😎<br/>
+
+
+
 ### Learn R Quickly
 
 I've expedited my `R` and `Data-Science` journey using the courses over at [Business Science University](https://www.business-science.io/?affcode=173166_vnvxtqbd){target="_blank"}
@@ -222,10 +233,6 @@ The instructor, Matt Dancho, has given me a 15% discount to share with my audien
 
 Link to my favorite `R` course (with 15% off discount): [Data Science for Business 101](https://university.business-science.io/p/ds4b-101-r-business-analysis-r/?coupon_code=DS4B15&affcode=173166_vnvxtqbd){target="_blank"}
 
-### Subscribe
-
-Enter your [Email Here](https://tinyletter.com/dexters-analytics){target="_blank"} to get the latest from Exploring-Data in your inbox.<br/> 
 
 
-PS: Be Kind and Tidy your Data 😎
 

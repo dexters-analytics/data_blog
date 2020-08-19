@@ -4,13 +4,12 @@ author: Jason Dexter
 date: '2020-08-10'
 slug: r-packages-janitor-for-data-cleaning
 #draft: yes
-categories:
-  - R
+categories: R
 tags:
   - r packages
   - janitor
   - data cleaning
-  - EDA
+  - eda
 editor_options: 
   chunk_output_type: console
 ---
@@ -543,11 +542,13 @@ Check out this link to get 15% off of the courses that are helping 1000s of anal
 Good luck.
 
 
-### Stay Connected
+### Subscribe + Share
 
-Enter your [Email Here](https://tinyletter.com/dexters-analytics){target="_blank"} to join the many other subscribers leveling up there skills here at `Exploring-Data`.<br/>  
+Enter your [Email Here](https://tinyletter.com/dexters-analytics){target="_blank"} to get the latest from Exploring-Data in your inbox.<br/>  
 
-PS: Be Kind and Tidy your Data 😎<br/>
+<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+
+PS: Be Kind and Tidy your Data 😎
 
 PSS: Leave a comment to help guide the subsequent posts in this series.
 
