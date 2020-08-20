@@ -24,10 +24,10 @@ library(patchwork)
 theme_set(theme_tq())
 ```
 
+<br/> 
 
 Enter your [Email Here](https://tinyletter.com/dexters-analytics){target="_blank"} to get the latest from Exploring-Data in your inbox.<br/> 
 
-<br/> 
 
 ### Quick Overview
 
@@ -195,6 +195,8 @@ Understand the subgroups by asking:
 ### Wrap Up
 
 The chapter goes on to discuss unusual values, missing values, covariation, and briefly goes into using models to further your EDA. I highly recommend giving it a read and trying out the exercises in the chapter.
+
+Get the code here: [Github Repo](https://github.com/dexters-analytics/data_blog/tree/master/content/post){target="_blank"}.
 
 `Questions.` `Questions.` `Questions.`
 

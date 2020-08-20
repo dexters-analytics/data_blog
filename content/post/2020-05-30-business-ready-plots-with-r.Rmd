@@ -212,6 +212,8 @@ That's it for today!
 
 You learned how to turn a generic `ggplot()` into one that is `Business-Ready` 👍
 
+Get the code here: [Github Repo](https://github.com/dexters-analytics/data_blog/tree/master/content/post){target="_blank"}.
+
 
 ### Subscribe + Share
 

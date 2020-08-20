@@ -1,7 +1,7 @@
 ---
 title: 'R Packages: {janitor} for Data Cleaning'
 author: Jason Dexter
-date: '2020-08-10'
+date: '2020-08-19'
 slug: r-packages-janitor-for-data-cleaning
 #draft: yes
 categories: R
@@ -527,6 +527,8 @@ This represent the data in a way that helps us identify patterns - our manager w
 I hope you enjoyed the first post in this new series.
 
 Leave a comment and let me know.
+
+Get the code here: [Github Repo](https://github.com/dexters-analytics/data_blog/tree/master/content/post){target="_blank"}.
 
 
 ### Subscribe + Share

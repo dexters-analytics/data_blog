@@ -32,8 +32,12 @@ I personally find the `R` language to be deeply satisfying to learn. The options
 
 More importantly, the `R-Community` is hands down top-notch 😎
 
-### SUBSCRIBE
+Check out [R-bloggers](https://www.r-bloggers.com/), "a blog aggregator of content contributed by bloggers who write about R" - this site is your one stop shop to stay up to speed on what's going on in the `R-blogosphere`.
+
+### SUBSCRIBE + SHARE
 
 Enter your [Email Here](https://tinyletter.com/dexters-analytics) to get the latest from Exploring-Data in your inbox.
+
+Get the code for each post here: [Github Repo](https://github.com/dexters-analytics/data_blog/tree/master/content/post).
    
 PS: Be Kind and Tidy your Data 🤓
