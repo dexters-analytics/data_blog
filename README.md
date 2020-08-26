@@ -11,5 +11,3 @@ Check out the blog here at [exploringdata.org](https://www.exploringdata.org/)
 Sign up [Here](https://tinyletter.com/dexters-analytics) to join the many other subscribers who also nerd out on new tips and tricks 🤓
 
 And if you enjoy the blog, then be sure to leave comments and share the posts with your friends + colleagues.
-
-<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" 
