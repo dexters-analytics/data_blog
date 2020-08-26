@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>tidyverse on Exploring Data</title>
-    <link>/tags/tidyverse/</link>
+    <link>https://www.exploringdata.org/tags/tidyverse/</link>
     <description>Recent content in tidyverse on Exploring Data</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 20 Jun 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/tidyverse/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.exploringdata.org/tags/tidyverse/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Quick Tips for Data Cleaning in R</title>
-      <link>/post/quick-tips-for-data-cleaning-in-r/</link>
+      <link>https://www.exploringdata.org/post/quick-tips-for-data-cleaning-in-r/</link>
       <pubDate>Sat, 20 Jun 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/quick-tips-for-data-cleaning-in-r/</guid>
+      <guid>https://www.exploringdata.org/post/quick-tips-for-data-cleaning-in-r/</guid>
       <description>Data Cleaning (istockphoto)
  Enter your Email Here to get the latest from Exploring-Data in your inbox.
 What to Expect I’m excited to share pro-tips that will expedite your process for cleaning and standardizing column names in your data; this is a critical yet sometimes overlooked step in the cleaning + tidying of data.
@@ -25,10 +25,10 @@ There are a couple of handy functions() available in R to help effectively execu
     
     <item>
       <title>Examining Data with glimpse()</title>
-      <link>/post/examining-data-with-glimpse/</link>
+      <link>https://www.exploringdata.org/post/examining-data-with-glimpse/</link>
       <pubDate>Fri, 15 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/examining-data-with-glimpse/</guid>
+      <guid>https://www.exploringdata.org/post/examining-data-with-glimpse/</guid>
       <description>Source: https://bit.ly/3g9sNgK
   Enter your Email Here to get the latest from Exploring-Data in your inbox.
 Let’s Dive into an Example I’m a nerd 🤓 when it comes to programming (esp. in R) and love learning about new functions.

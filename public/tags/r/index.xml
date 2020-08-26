@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>R on Exploring Data</title>
-    <link>/tags/r/</link>
+    <link>https://www.exploringdata.org/tags/r/</link>
     <description>Recent content in R on Exploring Data</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 19 Aug 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/r/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.exploringdata.org/tags/r/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Business Ready Plots with R</title>
-      <link>/post/business-ready-plots-with-r/</link>
+      <link>https://www.exploringdata.org/post/business-ready-plots-with-r/</link>
       <pubDate>Tue, 02 Jun 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/business-ready-plots-with-r/</guid>
+      <guid>https://www.exploringdata.org/post/business-ready-plots-with-r/</guid>
       <description>Enter your Email Here to get the latest from Exploring-Data in your inbox.
 Quick Overview Recently, I completed the Data Science for Business 101 course over at Business Science University. In the course, Matt Dancho teaches students the fundamentals of data science for business with the tidyverse.
 The course is jam packed with material: from basic data wrangling all the way to applied machine learning - I highly recommend it to anyone looking to advance their skills 🤓</description>
@@ -24,10 +24,10 @@ The course is jam packed with material: from basic data wrangling all the way to
     
     <item>
       <title>My First Project (test)</title>
-      <link>/project/my-first-project-test/</link>
+      <link>https://www.exploringdata.org/project/my-first-project-test/</link>
       <pubDate>Sat, 02 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>/project/my-first-project-test/</guid>
+      <guid>https://www.exploringdata.org/project/my-first-project-test/</guid>
       <description></description>
     </item>
     
