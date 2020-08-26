@@ -22,12 +22,18 @@ knitr::opts_chunk$set(
 )
 ```
 
-
-Enter your [Email Here](https://tinyletter.com/dexters-analytics){target="_blank"} to get the latest from Exploring-Data in your inbox.<br/> 
-
-
-
 ### Quick Overview
+
+`Exploring-Data` is a place where I share easily digestible content aimed at making the wrangling and exploration of data more efficient (+fun).
+
+Sign up [Here](https://tinyletter.com/dexters-analytics){target="_blank"} to join the many other subscribers who also nerd out on new tips and tricks 🤓
+
+And if you enjoy the post be sure to share it
+
+<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+
+
+### Business Science
 
 Recently, I completed the [Data Science for Business 101](https://university.business-science.io/p/ds4b-101-r-business-analysis-r/?coupon_code=DS4B15&affcode=173166_vnvxtqbd){target="_blank"} course over at [Business Science University](https://www.business-science.io/?affcode=173166_vnvxtqbd){target="_blank"}. In the course, [Matt Dancho](https://www.linkedin.com/in/mattdancho/){target="_blank"} teaches students the fundamentals of data science for business with the `tidyverse.` 
 
@@ -38,6 +44,7 @@ Clink this [LINK](https://university.business-science.io/p/ds4b-101-r-business-a
 I've been tracking down data then applying the techniques to help solidify concepts from the course. One of my favorite parts from Week 1 is turning a generic ggplot() into something that is Business Ready.
 
 In this post I'll show you how to upgrade your plots in `R` so that they are Business-Ready.
+
 
 ### The Final Plot
 

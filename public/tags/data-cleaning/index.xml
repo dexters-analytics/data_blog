@@ -31,9 +31,10 @@ Tweet   New Series: Exploring R {packages} When I discover new and helpful funct
       
       <guid>/post/quick-tips-for-data-cleaning-in-r/</guid>
       <description>Data Cleaning (istockphoto)
- Enter your Email Here to get the latest from Exploring-Data in your inbox.
-What to Expect I’m excited to share pro-tips that will expedite your process for cleaning and standardizing column names in your data; this is a critical yet sometimes overlooked step in the cleaning + tidying of data.
-There are a couple of handy functions() available in R to help effectively execute these tasks.</description>
+ Quick Overview Exploring-Data is a place where I share easily digestible content aimed at making the wrangling and exploration of data more efficient (+fun).
+Sign up Here to join the many other subscribers who also nerd out on new tips and tricks 🤓
+And if you enjoy the post be sure to share it
+Tweet   What to Expect I’m excited to share pro-tips that will expedite your process for cleaning and standardizing column names in your data; this is a critical yet sometimes overlooked step in the cleaning + tidying of data.</description>
     </item>
     
   </channel>
