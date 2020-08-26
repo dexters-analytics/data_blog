@@ -3,152 +3,152 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://www.exploringdata.org/categories/</loc>
-    <lastmod>2020-08-25T00:00:00+00:00</lastmod>
+    <loc>/categories/</loc>
+    <lastmod>2020-08-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.exploringdata.org/tags/data/</loc>
-    <lastmod>2020-08-25T00:00:00+00:00</lastmod>
+    <loc>/tags/data/</loc>
+    <lastmod>2020-08-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.exploringdata.org/tags/data-cleaning/</loc>
-    <lastmod>2020-08-25T00:00:00+00:00</lastmod>
+    <loc>/tags/data-cleaning/</loc>
+    <lastmod>2020-08-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.exploringdata.org/tags/eda/</loc>
-    <lastmod>2020-08-25T00:00:00+00:00</lastmod>
+    <loc>/tags/eda/</loc>
+    <lastmod>2020-08-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.exploringdata.org/</loc>
-    <lastmod>2020-08-25T00:00:00+00:00</lastmod>
+    <loc>/</loc>
+    <lastmod>2020-08-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.exploringdata.org/tags/janitor/</loc>
-    <lastmod>2020-08-25T00:00:00+00:00</lastmod>
+    <loc>/tags/janitor/</loc>
+    <lastmod>2020-08-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.exploringdata.org/post/</loc>
-    <lastmod>2020-08-25T00:00:00+00:00</lastmod>
+    <loc>/post/</loc>
+    <lastmod>2020-08-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.exploringdata.org/tags/r/</loc>
-    <lastmod>2020-08-25T00:00:00+00:00</lastmod>
+    <loc>/tags/r/</loc>
+    <lastmod>2020-08-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.exploringdata.org/categories/r/</loc>
-    <lastmod>2020-08-25T00:00:00+00:00</lastmod>
+    <loc>/categories/r/</loc>
+    <lastmod>2020-08-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.exploringdata.org/tags/r-packages/</loc>
-    <lastmod>2020-08-25T00:00:00+00:00</lastmod>
+    <loc>/tags/r-packages/</loc>
+    <lastmod>2020-08-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.exploringdata.org/post/r-packages-janitor-for-data-cleaning/</loc>
-    <lastmod>2020-08-25T00:00:00+00:00</lastmod>
+    <loc>/post/r-packages-janitor-for-data-cleaning/</loc>
+    <lastmod>2020-08-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.exploringdata.org/tags/</loc>
-    <lastmod>2020-08-25T00:00:00+00:00</lastmod>
+    <loc>/tags/</loc>
+    <lastmod>2020-08-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.exploringdata.org/tags/data-visualization/</loc>
+    <loc>/tags/data-visualization/</loc>
     <lastmod>2020-07-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.exploringdata.org/post/exploratory-data-analysis-eda-guide/</loc>
+    <loc>/post/exploratory-data-analysis-eda-guide/</loc>
     <lastmod>2020-07-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.exploringdata.org/tags/r-for-data-science/</loc>
+    <loc>/tags/r-for-data-science/</loc>
     <lastmod>2020-07-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.exploringdata.org/tags/data-wrangling/</loc>
+    <loc>/tags/data-wrangling/</loc>
     <lastmod>2020-06-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.exploringdata.org/post/quick-tips-for-data-cleaning-in-r/</loc>
+    <loc>/post/quick-tips-for-data-cleaning-in-r/</loc>
     <lastmod>2020-06-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.exploringdata.org/tags/tidyverse/</loc>
+    <loc>/tags/tidyverse/</loc>
     <lastmod>2020-06-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.exploringdata.org/post/business-ready-plots-with-r/</loc>
+    <loc>/post/business-ready-plots-with-r/</loc>
     <lastmod>2020-06-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.exploringdata.org/tags/ggplot/</loc>
+    <loc>/tags/ggplot/</loc>
     <lastmod>2020-06-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.exploringdata.org/tags/tidyquant/</loc>
+    <loc>/tags/tidyquant/</loc>
     <lastmod>2020-06-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.exploringdata.org/tags/visualizations/</loc>
+    <loc>/tags/visualizations/</loc>
     <lastmod>2020-06-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.exploringdata.org/tags/dplyr/</loc>
+    <loc>/tags/dplyr/</loc>
     <lastmod>2020-05-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.exploringdata.org/post/examining-data-with-glimpse/</loc>
+    <loc>/post/examining-data-with-glimpse/</loc>
     <lastmod>2020-05-15T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.exploringdata.org/post/advanced-plots-in-r-with-str_glue/</loc>
+    <loc>/post/advanced-plots-in-r-with-str_glue/</loc>
     <lastmod>2020-05-03T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.exploringdata.org/tags/stringr/</loc>
+    <loc>/tags/stringr/</loc>
     <lastmod>2020-05-03T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.exploringdata.org/tags/data-engineering/</loc>
+    <loc>/tags/data-engineering/</loc>
     <lastmod>2020-05-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.exploringdata.org/project/my-first-project-test/</loc>
+    <loc>/project/my-first-project-test/</loc>
     <lastmod>2020-05-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.exploringdata.org/project/</loc>
+    <loc>/project/</loc>
     <lastmod>2020-05-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.exploringdata.org/about/</loc>
+    <loc>/about/</loc>
   </url>
   
 </urlset>

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>visualizations on Exploring Data</title>
-    <link>https://www.exploringdata.org/tags/visualizations/</link>
+    <link>/tags/visualizations/</link>
     <description>Recent content in visualizations on Exploring Data</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 02 Jun 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://www.exploringdata.org/tags/visualizations/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/visualizations/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Business Ready Plots with R</title>
-      <link>https://www.exploringdata.org/post/business-ready-plots-with-r/</link>
+      <link>/post/business-ready-plots-with-r/</link>
       <pubDate>Tue, 02 Jun 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.exploringdata.org/post/business-ready-plots-with-r/</guid>
+      <guid>/post/business-ready-plots-with-r/</guid>
       <description>Quick Overview Exploring-Data is a place where I share easily digestible content aimed at making the wrangling and exploration of data more efficient (+fun).
 Sign up Here to join the many other subscribers who also nerd out on new tips and tricks 🤓
 And if you enjoy the post be sure to share it

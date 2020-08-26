@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>data visualization on Exploring Data</title>
-    <link>https://www.exploringdata.org/tags/data-visualization/</link>
+    <link>/tags/data-visualization/</link>
     <description>Recent content in data visualization on Exploring Data</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 15 Jul 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://www.exploringdata.org/tags/data-visualization/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/data-visualization/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Exploratory Data Analysis Guide</title>
-      <link>https://www.exploringdata.org/post/exploratory-data-analysis-eda-guide/</link>
+      <link>/post/exploratory-data-analysis-eda-guide/</link>
       <pubDate>Wed, 15 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.exploringdata.org/post/exploratory-data-analysis-eda-guide/</guid>
+      <guid>/post/exploratory-data-analysis-eda-guide/</guid>
       <description>Quick Overview Exploring-Data is a place where I share easily digestible content aimed at making the wrangling and exploration of data more efficient (+fun).
 Sign up Here to join the many other subscribers who also nerd out on new tips and tricks 🤓
 And if you enjoy the post be sure to share it
@@ -25,10 +25,10 @@ Tweet   R for Data Science Hadley Wickham and Garrett Grolemund wrote an incredi
     
     <item>
       <title>Advanced Plots with str_glue()</title>
-      <link>https://www.exploringdata.org/post/advanced-plots-in-r-with-str_glue/</link>
+      <link>/post/advanced-plots-in-r-with-str_glue/</link>
       <pubDate>Sun, 03 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.exploringdata.org/post/advanced-plots-in-r-with-str_glue/</guid>
+      <guid>/post/advanced-plots-in-r-with-str_glue/</guid>
       <description>Source: https://bit.ly/2CGyS6I
  Quick Overview Exploring-Data is a place where I share easily digestible content aimed at making the wrangling and exploration of data more efficient (+fun).
 Sign up Here to join the many other subscribers who also nerd out on new tips and tricks 🤓
