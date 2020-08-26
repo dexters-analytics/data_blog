@@ -36,7 +36,7 @@ And if you enjoy the post be sure to share it
 <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
 
 
-### Quick Overview
+### R for Data Science
 
 Hadley Wickham and Garrett Grolemund wrote an incredible book called [R for Data Science (R4DS)](https://r4ds.had.co.nz/exploratory-data-analysis.html){target="_blank"}. In the book they teach how to "turn raw data into understanding, insight, and knowledge." The authors do this by being laser focused on the tools that help the data-practitioner import, tidy, transform, visualize, and model data (+communicate findings):
 

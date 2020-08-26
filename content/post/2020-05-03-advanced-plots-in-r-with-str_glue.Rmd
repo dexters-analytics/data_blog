@@ -22,9 +22,15 @@ knitr::opts_chunk$set(
 
 ![Source: https://bit.ly/2CGyS6I](/post/2020-05-03-advanced-plots-in-r-with-str_glue_files/Screen Shot 2020-08-17 at 8.52.51 PM.png){target="_blank"}
 
-<div style="height:2px;"><br></div>
+### Quick Overview
 
-Enter your [Email Here](https://tinyletter.com/dexters-analytics){target="_blank"} to get the latest from Exploring-Data in your inbox.<br/> 
+`Exploring-Data` is a place where I share easily digestible content aimed at making the wrangling and exploration of data more efficient (+fun).
+
+Sign up [Here](https://tinyletter.com/dexters-analytics){target="_blank"} to join the many other subscribers who also nerd out on new tips and tricks 🤓
+
+And if you enjoy the post be sure to share it
+
+<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
 
 
 ### Let's Dive Into an Example
