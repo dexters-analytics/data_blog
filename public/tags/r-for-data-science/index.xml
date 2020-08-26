@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>r for data science on Exploring Data</title>
-    <link>https://www.exploringdata.org/tags/r-for-data-science/</link>
+    <link>/tags/r-for-data-science/</link>
     <description>Recent content in r for data science on Exploring Data</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 15 Jul 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://www.exploringdata.org/tags/r-for-data-science/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/r-for-data-science/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Exploratory Data Analysis Guide</title>
-      <link>https://www.exploringdata.org/post/exploratory-data-analysis-eda-guide/</link>
+      <link>/post/exploratory-data-analysis-eda-guide/</link>
       <pubDate>Wed, 15 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.exploringdata.org/post/exploratory-data-analysis-eda-guide/</guid>
+      <guid>/post/exploratory-data-analysis-eda-guide/</guid>
       <description>Enter your Email Here to get the latest from Exploring-Data in your inbox.
 Quick Overview Hadley Wickham and Garrett Grolemund wrote an incredible book called R for Data Science (R4DS). In the book they teach how to “turn raw data into understanding, insight, and knowledge.” The authors do this by being laser focused on the tools that help the data-practitioner import, tidy, transform, visualize, and model data (+communicate findings):</description>
     </item>
