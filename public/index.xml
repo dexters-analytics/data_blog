@@ -1,57 +1,105 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-	<channel>
-		<title>Exploring Data</title>
-		<link>/</link>
-		<description>Recent content on Exploring Data</description>
-		<generator>Hugo -- gohugo.io</generator>
-		<language>en-us</language>
-		<lastBuildDate>Wed, 19 Aug 2020 00:00:00 +0000</lastBuildDate>
-		<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
-		
-		<item>
-			<title>Posts</title>
-			<link>/post/</link>
-			<pubDate>Wed, 19 Aug 2020 00:00:00 +0000</pubDate>
-			
-			<guid>/post/</guid>
-			<description></description>
-		</item>
-		
-		<item>
-			<title>Projects</title>
-			<link>/project/</link>
-			<pubDate>Sat, 02 May 2020 00:00:00 +0000</pubDate>
-			
-			<guid>/project/</guid>
-			<description></description>
-		</item>
-		
-		<item>
-			<title>About</title>
-			<link>/about/</link>
-			<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-			
-			<guid>/about/</guid>
-			<description>&lt;p&gt;&lt;img src=&#34;/./about_files/fishing.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;h3 id=&#34;context&#34;&gt;CONTEXT&lt;/h3&gt;
-&lt;p&gt;My name is Jason Dexter and I&amp;rsquo;m an &lt;code&gt;R-Programmer&lt;/code&gt; and &lt;code&gt;Data-Analyst&lt;/code&gt; based out of Berkeley, CA, where I live with my wife 💃 and our two cats 🐈 🐈&lt;/p&gt;
-&lt;p&gt;In graduate school I was introduced to programming, first &lt;code&gt;base-R&lt;/code&gt; then &lt;code&gt;Python&lt;/code&gt;. The idea 💡 of solving problems programmatically resonated deeply with me and I&amp;rsquo;ve been hooked ever since.&lt;/p&gt;
-&lt;p&gt;I&amp;rsquo;m a nerd 🤓 when it comes to automating data manipulation - there&amp;rsquo;s something intoxicating about the process of wrangling data using &lt;code&gt;code&lt;/code&gt; - it&amp;rsquo;s simply amazing!&lt;/p&gt;
-&lt;p&gt;I find immense satisfaction in determining the shape data needs to be in, then programmatically crafting a solution to transform the raw-data into something useful.&lt;/p&gt;
-&lt;h3 id=&#34;r-centric&#34;&gt;R-CENTRIC&lt;/h3&gt;
-&lt;p&gt;Eventually I gravitated towards &lt;code&gt;R&lt;/code&gt;, especially after &lt;a href=&#34;https://www.linkedin.com/in/mattdancho/&#34;&gt;Matt Dancho&lt;/a&gt; introduced me to the &lt;code&gt;Tidyverse&lt;/code&gt;. Matt has an online learning platform for Data Science that has been a real game-changer for me.&lt;/p&gt;
-&lt;p&gt;It&amp;rsquo;s called &lt;a href=&#34;https://www.business-science.io/?affcode=173166_vnvxtqbd&#34;&gt;Business Science Unviersity&lt;/a&gt; and I can&amp;rsquo;t recommend it enough.&lt;/p&gt;
-&lt;h3 id=&#34;what-to-expect&#34;&gt;WHAT TO EXPECT&lt;/h3&gt;
-&lt;p&gt;Posts at &lt;code&gt;Exploring-Data&lt;/code&gt; will take an &lt;code&gt;R&lt;/code&gt;-Centric approach to Wrangling + Exploring data. The posts will typically be bite-size with content that is applicable - my goal is to have the posts act as a library of useful tips + tricks for programmatically solving problems related to data.&lt;/p&gt;
-&lt;p&gt;I personally find the &lt;code&gt;R&lt;/code&gt; language to be deeply satisfying to learn. The options really are endless.&lt;/p&gt;
-&lt;p&gt;More importantly, the &lt;code&gt;R-Community&lt;/code&gt; is hands down top-notch 😎&lt;/p&gt;
-&lt;p&gt;Check out &lt;a href=&#34;https://www.r-bloggers.com/&#34;&gt;R-bloggers&lt;/a&gt;, &amp;ldquo;a blog aggregator of content contributed by bloggers who write about R&amp;rdquo; - this site is your one stop shop to stay up to speed on what&amp;rsquo;s going on in the &lt;code&gt;R-blogosphere&lt;/code&gt;.&lt;/p&gt;
-&lt;h3 id=&#34;subscribe--share&#34;&gt;SUBSCRIBE + SHARE&lt;/h3&gt;
-&lt;p&gt;Enter your &lt;a href=&#34;https://tinyletter.com/dexters-analytics&#34;&gt;Email Here&lt;/a&gt; to get the latest from Exploring-Data in your inbox.&lt;/p&gt;
-&lt;p&gt;Get the code for each post here: &lt;a href=&#34;https://github.com/dexters-analytics/data_blog/tree/master/content/post&#34;&gt;Github Repo&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;PS: Be Kind and Tidy your Data 🤓&lt;/p&gt;
-</description>
-		</item>
-		
-	</channel>
+  <channel>
+    <title>Exploring Data</title>
+    <link>/</link>
+    <description>Recent content on Exploring Data</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 19 Aug 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>R Packages: {janitor} for Data Cleaning</title>
+      <link>/post/r-packages-janitor-for-data-cleaning/</link>
+      <pubDate>Wed, 19 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/r-packages-janitor-for-data-cleaning/</guid>
+      <description>Github Page as of 8/10/20
+ Quick Overview Exploring-Data is a place where I share easily digestible content aimed at making the wrangling and exploration of data more efficient (+fun).
+Sign up Here to join the many other subscribers who also nerd out on new tips and tricks 🤓
+And if you enjoy the post be sure to share it
+Tweet   New Series: Exploring R {packages} When I discover new and helpful functions I light up 💡 with excitement.</description>
+    </item>
+    
+    <item>
+      <title>Exploratory Data Analysis Guide</title>
+      <link>/post/exploratory-data-analysis-eda-guide/</link>
+      <pubDate>Wed, 15 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/exploratory-data-analysis-eda-guide/</guid>
+      <description>Enter your Email Here to get the latest from Exploring-Data in your inbox.
+Quick Overview Hadley Wickham and Garrett Grolemund wrote an incredible book called R for Data Science (R4DS). In the book they teach how to “turn raw data into understanding, insight, and knowledge.” The authors do this by being laser focused on the tools that help the data-practitioner import, tidy, transform, visualize, and model data (+communicate findings):</description>
+    </item>
+    
+    <item>
+      <title>Quick Tips for Data Cleaning in R</title>
+      <link>/post/quick-tips-for-data-cleaning-in-r/</link>
+      <pubDate>Sat, 20 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/quick-tips-for-data-cleaning-in-r/</guid>
+      <description>Data Cleaning (istockphoto)
+ Enter your Email Here to get the latest from Exploring-Data in your inbox.
+What to Expect I’m excited to share pro-tips that will expedite your process for cleaning and standardizing column names in your data; this is a critical yet sometimes overlooked step in the cleaning + tidying of data.
+There are a couple of handy functions() available in R to help effectively execute these tasks.</description>
+    </item>
+    
+    <item>
+      <title>Business Ready Plots with R</title>
+      <link>/post/business-ready-plots-with-r/</link>
+      <pubDate>Tue, 02 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/business-ready-plots-with-r/</guid>
+      <description>Enter your Email Here to get the latest from Exploring-Data in your inbox.
+Quick Overview Recently, I completed the Data Science for Business 101 course over at Business Science University. In the course, Matt Dancho teaches students the fundamentals of data science for business with the tidyverse.
+The course is jam packed with material: from basic data wrangling all the way to applied machine learning - I highly recommend it to anyone looking to advance their skills 🤓</description>
+    </item>
+    
+    <item>
+      <title>Examining Data with glimpse()</title>
+      <link>/post/examining-data-with-glimpse/</link>
+      <pubDate>Fri, 15 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/examining-data-with-glimpse/</guid>
+      <description>Source: https://bit.ly/3g9sNgK
+  Enter your Email Here to get the latest from Exploring-Data in your inbox.
+Let’s Dive into an Example I’m a nerd 🤓 when it comes to programming (esp. in R) and love learning about new functions.
+Matt Dancho, early in his Data Science Foundations with R Course, teaches students the importance of examining data before diving into wrangling and exploring it further.</description>
+    </item>
+    
+    <item>
+      <title>Advanced Plots with str_glue()</title>
+      <link>/post/advanced-plots-in-r-with-str_glue/</link>
+      <pubDate>Sun, 03 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/advanced-plots-in-r-with-str_glue/</guid>
+      <description>Source: https://bit.ly/2CGyS6I
+  Enter your Email Here to get the latest from Exploring-Data in your inbox.
+Let’s Dive Into an Example I’d like to share a technique using str_glue() that I learned from Matt Dancho, a Data-Science instructor at Business Science University. Check out my favorite course here: Business Analysis With R.
+str_glue() from the stringr library is one of my favorite functions in R - It’s super helpful for wrangling and manipulating text in preparation for building advanced plots.</description>
+    </item>
+    
+    <item>
+      <title>My First Project (test)</title>
+      <link>/project/my-first-project-test/</link>
+      <pubDate>Sat, 02 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/project/my-first-project-test/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/about/</guid>
+      <description>CONTEXT My name is Jason Dexter and I&amp;rsquo;m an R-Programmer and Data-Analyst based out of Berkeley, CA, where I live with my wife 💃 and our two cats 🐈 🐈
+In graduate school I was introduced to programming, first base-R then Python. The idea 💡 of solving problems programmatically resonated deeply with me and I&amp;rsquo;ve been hooked ever since.
+I&amp;rsquo;m a nerd 🤓 when it comes to automating data manipulation - there&amp;rsquo;s something intoxicating about the process of wrangling data using code - it&amp;rsquo;s simply amazing!</description>
+    </item>
+    
+  </channel>
 </rss>
