@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>stringr on Exploring Data</title>
-    <link>/tags/stringr/</link>
+    <link>https://www.exploringdata.org/tags/stringr/</link>
     <description>Recent content in stringr on Exploring Data</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 03 May 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/stringr/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.exploringdata.org/tags/stringr/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Advanced Plots with str_glue()</title>
-      <link>/post/advanced-plots-in-r-with-str_glue/</link>
+      <link>https://www.exploringdata.org/post/advanced-plots-in-r-with-str_glue/</link>
       <pubDate>Sun, 03 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/advanced-plots-in-r-with-str_glue/</guid>
+      <guid>https://www.exploringdata.org/post/advanced-plots-in-r-with-str_glue/</guid>
       <description>Source: https://bit.ly/2CGyS6I
  Quick Overview Exploring-Data is a place where I share easily digestible content aimed at making the wrangling and exploration of data more efficient (+fun).
 Sign up Here to join the many other subscribers who also nerd out on new tips and tricks 🤓
