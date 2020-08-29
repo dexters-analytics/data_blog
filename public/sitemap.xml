@@ -8,11 +8,6 @@
   </url>
   
   <url>
-    <loc>/tags/data/</loc>
-    <lastmod>2020-08-19T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tags/data-cleaning/</loc>
     <lastmod>2020-08-19T00:00:00+00:00</lastmod>
   </url>
@@ -130,21 +125,6 @@
   <url>
     <loc>/tags/stringr/</loc>
     <lastmod>2020-05-03T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/data-engineering/</loc>
-    <lastmod>2020-05-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/project/my-first-project-test/</loc>
-    <lastmod>2020-05-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/project/</loc>
-    <lastmod>2020-05-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
