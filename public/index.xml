@@ -26,9 +26,25 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www.exploringdata.org/about/</guid>
-      <description>CONTEXT My name is Jason Dexter and I&amp;rsquo;m an R-Programmer and Data-Analyst based out of Berkeley, CA, where I live with my wife 💃 and our two cats 🐈 🐈
-In graduate school I was introduced to programming, first base-R then Python. The idea 💡 of solving problems programmatically resonated deeply with me and I&amp;rsquo;ve been hooked ever since.
-I&amp;rsquo;m a nerd 🤓 when it comes to automating data manipulation - there&amp;rsquo;s something intoxicating about the process of wrangling data using code - it&amp;rsquo;s simply amazing!</description>
+      <description>&lt;p&gt;&lt;img src=&#34;https://www.exploringdata.org/./about_files/fishing.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;context&#34;&gt;CONTEXT&lt;/h3&gt;
+&lt;p&gt;My name is Jason Dexter and I&amp;rsquo;m an &lt;code&gt;R-Programmer&lt;/code&gt; and &lt;code&gt;Data-Analyst&lt;/code&gt; based out of Berkeley, CA, where I live with my wife 💃 and our two cats 🐈 🐈&lt;/p&gt;
+&lt;p&gt;In graduate school I was introduced to programming, first &lt;code&gt;base-R&lt;/code&gt; then &lt;code&gt;Python&lt;/code&gt;. The idea 💡 of solving problems programmatically resonated deeply with me and I&amp;rsquo;ve been hooked ever since.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;m a nerd 🤓 when it comes to automating data manipulation - there&amp;rsquo;s something intoxicating about the process of wrangling data using &lt;code&gt;code&lt;/code&gt; - it&amp;rsquo;s simply amazing!&lt;/p&gt;
+&lt;p&gt;I find immense satisfaction in determining the shape data needs to be in, then programmatically crafting a solution to transform the raw-data into something useful.&lt;/p&gt;
+&lt;h3 id=&#34;r-centric&#34;&gt;R-CENTRIC&lt;/h3&gt;
+&lt;p&gt;Eventually I gravitated towards &lt;code&gt;R&lt;/code&gt;, especially after &lt;a href=&#34;https://www.linkedin.com/in/mattdancho/&#34;&gt;Matt Dancho&lt;/a&gt; introduced me to the &lt;code&gt;Tidyverse&lt;/code&gt;. Matt has an online learning platform for Data Science that has been a real game-changer for me.&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s called &lt;a href=&#34;https://www.business-science.io/?affcode=173166_vnvxtqbd&#34;&gt;Business Science Unviersity&lt;/a&gt; and I can&amp;rsquo;t recommend it enough.&lt;/p&gt;
+&lt;h3 id=&#34;what-to-expect&#34;&gt;WHAT TO EXPECT&lt;/h3&gt;
+&lt;p&gt;Posts at &lt;code&gt;Exploring-Data&lt;/code&gt; will take an &lt;code&gt;R&lt;/code&gt;-Centric approach to Wrangling + Exploring data. The posts will typically be bite-size with content that is applicable - my goal is to have the posts act as a library of useful tips + tricks for programmatically solving problems related to data.&lt;/p&gt;
+&lt;p&gt;I personally find the &lt;code&gt;R&lt;/code&gt; language to be deeply satisfying to learn. The options really are endless.&lt;/p&gt;
+&lt;p&gt;More importantly, the &lt;code&gt;R-Community&lt;/code&gt; is hands down top-notch 😎&lt;/p&gt;
+&lt;p&gt;Check out &lt;a href=&#34;https://www.r-bloggers.com/&#34;&gt;R-bloggers&lt;/a&gt;, &amp;ldquo;a blog aggregator of content contributed by bloggers who write about R&amp;rdquo; - this site is your one stop shop to stay up to speed on what&amp;rsquo;s going on in the &lt;code&gt;R-blogosphere&lt;/code&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;subscribe--share&#34;&gt;SUBSCRIBE + SHARE&lt;/h3&gt;
+&lt;p&gt;Enter your &lt;a href=&#34;https://tinyletter.com/dexters-analytics&#34;&gt;Email Here&lt;/a&gt; to get the latest from Exploring-Data in your inbox.&lt;/p&gt;
+&lt;p&gt;Get the code for each post here: &lt;a href=&#34;https://github.com/dexters-analytics/data_blog/tree/master/content/post&#34;&gt;Github Repo&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;PS: Be Kind and Tidy your Data 🤓&lt;/p&gt;
+</description>
       
     </item>
     

@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>data cleaning on Exploring Data</title>
@@ -8,7 +7,7 @@
     <language>en-us</language>
     <lastBuildDate>Wed, 19 Aug 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://www.exploringdata.org/tags/data-cleaning/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://www.exploringdata.org/tags/data-cleaning/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -17,11 +16,485 @@
       <pubDate>Wed, 19 Aug 2020 00:00:00 +0000</pubDate>
       
       <guid>https://www.exploringdata.org/post/r-packages-janitor-for-data-cleaning/</guid>
-      <description>Github Page as of 8/10/20
- Quick Overview Exploring-Data is a place where I share easily digestible content aimed at making the wrangling and exploration of data more efficient (+fun).
-Sign up Here to join the many other subscribers who also nerd out on new tips and tricks 🤓
-And if you enjoy the post be sure to share it
-Tweet   New Series: Exploring R {packages} When I discover new and helpful functions I light up 💡 with excitement.</description>
+      <description>
+&lt;link href=&#34;https://www.exploringdata.org/rmarkdown-libs/pagedtable/css/pagedtable.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;https://www.exploringdata.org/rmarkdown-libs/pagedtable/js/pagedtable.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;https://www.exploringdata.org/post/2020-07-31-r-packages-janitor-for-data-cleaning_files/janitor_package.png&#34; alt=&#34;&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;Github Page as of 8/10/20&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;quick-overview&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Quick Overview&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;Exploring-Data&lt;/code&gt; is a place where I share easily digestible content aimed at making the wrangling and exploration of data more efficient (+fun).&lt;/p&gt;
+&lt;p&gt;Sign up &lt;a href=&#34;https://tinyletter.com/dexters-analytics&#34; target=&#34;_blank&#34;&gt;Here&lt;/a&gt; to join the many other subscribers who also nerd out on new tips and tricks 🤓&lt;/p&gt;
+&lt;p&gt;And if you enjoy the post be sure to share it&lt;/p&gt;
+&lt;a href=&#34;https://twitter.com/share?ref_src=twsrc%5Etfw&#34; class=&#34;twitter-share-button&#34; data-show-count=&#34;false&#34;&gt;Tweet&lt;/a&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+&lt;/div&gt;
+&lt;div id=&#34;new-series-exploring-r-packages&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;New Series: Exploring R {packages}&lt;/h3&gt;
+&lt;p&gt;When I discover new and helpful &lt;code&gt;functions&lt;/code&gt; I light up 💡 with excitement.&lt;/p&gt;
+&lt;p&gt;Interestingly, I have a pattern of finding one or two useful &lt;code&gt;functions&lt;/code&gt; in a &lt;code&gt;{package}&lt;/code&gt;, but rarely explore further to discover other useful &lt;code&gt;functionality&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;That’s what this New Series is all about - &lt;code&gt;Exploration&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;In each post, I will share a bit about how I was using a &lt;code&gt;{package}&lt;/code&gt; and then use a case-study to highlight other &lt;code&gt;functionality&lt;/code&gt; I discovered to be useful.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;leave-a-comment&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Leave a Comment&lt;/h3&gt;
+&lt;p&gt;Leave a comment at the end to let me know if you like this style of post. The feedback will be considered in determining the direction of this series.&lt;/p&gt;
+&lt;div id=&#34;examples-of-feedback&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Examples of feedback:&lt;/h4&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Was the post to long?&lt;/li&gt;
+&lt;li&gt;Do you like the case-study approach?&lt;/li&gt;
+&lt;li&gt;Could I have just shared the functions without the case-study?&lt;/li&gt;
+&lt;li&gt;Was sharing about the pre-processing pro-tip helpful or distracting?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;janitor-package&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;janitor {package}&lt;/h3&gt;
+&lt;p&gt;This a wonderful &lt;code&gt;{package}&lt;/code&gt; built by &lt;a href=&#34;https://github.com/sfirke&#34; target=&#34;_blank&#34;&gt;Sam Firke&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Take the time to explore the &lt;a href=&#34;https://github.com/sfirke/janitor&#34; target=&#34;_blank&#34;&gt;Github Page&lt;/a&gt; for the &lt;code&gt;{janitor:package}&lt;/code&gt;, where Sam describes it as follow:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;janitor has simple functions for examining and cleaning dirty data. It was built with beginning and intermediate R users in mind and is optimized for user-friendliness. Advanced R users can already do everything covered here, but with janitor they can do it faster and save their thinking for the fun stuff.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;There are many more functions (20+) in the package that we will not cover - head over to the following page to learn more about them: &lt;a href=&#34;http://sfirke.github.io/janitor/articles/janitor.html&#34; target=&#34;_blank&#34;&gt;Overview of janitor functions.&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;case-study&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Case-Study&lt;/h3&gt;
+&lt;p&gt;The case-study will provide and illustrate the following:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;A pro-tip for setting up a pre-processing data pipepline.&lt;/li&gt;
+&lt;li&gt;The &lt;code&gt;function&lt;/code&gt; I use often: &lt;code&gt;clean_names()&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Newly discovered &lt;code&gt;functions&lt;/code&gt; from &lt;code&gt;{janitor}&lt;/code&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;div id=&#34;lets-dive-in&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Let’s dive in…&lt;/h3&gt;
+&lt;p&gt;Imagine being tasked with doing an analysis on Starbucks coffee locations. Your manager has provided you with &lt;code&gt;raw-data&lt;/code&gt; from coffee chains and requested that you:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;QA the data for duplicates (by store and by location).&lt;/li&gt;
+&lt;li&gt;Tabulate the various types of Starbucks Ownership:
+&lt;ul&gt;
+&lt;li&gt;Worldwide &amp;amp;&lt;/li&gt;
+&lt;li&gt;US (lower 48)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Deliver a US map that identifies patterns in ownership types.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;To streamline your efforts and get swiftly to making that map, you decide to leverage the &lt;code&gt;{janitor:package}&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;load-our-libraries&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Load our Libraries&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)     # Work-Horse Package
+library(janitor)       # Data cleaning (+tabulating data)
+library(janitor)       # Business Ready Plots
+library(ggthemes)      # Clean ggplot theme for Maps
+library(USAboundaries) # Get state name/code mapping&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;lets-get-some-data&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Let’s Get Some Data&lt;/h3&gt;
+&lt;p&gt;For our case-study we are using data from the &lt;a href=&#34;https://github.com/rfordatascience/tidytuesday&#34; target=&#34;_blank&#34;&gt;Tidy Tuesday Project&lt;/a&gt; archive.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Import Data ----
+# tuesdata &amp;lt;- tidytuesdayR::tt_load(&amp;quot;2018-05-07&amp;quot;) &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;pro-tip-pre-processing-pipeline&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Pro-Tip: Pre-Processing Pipeline&lt;/h3&gt;
+&lt;p&gt;When working with new data, I’ll typically setup up a pre-processing step at the beginning of the script. It typically starts out with no steps and then they get added as I move through my analysis.&lt;/p&gt;
+&lt;p&gt;The idea is that as you conduct your Exploratory Data Analysis &lt;code&gt;(EDA)&lt;/code&gt;, you will discover pre-processing steps that need to be added to your pipeline.&lt;/p&gt;
+&lt;p&gt;In this post, I’ll illustrate this technique by adding to our pipeline as we go; however, this data pipeline would live near the top of the script and would not move.&lt;/p&gt;
+&lt;div id=&#34;step-1&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Step 1&lt;/h4&gt;
+&lt;p&gt;Save &lt;code&gt;raw&lt;/code&gt; data to a variable.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# coffee_chains_raw &amp;lt;- tuesdata$week6_coffee_chains&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;step-2&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Step 2&lt;/h4&gt;
+&lt;p&gt;Immediately save the &lt;code&gt;raw&lt;/code&gt; data to new variable labeled with the suffix, &lt;code&gt;processed&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Beginning of Pre-Processing Pipeline
+coffee_chains_processed &amp;lt;- coffee_chains_raw&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This obviously has ZERO pre-processing done to the data at this point. The point though is that as you discover areas of your data that require attention, you then can circle back to this pipeline and add those steps.&lt;/p&gt;
+&lt;p&gt;This may seem odd, but the beauty comes in not having to get further along in your analysis before realizing that you need to do data cleaning steps; if you approach it that way, then you have to go back and rename your variables created along the way - this method allows you to keep working with your &lt;code&gt;processed&lt;/code&gt; data as you move swiftly through your analysis.&lt;/p&gt;
+&lt;p&gt;I picked up this &lt;code&gt;pro-tip&lt;/code&gt; while watching &lt;code&gt;David Robinson&lt;/code&gt; in his &lt;code&gt;Tidy Tuesday Screencasts&lt;/code&gt; - check those out here: &lt;a href=&#34;https://www.youtube.com/playlist?list=PL19ev-r1GBwkuyiwnxoHTRC8TTqP8OEi8&#34; target=&#34;_blank&#34;&gt;Tidy Tuesday R Screencasts&lt;/a&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Hat-Tip to D-Rob&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;step-3&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Step 3&lt;/h4&gt;
+&lt;p&gt;Begin &lt;code&gt;Exploring&lt;/code&gt; your &lt;code&gt;Data&lt;/code&gt; and conducting your analysis.&lt;/p&gt;
+&lt;p&gt;At this point, I’ll do a bit of &lt;code&gt;EDA&lt;/code&gt; to familiarize myself with the data I’m working with; this process is always to get a high-level understanding of the data so that I can pick up on nuances along with data integrity issues that need attention (dealt with in the pre-processing pipeline).&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;initial-exploration&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Initial Exploration&lt;/h3&gt;
+&lt;p&gt;Let’s look at these &lt;code&gt;raw&lt;/code&gt; data using the &lt;code&gt;tibble::glimpse()&lt;/code&gt; function.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;glimpse()&lt;/code&gt; function allows us to quickly assess column names, data-types, and also view a sample of the values contained in each column - you can read more about the &lt;code&gt;glimpse()&lt;/code&gt; function in my archived post, &lt;a href=&#34;https://www.exploringdata.org/post/examining-data-with-glimpse/&#34; target=&#34;_blank&#34;&gt;Examining Data with glimpse()&lt;/a&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;coffee_chains_processed %&amp;gt;% 
+  tibble::glimpse()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Rows: 25,600
+## Columns: 13
+## $ Brand            &amp;lt;chr&amp;gt; &amp;quot;Starbucks&amp;quot;, &amp;quot;Starbucks&amp;quot;, &amp;quot;Starbucks&amp;quot;, &amp;quot;Starbucks&amp;quot;, …
+## $ `Store Number`   &amp;lt;chr&amp;gt; &amp;quot;47370-257954&amp;quot;, &amp;quot;22331-212325&amp;quot;, &amp;quot;47089-256771&amp;quot;, &amp;quot;221…
+## $ `Store Name`     &amp;lt;chr&amp;gt; &amp;quot;Meritxell, 96&amp;quot;, &amp;quot;Ajman Drive Thru&amp;quot;, &amp;quot;Dana Mall&amp;quot;, &amp;quot;T…
+## $ `Ownership Type` &amp;lt;chr&amp;gt; &amp;quot;Licensed&amp;quot;, &amp;quot;Licensed&amp;quot;, &amp;quot;Licensed&amp;quot;, &amp;quot;Licensed&amp;quot;, &amp;quot;Lic…
+## $ `Street Address` &amp;lt;chr&amp;gt; &amp;quot;Av. Meritxell, 96&amp;quot;, &amp;quot;1 Street 69, Al Jarf&amp;quot;, &amp;quot;Sheikh…
+## $ City             &amp;lt;chr&amp;gt; &amp;quot;Andorra la Vella&amp;quot;, &amp;quot;Ajman&amp;quot;, &amp;quot;Ajman&amp;quot;, &amp;quot;Abu Dhabi&amp;quot;, &amp;quot;…
+## $ `State/Province` &amp;lt;chr&amp;gt; &amp;quot;7&amp;quot;, &amp;quot;AJ&amp;quot;, &amp;quot;AJ&amp;quot;, &amp;quot;AZ&amp;quot;, &amp;quot;AZ&amp;quot;, &amp;quot;AZ&amp;quot;, &amp;quot;AZ&amp;quot;, &amp;quot;AZ&amp;quot;, &amp;quot;AZ&amp;quot;,…
+## $ Country          &amp;lt;chr&amp;gt; &amp;quot;AD&amp;quot;, &amp;quot;AE&amp;quot;, &amp;quot;AE&amp;quot;, &amp;quot;AE&amp;quot;, &amp;quot;AE&amp;quot;, &amp;quot;AE&amp;quot;, &amp;quot;AE&amp;quot;, &amp;quot;AE&amp;quot;, &amp;quot;AE&amp;quot;…
+## $ Postcode         &amp;lt;chr&amp;gt; &amp;quot;AD500&amp;quot;, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, &amp;quot;31…
+## $ `Phone Number`   &amp;lt;chr&amp;gt; &amp;quot;376818720&amp;quot;, NA, NA, NA, NA, NA, NA, NA, &amp;quot;26670052&amp;quot;,…
+## $ Timezone         &amp;lt;chr&amp;gt; &amp;quot;GMT+1:00 Europe/Andorra&amp;quot;, &amp;quot;GMT+04:00 Asia/Dubai&amp;quot;, &amp;quot;…
+## $ Longitude        &amp;lt;dbl&amp;gt; 1.53, 55.47, 55.47, 54.38, 54.54, 54.49, 54.49, 54.6…
+## $ Latitude         &amp;lt;dbl&amp;gt; 42.51, 25.42, 25.39, 24.48, 24.51, 24.40, 24.40, 24.…&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Immediately, we can see that our column names are not optimal for analysis. Personally, I’m VERY biased towards &lt;code&gt;snake_case&lt;/code&gt; and therefore always like to get column names into that format.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;janitorclean_names&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;janitor::clean_names()&lt;/h3&gt;
+&lt;p&gt;In comes &lt;code&gt;{janitor::clean_names}&lt;/code&gt; to the rescue ⛑️&lt;/p&gt;
+&lt;p&gt;By default, &lt;code&gt;clean_names()&lt;/code&gt; outputs column naming with the &lt;code&gt;snake_case&lt;/code&gt; format - maybe this is one of the reasons that it’s in my top 10 for favorite functions in &lt;code&gt;R&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Let’s test it out on our coffee data.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# clean_names() with default naming
+coffee_chains_processed %&amp;gt;% 
+  janitor::clean_names() %&amp;gt;% 
+  base::names()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  [1] &amp;quot;brand&amp;quot;          &amp;quot;store_number&amp;quot;   &amp;quot;store_name&amp;quot;     &amp;quot;ownership_type&amp;quot;
+##  [5] &amp;quot;street_address&amp;quot; &amp;quot;city&amp;quot;           &amp;quot;state_province&amp;quot; &amp;quot;country&amp;quot;       
+##  [9] &amp;quot;postcode&amp;quot;       &amp;quot;phone_number&amp;quot;   &amp;quot;timezone&amp;quot;       &amp;quot;longitude&amp;quot;     
+## [13] &amp;quot;latitude&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;awesome&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Awesome!&lt;/h4&gt;
+&lt;p&gt;You’ll notice the &lt;code&gt;function&lt;/code&gt; took care of the &lt;code&gt;/&lt;/code&gt; in &lt;code&gt;State/Province&lt;/code&gt; and replaced it with an underscore - simply amazing 😎&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;naming-convention-options&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Naming Convention Options&lt;/h4&gt;
+&lt;p&gt;If you prefer a different naming convention - I’m not sure why you would 🙄 - then you can use the &lt;code&gt;case&lt;/code&gt; argument.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# clean_names() with diff. naming convention
+coffee_chains_processed %&amp;gt;% 
+  clean_names(case = &amp;quot;small_camel&amp;quot;) %&amp;gt;% 
+  names()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  [1] &amp;quot;brand&amp;quot;         &amp;quot;storeNumber&amp;quot;   &amp;quot;storeName&amp;quot;     &amp;quot;ownershipType&amp;quot;
+##  [5] &amp;quot;streetAddress&amp;quot; &amp;quot;city&amp;quot;          &amp;quot;stateProvince&amp;quot; &amp;quot;country&amp;quot;      
+##  [9] &amp;quot;postcode&amp;quot;      &amp;quot;phoneNumber&amp;quot;   &amp;quot;timezone&amp;quot;      &amp;quot;longitude&amp;quot;    
+## [13] &amp;quot;latitude&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;pre-processing-addition&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Pre-Processing Addition&lt;/h3&gt;
+&lt;p&gt;Now let’s add this step to our pre-processing pipeline.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Adding to our Pre-Processing Pipeline
+coffee_chains_processed &amp;lt;- coffee_chains_raw %&amp;gt;% 
+  
+  # clean up column names
+  janitor::clean_names()&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;janitorget_dupes&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;janitor::get_dupes()&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;get_dupes()&lt;/code&gt; is at the top of the list for newly discovered &lt;code&gt;functionality&lt;/code&gt; within the &lt;code&gt;{janitor}&lt;/code&gt; package.&lt;/p&gt;
+&lt;p&gt;This is one of those things you need to do often (check for duplicates) and &lt;code&gt;{janitor}&lt;/code&gt; makes it simple.&lt;/p&gt;
+&lt;p&gt;Going back to our &lt;code&gt;case-study&lt;/code&gt;, our manager asked us to check for duplicated records (a common &lt;code&gt;data-cleaning&lt;/code&gt; and &lt;code&gt;EDA&lt;/code&gt; step).&lt;/p&gt;
+&lt;p&gt;Let’s subset our data and investigate.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;coffee_chains_processed %&amp;gt;% 
+  
+  # subset data by store and by location
+  dplyr::select(brand, store_number, 
+                city, state_province, country) %&amp;gt;% 
+  
+  # identify duplicated records
+  janitor::get_dupes()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 2 x 6
+##   brand     store_number city  state_province country dupe_count
+##   &amp;lt;chr&amp;gt;     &amp;lt;chr&amp;gt;        &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt;          &amp;lt;chr&amp;gt;        &amp;lt;int&amp;gt;
+## 1 Starbucks 19773-160973 Seoul 11             KR               2
+## 2 Starbucks 19773-160973 Seoul 11             KR               2&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Using &lt;code&gt;janitor::get_dupes()&lt;/code&gt; we’ve quickly identified a potential issue: store number &lt;code&gt;19773-160973&lt;/code&gt; has duplicated records.&lt;/p&gt;
+&lt;p&gt;Let’s investigate further.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# filter to store with dupes
+coffee_chains_processed %&amp;gt;% 
+  
+  # filter to store and glimpse data
+  dplyr::filter(store_number == &amp;quot;19773-160973&amp;quot;) %&amp;gt;% 
+  glimpse()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Rows: 2
+## Columns: 13
+## $ brand          &amp;lt;chr&amp;gt; &amp;quot;Starbucks&amp;quot;, &amp;quot;Starbucks&amp;quot;
+## $ store_number   &amp;lt;chr&amp;gt; &amp;quot;19773-160973&amp;quot;, &amp;quot;19773-160973&amp;quot;
+## $ store_name     &amp;lt;chr&amp;gt; &amp;quot;Yoido IFC Mall - 1F&amp;quot;, &amp;quot;Yoido IFC Mall - 1F&amp;quot;
+## $ ownership_type &amp;lt;chr&amp;gt; &amp;quot;Joint Venture&amp;quot;, &amp;quot;Joint Venture&amp;quot;
+## $ street_address &amp;lt;chr&amp;gt; &amp;quot;23 &amp;amp; 23-1, Yoido-Dong, Yongdongpo-Gu, 1F, #101&amp;quot;, &amp;quot;23 …
+## $ city           &amp;lt;chr&amp;gt; &amp;quot;Seoul&amp;quot;, &amp;quot;Seoul&amp;quot;
+## $ state_province &amp;lt;chr&amp;gt; &amp;quot;11&amp;quot;, &amp;quot;11&amp;quot;
+## $ country        &amp;lt;chr&amp;gt; &amp;quot;KR&amp;quot;, &amp;quot;KR&amp;quot;
+## $ postcode       &amp;lt;chr&amp;gt; &amp;quot;153-023&amp;quot;, &amp;quot;153-023&amp;quot;
+## $ phone_number   &amp;lt;chr&amp;gt; NA, NA
+## $ timezone       &amp;lt;chr&amp;gt; &amp;quot;GMT+09:00 Asia/Seoul&amp;quot;, &amp;quot;GMT+09:00 Asia/Seoul&amp;quot;
+## $ longitude      &amp;lt;dbl&amp;gt; NA, 126.92
+## $ latitude       &amp;lt;dbl&amp;gt; NA, 37.53&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Look carefully and you’ll notice that the latitude/longitude are missing for one of these records.&lt;/p&gt;
+&lt;p&gt;We need lat/long for mapping and so we will want to prioritize the records with those data. Also, we don’t want duplicated records to interfere with our tabulations later on in this analysis.&lt;/p&gt;
+&lt;p&gt;Let’s quickly look and see how much data is missing from the lat/long columns.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# plot missing data (using raw data)
+DataExplorer::plot_missing(
+  title   = &amp;quot;% of Missing Data (filtered to cols w/missing data)&amp;quot;,
+  data    = coffee_chains_raw,
+  ggtheme = tidyquant::theme_tq(), 
+  missing_only = TRUE) &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.exploringdata.org/post/2020-07-31-r-packages-janitor-for-data-cleaning_files/figure-html/unnamed-chunk-13-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;The plot shows that &lt;code&gt;0%&lt;/code&gt; of data are missing for lat/long leading me to believe that the store identified earlier is the only record with missing data (insignificant amount when plotted).&lt;/p&gt;
+&lt;p&gt;We will filter that record out in our &lt;code&gt;data-cleaning&lt;/code&gt; step.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;pre-processing-addition-1&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Pre-Processing Addition&lt;/h3&gt;
+&lt;p&gt;Now let’s add this step to our pre-processing pipeline&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Adding to our Pre-Processing Pipeline
+coffee_chains_processed &amp;lt;- coffee_chains_raw %&amp;gt;% 
+  
+  # clean up column names
+  janitor::clean_names() %&amp;gt;% 
+  
+  # filter out records missing lat/long values
+  dplyr::filter(!is.na(latitude), !is.na(longitude))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Let’s use &lt;code&gt;get_dupes()&lt;/code&gt; to confirm the problem is solved&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;coffee_chains_processed %&amp;gt;% 
+  
+  # subset data
+  dplyr::select(brand, store_number, city, state_province, country) %&amp;gt;% 
+  
+  # identify duplicated records
+  janitor::get_dupes()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 0 x 6
+## # … with 6 variables: brand &amp;lt;chr&amp;gt;, store_number &amp;lt;chr&amp;gt;, city &amp;lt;chr&amp;gt;,
+## #   state_province &amp;lt;chr&amp;gt;, country &amp;lt;chr&amp;gt;, dupe_count &amp;lt;int&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;starbucks-analysis&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Starbucks Analysis&lt;/h3&gt;
+&lt;p&gt;Now that we’ve done our due diligence in being sure we’ve dealt with data issues, let’s knock out this analysis by
+tabulating these data and compiling a map, or two 🤓&lt;/p&gt;
+&lt;p&gt;Before doing so, let’s add one final step to our pre-processing data pipeline.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;pre-processing-addition-2&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Pre-Processing Addition&lt;/h3&gt;
+&lt;p&gt;The final step is to subset the columns needed to complete the analysis.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Adding to our Pre-Processing Pipeline
+coffee_chains_processed &amp;lt;- coffee_chains_raw %&amp;gt;% 
+  
+  # clean up column names
+  janitor::clean_names() %&amp;gt;% 
+  
+  # filter out records missing lat/long values
+  dplyr::filter(!is.na(latitude), !is.na(longitude)) %&amp;gt;% 
+  
+  # subset columns for analysis
+  dplyr::select(brand, ownership_type, country, 
+                state_province, latitude, longitude)&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;view-data&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;View Data&lt;/h4&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# view first 5 rows
+coffee_chains_processed %&amp;gt;% head(5)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 5 x 6
+##   brand     ownership_type country state_province latitude longitude
+##   &amp;lt;chr&amp;gt;     &amp;lt;chr&amp;gt;          &amp;lt;chr&amp;gt;   &amp;lt;chr&amp;gt;             &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;
+## 1 Starbucks Licensed       AD      7                  42.5      1.53
+## 2 Starbucks Licensed       AE      AJ                 25.4     55.5 
+## 3 Starbucks Licensed       AE      AJ                 25.4     55.5 
+## 4 Starbucks Licensed       AE      AZ                 24.5     54.4 
+## 5 Starbucks Licensed       AE      AZ                 24.5     54.5&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;tabulate-data-worldwide&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Tabulate Data (worldwide)&lt;/h3&gt;
+&lt;p&gt;Let’s start with looking at Ownership Types worldwide.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;janitor::tabyl&lt;/code&gt; stuck out to me because the ease with which to generate frequency tables.&lt;/p&gt;
+&lt;p&gt;Check it out.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# generate frequency table
+coffee_chains_processed %&amp;gt;% 
+  
+  # filter data
+  dplyr::filter(brand == &amp;quot;Starbucks&amp;quot;) %&amp;gt;% 
+  
+  # tabulate and arrange data
+  janitor::tabyl(ownership_type) %&amp;gt;% 
+  arrange(desc(percent)) %&amp;gt;% 
+  
+  # formatting
+  janitor::adorn_totals() %&amp;gt;% 
+  janitor::adorn_pct_formatting() %&amp;gt;% 
+  rmarkdown::paged_table()&lt;/code&gt;&lt;/pre&gt;
+&lt;div data-pagedtable=&#34;false&#34;&gt;
+&lt;script data-pagedtable-source type=&#34;application/json&#34;&gt;
+{&#34;columns&#34;:[{&#34;label&#34;:[&#34;&#34;],&#34;name&#34;:[&#34;_rn_&#34;],&#34;type&#34;:[&#34;&#34;],&#34;align&#34;:[&#34;left&#34;]},{&#34;label&#34;:[&#34;ownership_type&#34;],&#34;name&#34;:[1],&#34;type&#34;:[&#34;chr&#34;],&#34;align&#34;:[&#34;left&#34;]},{&#34;label&#34;:[&#34;n&#34;],&#34;name&#34;:[2],&#34;type&#34;:[&#34;dbl&#34;],&#34;align&#34;:[&#34;right&#34;]},{&#34;label&#34;:[&#34;percent&#34;],&#34;name&#34;:[3],&#34;type&#34;:[&#34;chr&#34;],&#34;align&#34;:[&#34;left&#34;]}],&#34;data&#34;:[{&#34;1&#34;:&#34;Company Owned&#34;,&#34;2&#34;:&#34;11581&#34;,&#34;3&#34;:&#34;45.9%&#34;,&#34;_rn_&#34;:&#34;1&#34;},{&#34;1&#34;:&#34;Licensed&#34;,&#34;2&#34;:&#34;9375&#34;,&#34;3&#34;:&#34;37.1%&#34;,&#34;_rn_&#34;:&#34;2&#34;},{&#34;1&#34;:&#34;Joint Venture&#34;,&#34;2&#34;:&#34;3975&#34;,&#34;3&#34;:&#34;15.7%&#34;,&#34;_rn_&#34;:&#34;3&#34;},{&#34;1&#34;:&#34;Franchise&#34;,&#34;2&#34;:&#34;317&#34;,&#34;3&#34;:&#34;1.3%&#34;,&#34;_rn_&#34;:&#34;4&#34;},{&#34;1&#34;:&#34;Total&#34;,&#34;2&#34;:&#34;25248&#34;,&#34;3&#34;:&#34;100.0%&#34;,&#34;_rn_&#34;:&#34;5&#34;}],&#34;options&#34;:{&#34;columns&#34;:{&#34;min&#34;:{},&#34;max&#34;:[10]},&#34;rows&#34;:{&#34;min&#34;:[10],&#34;max&#34;:[10]},&#34;pages&#34;:{}}}
+  &lt;/script&gt;
+&lt;/div&gt;
+&lt;p&gt;Using just the &lt;code&gt;tabyl&lt;/code&gt; function we were able to generate frequencies along with the percent of total.&lt;/p&gt;
+&lt;p&gt;However, &lt;code&gt;{janitor}&lt;/code&gt; is packed full of other goodies - the creator(s) have crafted a number of &lt;code&gt;adorn&lt;/code&gt; options for formatting our outputs. I used the &lt;code&gt;adorn_totals&lt;/code&gt; and &lt;code&gt;adorn_pct_formatting&lt;/code&gt; to tidy up and make our table ready for presentation.&lt;/p&gt;
+&lt;p&gt;Simply Amazing 😎&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;tabulate-data-us-lower-48&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Tabulate Data (US, lower 48)&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# generate frequency table
+coffee_chains_processed %&amp;gt;% 
+  
+  # filter data
+  dplyr::filter(brand   == &amp;quot;Starbucks&amp;quot;, 
+                country == &amp;quot;US&amp;quot;, 
+                state_province != &amp;quot;AK&amp;quot;, 
+                state_province != &amp;quot;HI&amp;quot;) %&amp;gt;% 
+  
+  # tabulate and arrange data
+  janitor::tabyl(ownership_type) %&amp;gt;% 
+  arrange(desc(percent)) %&amp;gt;% 
+  
+  # formatting
+  janitor::adorn_totals() %&amp;gt;% 
+  janitor::adorn_pct_formatting() %&amp;gt;% 
+  rmarkdown::paged_table()&lt;/code&gt;&lt;/pre&gt;
+&lt;div data-pagedtable=&#34;false&#34;&gt;
+&lt;script data-pagedtable-source type=&#34;application/json&#34;&gt;
+{&#34;columns&#34;:[{&#34;label&#34;:[&#34;&#34;],&#34;name&#34;:[&#34;_rn_&#34;],&#34;type&#34;:[&#34;&#34;],&#34;align&#34;:[&#34;left&#34;]},{&#34;label&#34;:[&#34;ownership_type&#34;],&#34;name&#34;:[1],&#34;type&#34;:[&#34;chr&#34;],&#34;align&#34;:[&#34;left&#34;]},{&#34;label&#34;:[&#34;n&#34;],&#34;name&#34;:[2],&#34;type&#34;:[&#34;dbl&#34;],&#34;align&#34;:[&#34;right&#34;]},{&#34;label&#34;:[&#34;percent&#34;],&#34;name&#34;:[3],&#34;type&#34;:[&#34;chr&#34;],&#34;align&#34;:[&#34;left&#34;]}],&#34;data&#34;:[{&#34;1&#34;:&#34;Company Owned&#34;,&#34;2&#34;:&#34;7859&#34;,&#34;3&#34;:&#34;59.7%&#34;,&#34;_rn_&#34;:&#34;1&#34;},{&#34;1&#34;:&#34;Licensed&#34;,&#34;2&#34;:&#34;5306&#34;,&#34;3&#34;:&#34;40.3%&#34;,&#34;_rn_&#34;:&#34;2&#34;},{&#34;1&#34;:&#34;Total&#34;,&#34;2&#34;:&#34;13165&#34;,&#34;3&#34;:&#34;100.0%&#34;,&#34;_rn_&#34;:&#34;3&#34;}],&#34;options&#34;:{&#34;columns&#34;:{&#34;min&#34;:{},&#34;max&#34;:[10]},&#34;rows&#34;:{&#34;min&#34;:[10],&#34;max&#34;:[10]},&#34;pages&#34;:{}}}
+  &lt;/script&gt;
+&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;All Starbucks are either company owned, which is almost all of them, or else they’re “licensed” locations, which are the Starbucks in airports, supermarkets, etc. - Charles Partrick&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div id=&#34;map-starbucks-locations&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Map Starbucks Locations&lt;/h3&gt;
+&lt;p&gt;Now lets make those maps and get this analysis wrapped up.&lt;/p&gt;
+&lt;p&gt;Lets start by getting a general sense of where in the US these Starbucks are located.&lt;/p&gt;
+&lt;div id=&#34;data-manipulation&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Data Manipulation&lt;/h4&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Data Manipulation
+starbucks_lower_48 &amp;lt;- coffee_chains_processed %&amp;gt;% 
+  
+  # filter data
+  dplyr::filter(brand   == &amp;quot;Starbucks&amp;quot;, 
+                country == &amp;quot;US&amp;quot;, 
+                state_province != &amp;quot;AK&amp;quot;, 
+                state_province != &amp;quot;HI&amp;quot;) &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;data-visualization&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Data Visualization&lt;/h4&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Data Visualization
+starbucks_lower_48 %&amp;gt;% 
+  
+  # setup ggplot canvas + US borders
+  ggplot(aes(longitude, latitude, color = ownership_type)) +
+  
+  # add geometries
+  borders(&amp;quot;state&amp;quot;) +
+  geom_point(size = .75, alpha = 0.5) +
+  
+  # formatting
+  ggthemes::theme_map() +   # remove x/y for tidy map
+  coord_map() +             # scales map (simple approach)
+  scale_color_manual(values = c(&amp;quot;#2c3e50&amp;quot;, &amp;quot;#18BC9C&amp;quot;)) +
+  labs(title = &amp;quot;Starbucks Locations by Ownership Type (Lower 48)&amp;quot;,
+       color = &amp;quot;Ownership Type&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.exploringdata.org/post/2020-07-31-r-packages-janitor-for-data-cleaning_files/figure-html/unnamed-chunk-21-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;That’s a solid map but I think we can do better to identify patterns in ownership types.&lt;/p&gt;
+&lt;p&gt;Let’s calculate the ratio of Corporate (Company Owned) vs. Licensed ownership and map that at the state level.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;data-acquisition-state-boundaries&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Data Acquisition (state boundaries)&lt;/h4&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Get state level lat/long table
+states &amp;lt;- ggplot2::map_data(&amp;quot;state&amp;quot;) %&amp;gt;% 
+  tibble() %&amp;gt;% 
+  mutate(region = str_to_title(region))&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;data-manipulation-1&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Data Manipulation&lt;/h4&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Data Manipulation
+ownership_ratios_by_state &amp;lt;- starbucks_lower_48 %&amp;gt;% 
+  
+  # count ownership types by state
+  group_by(state_province, ownership_type) %&amp;gt;% 
+  summarize(n = n()) %&amp;gt;% 
+  ungroup() %&amp;gt;% 
+  
+  # pivot data and calculate ratios
+  pivot_wider(names_from = ownership_type, 
+              values_from = n) %&amp;gt;% 
+  clean_names() %&amp;gt;% 
+  mutate(corp_vs_lic = company_owned/licensed) %&amp;gt;% 
+  
+  # join to get state names from codes
+  left_join(USAboundaries::state_codes %&amp;gt;% 
+          select(state_name, state_abbr),
+          by = c(&amp;quot;state_province&amp;quot; = &amp;quot;state_abbr&amp;quot;)) %&amp;gt;% 
+  
+  # reorder columns
+  select(state_name, everything())&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;view-data-1&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;View Data&lt;/h4&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ownership_ratios_by_state %&amp;gt;% head()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 6 x 5
+##   state_name  state_province company_owned licensed corp_vs_lic
+##   &amp;lt;chr&amp;gt;       &amp;lt;chr&amp;gt;                  &amp;lt;int&amp;gt;    &amp;lt;int&amp;gt;       &amp;lt;dbl&amp;gt;
+## 1 Alabama     AL                        48       36       1.33 
+## 2 Arkansas    AR                        35       19       1.84 
+## 3 Arizona     AZ                       196      283       0.693
+## 4 California  CA                      1943      839       2.32 
+## 5 Colorado    CO                       227      250       0.908
+## 6 Connecticut CT                        83       35       2.37&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;data-visualization-1&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Data Visualization&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ownership_ratios_by_state %&amp;gt;% 
+  
+  # join to get state boundaries (lat/long)
+  left_join(states, by = c(&amp;quot;state_name&amp;quot; = &amp;quot;region&amp;quot;)) %&amp;gt;% 
+  
+  # setup ggplot canvas + US borders
+  ggplot(aes(long, lat, fill = corp_vs_lic, group = group)) +
+  
+  # add geometries
+  geom_polygon() +
+  ggplot2::borders(&amp;quot;state&amp;quot;) +
+  
+  # formatting
+  ggthemes::theme_map() + # remove x/y for tidy map
+  theme(legend.position = c(.9, .05)) +
+  coord_map(projection = &amp;quot;mercator&amp;quot;) + # scales map projection 
+  scale_fill_gradient2(low = &amp;quot;white&amp;quot;, high = &amp;quot;#18BC9C&amp;quot;, ) + 
+  labs(title = &amp;quot;Ratio of Corporate vs. Licensed Starbucks in the US (Lower 48)&amp;quot;,
+       subtitle = &amp;quot;Darker green equates to more corporate locations compared to licensed establishments.&amp;quot;,
+       fill = &amp;quot;Ratio of\nCorporate/\nLicensed&amp;quot;) &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.exploringdata.org/post/2020-07-31-r-packages-janitor-for-data-cleaning_files/figure-html/unnamed-chunk-25-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;This represent the data in a way that helps us identify patterns - our manager will be pleased 👍&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;wrap-up&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Wrap Up&lt;/h3&gt;
+&lt;p&gt;I hope you enjoyed the first post in this new series.&lt;/p&gt;
+&lt;p&gt;Leave a comment and let me know.&lt;/p&gt;
+&lt;p&gt;Get the code here: &lt;a href=&#34;https://github.com/dexters-analytics/data_blog/tree/master/content/post&#34; target=&#34;_blank&#34;&gt;Github Repo&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;subscribe-share&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Subscribe + Share&lt;/h3&gt;
+&lt;p&gt;Enter your &lt;a href=&#34;https://tinyletter.com/dexters-analytics&#34; target=&#34;_blank&#34;&gt;Email Here&lt;/a&gt; to get the latest from Exploring-Data in your inbox.&lt;br/&gt;&lt;/p&gt;
+&lt;a href=&#34;https://twitter.com/share?ref_src=twsrc%5Etfw&#34; class=&#34;twitter-share-button&#34; data-show-count=&#34;false&#34;&gt;Tweet&lt;/a&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+&lt;p&gt;PS: Be Kind and Tidy your Data 😎&lt;/p&gt;
+&lt;p&gt;PSS: Leave a comment to help guide the subsequent posts in this series.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;learn-r-fast&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Learn R Fast&lt;/h3&gt;
+&lt;p&gt;I’ve been learning Data Science at &lt;a href=&#34;http://bit.ly/2UbPat2&#34; target=&#34;_blank&#34;&gt;Business Science University&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Join me on the journey.&lt;/p&gt;
+&lt;p&gt;Check out this link to get 15% off of the courses that are helping 1000s of analytics professionals take their careers to the next level: &lt;a href=&#34;http://bit.ly/2UbPat2&#34; target=&#34;_blank&#34;&gt;Business Science Courses&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Good luck.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+      
+            <category>r packages</category>
+      
+            <category>janitor</category>
+      
+            <category>data cleaning</category>
+      
+            <category>eda</category>
+      
     </item>
     
     <item>
@@ -30,11 +503,192 @@ Tweet   New Series: Exploring R {packages} When I discover new and helpful funct
       <pubDate>Sat, 20 Jun 2020 00:00:00 +0000</pubDate>
       
       <guid>https://www.exploringdata.org/post/quick-tips-for-data-cleaning-in-r/</guid>
-      <description>Data Cleaning (istockphoto)
- Quick Overview Exploring-Data is a place where I share easily digestible content aimed at making the wrangling and exploration of data more efficient (+fun).
-Sign up Here to join the many other subscribers who also nerd out on new tips and tricks 🤓
-And if you enjoy the post be sure to share it
-Tweet   What to Expect I’m excited to share pro-tips that will expedite your process for cleaning and standardizing column names in your data; this is a critical yet sometimes overlooked step in the cleaning + tidying of data.</description>
+      <description>
+
+
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;https://www.exploringdata.org/post/2020-05-24-quick-tips-for-data-cleaning-in-r_files/Screen%20Shot%202020-08-17%20at%209.15.29%20PM.png&#34; alt=&#34;&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;Data Cleaning (istockphoto)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;quick-overview&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Quick Overview&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;Exploring-Data&lt;/code&gt; is a place where I share easily digestible content aimed at making the wrangling and exploration of data more efficient (+fun).&lt;/p&gt;
+&lt;p&gt;Sign up &lt;a href=&#34;https://tinyletter.com/dexters-analytics&#34; target=&#34;_blank&#34;&gt;Here&lt;/a&gt; to join the many other subscribers who also nerd out on new tips and tricks 🤓&lt;/p&gt;
+&lt;p&gt;And if you enjoy the post be sure to share it&lt;/p&gt;
+&lt;a href=&#34;https://twitter.com/share?ref_src=twsrc%5Etfw&#34; class=&#34;twitter-share-button&#34; data-show-count=&#34;false&#34;&gt;Tweet&lt;/a&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+&lt;/div&gt;
+&lt;div id=&#34;what-to-expect&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;What to Expect&lt;/h3&gt;
+&lt;p&gt;I’m excited to share pro-tips that will expedite your process for cleaning and standardizing column names in your data; this is a critical yet sometimes overlooked step in the cleaning + tidying of data.&lt;/p&gt;
+&lt;p&gt;There are a couple of handy &lt;code&gt;functions()&lt;/code&gt; available in &lt;code&gt;R&lt;/code&gt; to help effectively execute these tasks.&lt;/p&gt;
+&lt;p&gt;By the end of this short article you’ll have a couple of new tricks up your sleeve for getting those column names just the way you want them 😎&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;data-wrangling-toolkit&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Data Wrangling Toolkit 🧰&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;The &lt;code&gt;clean_names()&lt;/code&gt; function from the &lt;a href=&#34;https://www.rdocumentation.org/packages/janitor/versions/1.2.0/topics/clean_names&#34;&gt;janitor&lt;/a&gt; library.&lt;/li&gt;
+&lt;li&gt;The &lt;code&gt;set_names()&lt;/code&gt; function from the &lt;a href=&#34;https://www.rdocumentation.org/packages/rlang/versions/0.2.2/topics/set_names&#34;&gt;purrr&lt;/a&gt; library.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;load-our-libraries&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Load our Libraries&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)      # Work-Horse Package
+library(tidytuesdayR)   # Access Data from Tidy Tuesday
+library(janitor)        # Data Cleaning Package
+library(purrr)          # Functional Programming Toolkit&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;lets-get-some-data&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Let’s Get Some Data&lt;/h3&gt;
+&lt;p&gt;I’m grabbing a couple of data-sets from the &lt;a href=&#34;https://github.com/rfordatascience/tidytuesday&#34; target=&#34;_blank&#34;&gt;Tidy Tuesday Project&lt;/a&gt; that will help us walk through a couple of examples together.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Get Marine Mammal Data
+cetacean_week    &amp;lt;- tidytuesdayR::tt_load(&amp;quot;2018-12-18&amp;quot;)
+cetacean_raw_tbl &amp;lt;- cetacean_week$allCetaceanData 
+
+# Get NFL Salary Data
+nfl_salary_week    &amp;lt;- tidytuesdayR::tt_load(&amp;quot;2018-04-09&amp;quot;)
+nfl_salary_raw_tbl &amp;lt;- nfl_salary_week$nfl_salary&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Each of these data-sets contain column naming useful for emphasizing the value in the aforementioned functions.&lt;/p&gt;
+&lt;p&gt;Let’s start with the &lt;code&gt;janitor&lt;/code&gt; library and it’s nifty function called &lt;code&gt;clean_names()&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;janitor-makes-life-easy&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Janitor Makes Life Easy&lt;/h3&gt;
+&lt;p&gt;My head exploded 🤯 when learning about the &lt;code&gt;Janitor&lt;/code&gt; library - it’s one of my favorite’s and I use the &lt;code&gt;clean_names()&lt;/code&gt; function ALL the time.&lt;/p&gt;
+&lt;p&gt;Standardizing our naming convention upfront in our data cleaning pipeline can save enormous amounts of time downstream. I’m a big fan of the 🐍 &lt;code&gt;snake_case&lt;/code&gt; 🐍 naming convention and so I typically like the columns of my data to follow that pattern.&lt;/p&gt;
+&lt;p&gt;Fortunately, the &lt;code&gt;janitor::clean_names()&lt;/code&gt; function has built in &lt;code&gt;functionality&lt;/code&gt; to programmatically clean up our column names - my favorite part is that by default it favors the &lt;code&gt;snake_case&lt;/code&gt; naming convention.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;lets-look-at-an-example&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Let’s Look at an Example&lt;/h3&gt;
+&lt;p&gt;Pulling a few columns from our marine-mammal data we see that our columns are not in our preferred &lt;code&gt;snake_case&lt;/code&gt; convention.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Get subset of columns for example
+cetacean_subset_tbl &amp;lt;- cetacean_raw_tbl %&amp;gt;% 
+    
+    # Select columns using helper_functions()
+    select(contains(&amp;quot;origin&amp;quot;), contains(&amp;quot;date&amp;quot;), COD)
+
+# Transpose Data to view Column Names
+glimpse(cetacean_subset_tbl)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Rows: 2,194
+## Columns: 6
+## $ originDate     &amp;lt;date&amp;gt; 1989-04-07, 1973-11-26, 1978-05-13, 1979-02-03, 1979-…
+## $ originLocation &amp;lt;chr&amp;gt; &amp;quot;Marineland Florida&amp;quot;, &amp;quot;Dolphin Research Center&amp;quot;, &amp;quot;SeaW…
+## $ statusDate     &amp;lt;date&amp;gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
+## $ transferDate   &amp;lt;date&amp;gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
+## $ entryDate      &amp;lt;date&amp;gt; 1989-04-07, 1973-11-26, 1978-05-13, 1979-02-03, 1979-…
+## $ COD            &amp;lt;chr&amp;gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;mixed-naming-lets-standardize&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Mixed Naming, Let’s Standardize&lt;/h3&gt;
+&lt;p&gt;As you can see we’ve got columns in lowerCamel and also in UPPERCASE. To standardize, let’s now use the &lt;code&gt;clean_names()&lt;/code&gt; function to tidy these up.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Clean up Column Names + Glimpse Output
+cetacean_subset_tbl %&amp;gt;% 
+    clean_names() %&amp;gt;% 
+    glimpse()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Rows: 2,194
+## Columns: 6
+## $ origin_date     &amp;lt;date&amp;gt; 1989-04-07, 1973-11-26, 1978-05-13, 1979-02-03, 1979…
+## $ origin_location &amp;lt;chr&amp;gt; &amp;quot;Marineland Florida&amp;quot;, &amp;quot;Dolphin Research Center&amp;quot;, &amp;quot;Sea…
+## $ status_date     &amp;lt;date&amp;gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
+## $ transfer_date   &amp;lt;date&amp;gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
+## $ entry_date      &amp;lt;date&amp;gt; 1989-04-07, 1973-11-26, 1978-05-13, 1979-02-03, 1979…
+## $ cod             &amp;lt;chr&amp;gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;those-column-names-look-great&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Those Column Names Look Great!&lt;/h4&gt;
+&lt;p&gt;Now imagine you have a picky partner/colleague who insists on a format like ALLCAPS - you’ve tried to convince them otherwise but they insist 🙄&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Standardize Column Naming - ALLCAPS
+cetacean_cols_allcaps_tbl &amp;lt;- cetacean_subset_tbl %&amp;gt;% 
+    clean_names(case = &amp;quot;all_caps&amp;quot;)
+
+# Glimpse Output
+cetacean_cols_allcaps_tbl %&amp;gt;% glimpse()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Rows: 2,194
+## Columns: 6
+## $ ORIGIN_DATE     &amp;lt;date&amp;gt; 1989-04-07, 1973-11-26, 1978-05-13, 1979-02-03, 1979…
+## $ ORIGIN_LOCATION &amp;lt;chr&amp;gt; &amp;quot;Marineland Florida&amp;quot;, &amp;quot;Dolphin Research Center&amp;quot;, &amp;quot;Sea…
+## $ STATUS_DATE     &amp;lt;date&amp;gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
+## $ TRANSFER_DATE   &amp;lt;date&amp;gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
+## $ ENTRY_DATE      &amp;lt;date&amp;gt; 1989-04-07, 1973-11-26, 1978-05-13, 1979-02-03, 1979…
+## $ COD             &amp;lt;chr&amp;gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;awesome&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Awesome!&lt;/h3&gt;
+&lt;p&gt;Nice way to be a team-player 👍&lt;/p&gt;
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;next-example-set_names&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Next Example: &lt;code&gt;set_names()&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;With &lt;code&gt;clean_names()&lt;/code&gt; in our tool bag, we can now combine it with &lt;code&gt;set_names()&lt;/code&gt; to programmatically standardize ALL of our column names using advanced techniques.&lt;/p&gt;
+&lt;p&gt;Let’s take a quick peak at the columns from the NFL Salary data.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;nfl_salary_raw_tbl %&amp;gt;% names() &lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  [1] &amp;quot;year&amp;quot;              &amp;quot;Cornerback&amp;quot;        &amp;quot;Defensive Lineman&amp;quot;
+##  [4] &amp;quot;Linebacker&amp;quot;        &amp;quot;Offensive Lineman&amp;quot; &amp;quot;Quarterback&amp;quot;      
+##  [7] &amp;quot;Running Back&amp;quot;      &amp;quot;Safety&amp;quot;            &amp;quot;Special Teamer&amp;quot;   
+## [10] &amp;quot;Tight End&amp;quot;         &amp;quot;Wide Receiver&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now imagine instead of requiring snake_case, the columns need to be lower-case with a &lt;code&gt;dash&lt;/code&gt; instead of an &lt;code&gt;underscore&lt;/code&gt; in between words.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;set_names()&lt;/code&gt; function allows us to &lt;code&gt;Set the Names of a Vector&lt;/code&gt; programmatically.&lt;/p&gt;
+&lt;p&gt;Using the &lt;code&gt;names()&lt;/code&gt; function above, we can pass a vector of our column names and manipulate each name in similar fashion.&lt;/p&gt;
+&lt;p&gt;Let’s look at an example.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;nfl_salary_raw_tbl %&amp;gt;% 
+    clean_names() %&amp;gt;% 
+    names()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##  [1] &amp;quot;year&amp;quot;              &amp;quot;cornerback&amp;quot;        &amp;quot;defensive_lineman&amp;quot;
+##  [4] &amp;quot;linebacker&amp;quot;        &amp;quot;offensive_lineman&amp;quot; &amp;quot;quarterback&amp;quot;      
+##  [7] &amp;quot;running_back&amp;quot;      &amp;quot;safety&amp;quot;            &amp;quot;special_teamer&amp;quot;   
+## [10] &amp;quot;tight_end&amp;quot;         &amp;quot;wide_receiver&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We’ve effectively used &lt;code&gt;clean_names()&lt;/code&gt; to quickly clean up our column names.&lt;/p&gt;
+&lt;p&gt;However, we still need to replace those underscores with dashes.&lt;/p&gt;
+&lt;p&gt;Check this out 😎&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;nfl_salary_raw_tbl %&amp;gt;% 
+    clean_names() %&amp;gt;% 
+    set_names(names(.) %&amp;gt;% str_replace_all(&amp;quot;_&amp;quot;, &amp;quot;-&amp;quot;)) %&amp;gt;% 
+    glimpse()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Rows: 800
+## Columns: 11
+## $ year                &amp;lt;dbl&amp;gt; 2011, 2011, 2011, 2011, 2011, 2011, 2011, 2011, 2…
+## $ cornerback          &amp;lt;dbl&amp;gt; 11265916, 11000000, 10000000, 10000000, 10000000,…
+## $ `defensive-lineman` &amp;lt;dbl&amp;gt; 17818000, 16200000, 12476000, 11904706, 11762782,…
+## $ linebacker          &amp;lt;dbl&amp;gt; 16420000, 15623000, 11825000, 10083333, 10020000,…
+## $ `offensive-lineman` &amp;lt;dbl&amp;gt; 15960000, 12800000, 11767500, 10358200, 10000000,…
+## $ quarterback         &amp;lt;dbl&amp;gt; 17228125, 16000000, 14400000, 14100000, 13510000,…
+## $ `running-back`      &amp;lt;dbl&amp;gt; 12955000, 10873833, 9479000, 7700000, 7500000, 70…
+## $ safety              &amp;lt;dbl&amp;gt; 8871428, 8787500, 8282500, 8000000, 7804333, 7652…
+## $ `special-teamer`    &amp;lt;dbl&amp;gt; 4300000, 3725000, 3556176, 3500000, 3250000, 3225…
+## $ `tight-end`         &amp;lt;dbl&amp;gt; 8734375, 8591000, 8290000, 7723333, 6974666, 6133…
+## $ `wide-receiver`     &amp;lt;dbl&amp;gt; 16250000, 14175000, 11424000, 11415000, 10800000,…&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;I learned this trick in the &lt;a href=&#34;https://university.business-science.io/p/ds4b-101-r-business-analysis-r/?coupon_code=DS4B15&amp;amp;affcode=173166_vnvxtqbd&#34; target=&#34;_blank&#34;&gt;Data Science for Business 101&lt;/a&gt; course taught by &lt;a href=&#34;https://www.linkedin.com/in/mattdancho/&#34; target=&#34;_blank&#34;&gt;Matt Dancho&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;At first, I was puzzled by the &lt;code&gt;names(.)&lt;/code&gt; component and didn’t understand what the &lt;code&gt;period&lt;/code&gt; was doing. In the course I learned that using the &lt;code&gt;dot&lt;/code&gt; (.) enables passing the incoming tibble to &lt;code&gt;multiple-spots&lt;/code&gt; in the function.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;set_names()&lt;/code&gt; is a vectorized function and so the first argument is a vector. The &lt;code&gt;dot&lt;/code&gt; functionality in &lt;code&gt;R&lt;/code&gt; allows us to take the incoming tibble and pass it to the &lt;code&gt;names(.)&lt;/code&gt; function. Once we have the names in a vector we use the &lt;code&gt;str_replace_all()&lt;/code&gt; function to replace the &lt;code&gt;underscore&lt;/code&gt; with a &lt;code&gt;dash&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;str_replace_all()&lt;/code&gt; function uses regular expression pattern matching and so the options are endless for how creative you can get here.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;wrap-up&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Wrap-Up&lt;/h3&gt;
+&lt;p&gt;That’s it for today!&lt;/p&gt;
+&lt;p&gt;We used &lt;code&gt;clean_names()&lt;/code&gt; and &lt;code&gt;set_names()&lt;/code&gt; to effectively standardize our column naming conventions.&lt;/p&gt;
+&lt;p&gt;Get the code here: &lt;a href=&#34;https://github.com/dexters-analytics/data_blog/tree/master/content/post&#34; target=&#34;_blank&#34;&gt;Github Repo&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;subscribe-share&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Subscribe + Share&lt;/h3&gt;
+&lt;p&gt;Enter your &lt;a href=&#34;https://tinyletter.com/dexters-analytics&#34; target=&#34;_blank&#34;&gt;Email Here&lt;/a&gt; to get the latest from Exploring-Data in your inbox.&lt;br/&gt;&lt;/p&gt;
+&lt;a href=&#34;https://twitter.com/share?ref_src=twsrc%5Etfw&#34; class=&#34;twitter-share-button&#34; data-show-count=&#34;false&#34;&gt;Tweet&lt;/a&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+&lt;p&gt;PS: Be Kind and Tidy your Data 😎&lt;br/&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;learn-r-fast&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Learn R Fast 👇&lt;/h3&gt;
+&lt;p&gt;Interested in expediting your &lt;code&gt;R&lt;/code&gt; learning path?&lt;/p&gt;
+&lt;p&gt;Head on over to &lt;a href=&#34;https://www.business-science.io/?affcode=173166_vnvxtqbd&#34; target=&#34;_blank&#34;&gt;Business Science&lt;/a&gt; and join me on the journey.&lt;/p&gt;
+&lt;p&gt;Link to my favorite &lt;code&gt;R&lt;/code&gt; course: &lt;a href=&#34;https://university.business-science.io/p/ds4b-101-r-business-analysis-r/?coupon_code=DS4B15&amp;amp;affcode=173166_vnvxtqbd&#34;&gt;Data Science for Business 101&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://university.business-science.io/p/jumpstart-with-r/?affcode=173166_vnvxtqbd&#34; target=&#34;_blank&#34;&gt;FREE Jumpstart Data-Science Course&lt;/a&gt; (opened for a limited time)&lt;/p&gt;
+&lt;/div&gt;
+</description>
+      
+            <category>tidyverse</category>
+      
+            <category>data cleaning</category>
+      
+            <category>data wrangling</category>
+      
     </item>
     
   </channel>

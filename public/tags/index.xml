@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Exploring Data</title>
@@ -8,7 +7,7 @@
     <language>en-us</language>
     <lastBuildDate>Wed, 19 Aug 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://www.exploringdata.org/tags/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://www.exploringdata.org/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -18,6 +17,7 @@
       
       <guid>https://www.exploringdata.org/tags/data-cleaning/</guid>
       <description></description>
+      
     </item>
     
     <item>
@@ -27,6 +27,7 @@
       
       <guid>https://www.exploringdata.org/tags/eda/</guid>
       <description></description>
+      
     </item>
     
     <item>
@@ -36,6 +37,7 @@
       
       <guid>https://www.exploringdata.org/tags/janitor/</guid>
       <description></description>
+      
     </item>
     
     <item>
@@ -45,6 +47,7 @@
       
       <guid>https://www.exploringdata.org/tags/r/</guid>
       <description></description>
+      
     </item>
     
     <item>
@@ -54,6 +57,7 @@
       
       <guid>https://www.exploringdata.org/tags/r-packages/</guid>
       <description></description>
+      
     </item>
     
     <item>
@@ -63,6 +67,7 @@
       
       <guid>https://www.exploringdata.org/tags/data-visualization/</guid>
       <description></description>
+      
     </item>
     
     <item>
@@ -72,6 +77,7 @@
       
       <guid>https://www.exploringdata.org/tags/r-for-data-science/</guid>
       <description></description>
+      
     </item>
     
     <item>
@@ -81,6 +87,7 @@
       
       <guid>https://www.exploringdata.org/tags/data-wrangling/</guid>
       <description></description>
+      
     </item>
     
     <item>
@@ -90,6 +97,7 @@
       
       <guid>https://www.exploringdata.org/tags/tidyverse/</guid>
       <description></description>
+      
     </item>
     
     <item>
@@ -99,6 +107,47 @@
       
       <guid>https://www.exploringdata.org/tags/ggplot/</guid>
       <description></description>
+      
+    </item>
+    
+    <item>
+      <title>tidyquant</title>
+      <link>https://www.exploringdata.org/tags/tidyquant/</link>
+      <pubDate>Tue, 02 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.exploringdata.org/tags/tidyquant/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>visualizations</title>
+      <link>https://www.exploringdata.org/tags/visualizations/</link>
+      <pubDate>Tue, 02 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.exploringdata.org/tags/visualizations/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>dplyr</title>
+      <link>https://www.exploringdata.org/tags/dplyr/</link>
+      <pubDate>Fri, 15 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.exploringdata.org/tags/dplyr/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>stringr</title>
+      <link>https://www.exploringdata.org/tags/stringr/</link>
+      <pubDate>Sun, 03 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.exploringdata.org/tags/stringr/</guid>
+      <description></description>
+      
     </item>
     
   </channel>

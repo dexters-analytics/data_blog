@@ -486,6 +486,15 @@ ownership_ratios_by_state &amp;lt;- starbucks_lower_48 %&amp;gt;%
 &lt;p&gt;Good luck.&lt;/p&gt;
 &lt;/div&gt;
 </description>
+      
+            <category>r packages</category>
+      
+            <category>janitor</category>
+      
+            <category>data cleaning</category>
+      
+            <category>eda</category>
+      
     </item>
     
     <item>
@@ -678,6 +687,13 @@ patchwork + plot_annotation(
 &lt;p&gt;Link to my favorite &lt;code&gt;R&lt;/code&gt; course (with 15% off discount): &lt;a href=&#34;https://university.business-science.io/p/ds4b-101-r-business-analysis-r/?coupon_code=DS4B15&amp;amp;affcode=173166_vnvxtqbd&#34; target=&#34;_blank&#34;&gt;Data Science for Business 101&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 </description>
+      
+            <category>eda</category>
+      
+            <category>r for data science</category>
+      
+            <category>data visualization</category>
+      
     </item>
     
     <item>
@@ -865,6 +881,13 @@ cetacean_cols_allcaps_tbl %&amp;gt;% glimpse()&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;a href=&#34;https://university.business-science.io/p/jumpstart-with-r/?affcode=173166_vnvxtqbd&#34; target=&#34;_blank&#34;&gt;FREE Jumpstart Data-Science Course&lt;/a&gt; (opened for a limited time)&lt;/p&gt;
 &lt;/div&gt;
 </description>
+      
+            <category>tidyverse</category>
+      
+            <category>data cleaning</category>
+      
+            <category>data wrangling</category>
+      
     </item>
     
     <item>
@@ -1068,6 +1091,15 @@ data_visualized_plot &amp;lt;- data_manipulated_tbl %&amp;gt;%
 &lt;p&gt;Click on the link to head over to &lt;a href=&#34;https://university.business-science.io/p/4-course-bundle-machine-learning-and-web-applications-r-track-101-102-201-202a/?coupon_code=DS4B15&amp;amp;affcode=173166_vnvxtqbd&#34; target=&#34;_blank&#34;&gt;Business Science&lt;/a&gt; and join me on the journey.&lt;/p&gt;
 &lt;/div&gt;
 </description>
+      
+            <category>R</category>
+      
+            <category>ggplot</category>
+      
+            <category>visualizations</category>
+      
+            <category>tidyquant</category>
+      
     </item>
     
     <item>
@@ -1376,6 +1408,15 @@ indonesia_tidy_tbl %&amp;gt;% paged_table(list(rows.print = 5))&lt;/code&gt;&lt;
 &lt;p&gt;&lt;a href=&#34;https://university.business-science.io/p/jumpstart-with-r/?affcode=173166_vnvxtqbd&#34; target=&#34;_blank&#34;&gt;FREE Jumpstart Data-Science Course&lt;/a&gt; (opened for a limited time)&lt;/p&gt;
 &lt;/div&gt;
 </description>
+      
+            <category>tidyverse</category>
+      
+            <category>dplyr</category>
+      
+            <category>eda</category>
+      
+            <category>data wrangling</category>
+      
     </item>
     
     <item>
@@ -1550,6 +1591,13 @@ g &amp;lt;- redwood_labeled_text_tbl %&amp;gt;%
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
+      
+            <category>stringr</category>
+      
+            <category>data visualization</category>
+      
+            <category>data wrangling</category>
+      
     </item>
     
   </channel>

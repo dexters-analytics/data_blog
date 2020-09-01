@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>tidyquant on Exploring Data</title>
@@ -8,7 +7,7 @@
     <language>en-us</language>
     <lastBuildDate>Tue, 02 Jun 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://www.exploringdata.org/tags/tidyquant/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://www.exploringdata.org/tags/tidyquant/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -17,10 +16,210 @@
       <pubDate>Tue, 02 Jun 2020 00:00:00 +0000</pubDate>
       
       <guid>https://www.exploringdata.org/post/business-ready-plots-with-r/</guid>
-      <description>Quick Overview Exploring-Data is a place where I share easily digestible content aimed at making the wrangling and exploration of data more efficient (+fun).
-Sign up Here to join the many other subscribers who also nerd out on new tips and tricks 🤓
-And if you enjoy the post be sure to share it
-Tweet   Business Science Recently, I completed the Data Science for Business 101 course over at Business Science University.</description>
+      <description>
+
+
+&lt;div id=&#34;quick-overview&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Quick Overview&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;Exploring-Data&lt;/code&gt; is a place where I share easily digestible content aimed at making the wrangling and exploration of data more efficient (+fun).&lt;/p&gt;
+&lt;p&gt;Sign up &lt;a href=&#34;https://tinyletter.com/dexters-analytics&#34; target=&#34;_blank&#34;&gt;Here&lt;/a&gt; to join the many other subscribers who also nerd out on new tips and tricks 🤓&lt;/p&gt;
+&lt;p&gt;And if you enjoy the post be sure to share it&lt;/p&gt;
+&lt;a href=&#34;https://twitter.com/share?ref_src=twsrc%5Etfw&#34; class=&#34;twitter-share-button&#34; data-show-count=&#34;false&#34;&gt;Tweet&lt;/a&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+&lt;/div&gt;
+&lt;div id=&#34;business-science&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Business Science&lt;/h3&gt;
+&lt;p&gt;Recently, I completed the &lt;a href=&#34;https://university.business-science.io/p/ds4b-101-r-business-analysis-r/?coupon_code=DS4B15&amp;amp;affcode=173166_vnvxtqbd&#34; target=&#34;_blank&#34;&gt;Data Science for Business 101&lt;/a&gt; course over at &lt;a href=&#34;https://www.business-science.io/?affcode=173166_vnvxtqbd&#34; target=&#34;_blank&#34;&gt;Business Science University&lt;/a&gt;. In the course, &lt;a href=&#34;https://www.linkedin.com/in/mattdancho/&#34; target=&#34;_blank&#34;&gt;Matt Dancho&lt;/a&gt; teaches students the fundamentals of data science for business with the &lt;code&gt;tidyverse.&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;The course is jam packed with material: from basic data wrangling all the way to applied machine learning - I highly recommend it to anyone looking to advance their skills 🤓&lt;/p&gt;
+&lt;p&gt;Clink this &lt;a href=&#34;https://university.business-science.io/p/ds4b-101-r-business-analysis-r/?coupon_code=DS4B15&amp;amp;affcode=173166_vnvxtqbd&#34; target=&#34;_blank&#34;&gt;LINK&lt;/a&gt; to access the course.&lt;/p&gt;
+&lt;p&gt;I’ve been tracking down data then applying the techniques to help solidify concepts from the course. One of my favorite parts from Week 1 is turning a generic ggplot() into something that is Business Ready.&lt;/p&gt;
+&lt;p&gt;In this post I’ll show you how to upgrade your plots in &lt;code&gt;R&lt;/code&gt; so that they are Business-Ready.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;the-final-plot&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;The Final Plot&lt;/h3&gt;
+&lt;p&gt;This is the plot that we will recreate in the post - it’s crisp, clean, and Business-Ready.&lt;/p&gt;
+&lt;p&gt;Let’s get started 😎&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.exploringdata.org/post/2020-05-30-business-ready-plots-with-r_files/edu_comps_la_vs_nation.png&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;load-our-libraries&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Load our Libraries&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)  # Work-Horse Package
+library(tidyquant)  # Business Ready Plots 
+library(scales)     # Scaling Data for Plots&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;lets-get-some-data&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Let’s Get Some Data&lt;/h3&gt;
+&lt;p&gt;These are Census data that I got here: &lt;a href=&#34;https://odn.data.socrata.com/Education/ODN-Education/8apn-rhyh&#34; target=&#34;_blank&#34;&gt;link to data&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The original data was 4M+ rows and so I’ve already filtered it down a bit.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Import Data
+edu_census_data_raw_tbl &amp;lt;- read_csv(&amp;quot;../../static/01_data/edu_census_data.csv&amp;quot;)
+
+# Glimpse Data
+edu_census_data_raw_tbl %&amp;gt;% glimpse()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Rows: 228,737
+## Columns: 5
+## $ name     &amp;lt;chr&amp;gt; &amp;quot;United States&amp;quot;, &amp;quot;United States&amp;quot;, &amp;quot;United States&amp;quot;, &amp;quot;United S…
+## $ type     &amp;lt;chr&amp;gt; &amp;quot;nation&amp;quot;, &amp;quot;nation&amp;quot;, &amp;quot;nation&amp;quot;, &amp;quot;nation&amp;quot;, &amp;quot;nation&amp;quot;, &amp;quot;nation&amp;quot;, …
+## $ year     &amp;lt;dbl&amp;gt; 2013, 2013, 2013, 2013, 2013, 2013, 2013, 2013, 2013, 2013, …
+## $ variable &amp;lt;chr&amp;gt; &amp;quot;percent_bachelors_degree_or_higher_rank&amp;quot;, &amp;quot;percent_graduate…
+## $ value    &amp;lt;dbl&amp;gt; 1.0, 10.8, 28.8, 11.1, 1.0, 86.7, 5.8, 18.0, 27.8, 28.1, 8.5…&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;filter-data-for-plotting&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Filter Data for Plotting&lt;/h3&gt;
+&lt;p&gt;We want to compare educational attainment statistics for the County of Los Angeles against the rest of the Nation - first, let’s do a bit of filtering to get just the data needed for our plot.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Setup variables: for filter + for using in plot later
+year_f &amp;lt;- 2018
+nation &amp;lt;- &amp;quot;United States&amp;quot;
+county &amp;lt;- &amp;quot;Los Angeles County&amp;quot;
+
+# Data Prep
+edu_census_filtered_tbl &amp;lt;- edu_census_data_raw_tbl %&amp;gt;% 
+    
+    # Filter data to year and areas of interest 
+    filter(year == year_f,
+           name == nation | # OR
+           str_detect(name, county))
+
+# View data
+edu_census_filtered_tbl&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 10 x 5
+##    name                      type    year variable                         value
+##    &amp;lt;chr&amp;gt;                     &amp;lt;chr&amp;gt;  &amp;lt;dbl&amp;gt; &amp;lt;chr&amp;gt;                            &amp;lt;dbl&amp;gt;
+##  1 United States             nation  2018 percent_less_than_9th_grade        5.3
+##  2 United States             nation  2018 percent_high_school_graduate_or…  87.7
+##  3 United States             nation  2018 percent_bachelors_degree_or_hig…  31.5
+##  4 United States             nation  2018 percent_associates_degree          8.4
+##  5 United States             nation  2018 percent_graduate_or_professiona…  12.1
+##  6 Los Angeles County, Cali… county  2018 percent_less_than_9th_grade       12.6
+##  7 Los Angeles County, Cali… county  2018 percent_high_school_graduate_or…  78.7
+##  8 Los Angeles County, Cali… county  2018 percent_bachelors_degree_or_hig…  31.8
+##  9 Los Angeles County, Cali… county  2018 percent_associates_degree          7  
+## 10 Los Angeles County, Cali… county  2018 percent_graduate_or_professiona…  11.1&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The 10 x 5 table is exactly what we need to create our first plot.&lt;/p&gt;
+&lt;p&gt;Making a visualization is a great way to get a few insights in the process of better understanding your data.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;generic-ggplot&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Generic ggplot()&lt;/h3&gt;
+&lt;p&gt;The awesomeness of &lt;code&gt;ggplot()&lt;/code&gt; is that we can rapidly produce a plot with just a couple of lines of code - that means we can quickly get insights that will help determine the next steps in &lt;code&gt;Exploring&lt;/code&gt; these &lt;code&gt;Data&lt;/code&gt; further.&lt;/p&gt;
+&lt;p&gt;The stacked bar-chart below is a great starting place.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;edu_census_filtered_tbl %&amp;gt;% 
+    ggplot(aes(x = variable, y = value, fill = name)) +
+    geom_col() &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.exploringdata.org/post/2020-05-30-business-ready-plots-with-r_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;We can immediately see that ‘some’ differences exist but it’s difficult to get a sense of the magnitude. It’s also difficult to make out the names of the variables on the x-axis.&lt;/p&gt;
+&lt;p&gt;Making &lt;code&gt;Business-Ready&lt;/code&gt; plots can be time-consuming - thankfully, we have the &lt;code&gt;Tidyquant&lt;/code&gt; library to help expedite the process.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;business-ready-plots&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Business Ready Plots&lt;/h3&gt;
+&lt;p&gt;To get those plots business-ready, it’s helpful (+best-practice) to break things up into two steps:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Data Manipulation (Wrangling)&lt;/li&gt;
+&lt;li&gt;Data Visualization&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The data manipulation step will pay-off immensely once we get to the data visualization step; this was a key learning from Matt in the 101 course - it keeps your code nice and tidy too 🤓&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;data-manipulation&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;1) Data Manipulation&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Step 1 - Manipulate Data
+data_manipulated_tbl &amp;lt;- edu_census_filtered_tbl %&amp;gt;% 
+    
+    # Selecting columns to focus on
+    select(name, variable, value) %&amp;gt;% 
+    
+    # Tidy up variable names
+    mutate(variable = str_replace(variable, &amp;quot;percent_&amp;quot;, &amp;quot;&amp;quot;),
+           variable = str_replace_all(variable, &amp;quot;_&amp;quot;, &amp;quot; &amp;quot;),
+           variable = str_to_title(variable)) %&amp;gt;% 
+    
+    # Convert value to a pct (ratio)
+    mutate(pct = value / 100) %&amp;gt;% 
+    
+    # Format % Text 
+    mutate(pct_text = scales::percent(pct, accuracy = 0.1)) %&amp;gt;% 
+    
+    # Select final columns for plotting
+    select(name, variable, contains(&amp;quot;pct&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now that we’ve wrangled + manipulated our data, let’s take a peak at it before diving into the generation of our visualization.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data_manipulated_tbl&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 10 x 4
+##    name                           variable                          pct pct_text
+##    &amp;lt;chr&amp;gt;                          &amp;lt;chr&amp;gt;                           &amp;lt;dbl&amp;gt; &amp;lt;chr&amp;gt;   
+##  1 United States                  Less Than 9th Grade             0.053 5.3%    
+##  2 United States                  High School Graduate Or Higher  0.877 87.7%   
+##  3 United States                  Bachelors Degree Or Higher      0.315 31.5%   
+##  4 United States                  Associates Degree               0.084 8.4%    
+##  5 United States                  Graduate Or Professional Degree 0.121 12.1%   
+##  6 Los Angeles County, California Less Than 9th Grade             0.126 12.6%   
+##  7 Los Angeles County, California High School Graduate Or Higher  0.787 78.7%   
+##  8 Los Angeles County, California Bachelors Degree Or Higher      0.318 31.8%   
+##  9 Los Angeles County, California Associates Degree               0.07  7.0%    
+## 10 Los Angeles County, California Graduate Or Professional Degree 0.111 11.1%&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Creating the &lt;code&gt;pct_text&lt;/code&gt; column will come in handy for adding clean labels to our plot - this will be a nice touch that will help the audience quickly make sense of the chart.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;data-visualization&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;2) Data Visualization&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Step 2 - Visualize Data
+data_visualized_plot &amp;lt;- data_manipulated_tbl %&amp;gt;% 
+    
+    # Setup ggplot() canvas for plotting
+    ggplot(aes(x = variable, y = pct, fill = name)) +
+    
+    # Geometries
+    geom_col() +
+    geom_label(aes(label = pct_text), fill = &amp;quot;white&amp;quot;, hjust = &amp;quot;center&amp;quot;) +
+    
+    # Facet: splits plot into multiple plots by a categorical feature
+    facet_wrap(~ name) +
+    
+    # Flip coordinates for readable variable names
+    coord_flip() +
+    
+    # Formatting
+    theme_tq() +
+    scale_fill_tq() +
+    scale_y_continuous(labels = scales::percent, limits = c(0, 1.0)) +
+    theme(legend.position = &amp;quot;none&amp;quot;,
+          plot.title = element_text(face = &amp;quot;bold&amp;quot;)) +
+    labs(title = str_glue(&amp;quot;Comparison of Educational Attainment ({year_f})&amp;quot;),
+         subtitle = str_glue(&amp;quot;{county} vs. Overall National Statistics&amp;quot;),
+         caption  = &amp;quot;Census Data&amp;quot;,
+         x = &amp;quot;&amp;quot;, y = &amp;quot;&amp;quot;) &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We now have the two steps completed and our code is nicely commented for readability (+reproducibility).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;display-plot&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Display Plot&lt;/h3&gt;
+&lt;p&gt;Let’s take a look at our awesome plot 😎&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data_visualized_plot&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.exploringdata.org/post/2020-05-30-business-ready-plots-with-r_files/figure-html/unnamed-chunk-9-1.png&#34; width=&#34;768&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;wrap-up&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Wrap Up&lt;/h3&gt;
+&lt;p&gt;That’s it for today!&lt;/p&gt;
+&lt;p&gt;You learned how to turn a generic &lt;code&gt;ggplot()&lt;/code&gt; into one that is &lt;code&gt;Business-Ready&lt;/code&gt; 👍&lt;/p&gt;
+&lt;p&gt;Get the code here: &lt;a href=&#34;https://github.com/dexters-analytics/data_blog/tree/master/content/post&#34; target=&#34;_blank&#34;&gt;Github Repo&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;subscribe-share&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Subscribe + Share&lt;/h3&gt;
+&lt;p&gt;Enter your &lt;a href=&#34;https://tinyletter.com/dexters-analytics&#34; target=&#34;_blank&#34;&gt;Email Here&lt;/a&gt; to get the latest from Exploring-Data in your inbox.&lt;br/&gt;&lt;/p&gt;
+&lt;a href=&#34;https://twitter.com/share?ref_src=twsrc%5Etfw&#34; class=&#34;twitter-share-button&#34; data-show-count=&#34;false&#34;&gt;Tweet&lt;/a&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+&lt;p&gt;PS: Be Kind and Tidy your Data 😎&lt;br/&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;learn-r-fast&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Learn R Fast 👇&lt;/h3&gt;
+&lt;p&gt;Interested in expediting your learning path?&lt;/p&gt;
+&lt;p&gt;Click on the link to head over to &lt;a href=&#34;https://university.business-science.io/p/4-course-bundle-machine-learning-and-web-applications-r-track-101-102-201-202a/?coupon_code=DS4B15&amp;amp;affcode=173166_vnvxtqbd&#34; target=&#34;_blank&#34;&gt;Business Science&lt;/a&gt; and join me on the journey.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+      
+            <category>R</category>
+      
+            <category>ggplot</category>
+      
+            <category>visualizations</category>
+      
+            <category>tidyquant</category>
+      
     </item>
     
   </channel>

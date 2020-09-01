@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>data visualization on Exploring Data</title>
@@ -8,7 +7,7 @@
     <language>en-us</language>
     <lastBuildDate>Wed, 15 Jul 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://www.exploringdata.org/tags/data-visualization/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://www.exploringdata.org/tags/data-visualization/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -17,10 +16,197 @@
       <pubDate>Wed, 15 Jul 2020 00:00:00 +0000</pubDate>
       
       <guid>https://www.exploringdata.org/post/exploratory-data-analysis-eda-guide/</guid>
-      <description>Quick Overview Exploring-Data is a place where I share easily digestible content aimed at making the wrangling and exploration of data more efficient (+fun).
-Sign up Here to join the many other subscribers who also nerd out on new tips and tricks 🤓
-And if you enjoy the post be sure to share it
-Tweet   R for Data Science Hadley Wickham and Garrett Grolemund wrote an incredible book called R for Data Science (R4DS).</description>
+      <description>
+
+
+&lt;div id=&#34;quick-overview&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Quick Overview&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;Exploring-Data&lt;/code&gt; is a place where I share easily digestible content aimed at making the wrangling and exploration of data more efficient (+fun).&lt;/p&gt;
+&lt;p&gt;Sign up &lt;a href=&#34;https://tinyletter.com/dexters-analytics&#34; target=&#34;_blank&#34;&gt;Here&lt;/a&gt; to join the many other subscribers who also nerd out on new tips and tricks 🤓&lt;/p&gt;
+&lt;p&gt;And if you enjoy the post be sure to share it&lt;/p&gt;
+&lt;a href=&#34;https://twitter.com/share?ref_src=twsrc%5Etfw&#34; class=&#34;twitter-share-button&#34; data-show-count=&#34;false&#34;&gt;Tweet&lt;/a&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+&lt;/div&gt;
+&lt;div id=&#34;r-for-data-science&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;R for Data Science&lt;/h3&gt;
+&lt;p&gt;Hadley Wickham and Garrett Grolemund wrote an incredible book called &lt;a href=&#34;https://r4ds.had.co.nz/exploratory-data-analysis.html&#34; target=&#34;_blank&#34;&gt;R for Data Science (R4DS)&lt;/a&gt;. In the book they teach how to “turn raw data into understanding, insight, and knowledge.” The authors do this by being laser focused on the tools that help the data-practitioner import, tidy, transform, visualize, and model data (+communicate findings):&lt;/p&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;https://www.exploringdata.org/post/2020-06-20-exploratory-data-analysis-eda-guide_files/data_science_workflow.png&#34; alt=&#34;&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;R4DS Workflow&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;I dug into the chapter on Exploratory Data Analysis (EDA) this past week.&lt;/p&gt;
+&lt;p&gt;The chapter is 🔥 and I highly recommend it 😎&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;exploring-data&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Exploring Data&lt;/h3&gt;
+&lt;p&gt;I was super excited about the chapter and the knowledge it packed!&lt;/p&gt;
+&lt;p&gt;In my own path to improving my EDA skills I thought I’d capture what stuck out most in the form of a blog post.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;eda-overview&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;EDA Overview&lt;/h3&gt;
+&lt;p&gt;The authors of R4DS explain EDA as the process of “using visualization and transformation to &lt;code&gt;Explore&lt;/code&gt; your &lt;code&gt;Data&lt;/code&gt; in a systematic way.” They recommend an iterative cycle as follows:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Generate &lt;code&gt;questions&lt;/code&gt; about your data.&lt;/li&gt;
+&lt;li&gt;Search for &lt;code&gt;answers&lt;/code&gt; by visualizing, transforming, and modeling your data.&lt;/li&gt;
+&lt;li&gt;Use what you learn to refine your &lt;code&gt;questions&lt;/code&gt; and/or generate new &lt;code&gt;questions.&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div id=&#34;favorite-quotes-from-intro&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Favorite Quotes (from Intro)&lt;/h3&gt;
+&lt;p&gt;The chapter was packed full of content - here are the quotes that stood out the most from the Introduction:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;“EDA is not a formal process with a strict set of rules.”&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;“EDA is a state of mind.” - I love this one 😎&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;“During the initial phases of EDA you should feel free to investigate every idea that occurs to you.”&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;“As your exploration continues, you will home in on a few particularly productive areas that you’ll eventually write up and communicate to others.”&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;questions-drive-eda&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Questions Drive EDA&lt;/h3&gt;
+&lt;p&gt;One of my biggest take always from the chapter was the emphasis on EDA being a creative process that is &lt;code&gt;driven by&lt;/code&gt; asking &lt;code&gt;questions&lt;/code&gt; - and lots of them 🤔&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;section-on-questions&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Section on Questions&lt;/h3&gt;
+&lt;p&gt;The section titled &lt;code&gt;Questions&lt;/code&gt; was packed full of nuggets - here are a few of the quotes that stuck out:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;“EDA is fundamentally a creative process.”&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;“Your goal during EDA is to develop an understanding of your data. The easiest way to do this is to use &lt;code&gt;questions&lt;/code&gt; as tools to guide your investigation.”&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;“the key to asking quality &lt;code&gt;questions&lt;/code&gt; is to generate a large quantity of &lt;code&gt;questions.&lt;/code&gt;” - So Good 😎&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;“each new &lt;code&gt;question&lt;/code&gt; that you ask will expose you to a new aspect of your data and increase your chance of making a discovery.”&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;“There is no rule about which &lt;code&gt;questions&lt;/code&gt; you should ask to guide your research. However, two types of &lt;code&gt;questions&lt;/code&gt; will always be useful for making discoveries within your data. You can loosely word these &lt;code&gt;questions&lt;/code&gt; as:”&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;What type of variation occurs within my variables?&lt;/li&gt;
+&lt;li&gt;What type of covariation occurs between my variables?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div id=&#34;section-on-variation&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Section on Variation&lt;/h3&gt;
+&lt;p&gt;We are always interested in discovering what explains the variation seen in data and so the section on &lt;code&gt;Variation&lt;/code&gt; was very interesting. Here are a few of the quotes that stood out:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;“Variation is the tendency of the values of a variable to change from measurement to measurement.”&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;“Every variable has its own pattern of variation, which can reveal interesting information.”&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;“The best way to understand that pattern is to visualize the distribution of the variable’s values.”&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;visualizing-distributions&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Visualizing Distributions&lt;/h3&gt;
+&lt;p&gt;This post wouldn’t be complete without a bit of code and a few visualizations 🤓&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# load libraries
+library(tidyverse)
+library(tidyquant)
+library(patchwork)
+theme_set(theme_tq())&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;categorical-variables&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Categorical Variables&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;“To examine the distribution of a categorical variable, use a bar chart:”&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p1 &amp;lt;- ggplot(diamonds) +
+    geom_bar(aes(x = cut)) +
+    labs(title = &amp;quot;Bar Charts for Categorical Variables&amp;quot;)
+p1&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.exploringdata.org/post/2020-06-20-exploratory-data-analysis-eda-guide_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;continuous-variables&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Continuous Variables&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;“To examine the distribution of a continuous variable, use a histogram:”&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;“You can set the width of the intervals in a histogram with the &lt;code&gt;binwidth&lt;/code&gt; argument, which is &lt;code&gt;measured in the units of the x variable&lt;/code&gt;.”&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p2 &amp;lt;- ggplot(diamonds %&amp;gt;% filter(carat &amp;lt; 3)) +
+    geom_histogram(aes(x = carat), binwidth = 1.0) +
+    labs(title = &amp;quot;Binwidth: 1.0&amp;quot;) 
+
+p3 &amp;lt;- ggplot(diamonds %&amp;gt;% filter(carat &amp;lt; 3)) +
+    geom_histogram(aes(x = carat), binwidth = 0.5) +
+    labs(title = &amp;quot;Binwidth = 0.5&amp;quot;) 
+
+p4 &amp;lt;- ggplot(diamonds %&amp;gt;% filter(carat &amp;lt; 3)) +
+    geom_histogram(aes(x = carat), binwidth = 0.1) +
+    labs(title = &amp;quot;Binwidth = 0.1&amp;quot;) 
+
+p5 &amp;lt;- ggplot(diamonds %&amp;gt;% filter(carat &amp;lt; 3)) +
+    geom_histogram(aes(x = carat), binwidth = 0.01) +
+    labs(title = &amp;quot;Binwidth = 0.01&amp;quot;) &lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;“You should always &lt;code&gt;explore a variety of binwidths&lt;/code&gt; when working with histograms, as different binwidths can reveal different patterns.”&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Show plots
+patchwork &amp;lt;- p2 + p3 + p4 + p5
+
+patchwork + plot_annotation(
+  title   = &amp;quot;Histograms for Continuous Variables&amp;quot;,
+  caption = &amp;quot;Notice the different patterns that are revealed.&amp;quot;
+)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.exploringdata.org/post/2020-06-20-exploratory-data-analysis-eda-guide_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;typical-values&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Typical Values&lt;/h3&gt;
+&lt;p&gt;Remember how the author’s emphasize the use of &lt;code&gt;questions&lt;/code&gt; to drive EDA?&lt;/p&gt;
+&lt;p&gt;This section on &lt;code&gt;Typical&lt;/code&gt; &lt;code&gt;Values&lt;/code&gt; continues that thread and suggests the following &lt;code&gt;questions&lt;/code&gt; to ask when &lt;code&gt;Visualizing&lt;/code&gt; &lt;code&gt;Distributions&lt;/code&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;“Which values are the most common? Why?”&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;“Which values are rare? Why? Does that match your expectations?”&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;“Can you see any unusual patterns? What might explain them?”&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Another learning from this section is to focus on the clusters revealed when &lt;code&gt;Visualizing&lt;/code&gt; your &lt;code&gt;Distributions.&lt;/code&gt; For example, take a look at the &lt;code&gt;Histogram&lt;/code&gt; using a &lt;code&gt;Binwidth&lt;/code&gt; of &lt;code&gt;0.01&lt;/code&gt;; obvious clusters are revealed that are not obvious in the other 3 plots.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p5&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.exploringdata.org/post/2020-06-20-exploratory-data-analysis-eda-guide_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;The author’s point out that “clusters of similar values suggest that subgroups exist in your data.”&lt;/p&gt;
+&lt;p&gt;What do you think they suggest doing in this situation? Ask more &lt;code&gt;questions&lt;/code&gt; 🤔&lt;/p&gt;
+&lt;p&gt;Understand the subgroups by asking:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;“How are the observations within each cluster similar to each other?”&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;“How are the observations in separate clusters different from each other?”&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;“How can you explain or describe the clusters?”&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;“Why might the appearance of clusters be misleading?”&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;wrap-up&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Wrap Up&lt;/h3&gt;
+&lt;p&gt;The chapter goes on to discuss unusual values, missing values, covariation, and briefly goes into using models to further your EDA. I highly recommend giving it a read and trying out the exercises in the chapter.&lt;/p&gt;
+&lt;p&gt;Get the code here: &lt;a href=&#34;https://github.com/dexters-analytics/data_blog/tree/master/content/post&#34; target=&#34;_blank&#34;&gt;Github Repo&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Questions.&lt;/code&gt; &lt;code&gt;Questions.&lt;/code&gt; &lt;code&gt;Questions.&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;The biggest learning I took from this chapter, and what I’ve started using in my own EDA process, is getting better at asking &lt;code&gt;questions.&lt;/code&gt; Not only that, but really to let my curiosity drive the EDA early on in the process.&lt;/p&gt;
+&lt;p&gt;And my favorite quote is probably this one:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“the key to asking quality questions is to generate a large quantity of questions.”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div id=&#34;watch-an-expert-do-eda&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Watch an Expert do EDA&lt;/h3&gt;
+&lt;p&gt;This is a &lt;code&gt;bonus&lt;/code&gt; for making it this far in the post 😉&lt;/p&gt;
+&lt;p&gt;David Robinson is an expert when it comes to all things &lt;code&gt;EDA&lt;/code&gt; and &lt;code&gt;R&lt;/code&gt;. For the last year or so he has been recording weekly screencasts where he &lt;code&gt;Explores&lt;/code&gt; &lt;code&gt;Data&lt;/code&gt; he has never seen before.&lt;/p&gt;
+&lt;p&gt;I watch these videos often to get insights into how to think analytically when doing EDA.&lt;/p&gt;
+&lt;p&gt;You can check them out here at his YouTube channel: &lt;a href=&#34;https://www.youtube.com/playlist?list=PL19ev-r1GBwkuyiwnxoHTRC8TTqP8OEi8&#34; target=&#34;_blank&#34;&gt;Tidy Tuesday R Screencasts&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;subscribe-share&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Subscribe + Share&lt;/h3&gt;
+&lt;p&gt;Enter your &lt;a href=&#34;https://tinyletter.com/dexters-analytics&#34; target=&#34;_blank&#34;&gt;Email Here&lt;/a&gt; to get the latest from Exploring-Data in your inbox.&lt;br/&gt;&lt;/p&gt;
+&lt;a href=&#34;https://twitter.com/share?ref_src=twsrc%5Etfw&#34; class=&#34;twitter-share-button&#34; data-show-count=&#34;false&#34;&gt;Tweet&lt;/a&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+&lt;p&gt;PS: Be Kind and Tidy your Data 😎&lt;br/&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;learn-r-quickly&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Learn R Quickly&lt;/h3&gt;
+&lt;p&gt;I’ve expedited my &lt;code&gt;R&lt;/code&gt; and &lt;code&gt;Data-Science&lt;/code&gt; journey using the courses over at &lt;a href=&#34;https://www.business-science.io/?affcode=173166_vnvxtqbd&#34; target=&#34;_blank&#34;&gt;Business Science University&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The instructor, Matt Dancho, has given me a 15% discount to share with my audience. Get the discount and join me on the journey.&lt;/p&gt;
+&lt;p&gt;Link to my favorite &lt;code&gt;R&lt;/code&gt; course (with 15% off discount): &lt;a href=&#34;https://university.business-science.io/p/ds4b-101-r-business-analysis-r/?coupon_code=DS4B15&amp;amp;affcode=173166_vnvxtqbd&#34; target=&#34;_blank&#34;&gt;Data Science for Business 101&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+</description>
+      
+            <category>eda</category>
+      
+            <category>r for data science</category>
+      
+            <category>data visualization</category>
+      
     </item>
     
     <item>
@@ -29,11 +215,179 @@ Tweet   R for Data Science Hadley Wickham and Garrett Grolemund wrote an incredi
       <pubDate>Sun, 03 May 2020 00:00:00 +0000</pubDate>
       
       <guid>https://www.exploringdata.org/post/advanced-plots-in-r-with-str_glue/</guid>
-      <description>Source: https://bit.ly/2CGyS6I
- Quick Overview Exploring-Data is a place where I share easily digestible content aimed at making the wrangling and exploration of data more efficient (+fun).
-Sign up Here to join the many other subscribers who also nerd out on new tips and tricks 🤓
-And if you enjoy the post be sure to share it
-Tweet   Let’s Dive Into an Example I’d like to share a technique using str_glue() that I learned from Matt Dancho, a Data-Science instructor at Business Science University.</description>
+      <description>
+&lt;link href=&#34;https://www.exploringdata.org/rmarkdown-libs/pagedtable/css/pagedtable.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;https://www.exploringdata.org/rmarkdown-libs/pagedtable/js/pagedtable.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;https://www.exploringdata.org/post/2020-05-03-advanced-plots-in-r-with-str_glue_files/Screen%20Shot%202020-08-17%20at%208.52.51%20PM.png&#34; target=&#34;_blank&#34; alt=&#34;&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;Source: &lt;a href=&#34;https://bit.ly/2CGyS6I&#34; class=&#34;uri&#34;&gt;https://bit.ly/2CGyS6I&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;quick-overview&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Quick Overview&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;Exploring-Data&lt;/code&gt; is a place where I share easily digestible content aimed at making the wrangling and exploration of data more efficient (+fun).&lt;/p&gt;
+&lt;p&gt;Sign up &lt;a href=&#34;https://tinyletter.com/dexters-analytics&#34; target=&#34;_blank&#34;&gt;Here&lt;/a&gt; to join the many other subscribers who also nerd out on new tips and tricks 🤓&lt;/p&gt;
+&lt;p&gt;And if you enjoy the post be sure to share it&lt;/p&gt;
+&lt;a href=&#34;https://twitter.com/share?ref_src=twsrc%5Etfw&#34; class=&#34;twitter-share-button&#34; data-show-count=&#34;false&#34;&gt;Tweet&lt;/a&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+&lt;/div&gt;
+&lt;div id=&#34;lets-dive-into-an-example&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Let’s Dive Into an Example&lt;/h3&gt;
+&lt;p&gt;I’d like to share a technique using &lt;code&gt;str_glue()&lt;/code&gt; that I learned from &lt;a href=&#34;https://www.linkedin.com/in/mattdancho/&#34; target=&#34;_blank&#34;&gt;Matt Dancho&lt;/a&gt;, a Data-Science instructor at &lt;a href=&#34;https://www.business-science.io/?affcode=173166_vnvxtqbd&#34; target=&#34;_blank&#34;&gt;Business Science University&lt;/a&gt;. Check out my favorite course here: &lt;a href=&#34;http://bit.ly/2Z9SHsd&#34; target=&#34;_blank&#34;&gt;Business Analysis With R&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;str_glue()&lt;/code&gt; from the &lt;code&gt;stringr&lt;/code&gt; library is one of my favorite functions in &lt;code&gt;R&lt;/code&gt; - It’s super helpful for wrangling and manipulating text in preparation for building &lt;code&gt;advanced&lt;/code&gt; plots.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;lets-get-some-data&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Let’s Get Some Data 🤓&lt;/h3&gt;
+&lt;p&gt;The &lt;a href=&#34;https://github.com/rfordatascience/tidytuesday&#34; target=&#34;_blank&#34;&gt;Tidy Tuesday Project&lt;/a&gt; is an awesome repository of useful data for practicing your data &lt;code&gt;Wrangling&lt;/code&gt; skills.&lt;/p&gt;
+&lt;p&gt;We will work with the &lt;code&gt;San Francisco Trees&lt;/code&gt; data as a case-study for using &lt;code&gt;str_glue()&lt;/code&gt; for advanced plotting techniques.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)
+library(stringr)
+library(tidyquant)
+library(scales)
+library(DataExplorer)
+
+tuesdata &amp;lt;- tidytuesdayR::tt_load(&amp;#39;2020-01-28&amp;#39;) 
+sf_trees_data_raw_tbl &amp;lt;- tuesdata$sf_trees&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;data-exploration&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Data Exploration&lt;/h3&gt;
+&lt;p&gt;Let’s take a quick peak and inspect the SF Trees Data.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot_missing(
+    sf_trees_data_raw_tbl,
+    ggtheme = theme_tq(),
+    title = str_glue(
+    &amp;#39;Exploring Missing Data (N = {count(sf_trees_data_raw_tbl)})&amp;#39;))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.exploringdata.org/post/2020-05-03-advanced-plots-in-r-with-str_glue_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;This is a fairly small data-set with only 12 columns. For the purpose of demonstration, let’s see what we can do with just the species column.&lt;/p&gt;
+&lt;p&gt;The Coastal Redwoods in the SF area are incredible and one of my favorite species. I’m curious if other species of Redwoods are in SF and if so, at what proportions do they exist relative to the Coastal Redwoods.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;data-wrangling&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Data Wrangling&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Data Wrangling
+redwood_tbl &amp;lt;- sf_trees_data_raw_tbl %&amp;gt;% 
+    
+    # select species and filter to redwood only
+    select(species) %&amp;gt;% 
+    filter(str_detect(species, pattern = &amp;#39;Redwood&amp;#39;)) %&amp;gt;% 
+    
+    # break up species and common-name into separate columns
+    separate(
+        col = species,
+        into = c(&amp;quot;species&amp;quot;, &amp;quot;common_name&amp;quot;),
+        sep  = &amp;#39; :: &amp;#39;,
+        remove = FALSE) %&amp;gt;% 
+    
+    # calculate absolute and relative distributions
+    count(species, common_name) %&amp;gt;% 
+    mutate(pct = n / sum(n),
+           pct_text = percent(pct)) %&amp;gt;% 
+    arrange(desc(pct))&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;summary-table&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Summary Table&lt;/h3&gt;
+&lt;p&gt;Let’s take a look at our findings.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;rmarkdown::paged_table(redwood_tbl %&amp;gt;% select(-pct))&lt;/code&gt;&lt;/pre&gt;
+&lt;div data-pagedtable=&#34;false&#34;&gt;
+&lt;script data-pagedtable-source type=&#34;application/json&#34;&gt;
+{&#34;columns&#34;:[{&#34;label&#34;:[&#34;species&#34;],&#34;name&#34;:[1],&#34;type&#34;:[&#34;chr&#34;],&#34;align&#34;:[&#34;left&#34;]},{&#34;label&#34;:[&#34;common_name&#34;],&#34;name&#34;:[2],&#34;type&#34;:[&#34;chr&#34;],&#34;align&#34;:[&#34;left&#34;]},{&#34;label&#34;:[&#34;n&#34;],&#34;name&#34;:[3],&#34;type&#34;:[&#34;int&#34;],&#34;align&#34;:[&#34;right&#34;]},{&#34;label&#34;:[&#34;pct_text&#34;],&#34;name&#34;:[4],&#34;type&#34;:[&#34;chr&#34;],&#34;align&#34;:[&#34;left&#34;]}],&#34;data&#34;:[{&#34;1&#34;:&#34;Sequoia sempervirens&#34;,&#34;2&#34;:&#34;Coast Redwood&#34;,&#34;3&#34;:&#34;341&#34;,&#34;4&#34;:&#34;92.41%&#34;},{&#34;1&#34;:&#34;Metasequoia glyplostroboides&#34;,&#34;2&#34;:&#34;Dawn Redwood&#34;,&#34;3&#34;:&#34;15&#34;,&#34;4&#34;:&#34;4.07%&#34;},{&#34;1&#34;:&#34;Sequoiadendron giganteum&#34;,&#34;2&#34;:&#34;Sierra Redwood&#34;,&#34;3&#34;:&#34;13&#34;,&#34;4&#34;:&#34;3.52%&#34;}],&#34;options&#34;:{&#34;columns&#34;:{&#34;min&#34;:{},&#34;max&#34;:[10]},&#34;rows&#34;:{&#34;min&#34;:[10],&#34;max&#34;:[10]},&#34;pages&#34;:{}}}
+  &lt;/script&gt;
+&lt;/div&gt;
+&lt;p&gt;As I expected, the Coastal Redwoods are the dominant species in San Francisco.&lt;/p&gt;
+&lt;p&gt;And while the table is good, lets craft an awesome plot to display these results.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;the-power-of-str_glue&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;The Power of &lt;code&gt;str_glue()&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;With a couple lines of &lt;code&gt;code&lt;/code&gt; we can build our label for plotting. As you can see, we can add &lt;code&gt;arguments&lt;/code&gt; directly from our table using curly brackets &lt;code&gt;{}&lt;/code&gt; - honestly, the options are endless for how creative you can get with &lt;code&gt;stringing&lt;/code&gt; together text and adding labels to your plots.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Data Wrangling
+redwood_labeled_text_tbl &amp;lt;- redwood_tbl %&amp;gt;% 
+    
+    # label text
+    mutate(label_text = str_glue(
+        &amp;#39;Scientific Name:
+        {species}
+        Count: {n} of {sum(n)}
+        Pct (%): {pct_text}&amp;#39;),
+    
+    # add &amp;#39;forward-slash&amp;#39; to wrap-text on our plot
+    common_name = str_replace(common_name, pattern = &amp;#39; &amp;#39;, 
+                              replacement = &amp;#39; \n &amp;#39;)) %&amp;gt;% 
+    
+    # reorder factors based on percent rank
+    mutate(common_name = common_name %&amp;gt;% fct_reorder(pct))&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;manipulated-text-ready-to-plot&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Manipulated Text (ready to plot)&lt;/h3&gt;
+&lt;p&gt;Here is the manipulated text that will be useful once we plot these data; this setup is critical for the labels on our final plot e.g., the &lt;code&gt;\n&lt;/code&gt; will wrap the text at those locations.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;redwood_labeled_text_tbl %&amp;gt;% 
+    select(label_text) %&amp;gt;% 
+    rmarkdown::paged_table()&lt;/code&gt;&lt;/pre&gt;
+&lt;div data-pagedtable=&#34;false&#34;&gt;
+&lt;script data-pagedtable-source type=&#34;application/json&#34;&gt;
+{&#34;columns&#34;:[{&#34;label&#34;:[&#34;label_text&#34;],&#34;name&#34;:[1],&#34;type&#34;:[&#34;S3: glue&#34;],&#34;align&#34;:[&#34;right&#34;]}],&#34;data&#34;:[{&#34;1&#34;:&#34;Scientific Name:\\nSequoia sempervirens\\nCount: 341 of 369\\nPct (%): 92.41%&#34;},{&#34;1&#34;:&#34;Scientific Name:\\nMetasequoia glyplostroboides\\nCount: 15 of 369\\nPct (%): 4.07%&#34;},{&#34;1&#34;:&#34;Scientific Name:\\nSequoiadendron giganteum\\nCount: 13 of 369\\nPct (%): 3.52%&#34;}],&#34;options&#34;:{&#34;columns&#34;:{&#34;min&#34;:{},&#34;max&#34;:[10]},&#34;rows&#34;:{&#34;min&#34;:[10],&#34;max&#34;:[10]},&#34;pages&#34;:{}}}
+  &lt;/script&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;data-visualization&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Data Visualization&lt;/h3&gt;
+&lt;p&gt;Now that we’ve done our &lt;code&gt;Data Wrangling&lt;/code&gt;, lets get into a bit of &lt;code&gt;Data Visualization&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Save Plot
+g &amp;lt;- redwood_labeled_text_tbl %&amp;gt;% 
+    
+    # Canvas
+    ggplot(aes(pct, common_name), color = &amp;#39;#2c3e50&amp;#39;) +
+    
+    # Geometries
+    geom_segment(aes(xend = 0, yend = common_name), size = 2) +
+    geom_point(aes(size = 5)) +
+    geom_label(aes(label = label_text),hjust = &amp;quot;inward&amp;quot;,size = 3) +
+
+    # Formatting
+    scale_x_continuous(labels = scales::percent_format()) +
+    theme_tq() + 
+    labs(
+      title = str_glue(&amp;quot;Redwoods Trees of San Francisco&amp;quot;),
+      subtitle = str_glue(
+        &amp;quot;As expected, the coastal Redwoods make up the largest proportion.
+        Dawn Redwoods were once thought to be extinct (low #s not suprising).
+        Siera Redwoods grow at high elev. and so low numbers are expected.&amp;quot;),
+      caption = str_glue(&amp;quot;The Coastal Redwood is the dominant species in SF.&amp;quot;),
+      x = &amp;quot;&amp;quot;, y = &amp;quot;&amp;quot;) +
+    theme(legend.position = &amp;quot;none&amp;quot;,
+          plot.title = element_text(face = &amp;quot;bold&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;display-awesome-plot&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Display Awesome Plot&lt;/h2&gt;
+&lt;p&gt;And here is our plot with the engineered labels from the last few steps. And that’s just one example of why I love &lt;code&gt;str_glue()&lt;/code&gt; - Simply Awesome!&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.exploringdata.org/post/2020-05-03-advanced-plots-in-r-with-str_glue_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;768&#34; /&gt;&lt;/p&gt;
+&lt;div id=&#34;wrap-up&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Wrap Up&lt;/h3&gt;
+&lt;p&gt;That’s it for today!&lt;/p&gt;
+&lt;p&gt;We used &lt;code&gt;str_glue()&lt;/code&gt; to manipulate our text and add awesome labels to our &lt;code&gt;ggplot()&lt;/code&gt; - the plot is now &lt;code&gt;Business-Ready&lt;/code&gt; 👍&lt;/p&gt;
+&lt;p&gt;Stay tuned for more posts on &lt;code&gt;Wrangling&lt;/code&gt; + &lt;code&gt;Exploring-Data&lt;/code&gt; with &lt;code&gt;R&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Get the code here: &lt;a href=&#34;https://github.com/dexters-analytics/data_blog/tree/master/content/post&#34; target=&#34;_blank&#34;&gt;Github Repo&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;subscribe-share&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Subscribe + Share&lt;/h3&gt;
+&lt;p&gt;Enter your &lt;a href=&#34;https://tinyletter.com/dexters-analytics&#34; target=&#34;_blank&#34;&gt;Email Here&lt;/a&gt; to get the latest from Exploring-Data in your inbox.&lt;br/&gt;&lt;/p&gt;
+&lt;a href=&#34;https://twitter.com/share?ref_src=twsrc%5Etfw&#34; class=&#34;twitter-share-button&#34; data-show-count=&#34;false&#34;&gt;Tweet&lt;/a&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+&lt;p&gt;PS: Be Kind and Tidy your Data 😎&lt;br/&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;learn-r-fast&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Learn R Fast&lt;/h3&gt;
+&lt;p&gt;Interested in expediting your learning path? Head on over to &lt;a href=&#34;https://www.business-science.io/?affcode=173166_vnvxtqbd&#34; target=&#34;_blank&#34;&gt;Business Science&lt;/a&gt; and join me on the journey.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://university.business-science.io/p/jumpstart-with-r/?affcode=173166_vnvxtqbd&#34; target=&#34;_blank&#34;&gt;Business Science: FREE Jumpstart Data-Science Course&lt;/a&gt; (opened for a limited time)&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+      
+            <category>stringr</category>
+      
+            <category>data visualization</category>
+      
+            <category>data wrangling</category>
+      
     </item>
     
   </channel>
