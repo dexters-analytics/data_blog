@@ -2,7 +2,7 @@ baseURL = "https://www.exploringdata.org/"
 languageCode = "en-us"
 title = "Exploring Data"
 theme = "minimal"
-rssLimit = 10  # Maximum number of items in the RSS feed.
+rssLimit = 6  # Maximum number of items in the RSS feed.
 disqusShortname = "https-www-exploringdata-org" # delete this to disable disqus comments
 
 googleAnalytics = "UA-134222974-1"
