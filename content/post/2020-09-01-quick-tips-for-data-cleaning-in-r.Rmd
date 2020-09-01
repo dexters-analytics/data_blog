@@ -1,13 +1,13 @@
 ---
 title: "Quick Tips for Data Cleaning in R"
 author: "Jason Dexter"
-date: '2020-06-20'
+date: '2020-09-01'
 slug: quick-tips-for-data-cleaning-in-r
 categories: R
 tags:
-- tidyverse
 - data cleaning
 - data wrangling
+- eda
 editor_options:
   chunk_output_type: console
 ---
@@ -20,10 +20,9 @@ knitr::opts_chunk$set(
 ```
 
 
-![Data Cleaning (istockphoto)](/post/2020-05-24-quick-tips-for-data-cleaning-in-r_files/Screen Shot 2020-08-17 at 9.15.29 PM.png)
+![](/post/2020-05-24-quick-tips-for-data-cleaning-in-r_files/Screen Shot 2020-08-17 at 9.15.29 PM.png)
 
-
-### Quick Overview
+<br/>
 
 `Exploring-Data` is a place where I share easily digestible content aimed at making the wrangling and exploration of data more efficient (+fun).
 
