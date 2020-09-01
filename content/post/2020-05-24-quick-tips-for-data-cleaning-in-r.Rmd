@@ -20,7 +20,6 @@ knitr::opts_chunk$set(
 ```
 
 
-
 ![Data Cleaning (istockphoto)](/post/2020-05-24-quick-tips-for-data-cleaning-in-r_files/Screen Shot 2020-08-17 at 9.15.29 PM.png)
 
 

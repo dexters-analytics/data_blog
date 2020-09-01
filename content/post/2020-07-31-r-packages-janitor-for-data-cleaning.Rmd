@@ -22,12 +22,10 @@ knitr::opts_chunk$set(
   warning = FALSE)
 ```
 
-<br/> 
 
-![Github Page as of 8/10/20](/post/2020-07-31-r-packages-janitor-for-data-cleaning_files/janitor_package.png)
+![](/post/2020-07-31-r-packages-janitor-for-data-cleaning_files/janitor_package.png)
 
-
-### Quick Overview
+<br/>
 
 `Exploring-Data` is a place where I share easily digestible content aimed at making the wrangling and exploration of data more efficient (+fun).
 
