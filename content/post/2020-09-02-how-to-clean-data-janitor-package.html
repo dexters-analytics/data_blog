@@ -1,14 +1,15 @@
 ---
-title: 'R Packages: {janitor} for Data Cleaning'
-author: "Jason Dexter"
-date: '2020-08-19'
-slug: r-packages-janitor-for-data-cleaning
-categories: R
+title: 'How to Clean Data: {janitor} Package'
+author: Jason Dexter
+date: '2020-09-02'
+slug: how-to-clean-data-janitor-package
+categories:
+  - R
 tags:
-- r packages
-- janitor
-- data cleaning
-- eda
+  - r packages
+  - data cleaning
+  - data wrangling
+  - eda
 editor_options:
   chunk_output_type: console
 ---
@@ -17,7 +18,7 @@ editor_options:
 <script src="/rmarkdown-libs/pagedtable/js/pagedtable.js"></script>
 
 
-<p><img src="/post/2020-07-31-r-packages-janitor-for-data-cleaning_files/janitor_package.png" /></p>
+<p><img src="/post/2020-09-02-how-to-clean-data-janitor-package_files/Screen%20Shot%202020-09-02%20at%208.00.42%20PM.png" /></p>
 <p><br/></p>
 <p><code>Exploring-Data</code> is a place where I share easily digestible content aimed at making the wrangling and exploration of data more efficient (+fun).</p>
 <p>Sign up <a href="https://tinyletter.com/dexters-analytics" target="_blank">Here</a> to join the many other subscribers who also nerd out on new tips and tricks 🤓</p>
@@ -229,7 +230,7 @@ DataExplorer::plot_missing(
   data    = coffee_chains_raw,
   ggtheme = tidyquant::theme_tq(), 
   missing_only = TRUE) </code></pre>
-<p><img src="/post/2020-07-31-r-packages-janitor-for-data-cleaning_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p><img src="/post/2020-09-02-how-to-clean-data-janitor-package_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
 <p>The plot shows that <code>0%</code> of data are missing for lat/long leading me to believe that the store identified earlier is the only record with missing data (insignificant amount when plotted).</p>
 <p>We will filter that record out in our <code>data-cleaning</code> step.</p>
 </div>
@@ -380,7 +381,7 @@ starbucks_lower_48 %&gt;%
   scale_color_manual(values = c(&quot;#2c3e50&quot;, &quot;#18BC9C&quot;)) +
   labs(title = &quot;Starbucks Locations by Ownership Type (Lower 48)&quot;,
        color = &quot;Ownership Type&quot;)</code></pre>
-<p><img src="/post/2020-07-31-r-packages-janitor-for-data-cleaning_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
+<p><img src="/post/2020-09-02-how-to-clean-data-janitor-package_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
 <p>That’s a solid map but I think we can do better to identify patterns in ownership types.</p>
 <p>Let’s calculate the ratio of Corporate (Company Owned) vs. Licensed ownership and map that at the state level.</p>
 </div>
@@ -451,7 +452,7 @@ ownership_ratios_by_state &lt;- starbucks_lower_48 %&gt;%
   labs(title = &quot;Ratio of Corporate vs. Licensed Starbucks in the US (Lower 48)&quot;,
        subtitle = &quot;Darker green equates to more corporate locations compared to licensed establishments.&quot;,
        fill = &quot;Ratio of\nCorporate/\nLicensed&quot;) </code></pre>
-<p><img src="/post/2020-07-31-r-packages-janitor-for-data-cleaning_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
+<p><img src="/post/2020-09-02-how-to-clean-data-janitor-package_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
 <p>This represent the data in a way that helps us identify patterns - our manager will be pleased 👍</p>
 </div>
 <div id="wrap-up" class="section level3">

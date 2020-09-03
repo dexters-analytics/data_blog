@@ -1,18 +1,18 @@
 ---
-title: 'R Packages: {janitor} for Data Cleaning'
-author: "Jason Dexter"
-date: '2020-08-19'
-slug: r-packages-janitor-for-data-cleaning
-categories: R
+title: 'How to Clean Data: {janitor} Package'
+author: Jason Dexter
+date: '2020-09-02'
+slug: how-to-clean-data-janitor-package
+categories:
+  - R
 tags:
-- r packages
-- janitor
-- data cleaning
-- eda
+  - r packages
+  - data cleaning
+  - data wrangling
+  - eda
 editor_options:
   chunk_output_type: console
 ---
-
 
 
 
@@ -23,7 +23,7 @@ knitr::opts_chunk$set(
 ```
 
 
-![](/post/2020-07-31-r-packages-janitor-for-data-cleaning_files/janitor_package.png)
+![](/post/2020-09-02-how-to-clean-data-janitor-package_files/Screen Shot 2020-09-02 at 8.00.42 PM.png)
 
 <br/>
 

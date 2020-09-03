@@ -1,0 +1,14 @@
+---
+title: 'How to Explore Data: {DataExplorer} Package'
+author: Jason Dexter
+date: '2020-09-02'
+draft: yes
+slug: how-to-explore-data-dataexplorer-package
+categories:
+  - R
+tags:
+  - r packages
+  - data cleaning
+  - data wrangling
+  - eda
+---

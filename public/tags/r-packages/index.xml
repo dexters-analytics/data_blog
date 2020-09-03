@@ -5,23 +5,23 @@
     <description>Recent content in r packages on Exploring Data</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 19 Aug 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 02 Sep 2020 00:00:00 +0000</lastBuildDate>
     
         <atom:link href="/tags/r-packages/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>R Packages: {janitor} for Data Cleaning</title>
-      <link>/post/r-packages-janitor-for-data-cleaning/</link>
-      <pubDate>Wed, 19 Aug 2020 00:00:00 +0000</pubDate>
+      <title>How to Clean Data: {janitor} Package</title>
+      <link>/post/how-to-clean-data-janitor-package/</link>
+      <pubDate>Wed, 02 Sep 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/r-packages-janitor-for-data-cleaning/</guid>
+      <guid>/post/how-to-clean-data-janitor-package/</guid>
       <description>
 &lt;link href=&#34;/rmarkdown-libs/pagedtable/css/pagedtable.css&#34; rel=&#34;stylesheet&#34; /&gt;
 &lt;script src=&#34;/rmarkdown-libs/pagedtable/js/pagedtable.js&#34;&gt;&lt;/script&gt;
 
 
-&lt;p&gt;&lt;img src=&#34;/post/2020-07-31-r-packages-janitor-for-data-cleaning_files/janitor_package.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-09-02-how-to-clean-data-janitor-package_files/Screen%20Shot%202020-09-02%20at%208.00.42%20PM.png&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;br/&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;Exploring-Data&lt;/code&gt; is a place where I share easily digestible content aimed at making the wrangling and exploration of data more efficient (+fun).&lt;/p&gt;
 &lt;p&gt;Sign up &lt;a href=&#34;https://tinyletter.com/dexters-analytics&#34; target=&#34;_blank&#34;&gt;Here&lt;/a&gt; to join the many other subscribers who also nerd out on new tips and tricks 🤓&lt;/p&gt;
@@ -233,7 +233,7 @@ DataExplorer::plot_missing(
   data    = coffee_chains_raw,
   ggtheme = tidyquant::theme_tq(), 
   missing_only = TRUE) &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2020-07-31-r-packages-janitor-for-data-cleaning_files/figure-html/unnamed-chunk-13-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-09-02-how-to-clean-data-janitor-package_files/figure-html/unnamed-chunk-13-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;The plot shows that &lt;code&gt;0%&lt;/code&gt; of data are missing for lat/long leading me to believe that the store identified earlier is the only record with missing data (insignificant amount when plotted).&lt;/p&gt;
 &lt;p&gt;We will filter that record out in our &lt;code&gt;data-cleaning&lt;/code&gt; step.&lt;/p&gt;
 &lt;/div&gt;
@@ -384,7 +384,7 @@ starbucks_lower_48 %&amp;gt;%
   scale_color_manual(values = c(&amp;quot;#2c3e50&amp;quot;, &amp;quot;#18BC9C&amp;quot;)) +
   labs(title = &amp;quot;Starbucks Locations by Ownership Type (Lower 48)&amp;quot;,
        color = &amp;quot;Ownership Type&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2020-07-31-r-packages-janitor-for-data-cleaning_files/figure-html/unnamed-chunk-21-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-09-02-how-to-clean-data-janitor-package_files/figure-html/unnamed-chunk-21-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;That’s a solid map but I think we can do better to identify patterns in ownership types.&lt;/p&gt;
 &lt;p&gt;Let’s calculate the ratio of Corporate (Company Owned) vs. Licensed ownership and map that at the state level.&lt;/p&gt;
 &lt;/div&gt;
@@ -455,7 +455,7 @@ ownership_ratios_by_state &amp;lt;- starbucks_lower_48 %&amp;gt;%
   labs(title = &amp;quot;Ratio of Corporate vs. Licensed Starbucks in the US (Lower 48)&amp;quot;,
        subtitle = &amp;quot;Darker green equates to more corporate locations compared to licensed establishments.&amp;quot;,
        fill = &amp;quot;Ratio of\nCorporate/\nLicensed&amp;quot;) &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2020-07-31-r-packages-janitor-for-data-cleaning_files/figure-html/unnamed-chunk-25-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-09-02-how-to-clean-data-janitor-package_files/figure-html/unnamed-chunk-25-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;This represent the data in a way that helps us identify patterns - our manager will be pleased 👍&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;wrap-up&#34; class=&#34;section level3&#34;&gt;
@@ -483,9 +483,31 @@ ownership_ratios_by_state &amp;lt;- starbucks_lower_48 %&amp;gt;%
       
             <category>r packages</category>
       
-            <category>janitor</category>
+            <category>data cleaning</category>
+      
+            <category>data wrangling</category>
+      
+            <category>eda</category>
+      
+    </item>
+    
+    <item>
+      <title>How to Explore Data: {DataExplorer} Package</title>
+      <link>/post/how-to-explore-data-dataexplorer-package/</link>
+      <pubDate>Wed, 02 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/how-to-explore-data-dataexplorer-package/</guid>
+      <description>
+
+
+
+</description>
+      
+            <category>r packages</category>
       
             <category>data cleaning</category>
+      
+            <category>data wrangling</category>
       
             <category>eda</category>
       
