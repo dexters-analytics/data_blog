@@ -1,21 +1,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>r for data science on Exploring Data</title>
-    <link>/tags/r-for-data-science/</link>
+    <link>https://www.exploringdata.org/tags/r-for-data-science/</link>
     <description>Recent content in r for data science on Exploring Data</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 15 Jul 2020 00:00:00 +0000</lastBuildDate>
     
-        <atom:link href="/tags/r-for-data-science/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://www.exploringdata.org/tags/r-for-data-science/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Exploratory Data Analysis Guide</title>
-      <link>/post/exploratory-data-analysis-eda-guide/</link>
+      <link>https://www.exploringdata.org/post/exploratory-data-analysis-eda-guide/</link>
       <pubDate>Wed, 15 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/exploratory-data-analysis-eda-guide/</guid>
+      <guid>https://www.exploringdata.org/post/exploratory-data-analysis-eda-guide/</guid>
       <description>
 
 
@@ -31,7 +31,7 @@
 &lt;h3&gt;R for Data Science&lt;/h3&gt;
 &lt;p&gt;Hadley Wickham and Garrett Grolemund wrote an incredible book called &lt;a href=&#34;https://r4ds.had.co.nz/exploratory-data-analysis.html&#34; target=&#34;_blank&#34;&gt;R for Data Science (R4DS)&lt;/a&gt;. In the book they teach how to “turn raw data into understanding, insight, and knowledge.” The authors do this by being laser focused on the tools that help the data-practitioner import, tidy, transform, visualize, and model data (+communicate findings):&lt;/p&gt;
 &lt;div class=&#34;figure&#34;&gt;
-&lt;img src=&#34;/post/2020-06-20-exploratory-data-analysis-eda-guide_files/data_science_workflow.png&#34; alt=&#34;&#34; /&gt;
+&lt;img src=&#34;https://www.exploringdata.org/post/2020-06-20-exploratory-data-analysis-eda-guide_files/data_science_workflow.png&#34; alt=&#34;&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;R4DS Workflow&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;I dug into the chapter on Exploratory Data Analysis (EDA) this past week.&lt;/p&gt;
@@ -110,7 +110,7 @@ theme_set(theme_tq())&lt;/code&gt;&lt;/pre&gt;
     geom_bar(aes(x = cut)) +
     labs(title = &amp;quot;Bar Charts for Categorical Variables&amp;quot;)
 p1&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2020-06-20-exploratory-data-analysis-eda-guide_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.exploringdata.org/post/2020-06-20-exploratory-data-analysis-eda-guide_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;continuous-variables&#34; class=&#34;section level4&#34;&gt;
 &lt;h4&gt;Continuous Variables&lt;/h4&gt;
@@ -143,7 +143,7 @@ patchwork + plot_annotation(
   title   = &amp;quot;Histograms for Continuous Variables&amp;quot;,
   caption = &amp;quot;Notice the different patterns that are revealed.&amp;quot;
 )&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2020-06-20-exploratory-data-analysis-eda-guide_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.exploringdata.org/post/2020-06-20-exploratory-data-analysis-eda-guide_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;typical-values&#34; class=&#34;section level3&#34;&gt;
@@ -157,7 +157,7 @@ patchwork + plot_annotation(
 &lt;/ul&gt;
 &lt;p&gt;Another learning from this section is to focus on the clusters revealed when &lt;code&gt;Visualizing&lt;/code&gt; your &lt;code&gt;Distributions.&lt;/code&gt; For example, take a look at the &lt;code&gt;Histogram&lt;/code&gt; using a &lt;code&gt;Binwidth&lt;/code&gt; of &lt;code&gt;0.01&lt;/code&gt;; obvious clusters are revealed that are not obvious in the other 3 plots.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p5&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2020-06-20-exploratory-data-analysis-eda-guide_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.exploringdata.org/post/2020-06-20-exploratory-data-analysis-eda-guide_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;The author’s point out that “clusters of similar values suggest that subgroups exist in your data.”&lt;/p&gt;
 &lt;p&gt;What do you think they suggest doing in this situation? Ask more &lt;code&gt;questions&lt;/code&gt; 🤔&lt;/p&gt;
 &lt;p&gt;Understand the subgroups by asking:&lt;/p&gt;

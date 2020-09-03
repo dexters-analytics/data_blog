@@ -1,32 +1,32 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Exploring Data</title>
-    <link>/</link>
+    <link>https://www.exploringdata.org/</link>
     <description>Recent content on Exploring Data</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 02 Sep 2020 00:00:00 +0000</lastBuildDate>
     
-        <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://www.exploringdata.org/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Posts</title>
-      <link>/post/</link>
+      <link>https://www.exploringdata.org/post/</link>
       <pubDate>Wed, 02 Sep 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/</guid>
+      <guid>https://www.exploringdata.org/post/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>About</title>
-      <link>/about/</link>
+      <link>https://www.exploringdata.org/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/about/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;/./about_files/fishing.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+      <guid>https://www.exploringdata.org/about/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://www.exploringdata.org/./about_files/fishing.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;context&#34;&gt;CONTEXT&lt;/h3&gt;
 &lt;p&gt;My name is Jason Dexter and I&amp;rsquo;m an &lt;code&gt;R-Programmer&lt;/code&gt; and &lt;code&gt;Data-Analyst&lt;/code&gt; based out of Berkeley, CA, where I live with my wife 💃 and our two cats 🐈 🐈&lt;/p&gt;
 &lt;p&gt;In graduate school I was introduced to programming, first &lt;code&gt;base-R&lt;/code&gt; then &lt;code&gt;Python&lt;/code&gt;. The idea 💡 of solving problems programmatically resonated deeply with me and I&amp;rsquo;ve been hooked ever since.&lt;/p&gt;
