@@ -2,7 +2,7 @@
 title: 'How to Explore Data: {DataExplorer} Package'
 author: "Jason Dexter"
 date: '2020-09-07'
-#draft: yes
+draft: yes
 slug: how-to-explore-data-dataexplorer-package
 categories: R
 tags:
@@ -74,6 +74,7 @@ While `Exploring` the `package` further I was excited to discover `functionality
 The case-study will provide and illustrate the following:
 
 1. The `function` I use often: `DataExplorer::plot_missing()`.
+2. Bonus EDA function: `skimr::skim()`
 2. Newly discovered `functions` from `{DataExplorer}`.  
 
 
@@ -103,6 +104,10 @@ library(countrycode)
 
 ### Import Data
 
+some caveats about data (just a good example - not trying to model anything)
+
+* predictors are inputs to arithmetic used to calculate the final score
+
 ```{r}
 # tuesdata <- tidytuesdayR::tt_load(2020, week = 28)
 # coffee_ratings <- tuesdata$coffee_ratings
@@ -113,11 +118,43 @@ coffee_ratings_tbl <- read_csv("../../static/01_data/coffee_ratings.csv")
 ```
 
 
+### Prior Usage
+
+something about using plot missing
+
+
+### New usage (exedite EDA + modeling)
+
+something about efficiency of combining 
+* skimr, plot_missing, plot-bar and plot-historgram
+
+to quickly make decisions about what to do w/data
+
+
+#### WORKFLOW
+
+1. show silly plot-missing
+2. new eda workflow:
+    * skimr 
+    * add findings to preprocessiing workflow
+    * plot-bar + make note of findings (for adding to pipe)
+    * plot-bar + same as bar
+3. conclude w/all findings listed that now can go into pipeline.
+4. make simple recipe 
+5. add recipe to pipeline
+5. split training set
+6. apply preprocessing to datasets (test/train)???
+7. wrap up...
+
+
 ### Data Understanding
 
 Set up preprocessing pipeline (we will build on it)
 
 Initial investigation made it clear to remove some cols
+
+
+### Wrap up w/throwing all these findings into 'recipe pipeline'
 
 
 ### Data Analysis (exploration)
