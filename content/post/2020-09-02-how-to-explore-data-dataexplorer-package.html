@@ -2,7 +2,7 @@
 title: 'How to Explore Data: {DataExplorer} Package'
 author: "Jason Dexter"
 date: '2020-09-07'
-#draft: yes
+draft: yes
 slug: how-to-explore-data-dataexplorer-package
 categories: R
 tags:
@@ -53,6 +53,7 @@ editor_options:
 <p>The case-study will provide and illustrate the following:</p>
 <ol style="list-style-type: decimal">
 <li>The <code>function</code> I use often: <code>DataExplorer::plot_missing()</code>.</li>
+<li>Bonus EDA function: <code>skimr::skim()</code></li>
 <li>Newly discovered <code>functions</code> from <code>{DataExplorer}</code>.</li>
 </ol>
 </div>
@@ -79,16 +80,52 @@ library(countrycode)</code></pre>
 </div>
 <div id="import-data" class="section level3">
 <h3>Import Data</h3>
+<p>some caveats about data (just a good example - not trying to model anything)</p>
+<ul>
+<li>predictors are inputs to arithmetic used to calculate the final score</li>
+</ul>
 <pre class="r"><code># tuesdata &lt;- tidytuesdayR::tt_load(2020, week = 28)
 # coffee_ratings &lt;- tuesdata$coffee_ratings
 
 #coffee_ratings_tbl &lt;- read_csv(&quot;static/01_data/coffee_ratings.csv&quot;)
 coffee_ratings_tbl &lt;- read_csv(&quot;../../static/01_data/coffee_ratings.csv&quot;)</code></pre>
 </div>
+<div id="prior-usage" class="section level3">
+<h3>Prior Usage</h3>
+<p>something about using plot missing</p>
+</div>
+<div id="new-usage-exedite-eda-modeling" class="section level3">
+<h3>New usage (exedite EDA + modeling)</h3>
+<p>something about efficiency of combining
+* skimr, plot_missing, plot-bar and plot-historgram</p>
+<p>to quickly make decisions about what to do w/data</p>
+<div id="workflow" class="section level4">
+<h4>WORKFLOW</h4>
+<ol style="list-style-type: decimal">
+<li>show silly plot-missing</li>
+<li>new eda workflow:
+<ul>
+<li>skimr</li>
+<li>add findings to preprocessiing workflow</li>
+<li>plot-bar + make note of findings (for adding to pipe)</li>
+<li>plot-bar + same as bar</li>
+</ul></li>
+<li>conclude w/all findings listed that now can go into pipeline.</li>
+<li>make simple recipe</li>
+<li>add recipe to pipeline</li>
+<li>split training set</li>
+<li>apply preprocessing to datasets (test/train)???</li>
+<li>wrap up…</li>
+</ol>
+</div>
+</div>
 <div id="data-understanding" class="section level3">
 <h3>Data Understanding</h3>
 <p>Set up preprocessing pipeline (we will build on it)</p>
 <p>Initial investigation made it clear to remove some cols</p>
+</div>
+<div id="wrap-up-wthrowing-all-these-findings-into-recipe-pipeline" class="section level3">
+<h3>Wrap up w/throwing all these findings into ‘recipe pipeline’</h3>
 </div>
 <div id="data-analysis-exploration" class="section level3">
 <h3>Data Analysis (exploration)</h3>
