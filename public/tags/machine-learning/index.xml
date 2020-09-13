@@ -1,0 +1,1034 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>machine-learning on Exploring Data</title>
+    <link>/tags/machine-learning/</link>
+    <description>Recent content in machine-learning on Exploring Data</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 07 Sep 2020 00:00:00 +0000</lastBuildDate>
+    
+        <atom:link href="/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>How to Explore Data: {DataExplorer} Package</title>
+      <link>/post/how-to-explore-data-dataexplorer-package/</link>
+      <pubDate>Mon, 07 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/how-to-explore-data-dataexplorer-package/</guid>
+      <description>
+
+
+&lt;p&gt;&lt;img src=&#34;/post/2020-09-02-how-to-explore-data-dataexplorer-package_files/01_exploring_data.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;“Exploring-Data” is a blog in which I share easily digestible content aimed at making the wrangling and exploration of data more efficient and more fun.&lt;/p&gt;
+&lt;p&gt;Sign up &lt;a href=&#34;https://tinyletter.com/dexters-analytics&#34; target=&#34;_blank&#34;&gt;HERE&lt;/a&gt; to join other subscribers who also &lt;code&gt;nerd-out&lt;/code&gt; on tips for exploring data using &lt;code&gt;R&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Click on these links to see where I am improving my skills in handling data using &lt;code&gt;R&lt;/code&gt;:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.business-science.io/?affcode=173166_vnvxtqbd&#34; target=&#34;_blank&#34;&gt;Business Science University (Data-Science for Business)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.r-bloggers.com/&#34; target=&#34;_blank&#34;&gt;R-bloggers (all-things R)&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Join me on the journey 🏃‍♂ 🏃‍♀&lt;/p&gt;
+&lt;div id=&#34;exploring-r-packages&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Exploring R {packages}&lt;/h2&gt;
+&lt;p&gt;This is the 2nd post in my series on exploring &lt;code&gt;R&lt;/code&gt; packages in which I share my findings.&lt;/p&gt;
+&lt;p&gt;You can read the first post here: &lt;a href=&#34;https://www.exploringdata.org/post/how-to-clean-data-janitor-package/&#34; target=&#34;_blank&#34;&gt;How to Clean Data: {janitor} Package&lt;/a&gt;&lt;/p&gt;
+&lt;div id=&#34;series-context-the-why&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;1.0 Series Context (the why)&lt;/h3&gt;
+&lt;p&gt;My habit has been to find one or two useful functions in a package, but rarely investigate other functionality.&lt;/p&gt;
+&lt;p&gt;In this series I’m testing the idea of breaking that habit.&lt;/p&gt;
+&lt;p&gt;In each post, I will share how I was using a package and then use a case-study to highlight other functionality I discovered to be useful.&lt;/p&gt;
+&lt;p&gt;If you like this type of post, leave a comment and let me know. Whether or not I continue the series will be based on feedback given in the first few posts.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;dataexplorer-package&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;1.1 DataExplorer {package}&lt;/h3&gt;
+&lt;p&gt;You can tell by the name of my blog that &lt;code&gt;{DataExplorer}&lt;/code&gt; is perfectly suited for this series on &lt;code&gt;R&lt;/code&gt; &lt;code&gt;{packages}&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.linkedin.com/in/boxuancui/&#34; target=&#34;_blank&#34;&gt;Boxuan Cui&lt;/a&gt; is the developer and maintainer of &lt;code&gt;{DataExplorer}&lt;/code&gt;, a &lt;code&gt;package&lt;/code&gt; which at it’s core is designed to “simplify and automate EDA.”&lt;/p&gt;
+&lt;center&gt;
+&lt;img src=&#34;/post/2020-09-02-how-to-explore-data-dataexplorer-package_files/DataExplorer-180x180.png&#34; /&gt;
+&lt;/center&gt;
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;Take the time to explore the &lt;code&gt;{DataExplorer}&lt;/code&gt; &lt;a href=&#34;https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-07-07/readme.md&#34; target=&#34;_blank&#34;&gt;Github Page&lt;/a&gt; where Boxuan provides the following context:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Exploratory Data Analysis (EDA) is the initial and an important phase of data analysis/predictive modeling. During this process, analysts/modelers will have a first look of the data, and thus generate relevant hypotheses and decide next steps. However, the EDA process could be a hassle at times. This R package aims to automate most of data handling and visualization, so that users could focus on studying the data and extracting insights.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Just about every time I’m working with new data, I’m loading &lt;code&gt;{DataExplorer}&lt;/code&gt; from my library of &lt;code&gt;R&lt;/code&gt; &lt;code&gt;{packages}&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;However, I’m typically only using the &lt;code&gt;plot_missing()&lt;/code&gt; function.&lt;/p&gt;
+&lt;p&gt;While &lt;code&gt;Exploring&lt;/code&gt; the &lt;code&gt;package&lt;/code&gt; further I was excited to discover &lt;code&gt;functionality&lt;/code&gt; that is now part of my EDA toolbox 🧰&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;package&lt;/code&gt; helps the user expedite the process of EDA so they can glean insights that help prepare their data for &lt;code&gt;analysis&lt;/code&gt; +/or &lt;code&gt;machine-learning&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Let’s dive in to a case-study!&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;case-study-setup&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;2.0 Case-Study Setup&lt;/h2&gt;
+&lt;p&gt;The case-study will provide and illustrate the following:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;The &lt;code&gt;function&lt;/code&gt; I use often: &lt;code&gt;plot_missing()&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Newly discovered &lt;code&gt;functions&lt;/code&gt; from &lt;code&gt;{DataExplorer}&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Bonus EDA function: &lt;code&gt;skimr::skim()&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div id=&#34;load-packages&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;2.1 Load Packages&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Core Packages
+library(tidyverse)
+library(tidyquant)
+library(recipes)
+library(rsample)
+library(knitr)
+
+# Data Cleaning
+library(janitor)
+
+# EDA
+library(skimr)
+library(DataExplorer)
+library(correlationfunnel)
+
+# ggplot2 Helpers
+library(scales)
+theme_set(theme_tq())
+
+# Geographic
+library(countrycode)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;import-data&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;2.2 Import Data&lt;/h3&gt;
+&lt;p&gt;For our case-study we are using data from the &lt;a href=&#34;https://github.com/rfordatascience/tidytuesday&#34; target=&#34;_blank&#34;&gt;Tidy Tuesday Project&lt;/a&gt; archive.&lt;/p&gt;
+&lt;p&gt;These data include bags of coffee that were assessed and “professionally rated on a 0-100 scale.” Each row has a score that originated from X number of bags of coffee beans that were assessed.&lt;/p&gt;
+&lt;p&gt;Out of the many features in the dataset, there are 10 numeric metrics that when summed make up the coffee rating score (total_cup_points).&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# tuesdata &amp;lt;- tidytuesdayR::tt_load(2020, week = 28)
+# coffee_ratings &amp;lt;- tuesdata$coffee_ratings
+
+#coffee_ratings_tbl &amp;lt;- read_csv(&amp;quot;static/01_data/coffee_ratings.csv&amp;quot;)
+coffee_ratings_tbl &amp;lt;- read_csv(&amp;quot;../../static/01_data/coffee_ratings.csv&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;data-caveats&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;2.3 Data Caveats&lt;/h3&gt;
+&lt;p&gt;Obviously, if you have all 10 metrics to get the score then you don’t need a model to predict &lt;code&gt;total_cup_points&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;That said, this blog post is about preprocessing data in preparation for &lt;code&gt;machine-learning&lt;/code&gt;. I chose these data for the cast-study because of the many characteristics and features present that will help illustrate the benefits of &lt;code&gt;{DataExplorer}&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;To illustrate the benefits of the &lt;code&gt;package&lt;/code&gt;, we will assume &lt;code&gt;total_cup_points&lt;/code&gt; is our target (dependent variable) and that all others are potential predictors (independent variables).&lt;/p&gt;
+&lt;p&gt;Let’s get to work!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;preprocessing-pipeline&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;2.4 Preprocessing Pipeline&lt;/h3&gt;
+&lt;p&gt;As usual, let’s setup our preprocessing data pipeline so that we can add to it as we gain insights.&lt;/p&gt;
+&lt;p&gt;Read &lt;a href=&#34;https://www.exploringdata.org/post/how-to-clean-data-janitor-package/&#34; target=&#34;_blank&#34;&gt;This Post&lt;/a&gt; to learn more about my approach to preprocessing.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;coffee_ratings_preprocessed_tbl &amp;lt;- coffee_ratings_tbl &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;case-study-objectives&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;3.0 Case-Study Objectives&lt;/h3&gt;
+&lt;p&gt;For this case-study let’s assume we’ve done enough investigating to know that we want to predict coffee scores bases on predictors within these data.&lt;/p&gt;
+&lt;p&gt;Let’s see how &lt;code&gt;DataExplorer&lt;/code&gt; can expedite the process.&lt;/p&gt;
+&lt;p&gt;Our goals here are to:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Better understand our data.&lt;/li&gt;
+&lt;li&gt;Assess missing data.&lt;/li&gt;
+&lt;li&gt;Investigate general data issues.&lt;/li&gt;
+&lt;li&gt;Identify unnecessary features.&lt;/li&gt;
+&lt;li&gt;Glean insights for feature-engineering.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The insights we gain will help us build our preprocessing data pipeline.&lt;/p&gt;
+&lt;p&gt;As usual, let’s take a &lt;code&gt;glimpse()&lt;/code&gt; of our data to see how we should proceed.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;coffee_ratings_preprocessed_tbl %&amp;gt;% 
+  glimpse()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Rows: 1,339
+## Columns: 43
+## $ total_cup_points      &amp;lt;dbl&amp;gt; 90.58, 89.92, 89.75, 89.00, 88.83, 88.83, 88.75…
+## $ species               &amp;lt;chr&amp;gt; &amp;quot;Arabica&amp;quot;, &amp;quot;Arabica&amp;quot;, &amp;quot;Arabica&amp;quot;, &amp;quot;Arabica&amp;quot;, &amp;quot;Ar…
+## $ owner                 &amp;lt;chr&amp;gt; &amp;quot;metad plc&amp;quot;, &amp;quot;metad plc&amp;quot;, &amp;quot;grounds for health a…
+## $ country_of_origin     &amp;lt;chr&amp;gt; &amp;quot;Ethiopia&amp;quot;, &amp;quot;Ethiopia&amp;quot;, &amp;quot;Guatemala&amp;quot;, &amp;quot;Ethiopia&amp;quot;…
+## $ farm_name             &amp;lt;chr&amp;gt; &amp;quot;metad plc&amp;quot;, &amp;quot;metad plc&amp;quot;, &amp;quot;san marcos barrancas…
+## $ lot_number            &amp;lt;chr&amp;gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+## $ mill                  &amp;lt;chr&amp;gt; &amp;quot;metad plc&amp;quot;, &amp;quot;metad plc&amp;quot;, NA, &amp;quot;wolensu&amp;quot;, &amp;quot;metad…
+## $ ico_number            &amp;lt;chr&amp;gt; &amp;quot;2014/2015&amp;quot;, &amp;quot;2014/2015&amp;quot;, NA, NA, &amp;quot;2014/2015&amp;quot;, …
+## $ company               &amp;lt;chr&amp;gt; &amp;quot;metad agricultural developmet plc&amp;quot;, &amp;quot;metad agr…
+## $ altitude              &amp;lt;chr&amp;gt; &amp;quot;1950-2200&amp;quot;, &amp;quot;1950-2200&amp;quot;, &amp;quot;1600 - 1800 m&amp;quot;, &amp;quot;180…
+## $ region                &amp;lt;chr&amp;gt; &amp;quot;guji-hambela&amp;quot;, &amp;quot;guji-hambela&amp;quot;, NA, &amp;quot;oromia&amp;quot;, &amp;quot;…
+## $ producer              &amp;lt;chr&amp;gt; &amp;quot;METAD PLC&amp;quot;, &amp;quot;METAD PLC&amp;quot;, NA, &amp;quot;Yidnekachew Dabe…
+## $ number_of_bags        &amp;lt;dbl&amp;gt; 300, 300, 5, 320, 300, 100, 100, 300, 300, 50, …
+## $ bag_weight            &amp;lt;chr&amp;gt; &amp;quot;60 kg&amp;quot;, &amp;quot;60 kg&amp;quot;, &amp;quot;1&amp;quot;, &amp;quot;60 kg&amp;quot;, &amp;quot;60 kg&amp;quot;, &amp;quot;30 kg…
+## $ in_country_partner    &amp;lt;chr&amp;gt; &amp;quot;METAD Agricultural Development plc&amp;quot;, &amp;quot;METAD Ag…
+## $ harvest_year          &amp;lt;chr&amp;gt; &amp;quot;2014&amp;quot;, &amp;quot;2014&amp;quot;, NA, &amp;quot;2014&amp;quot;, &amp;quot;2014&amp;quot;, &amp;quot;2013&amp;quot;, &amp;quot;20…
+## $ grading_date          &amp;lt;chr&amp;gt; &amp;quot;April 4th, 2015&amp;quot;, &amp;quot;April 4th, 2015&amp;quot;, &amp;quot;May 31st…
+## $ owner_1               &amp;lt;chr&amp;gt; &amp;quot;metad plc&amp;quot;, &amp;quot;metad plc&amp;quot;, &amp;quot;Grounds for Health A…
+## $ variety               &amp;lt;chr&amp;gt; NA, &amp;quot;Other&amp;quot;, &amp;quot;Bourbon&amp;quot;, NA, &amp;quot;Other&amp;quot;, NA, &amp;quot;Other…
+## $ processing_method     &amp;lt;chr&amp;gt; &amp;quot;Washed / Wet&amp;quot;, &amp;quot;Washed / Wet&amp;quot;, NA, &amp;quot;Natural / …
+## $ aroma                 &amp;lt;dbl&amp;gt; 8.67, 8.75, 8.42, 8.17, 8.25, 8.58, 8.42, 8.25,…
+## $ flavor                &amp;lt;dbl&amp;gt; 8.83, 8.67, 8.50, 8.58, 8.50, 8.42, 8.50, 8.33,…
+## $ aftertaste            &amp;lt;dbl&amp;gt; 8.67, 8.50, 8.42, 8.42, 8.25, 8.42, 8.33, 8.50,…
+## $ acidity               &amp;lt;dbl&amp;gt; 8.75, 8.58, 8.42, 8.42, 8.50, 8.50, 8.50, 8.42,…
+## $ body                  &amp;lt;dbl&amp;gt; 8.50, 8.42, 8.33, 8.50, 8.42, 8.25, 8.25, 8.33,…
+## $ balance               &amp;lt;dbl&amp;gt; 8.42, 8.42, 8.42, 8.25, 8.33, 8.33, 8.25, 8.50,…
+## $ uniformity            &amp;lt;dbl&amp;gt; 10.00, 10.00, 10.00, 10.00, 10.00, 10.00, 10.00…
+## $ clean_cup             &amp;lt;dbl&amp;gt; 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,…
+## $ sweetness             &amp;lt;dbl&amp;gt; 10.00, 10.00, 10.00, 10.00, 10.00, 10.00, 10.00…
+## $ cupper_points         &amp;lt;dbl&amp;gt; 8.75, 8.58, 9.25, 8.67, 8.58, 8.33, 8.50, 9.00,…
+## $ moisture              &amp;lt;dbl&amp;gt; 0.12, 0.12, 0.00, 0.11, 0.12, 0.11, 0.11, 0.03,…
+## $ category_one_defects  &amp;lt;dbl&amp;gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…
+## $ quakers               &amp;lt;dbl&amp;gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…
+## $ color                 &amp;lt;chr&amp;gt; &amp;quot;Green&amp;quot;, &amp;quot;Green&amp;quot;, NA, &amp;quot;Green&amp;quot;, &amp;quot;Green&amp;quot;, &amp;quot;Bluish…
+## $ category_two_defects  &amp;lt;dbl&amp;gt; 0, 1, 0, 2, 2, 1, 0, 0, 0, 4, 1, 0, 0, 2, 2, 0,…
+## $ expiration            &amp;lt;chr&amp;gt; &amp;quot;April 3rd, 2016&amp;quot;, &amp;quot;April 3rd, 2016&amp;quot;, &amp;quot;May 31st…
+## $ certification_body    &amp;lt;chr&amp;gt; &amp;quot;METAD Agricultural Development plc&amp;quot;, &amp;quot;METAD Ag…
+## $ certification_address &amp;lt;chr&amp;gt; &amp;quot;309fcf77415a3661ae83e027f7e5f05dad786e44&amp;quot;, &amp;quot;30…
+## $ certification_contact &amp;lt;chr&amp;gt; &amp;quot;19fef5a731de2db57d16da10287413f5f99bc2dd&amp;quot;, &amp;quot;19…
+## $ unit_of_measurement   &amp;lt;chr&amp;gt; &amp;quot;m&amp;quot;, &amp;quot;m&amp;quot;, &amp;quot;m&amp;quot;, &amp;quot;m&amp;quot;, &amp;quot;m&amp;quot;, &amp;quot;m&amp;quot;, &amp;quot;m&amp;quot;, &amp;quot;m&amp;quot;, &amp;quot;m&amp;quot;, &amp;quot;m…
+## $ altitude_low_meters   &amp;lt;dbl&amp;gt; 1950.0, 1950.0, 1600.0, 1800.0, 1950.0, NA, NA,…
+## $ altitude_high_meters  &amp;lt;dbl&amp;gt; 2200.0, 2200.0, 1800.0, 2200.0, 2200.0, NA, NA,…
+## $ altitude_mean_meters  &amp;lt;dbl&amp;gt; 2075.0, 2075.0, 1700.0, 2000.0, 2075.0, NA, NA,…&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;wow-43-columns&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Wow, 43 columns!&lt;/h4&gt;
+&lt;p&gt;Many of these are obviously unnecessary and so let’s get to work reducing these down to something more meaningful.&lt;/p&gt;
+&lt;p&gt;We can begin by removing a few columns and so lets add that step to our preprocessing.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;coffee_ratings_preprocessed_tbl &amp;lt;- coffee_ratings_tbl %&amp;gt;% 
+  
+  # remove columns
+  select(-contains(&amp;quot;certification&amp;quot;), -in_country_partner)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;exploratory-data-analysis-1.0&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;4.0 Exploratory Data Analysis 1.0&lt;/h3&gt;
+&lt;p&gt;One way to approach EDA is to assess missing data by calculating the proportion of values present in each column.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# calculate: proportion of data present in each column
+coffee_ratings_preprocessed_tbl %&amp;gt;% 
+  summarize(dplyr::across(everything(), ~ mean(!is.na(.)))) %&amp;gt;% 
+  gather() %&amp;gt;% 
+  arrange(value)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 39 x 2
+##    key                  value
+##    &amp;lt;chr&amp;gt;                &amp;lt;dbl&amp;gt;
+##  1 lot_number           0.206
+##  2 farm_name            0.732
+##  3 mill                 0.765
+##  4 producer             0.827
+##  5 altitude_low_meters  0.828
+##  6 altitude_high_meters 0.828
+##  7 altitude_mean_meters 0.828
+##  8 altitude             0.831
+##  9 variety              0.831
+## 10 color                0.837
+## # … with 29 more rows&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Then we could get summary statistics by feeding our data into the &lt;code&gt;base-R&lt;/code&gt; &lt;code&gt;summary()&lt;/code&gt; function to get summary statistics; however, the output is really a mess with this many features in our data and so we definitely don’t want to go that route.&lt;/p&gt;
+&lt;p&gt;Visualizations can help and so in steps &lt;code&gt;{DataExplorer}&lt;/code&gt; to help!&lt;/p&gt;
+&lt;p&gt;We are here to level up our EDA game and so let’s get to started!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;exploratory-data-analysis-2.0&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;5.0 Exploratory Data Analysis 2.0&lt;/h3&gt;
+&lt;p&gt;While investigating &lt;code&gt;DataExplorer&lt;/code&gt; I learned a few tricks and so let’s &lt;code&gt;explore&lt;/code&gt; those.&lt;/p&gt;
+&lt;p&gt;We can take our &lt;code&gt;EDA&lt;/code&gt; to the next level with a work-flow that quickly assesses:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Summary statistics: &lt;code&gt;skimr::skim()&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Missing data: &lt;code&gt;plot_missing()&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Categorical data: &lt;code&gt;plot_bar()&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Numerical data: &lt;code&gt;plot_historgram&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Once assessed, we can then decide which steps need to be added to our preprocessing data pipeline.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;summary-statistics&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;5.1 Summary Statistics&lt;/h3&gt;
+&lt;p&gt;This is today’s bonus: &lt;code&gt;skimr::skim()&lt;/code&gt; gives us everything we need to quickly derive insights during our EDA process.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;coffee_ratings_preprocessed_tbl %&amp;gt;% 
+  skimr::skim()&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;caption&gt;&lt;span id=&#34;tab:unnamed-chunk-7&#34;&gt;Table 1: &lt;/span&gt;Data summary&lt;/caption&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Name&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Piped data&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Number of rows&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;1339&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Number of columns&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;39&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;_______________________&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Column type frequency:&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;character&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;20&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;numeric&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;19&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;________________________&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Group variables&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;None&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Variable type: character&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th align=&#34;left&#34;&gt;skim_variable&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;n_missing&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;complete_rate&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;min&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;max&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;empty&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;n_unique&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;whitespace&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;species&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;7&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;7&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;owner&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;7&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.99&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;3&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;50&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;315&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;country_of_origin&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;4&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;28&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;36&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;farm_name&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;359&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.73&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;73&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;571&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;lot_number&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1063&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.21&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;71&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;227&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;mill&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;315&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.76&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;77&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;460&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;ico_number&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;151&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.89&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;40&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;847&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;company&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;209&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.84&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;3&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;73&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;281&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;altitude&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;226&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.83&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;41&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;396&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;region&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;59&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.96&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;76&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;356&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;producer&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;231&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.83&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;100&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;691&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;bag_weight&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;8&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;56&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;harvest_year&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;47&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.96&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;3&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;24&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;46&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;grading_date&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;13&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;20&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;567&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;owner_1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;7&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.99&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;3&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;50&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;319&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;variety&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;226&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.83&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;4&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;21&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;29&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;processing_method&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;170&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.87&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;5&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;25&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;5&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;color&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;218&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.84&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;4&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;12&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;4&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;expiration&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;13&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;20&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;566&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;unit_of_measurement&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Variable type: numeric&lt;/strong&gt;&lt;/p&gt;
+&lt;table style=&#34;width:100%;&#34;&gt;
+&lt;colgroup&gt;
+&lt;col width=&#34;20%&#34; /&gt;
+&lt;col width=&#34;9%&#34; /&gt;
+&lt;col width=&#34;13%&#34; /&gt;
+&lt;col width=&#34;7%&#34; /&gt;
+&lt;col width=&#34;7%&#34; /&gt;
+&lt;col width=&#34;2%&#34; /&gt;
+&lt;col width=&#34;7%&#34; /&gt;
+&lt;col width=&#34;7%&#34; /&gt;
+&lt;col width=&#34;7%&#34; /&gt;
+&lt;col width=&#34;9%&#34; /&gt;
+&lt;col width=&#34;5%&#34; /&gt;
+&lt;/colgroup&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th align=&#34;left&#34;&gt;skim_variable&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;n_missing&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;complete_rate&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;mean&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;sd&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;p0&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;p25&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;p50&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;p75&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;p100&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;hist&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;total_cup_points&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;82.09&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;3.50&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;81.08&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;82.50&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;83.67&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;90.58&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;▁▁▁▁▇&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;number_of_bags&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;154.18&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;129.99&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;14.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;175.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;275.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1062.00&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;▇▇▁▁▁&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;aroma&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;7.57&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.38&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;7.42&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;7.58&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;7.75&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;8.75&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;▁▁▁▁▇&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;flavor&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;7.52&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.40&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;7.33&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;7.58&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;7.75&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;8.83&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;▁▁▁▁▇&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;aftertaste&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;7.40&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.40&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;7.25&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;7.42&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;7.58&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;8.67&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;▁▁▁▁▇&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;acidity&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;7.54&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.38&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;7.33&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;7.58&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;7.75&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;8.75&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;▁▁▁▁▇&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;body&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;7.52&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.37&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;7.33&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;7.50&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;7.67&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;8.58&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;▁▁▁▁▇&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;balance&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;7.52&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.41&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;7.33&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;7.50&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;7.75&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;8.75&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;▁▁▁▁▇&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;uniformity&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;9.83&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.55&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;10.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;10.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;10.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;10.00&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;▁▁▁▁▇&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;clean_cup&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;9.84&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.76&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;10.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;10.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;10.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;10.00&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;▁▁▁▁▇&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;sweetness&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;9.86&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.62&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;10.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;10.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;10.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;10.00&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;▁▁▁▁▇&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;cupper_points&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;7.50&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.47&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;7.25&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;7.50&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;7.75&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;10.00&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;▁▁▁▇▁&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;moisture&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.09&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.05&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.09&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.11&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.12&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.28&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;▃▇▅▁▁&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;category_one_defects&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.48&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2.55&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;63.00&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;▇▁▁▁▁&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;quakers&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.17&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.83&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;11.00&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;▇▁▁▁▁&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;category_two_defects&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;3.56&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;5.31&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;4.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;55.00&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;▇▁▁▁▁&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;altitude_low_meters&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;230&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.83&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1750.71&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;8669.44&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1100.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1310.64&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1600.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;190164.00&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;▇▁▁▁▁&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;altitude_high_meters&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;230&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.83&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1799.35&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;8668.81&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1100.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1350.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1650.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;190164.00&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;▇▁▁▁▁&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;altitude_mean_meters&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;230&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.83&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1775.03&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;8668.63&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1100.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1310.64&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1600.00&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;190164.00&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;▇▁▁▁▁&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;skim()&lt;/code&gt; &lt;code&gt;function&lt;/code&gt; gives an incredible amount of detail to help guide what will go into our final preprocessing pipeline.&lt;/p&gt;
+&lt;div id=&#34;new-insights&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;New Insights&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Breakout by data-type: 20 categorical + 19 numeric.&lt;/li&gt;
+&lt;li&gt;Substantial missing values within features.&lt;/li&gt;
+&lt;li&gt;Many features with skewed distributions.&lt;/li&gt;
+&lt;li&gt;Large number of features that look unnecessary.&lt;/li&gt;
+&lt;li&gt;Categorical features with HIGH unique values.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;missing-data&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;5.2 Missing Data&lt;/h3&gt;
+&lt;p&gt;The visualization provided by &lt;code&gt;plot_missing()&lt;/code&gt; helps identify columns that may need attention.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;coffee_ratings_preprocessed_tbl %&amp;gt;% 
+  plot_missing(ggtheme = theme_tq())&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-09-02-how-to-explore-data-dataexplorer-package_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;With this visual we can rapidly assess features where we might want to use imputation to estimate missing values.&lt;/p&gt;
+&lt;div id=&#34;new-insights-1&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;New Insights&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Most features have complete data.&lt;/li&gt;
+&lt;li&gt;Many features (if kept) need imputation (estimate + replace missing data).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;categorical-data&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;5.3 Categorical Data&lt;/h3&gt;
+&lt;p&gt;Equipped with &lt;code&gt;plot_bar()&lt;/code&gt; we can rapidly assess categorical features by looking at the frequency of each value.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;coffee_ratings_preprocessed_tbl %&amp;gt;% 
+  plot_bar(ggtheme = theme_tq(), ncol = 2, nrow = 4)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-09-02-how-to-explore-data-dataexplorer-package_files/figure-html/unnamed-chunk-9-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;I’m really impressed with this helpful &lt;code&gt;EDA&lt;/code&gt; function and it’s now in the toolbox 🧰&lt;/p&gt;
+&lt;div id=&#34;new-insights-2&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;New Insights&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Arabica dominates the species feature (we can remove).&lt;/li&gt;
+&lt;li&gt;Features exist with many categories but few values (we can lump into ‘other’).&lt;/li&gt;
+&lt;li&gt;We can engineer a continent feature from &lt;code&gt;country_of_orgin&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Year of harvest needs attention (standardization).&lt;/li&gt;
+&lt;li&gt;Unit of measurement can be dropped.&lt;/li&gt;
+&lt;li&gt;Better picture of where imputation is needed.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;numerical-data&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;5.4 Numerical Data&lt;/h3&gt;
+&lt;p&gt;Onward to assessing our numerical/continuous features using &lt;code&gt;plot_histogram()&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;coffee_ratings_preprocessed_tbl %&amp;gt;% 
+ plot_histogram(ggtheme = theme_tq(), nrow = 5, ncol = 4)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-09-02-how-to-explore-data-dataexplorer-package_files/figure-html/unnamed-chunk-10-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Another function now in my EDA toolbox 🧰&lt;/p&gt;
+&lt;div id=&#34;new-insights-3&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;New Insights&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Many features look normally distributed&lt;/li&gt;
+&lt;li&gt;Some features are skewed + need transformations.&lt;/li&gt;
+&lt;li&gt;Quakers (unripened beans) should be categorical.&lt;/li&gt;
+&lt;li&gt;We can probably just keep the mean altitude (drop low/high).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;plot-altitude&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Plot Altitude&lt;/h3&gt;
+&lt;p&gt;Let’s test our assumption about dropping low altitude and high altitude features.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;coffee_ratings_preprocessed_tbl %&amp;gt;% 
+  select(contains(&amp;quot;altitude_&amp;quot;)) %&amp;gt;% 
+  pivot_longer(1:3) %&amp;gt;% 
+  ggplot(aes(name, value, color = name)) +
+  geom_violin() +
+  geom_jitter(alpha = 0.05) +
+  scale_y_log10(label = scales::comma_format()) +
+  theme(legend.position = &amp;quot;none&amp;quot;) + 
+  labs(x = &amp;quot;&amp;quot;, y = &amp;quot;Meters&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-09-02-how-to-explore-data-dataexplorer-package_files/figure-html/unnamed-chunk-11-1.png&#34; width=&#34;576&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Looks good. We will keep &lt;code&gt;altitude_mean_meters&lt;/code&gt; and drop the others.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;plot-quakers-vs.-score&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Plot Quakers vs. Score&lt;/h3&gt;
+&lt;p&gt;Let’s quickly double check quakers to see if it’s better to encode as a factor (categorical variable).&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;coffee_ratings_preprocessed_tbl %&amp;gt;% 
+  select(quakers, total_cup_points) %&amp;gt;% 
+  ggplot(aes(as.factor(quakers), total_cup_points)) +
+  geom_violin() +
+  geom_jitter(alpha = 0.2) + ylim(0, 100)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-09-02-how-to-explore-data-dataexplorer-package_files/figure-html/unnamed-chunk-12-1.png&#34; width=&#34;576&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;It doesn’t look like quakers explains much of the variation within &lt;code&gt;total_cup_points&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;We will keep it for now but update it to a discrete variable (+bucket categories w/low frequency into ‘other’).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;preprocessing-pipeline-1&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;6.0 Preprocessing Pipeline&lt;/h3&gt;
+&lt;p&gt;Armed with these new insights we can start adding on to our data pipeline.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;train-test-sets&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;6.1 Train + Test Sets&lt;/h3&gt;
+&lt;p&gt;MAYBE REMOVE THIS SECTION (IT SORT OF DISTRACTS…)&lt;/p&gt;
+&lt;p&gt;Let’s split our data into a Train + Test set to further exemplify a real-world scenario.&lt;/p&gt;
+&lt;p&gt;We will use the unprocessed data here then&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# set seed and split data
+set.seed(54321)
+coffee_ratings_initial_split &amp;lt;- initial_split(coffee_ratings_tbl, prop = 0.8)
+
+# set as variables
+train_tbl &amp;lt;- training(coffee_ratings_initial_split)
+test_tbl &amp;lt;- testing(coffee_ratings_initial_split)
+
+# show split breakouts
+coffee_ratings_initial_split&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## &amp;lt;Analysis/Assess/Total&amp;gt;
+## &amp;lt;1072/267/1339&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;preprocessing-pipeline-recipe-prep&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;6.2 Preprocessing Pipeline Recipe (Prep)&lt;/h3&gt;
+&lt;p&gt;Rather than build out our own functions and code for completing our preprocessing tasks, we are going to leverage the &lt;code&gt;{recipes::package}&lt;/code&gt;. If you have yet to see this package then quickly learn it and add it to your toolbox 🧰&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;preprocessing_recipe &amp;lt;- recipe(total_cup_points ~ ., 
+                               data = train_tbl) %&amp;gt;% 
+  
+  # clean + standardize harvest-year feature
+  step_mutate(
+    harvest_year = as.character(harvest_year),
+    harvest_year = case_when(
+        harvest_year == &amp;quot;August to December&amp;quot; ~ &amp;quot;2010&amp;quot;,
+        harvest_year == &amp;quot;08/09 crop&amp;quot; ~ &amp;quot;2008&amp;quot;,
+        harvest_year == &amp;quot;1t/2011&amp;quot; ~ &amp;quot;2011&amp;quot;,
+        harvest_year == &amp;quot;1T/2011&amp;quot; ~ &amp;quot;2011&amp;quot;,
+        harvest_year == &amp;quot;23 July 2010&amp;quot; ~ &amp;quot;2010&amp;quot;,
+        harvest_year == &amp;quot;3T/2011&amp;quot; ~ &amp;quot;2011&amp;quot;,
+        harvest_year == &amp;quot;47/2010&amp;quot; ~ &amp;quot;2010&amp;quot;,
+        harvest_year == &amp;quot;4T/10&amp;quot; ~ &amp;quot;2010&amp;quot;,
+        harvest_year == &amp;quot;4t/2010&amp;quot; ~ &amp;quot;2010&amp;quot;,
+        harvest_year == &amp;quot;4T/2010&amp;quot; ~ &amp;quot;2010&amp;quot;,
+        harvest_year == &amp;quot;4t/2011&amp;quot; ~ &amp;quot;2011&amp;quot;,
+        harvest_year == &amp;quot;4T72010&amp;quot; ~ &amp;quot;2010&amp;quot;,
+        TRUE ~ harvest_year),
+    harvest_year = parse_number(harvest_year) %&amp;gt;% as.factor(),
+    harvest_year = fct_explicit_na(harvest_year, na_level = NA),
+    harvest_year = as.character(harvest_year), 
+    harvest_year = case_when(
+      harvest_year == NA~ str_sub(grading_date, str_count(grading_date)-3),
+      TRUE ~ harvest_year),
+    harvest_year = case_when(
+      harvest_year == &amp;quot;017\n&amp;quot; ~ &amp;quot;2017&amp;quot;,
+      TRUE ~ harvest_year)) %&amp;gt;%
+  
+  # remove unnecessary columns
+  step_rm(species, owner, farm_name, lot_number, mill, ico_number,
+          company, altitude, region, producer, number_of_bags,
+          bag_weight, in_country_partner, owner_1, expiration,
+          contains(&amp;quot;certification&amp;quot;), unit_of_measurement,
+          altitude_low_meters, altitude_high_meters, grading_date) %&amp;gt;% 
+  
+  # feature engineering - continent
+    step_mutate(
+      country_of_origin = as.character(country_of_origin),
+      country_of_origin = case_when(
+        country_of_origin == &amp;quot;Cote d?Ivoire&amp;quot; ~ &amp;quot;Cote d&amp;#39;Ivoire&amp;quot;,
+        country_of_origin == &amp;quot;Tanzania, United Republic Of&amp;quot; ~ &amp;quot;Tanzania&amp;quot;,
+        country_of_origin == &amp;quot;United States (Puerto Rico)&amp;quot; ~ &amp;quot;Puerto Rico&amp;quot;,
+        TRUE ~ country_of_origin),
+      continent = countrycode(country_of_origin, &amp;quot;country.name&amp;quot;, &amp;quot;continent&amp;quot;)) %&amp;gt;%   
+  
+  # combine low-frequency categories
+  step_other(all_nominal(), threshold = 0.02, other = &amp;quot;other&amp;quot;) %&amp;gt;%
+  step_mutate_at(all_nominal(), fn = str_to_lower) %&amp;gt;%
+  
+  # encode categorical features
+  step_string2factor(all_nominal()) %&amp;gt;%
+  step_mutate(quakers = as.factor(quakers)) %&amp;gt;% 
+  
+  # impute missing values
+  step_knnimpute(
+    processing_method, quakers, country_of_origin, continent,
+    harvest_year, color, variety, altitude_mean_meters) %&amp;gt;%
+  
+  # apply box-cox transformation
+  step_BoxCox(altitude_mean_meters) %&amp;gt;% 
+  
+  # prep recipe
+  prep()&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;preprocessing-pipeline-recipe-bake&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;6.3 Preprocessing Pipeline Recipe (Bake)&lt;/h3&gt;
+&lt;p&gt;Let’s take a quick look at our &lt;code&gt;preprocessing&lt;/code&gt; &lt;code&gt;recipe&lt;/code&gt; before applying it to our data.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;preprocessing_recipe&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## Data Recipe
+## 
+## Inputs:
+## 
+##       role #variables
+##    outcome          1
+##  predictor         42
+## 
+## Training data contained 1072 data points and 966 incomplete rows. 
+## 
+## Operations:
+## 
+## Variable mutation for harvest_year, harvest_year, harvest_year, harvest_year, harvest_year, harvest_year, harvest_year [trained]
+## Variables removed species, owner, farm_name, lot_number, mill, ... [trained]
+## Variable mutation for country_of_origin, country_of_origin, continent [trained]
+## Collapsing factor levels for country_of_origin, harvest_year, ... [trained]
+## Variable mutation for country_of_origin, harvest_year, ... [trained]
+## Factor variables from country_of_origin, harvest_year, ... [trained]
+## Variable mutation for quakers [trained]
+## K-nearest neighbor imputation for country_of_origin, harvest_year, ... [trained]
+## Box-Cox transformation on altitude_mean_meters [trained]&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now, let’s go ahead and apply our &lt;code&gt;prepared&lt;/code&gt; &lt;code&gt;recipe&lt;/code&gt; using the &lt;code&gt;bake()&lt;/code&gt; function.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;coffee_ratings_preprocessed_tbl &amp;lt;- preprocessing_recipe %&amp;gt;% 
+  
+  # bake recipe
+  bake(train_tbl)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;inspect-output&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;7.0 Inspect Output&lt;/h3&gt;
+&lt;p&gt;Let’s take a look!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;inspect-missing-data&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;7.1 Inspect Missing Data&lt;/h3&gt;
+&lt;p&gt;Features with missing data were either dropped or now have estimated values in their place.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;coffee_ratings_preprocessed_tbl %&amp;gt;% 
+  plot_missing(ggtheme = theme_tq())&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-09-02-how-to-explore-data-dataexplorer-package_files/figure-html/unnamed-chunk-17-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;inspect-categorical-data&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;7.2 Inspect Categorical Data&lt;/h3&gt;
+&lt;p&gt;Let’s take a peak at our preprocessed categorical data.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;coffee_ratings_preprocessed_tbl %&amp;gt;% 
+  plot_bar(ggtheme = theme_tq(), ncol = 2, nrow = 4)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-09-02-how-to-explore-data-dataexplorer-package_files/figure-html/unnamed-chunk-18-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;A bit more work could be done here but overall this is looking good.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;inspect-numerical-data&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;7.3 Inspect Numerical Data&lt;/h3&gt;
+&lt;p&gt;Now to inspect our numerical features.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;coffee_ratings_preprocessed_tbl %&amp;gt;% 
+ plot_histogram(ggtheme = theme_tq(), nrow = 5, ncol = 4)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-09-02-how-to-explore-data-dataexplorer-package_files/figure-html/unnamed-chunk-19-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Of course we could do more work to prepare these data appropriately for modeling.&lt;/p&gt;
+&lt;p&gt;However, that’s not really the point here.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;wrap-up&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;8.0 Wrap Up&lt;/h3&gt;
+&lt;p&gt;The point is that &lt;code&gt;DataExplorer&lt;/code&gt; provides three functions that allow the user to rapidly &lt;code&gt;Explore&lt;/code&gt; their &lt;code&gt;Data&lt;/code&gt;:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;code&gt;plot_missing()&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;plot_bar()&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;plot_histogram&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+      
+            <category>r packages</category>
+      
+            <category>data wrangling</category>
+      
+            <category>eda</category>
+      
+            <category>machine-learning</category>
+      
+    </item>
+    
+  </channel>
+</rss>

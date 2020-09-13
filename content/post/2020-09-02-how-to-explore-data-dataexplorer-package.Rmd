@@ -9,11 +9,10 @@ tags:
 - r packages
 - data wrangling
 - eda
+- machine-learning
 editor_options:
   chunk_output_type: console
 ---
-
-
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(
@@ -25,37 +24,40 @@ knitr::opts_chunk$set(
 
 <br/>
 
-`Exploring-Data` is a place where I share easily digestible content aimed at making the wrangling and exploration of data more efficient (+fun).
+"Exploring-Data" is a blog in which I share easily digestible content aimed at making the wrangling and exploration of data more efficient and more fun.
 
-Sign up [Here](https://tinyletter.com/dexters-analytics){target="_blank"} to join the many other subscribers who also nerd out on new tips and tricks 🤓
+Sign up [HERE](https://tinyletter.com/dexters-analytics){target="_blank"} to join other subscribers who also `nerd-out` on tips for exploring data using `R`.
 
-Where am I advancing my R skills?
+Click on these links to see where I am improving my skills in handling data using `R`:
 
-1. Business Science University
-2. R-bloggers
+1. [Business Science University (Data-Science for Business)](https://www.business-science.io/?affcode=173166_vnvxtqbd){target="_blank"}
+2. [R-bloggers (all-things R)](https://www.r-bloggers.com/){target="_blank"}
 
 Join me on the journey 🏃‍♂  🏃‍♀
 
-### Series: Exploring R {packages}
+## Exploring R {packages}
 
-This is the 2nd post in the new series on `Exploring` `R` `{packages}`.
+This is the 2nd post in my series on exploring `R` packages in which I share my findings.
 
-I have a habit of finding one or two useful `functions` in a `{package}`, but rarely explore further to discover other useful functionality.
-
-In this series I'm testing the idea of breaking that habit and sharing what I learn along the way.
-
-In each post, I will share a bit about how I was using a `{package}`and then use a case-study to highlight other `functionality` I discovered to be useful.
+You can read the first post here: [How to Clean Data: {janitor} Package](https://www.exploringdata.org/post/how-to-clean-data-janitor-package/){target="_blank"}
 
 
-### DataExplorer {package}
+### 1.0 Series Context (the why)
 
-You can tell by the name of my blog that `{DataExplorer}` is perfectly suited for this series on `R``{packages}`.
+My habit has been to find one or two useful functions in a package, but rarely investigate other functionality.
 
-[Boxuan Cui](https://www.linkedin.com/in/boxuancui/){target="_blank"} is the developer and maintainer of the `package` and at it's core is designed to "simplify and automate EDA." 
+In this series I'm testing the idea of breaking that habit.
 
-Take the time to explore the [Github Page](http://boxuancui.github.io/DataExplorer/){target="_blank"} for the `{DataExplorer::package}`, where Sam describes it as follow:
+In each post, I will share how I was using a package and then use a case-study to highlight other functionality I discovered to be useful.
 
-> Exploratory Data Analysis (EDA) is the initial and an important phase of data analysis/predictive modeling. During this process, analysts/modelers will have a first look of the data, and thus generate relevant hypotheses and decide next steps. However, the EDA process could be a hassle at times. This R package aims to automate most of data handling and visualization, so that users could focus on studying the data and extracting insights.
+If you like this type of post, leave a comment and let me know. Whether or not I continue the series will be based on feedback given in the first few posts.
+
+
+### 1.1 DataExplorer {package}
+
+You can tell by the name of my blog that `{DataExplorer}` is perfectly suited for this series on `R` `{packages}`.
+
+[Boxuan Cui](https://www.linkedin.com/in/boxuancui/){target="_blank"} is the developer and maintainer of `{DataExplorer}`, a `package` which at it's core is designed to "simplify and automate EDA." 
 
 <center>
 ![](/post/2020-09-02-how-to-explore-data-dataexplorer-package_files/DataExplorer-180x180.png)
@@ -63,28 +65,38 @@ Take the time to explore the [Github Page](http://boxuancui.github.io/DataExplor
 
 <br/>
 
+Take the time to explore the `{DataExplorer}` [Github Page](https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-07-07/readme.md){target="_blank"} where Boxuan provides the following context:
+
+> Exploratory Data Analysis (EDA) is the initial and an important phase of data analysis/predictive modeling. During this process, analysts/modelers will have a first look of the data, and thus generate relevant hypotheses and decide next steps. However, the EDA process could be a hassle at times. This R package aims to automate most of data handling and visualization, so that users could focus on studying the data and extracting insights.
+
+
 Just about every time I'm working with new data, I'm loading `{DataExplorer}` from my library of `R` `{packages}`.
 
 However, I'm typically only using the `plot_missing()` function.
 
 While `Exploring` the `package` further I was excited to discover `functionality` that is now part of my EDA toolbox 🧰
 
+The `package` helps the user expedite the process of EDA so they can glean insights that help prepare their data for `analysis` +/or `machine-learning`.
 
-### Case-Study
+Let's dive in to a case-study!
+
+## 2.0 Case-Study Setup
 
 The case-study will provide and illustrate the following:
 
-1. The `function` I use often: `DataExplorer::plot_missing()`.
-2. Bonus EDA function: `skimr::skim()`
-2. Newly discovered `functions` from `{DataExplorer}`.  
+1. The `function` I use often: `plot_missing()`.
+2. Newly discovered `functions` from `{DataExplorer}`. 
+3. Bonus EDA function: `skimr::skim()`
 
 
-### Load Packages
+### 2.1 Load Packages
 
 ```{r}
 # Core Packages
 library(tidyverse)
 library(tidyquant)
+library(recipes)
+library(rsample)
 library(knitr)
 
 # Data Cleaning
@@ -97,17 +109,21 @@ library(correlationfunnel)
 
 # ggplot2 Helpers
 library(scales)
+theme_set(theme_tq())
 
 # Geographic
 library(countrycode)
 ```
 
 
-### Import Data
+### 2.2 Import Data
 
-some caveats about data (just a good example - not trying to model anything)
+For our case-study we are using data from the [Tidy Tuesday Project](https://github.com/rfordatascience/tidytuesday){target="_blank"} archive.
 
-* predictors are inputs to arithmetic used to calculate the final score
+These data include bags of coffee that were assessed and "professionally rated on a 0-100 scale." Each row has a score that originated from X number of bags of coffee beans that were assessed.
+
+Out of the many features in the dataset, there are 10 numeric metrics that when summed make up the coffee rating score (total_cup_points).
+
 
 ```{r}
 # tuesdata <- tidytuesdayR::tt_load(2020, week = 28)
@@ -119,120 +135,256 @@ coffee_ratings_tbl <- read_csv("../../static/01_data/coffee_ratings.csv")
 ```
 
 
-### Prior Usage
+### 2.3 Data Caveats
 
-something about using plot missing
+Obviously, if you have all 10 metrics to get the score then you don't need a model to predict `total_cup_points`. 
 
+That said, this blog post is about preprocessing data in preparation for `machine-learning`. I chose these data for the cast-study because of the many characteristics and features present that will help illustrate the benefits of `{DataExplorer}`.
 
-### New usage (exedite EDA + modeling)
+To illustrate the benefits of the `package`, we will assume `total_cup_points` is our target (dependent variable) and that all others are potential predictors (independent variables).
 
-something about efficiency of combining 
-* skimr, plot_missing, plot-bar and plot-historgram
-
-to quickly make decisions about what to do w/data
+Let's get to work!
 
 
-#### WORKFLOW
+### 2.4 Preprocessing Pipeline
 
-1. show silly plot-missing
-2. new eda workflow:
-    * skimr 
-    * add findings to preprocessiing workflow
-    * plot-bar + make note of findings (for adding to pipe)
-    * plot-bar + same as bar
-3. conclude w/all findings listed that now can go into pipeline.
-4. make simple recipe 
-5. add recipe to pipeline
-5. split training set
-6. apply preprocessing to datasets (test/train)???
-7. wrap up...
+As usual, let's setup our preprocessing data pipeline so that we can add to it as we gain insights.
 
-
-### Data Understanding
-
-Set up preprocessing pipeline (we will build on it)
-
-Initial investigation made it clear to remove some cols
-
-
-### Wrap up w/throwing all these findings into 'recipe pipeline'
-
-
-### Data Analysis (exploration)
+Read [This Post](https://www.exploringdata.org/post/how-to-clean-data-janitor-package/){target="_blank"} to learn more about my approach to preprocessing.
 
 ```{r}
+coffee_ratings_preprocessed_tbl <- coffee_ratings_tbl 
+```
 
 
-coffee_rating_preprocessed_tbl <- coffee_ratings_tbl %>% 
+### 3.0 Case-Study Objectives
+
+For this case-study let's assume we've done enough investigating to know that we want to predict coffee scores bases on predictors within these data.
+
+Let's see how `DataExplorer` can expedite the process.
+
+Our goals here are to:
+
+1. Better understand our data.
+2. Assess missing data.
+3. Investigate general data issues.
+4. Identify unnecessary features.
+5. Glean insights for feature-engineering.
+
+The insights we gain will help us build our preprocessing data pipeline. 
+
+As usual, let's take a `glimpse()` of our data to see how we should proceed.
+
+```{r}
+coffee_ratings_preprocessed_tbl %>% 
+  glimpse()
+```
+
+#### Wow, 43 columns! 
+
+Many of these are obviously unnecessary and so let's get to work reducing these down to something more meaningful.
+
+We can begin by removing a few columns and so lets add that step to our preprocessing.
+
+
+```{r}
+coffee_ratings_preprocessed_tbl <- coffee_ratings_tbl %>% 
   
-  # drop unnecessary columns
-  select(-in_country_partner, -contains("certification")) %>% 
-    
-  # add unique id
-  mutate(id = row_number())  
+  # remove columns
+  select(-contains("certification"), -in_country_partner)
+```
+
+
+### 4.0 Exploratory Data Analysis 1.0
+
+One way to approach EDA is to assess missing data by calculating the proportion of values present in each column.
+
+
+```{r}
+# calculate: proportion of data present in each column
+coffee_ratings_preprocessed_tbl %>% 
+  summarize(dplyr::across(everything(), ~ mean(!is.na(.)))) %>% 
+  gather() %>% 
+  arrange(value)
+```
+
+Then we could get summary statistics by feeding our data into the `base-R` `summary()` function to get summary statistics; however, the output is really a mess with this many features in our data and so we definitely don't want to go that route.
+
+Visualizations can help and so in steps `{DataExplorer}` to help!
+
+We are here to level up our EDA game and so let's get to started!
+
+
+### 5.0 Exploratory Data Analysis 2.0
+
+While investigating `DataExplorer` I learned a few tricks and so let's `explore` those.
+
+We can take our `EDA` to the next level with a work-flow that quickly assesses:
+
+1. Summary statistics: `skimr::skim()`
+2. Missing data: `plot_missing()`
+3. Categorical data: `plot_bar()`
+4. Numerical data: `plot_historgram`
+
+Once assessed, we can then decide which steps need to be added to our preprocessing data pipeline.
+
+
+### 5.1 Summary Statistics
+
+This is today's bonus: `skimr::skim()` gives us everything we need to quickly derive insights during our EDA process.
+
+```{r}
+coffee_ratings_preprocessed_tbl %>% 
+  skimr::skim()
+```
+
+<br/>
+
+The `skim()` `function` gives an incredible amount of detail to help guide what will go into our final preprocessing pipeline.
+
+#### New Insights
+
+* Breakout by data-type: 20 categorical +  19 numeric.
+* Substantial missing values within features.
+* Many features with skewed distributions.
+* Large number of features that look unnecessary.
+* Categorical features with HIGH unique values.
+
+
+### 5.2 Missing Data
+
+The visualization provided by `plot_missing()` helps identify columns that may need attention.
+
+
+```{r}
+coffee_ratings_preprocessed_tbl %>% 
+  plot_missing(ggtheme = theme_tq())
+```
+
+With this visual we can rapidly assess features where we might want to use imputation to estimate missing values.
+
+#### New Insights
+
+* Most features have complete data.
+* Many features (if kept) need imputation (estimate + replace missing data).
+
+
+### 5.3 Categorical Data
+
+Equipped with `plot_bar()` we can rapidly assess categorical features by looking at the frequency of each value.
+
+```{r, fig.height=8}
+coffee_ratings_preprocessed_tbl %>% 
+  plot_bar(ggtheme = theme_tq(), ncol = 2, nrow = 4)
+```
+
+I'm really impressed with this helpful `EDA` function and it's now in the toolbox 🧰
+
+#### New Insights
+
+* Arabica dominates the species feature (we can remove).
+* Features exist with many categories but few values (we can lump into 'other').
+* We can engineer a continent feature from `country_of_orgin`.
+* Year of harvest needs attention (standardization).
+* Unit of measurement can be dropped.
+* Better picture of where imputation is needed.
+
+
+### 5.4 Numerical Data 
+
+Onward to assessing our numerical/continuous features using `plot_histogram()`.
+
+```{r, fig.height=8}
+coffee_ratings_preprocessed_tbl %>% 
+ plot_histogram(ggtheme = theme_tq(), nrow = 5, ncol = 4)
+```
+
+Another function now in my EDA toolbox 🧰
+
+#### New Insights
+
+* Many features look normally distributed
+* Some features are skewed + need transformations.
+* Quakers (unripened beans) should be categorical.
+* We can probably just keep the mean altitude (drop low/high).
+
+
+### Plot Altitude
+
+Let's test our assumption about dropping low altitude and high altitude features.
+
+```{r, fig.height=2.5, fig.width=6, fig.align='center'}
+coffee_ratings_preprocessed_tbl %>% 
+  select(contains("altitude_")) %>% 
+  pivot_longer(1:3) %>% 
+  ggplot(aes(name, value, color = name)) +
+  geom_violin() +
+  geom_jitter(alpha = 0.05) +
+  scale_y_log10(label = scales::comma_format()) +
+  theme(legend.position = "none") + 
+  labs(x = "", y = "Meters")
+```
+
+Looks good. We will keep `altitude_mean_meters` and drop the others.
+
+### Plot Quakers vs. Score
+
+Let's quickly double check quakers to see if it's better to encode as a factor (categorical variable).
+
+```{r, fig.height=3, fig.width=6, fig.align='center'}
+coffee_ratings_preprocessed_tbl %>% 
+  select(quakers, total_cup_points) %>% 
+  ggplot(aes(as.factor(quakers), total_cup_points)) +
+  geom_violin() +
+  geom_jitter(alpha = 0.2) + ylim(0, 100)
+```
+
+It doesn't look like quakers explains much of the variation within `total_cup_points`.
+
+We will keep it for now but update it to a discrete variable (+bucket categories w/low frequency into 'other').
+
+
+### 6.0 Preprocessing Pipeline
+
+Armed with these new insights we can start adding on to our data pipeline.
+
+
+### 6.1 Train + Test Sets
+
+MAYBE REMOVE THIS SECTION (IT SORT OF DISTRACTS...)
+
+Let's split our data into a Train + Test set to further exemplify a real-world scenario.
+
+We will use the unprocessed data here then 
+
+```{r}
+# set seed and split data
+set.seed(54321)
+coffee_ratings_initial_split <- initial_split(coffee_ratings_tbl, prop = 0.8)
+
+# set as variables
+train_tbl <- training(coffee_ratings_initial_split)
+test_tbl <- testing(coffee_ratings_initial_split)
+
+# show split breakouts
+coffee_ratings_initial_split
+```
+
+
+### 6.2 Preprocessing Pipeline Recipe (Prep)
+
+Rather than build out our own functions and code for completing our preprocessing tasks, we are going to leverage the `{recipes::package}`. If you have yet to see this package then quickly learn it and add it to your toolbox 🧰
+
+
+
+```{r}
+preprocessing_recipe <- recipe(total_cup_points ~ ., 
+                               data = train_tbl) %>% 
   
-skim(coffee_rating_preprocessed_tbl)
-
-coffee_rating_preprocessed_tbl %>% plot_missing()
-coffee_rating_preprocessed_tbl %>% plot_bar(maxcat = 50, ncol = 2, nrow = 2, ggtheme = theme_tq())
-coffee_rating_preprocessed_tbl %>% plot_histogram(ncol = 3, nrow = 2, ggtheme = theme_tq())
-```
-
-
-
-### Data Understanding
-
-
-### Exploratory Data Analysis
-
-
-### Preprocessing Data Pipeline
-
-Bringing it all together from what we've learning
-
-```{r}
-# # reminder of raw-data
-# raw_data
-# 
-# # reminder of preprocessing/cleaning
-# data_processed
-# 
-# # setup recipe based on eda findings
-# preprocessing_recipe
-# 
-# # add recipe to preprocessing data pipeline
-# data_processed
-```
-
-
-
-```{r}
-knitr::knit_exit()
-```
-
-
-
-
-```{r}
-
-
-coffee_ratings
-
-
-coffee_ratings %>% count(country_of_origin, sort = T)
-
-# data pre-processing
-coffee_ratings_processed <- coffee_ratings %>% 
-    select(species, country_of_origin, harvest_year, grading_date,
-           number_of_bags, altitude_mean_meters, total_cup_points) %>% 
-    filter(total_cup_points > 0, 
-           !is.na(country_of_origin)) %>% 
-    mutate(country_of_origin = case_when(
-        country_of_origin == "Cote d?Ivoire" ~ "Cote d'Ivoire",
-        country_of_origin == "Tanzania, United Republic Of" ~ "Tanzania",
-        #country_of_origin == "United States (Puerto Rico)" ~ "Puerto Rico",
-        TRUE ~ country_of_origin)) %>% 
-    mutate(harvest_year = case_when(
+  # clean + standardize harvest-year feature
+  step_mutate(
+    harvest_year = as.character(harvest_year),
+    harvest_year = case_when(
         harvest_year == "August to December" ~ "2010",
         harvest_year == "08/09 crop" ~ "2008",
         harvest_year == "1t/2011" ~ "2011",
@@ -245,169 +397,124 @@ coffee_ratings_processed <- coffee_ratings %>%
         harvest_year == "4T/2010" ~ "2010",
         harvest_year == "4t/2011" ~ "2011",
         harvest_year == "4T72010" ~ "2010",
-        TRUE ~ harvest_year)) %>% 
-    mutate(harvest_year = parse_number(harvest_year) %>% as.factor(),
-           harvest_year = fct_explicit_na(harvest_year, na_level = "missing"),
-           harvest_year = as.character(harvest_year),
-           altitude_mean_feet = altitude_mean_meters * 3.28084) %>% 
-    mutate(harvest_year = case_when(
-        harvest_year == "missing" ~ str_sub(grading_date, str_count(grading_date)-3),
-        TRUE ~ harvest_year
-    )) %>% 
-    mutate(harvest_year = case_when(harvest_year == "017\n" ~ "2017",
-                                    TRUE ~ harvest_year)) %>% 
-    mutate(continent = countrycode(country_of_origin, "country.name", "continent")) %>% 
-    select(-altitude_mean_meters) %>% 
-    select(continent, country_of_origin, everything())
-
-
-
-skimr::skim(coffee_ratings_processed) 
-
+        TRUE ~ harvest_year),
+    harvest_year = parse_number(harvest_year) %>% as.factor(),
+    harvest_year = fct_explicit_na(harvest_year, na_level = NA),
+    harvest_year = as.character(harvest_year), 
+    harvest_year = case_when(
+      harvest_year == NA~ str_sub(grading_date, str_count(grading_date)-3),
+      TRUE ~ harvest_year),
+    harvest_year = case_when(
+      harvest_year == "017\n" ~ "2017",
+      TRUE ~ harvest_year)) %>%
+  
+  # remove unnecessary columns
+  step_rm(species, owner, farm_name, lot_number, mill, ico_number,
+          company, altitude, region, producer, number_of_bags,
+          bag_weight, in_country_partner, owner_1, expiration,
+          contains("certification"), unit_of_measurement,
+          altitude_low_meters, altitude_high_meters, grading_date) %>% 
+  
+  # feature engineering - continent
+    step_mutate(
+      country_of_origin = as.character(country_of_origin),
+      country_of_origin = case_when(
+        country_of_origin == "Cote d?Ivoire" ~ "Cote d'Ivoire",
+        country_of_origin == "Tanzania, United Republic Of" ~ "Tanzania",
+        country_of_origin == "United States (Puerto Rico)" ~ "Puerto Rico",
+        TRUE ~ country_of_origin),
+      continent = countrycode(country_of_origin, "country.name", "continent")) %>%   
+  
+  # combine low-frequency categories
+  step_other(all_nominal(), threshold = 0.02, other = "other") %>%
+  step_mutate_at(all_nominal(), fn = str_to_lower) %>%
+  
+  # encode categorical features
+  step_string2factor(all_nominal()) %>%
+  step_mutate(quakers = as.factor(quakers)) %>% 
+  
+  # impute missing values
+  step_knnimpute(
+    processing_method, quakers, country_of_origin, continent,
+    harvest_year, color, variety, altitude_mean_meters) %>%
+  
+  # apply box-cox transformation
+  step_BoxCox(altitude_mean_meters) %>% 
+  
+  # prep recipe
+  prep()
 ```
 
 
+### 6.3 Preprocessing Pipeline Recipe (Bake)
+
+
+
+
+Let's take a quick look at our `preprocessing` `recipe` before applying it to our data.
+
+```{r}
+preprocessing_recipe
+```
+
+Now, let's go ahead and apply our `prepared` `recipe` using the `bake()` function.
+
+```{r}
+coffee_ratings_preprocessed_tbl <- preprocessing_recipe %>% 
+  
+  # bake recipe
+  bake(train_tbl)
+```
+
+
+### 7.0 Inspect Output
+
+Let's take a look!
+
+
+### 7.1 Inspect Missing Data
+
+Features with missing data were either dropped or now have estimated values in their place.
 
 
 ```{r}
-
-
-# what are the counts of ratings over time?
-coffee_ratings_processed %>% 
-    count(harvest_year) %>% 
-    ggplot(aes(harvest_year, n)) +
-    geom_col() +
-    labs(title = "Coffee Rating Counts by Year",
-         subtitle = "The dataset is incomplete with 2012 to 2017 having the most substative data.")
-
-# how do coffee ratings change as altitude increases?
-# is there a relationship between altitude and coffee ratings?
-coffee_ratings_processed %>% 
-    filter(altitude_mean_feet <= 30000) %>% 
-    ggplot(aes(altitude_mean_feet, total_cup_points)) +
-    geom_point() +
-    geom_smooth(method = "lm") +
-    scale_x_continuous(label = scales::comma_format()) #+
-    #ylim(0, 100)
-
-# what are the most common elevations for coffee farms (by continent)?
-# slightly misleanding b/c not aggreated to farms first (this is ratings so farms can be multiple times)
-coffee_ratings_processed %>% 
-    filter(altitude_mean_feet <= 30000) %>% 
-    ggplot(aes(altitude_mean_feet, fill = continent)) +
-    geom_histogram(binwidth = 300)
-
-# which countries in each continent have the most coffee ratings?
-coffee_ratings_processed %>% 
-    count(continent, country_of_origin) %>% 
-    arrange(continent, desc(n)) 
-
-
-# Mapping Coffee Ratings
-library(maps)
-maps::iso3166 %>% tibble() 
-
-world <- map_data("world") %>% tibble() %>% filter(region != "Antarctica")
-
-coffee_ratings_processed %>%
-    group_by(continent, country_of_origin) %>% 
-    summarize(mean_rating = mean(total_cup_points)) %>% 
-    ungroup() %>% 
-    #distinct(continent, country_of_origin) %>% 
-    right_join(world, by = c(country_of_origin = "region")) %>% 
-    ggplot(aes(long, lat, group = group, fill = mean_rating)) +
-    geom_polygon() +
-    coord_map(xlim=c(-180,180), ylim=c(-55, 80)) +
-    scale_fill_gradient2(low = "white", high = "darkgreen", midpoint = 78) +
-    theme_void() 
-
-
-
-# how do coffee ratings vary? Looks like they follow a normal distribution.
-coffee_ratings_processed %>% 
-    ggplot(aes(total_cup_points)) +
-    geom_histogram(binwidth = 1) +
-    xlim(50, 100) +
-    labs(title = "Overall distribution of Coffee Ratings",
-         subtitle = "Normal distribution, some outliers seen at lower values between 60 to 70.",
-         x = "Coffee Ratings", y = "Count")
-
-# were the really low scores from farms that had small sample sizes (# of bags)?
-coffee_ratings_processed %>% 
-    filter(total_cup_points < 70)
-# not really. i wonder what explains the low scores? same farm?
-
-#
-
-# which countries have the highest average coffee ratings?
-# follow up: how much different are the wtd means?
-mean_ratings_by_country <- coffee_ratings_processed %>% 
-    group_by(country_of_origin) %>% 
-    summarise(mean_rating = mean(total_cup_points),
-          wtd_mean_rating = weighted.mean(total_cup_points, w = number_of_bags),
-          change = mean_rating - wtd_mean_rating) %>% 
-    ungroup() %>% 
-    arrange(desc(mean_rating)) %>% 
-    mutate(country_of_origin = fct_reorder(country_of_origin, wtd_mean_rating))
-
-mean_ratings_by_country %>% 
-    ggplot(aes(country_of_origin, wtd_mean_rating)) +
-    geom_col() +
-    coord_flip()
-
-# how do coffee ratings vary by country?
-coffee_ratings_processed %>% 
-    mutate(country_of_origin = fct_reorder(country_of_origin, total_cup_points)) %>% 
-    ggplot(aes(x = country_of_origin, y = total_cup_points, fill = country_of_origin)) +
-    geom_boxplot(show.legend = F) +
-    coord_flip() +
-    ylim(0, 100)
-
-# which countries have the highest ratings?
-coffee_ratings_processed %>% 
-    arrange(desc(total_cup_points))
-
-library(countrycode)
-?countrycode
-
-africa_ratings <- coffee_ratings_processed %>% 
-    mutate(continent = countrycode(country_of_origin, "country.name", "continent")) %>% 
-    filter(continent == "Africa") %>% 
-    rename(country = country_of_origin) %>% 
-    mutate(harvest_year = parse_number(harvest_year),
-           harvest_year = as.factor(harvest_year)) %>% 
-    filter(!is.na(harvest_year))
-
-# how many coffees were rated each year in Africa?
-africa_ratings %>% 
-    count(harvest_year, sort = T) %>% 
-    ggplot(aes(x = harvest_year, y = n)) +
-    geom_col()
-
-# What was the average rating each year (by country)?
-# looks like some countries are very data limited.
-africa_ratings %>% 
-    group_by(country, harvest_year) %>% 
-    summarize(mean_rating = mean(total_cup_points)) %>% 
-    ungroup() %>% 
-    
-    ggplot(aes(harvest_year, mean_rating, fill = country)) +
-    geom_col(show.legend = F) +
-    scale_fill_tq() +
-    facet_wrap(~country, nrow = 5) +
-    ylim(0, 100)
-
-africa_ratings %>% 
-    ggplot(aes(total_cup_points, fill = country)) +
-    geom_histogram(show.legend = F) +
-    scale_fill_tq() +
-    facet_wrap(~country, nrow = 5) 
-
-africa_ratings %>% 
-    count(country, harvest_year) %>% view()
+coffee_ratings_preprocessed_tbl %>% 
+  plot_missing(ggtheme = theme_tq())
 ```
 
 
+### 7.2 Inspect Categorical Data
 
+Let's take a peak at our preprocessed categorical data.
+
+```{r, fig.height=8}
+coffee_ratings_preprocessed_tbl %>% 
+  plot_bar(ggtheme = theme_tq(), ncol = 2, nrow = 4)
+```
+
+A bit more work could be done here but overall this is looking good.
+
+
+### 7.3 Inspect Numerical Data 
+
+Now to inspect our numerical features.
+
+```{r, fig.height=8}
+coffee_ratings_preprocessed_tbl %>% 
+ plot_histogram(ggtheme = theme_tq(), nrow = 5, ncol = 4)
+```
+
+Of course we could do more work to prepare these data appropriately for modeling.
+
+However, that's not really the point here.
+
+
+### 8.0 Wrap Up
+
+The point is that `DataExplorer` provides three functions that allow the user to rapidly `Explore` their `Data`:
+
+1. `plot_missing()`
+2. `plot_bar()`
+3. `plot_histogram`
 
 
