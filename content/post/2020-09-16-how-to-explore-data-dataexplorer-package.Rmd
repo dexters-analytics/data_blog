@@ -116,12 +116,9 @@ Each record represents bags of coffee that were assessed and "professionally rat
 Out of the many features in the data set, there are 10 numeric metrics that when summed make up the coffee rating score (total_cup_points).
 
 
-```{r}
+```{r, results="hide"}
 tuesdata <- tidytuesdayR::tt_load(2020, week = 28)
 coffee_ratings_tbl <- tuesdata$coffee_ratings
-
-# coffee_ratings_tbl <- read_csv("static/01_data/coffee_ratings.csv")
-# coffee_ratings_tbl <- read_csv("../../static/01_data/coffee_ratings.csv")
 ```
 
 
@@ -149,8 +146,8 @@ coffee_ratings_preprocessed_tbl <- coffee_ratings_tbl
 
 ### 3.0 Case-Study Objectives
 
-1. Rapidly assess data.
-2. Gains insights that help preprocess data.
+1. Rapidly assess our data
+2. Gains insights that help clean and preprocess those data
 
 Let's see how `{DataExplorer}` can expedite the process.
 
@@ -346,7 +343,7 @@ I've been learning Data Science at [Business Science University](http://bit.ly/2
 
 Join me on the journey. 
 
-Check out this link to get 15% off of the courses that are helping 1000s of analytics professionals take their careers to the next level: [15% off Business Science Courses](http://bit.ly/2UbPat2){target="_blank"}
+Click this link to get a discount on data-science courses helping 1000s of analytics professionals take their careers to the next level: [15% off Business Science Courses](http://bit.ly/2UbPat2){target="_blank"}
 
 
 ```{r}

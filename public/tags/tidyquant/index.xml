@@ -1,21 +1,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>tidyquant on Exploring Data</title>
-    <link>/tags/tidyquant/</link>
+    <link>https://www.exploringdata.org/tags/tidyquant/</link>
     <description>Recent content in tidyquant on Exploring Data</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 02 Jun 2020 00:00:00 +0000</lastBuildDate>
     
-        <atom:link href="/tags/tidyquant/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://www.exploringdata.org/tags/tidyquant/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Business Ready Plots with R</title>
-      <link>/post/business-ready-plots-with-r/</link>
+      <link>https://www.exploringdata.org/post/business-ready-plots-with-r/</link>
       <pubDate>Tue, 02 Jun 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/business-ready-plots-with-r/</guid>
+      <guid>https://www.exploringdata.org/post/business-ready-plots-with-r/</guid>
       <description>
 
 
@@ -39,7 +39,7 @@
 &lt;h3&gt;The Final Plot&lt;/h3&gt;
 &lt;p&gt;This is the plot that we will recreate in the post - it’s crisp, clean, and Business-Ready.&lt;/p&gt;
 &lt;p&gt;Let’s get started 😎&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2020-05-30-business-ready-plots-with-r_files/edu_comps_la_vs_nation.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.exploringdata.org/post/2020-05-30-business-ready-plots-with-r_files/edu_comps_la_vs_nation.png&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;load-our-libraries&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Load our Libraries&lt;/h3&gt;
@@ -105,7 +105,7 @@ edu_census_filtered_tbl&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;edu_census_filtered_tbl %&amp;gt;% 
     ggplot(aes(x = variable, y = value, fill = name)) +
     geom_col() &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2020-05-30-business-ready-plots-with-r_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.exploringdata.org/post/2020-05-30-business-ready-plots-with-r_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;We can immediately see that ‘some’ differences exist but it’s difficult to get a sense of the magnitude. It’s also difficult to make out the names of the variables on the x-axis.&lt;/p&gt;
 &lt;p&gt;Making &lt;code&gt;Business-Ready&lt;/code&gt; plots can be time-consuming - thankfully, we have the &lt;code&gt;Tidyquant&lt;/code&gt; library to help expedite the process.&lt;/p&gt;
 &lt;/div&gt;
@@ -190,7 +190,7 @@ data_visualized_plot &amp;lt;- data_manipulated_tbl %&amp;gt;%
 &lt;h3&gt;Display Plot&lt;/h3&gt;
 &lt;p&gt;Let’s take a look at our awesome plot 😎&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data_visualized_plot&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2020-05-30-business-ready-plots-with-r_files/figure-html/unnamed-chunk-9-1.png&#34; width=&#34;768&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.exploringdata.org/post/2020-05-30-business-ready-plots-with-r_files/figure-html/unnamed-chunk-9-1.png&#34; width=&#34;768&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;wrap-up&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Wrap Up&lt;/h3&gt;

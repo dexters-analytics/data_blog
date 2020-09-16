@@ -1,25 +1,25 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>R on Exploring Data</title>
-    <link>/categories/r/</link>
+    <link>https://www.exploringdata.org/categories/r/</link>
     <description>Recent content in R on Exploring Data</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 16 Sep 2020 00:00:00 +0000</lastBuildDate>
     
-        <atom:link href="/categories/r/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://www.exploringdata.org/categories/r/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>How to Explore Data: {DataExplorer} Package</title>
-      <link>/post/how-to-explore-data-dataexplorer-package/</link>
+      <link>https://www.exploringdata.org/post/how-to-explore-data-dataexplorer-package/</link>
       <pubDate>Wed, 16 Sep 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/how-to-explore-data-dataexplorer-package/</guid>
+      <guid>https://www.exploringdata.org/post/how-to-explore-data-dataexplorer-package/</guid>
       <description>
 
 
-&lt;p&gt;&lt;img src=&#34;/post/2020-09-16-how-to-explore-data-dataexplorer-package_files/01_exploring_data.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.exploringdata.org/post/2020-09-16-how-to-explore-data-dataexplorer-package_files/01_exploring_data.png&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;br/&gt;&lt;/p&gt;
 &lt;p&gt;“Exploring-Data” is an &lt;code&gt;R-Centric&lt;/code&gt; blog in which I share easily digestible content aimed at making the wrangling and exploration of data more efficient and more fun.&lt;/p&gt;
 &lt;p&gt;Sign up &lt;a href=&#34;https://tinyletter.com/dexters-analytics&#34; target=&#34;_blank&#34;&gt;HERE&lt;/a&gt; to join other subscribers who also nerd-out on tips for exploring data.&lt;/p&gt;
@@ -44,7 +44,7 @@
 &lt;p&gt;You can tell by the name of my blog that &lt;code&gt;{DataExplorer}&lt;/code&gt; is perfectly suited for this series on &lt;code&gt;R&lt;/code&gt; packages.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://www.linkedin.com/in/boxuancui/&#34; target=&#34;_blank&#34;&gt;Boxuan Cui&lt;/a&gt; is the developer and maintainer of &lt;code&gt;{DataExplorer}&lt;/code&gt;, a package which at it’s core is designed to “simplify and automate EDA.”&lt;/p&gt;
 &lt;center&gt;
-&lt;img src=&#34;/post/2020-09-16-how-to-explore-data-dataexplorer-package_files/DataExplorer-180x180.png&#34; /&gt;
+&lt;img src=&#34;https://www.exploringdata.org/post/2020-09-16-how-to-explore-data-dataexplorer-package_files/DataExplorer-180x180.png&#34; /&gt;
 &lt;/center&gt;
 &lt;p&gt;&lt;br/&gt;&lt;/p&gt;
 &lt;p&gt;Take the time to explore the &lt;code&gt;{DataExplorer}&lt;/code&gt; &lt;a href=&#34;https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-07-07/readme.md&#34; target=&#34;_blank&#34;&gt;Github Page&lt;/a&gt; where Boxuan provides the following context:&lt;/p&gt;
@@ -90,13 +90,8 @@ theme_set(theme_tq())&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;For our case-study we are using data from the &lt;a href=&#34;https://github.com/rfordatascience/tidytuesday&#34; target=&#34;_blank&#34;&gt;Tidy Tuesday Project&lt;/a&gt; archive.&lt;/p&gt;
 &lt;p&gt;Each record represents bags of coffee that were assessed and “professionally rated on a 0-100 scale.” Each row has a score that originated from assessing X number of bags of coffee beans.&lt;/p&gt;
 &lt;p&gt;Out of the many features in the data set, there are 10 numeric metrics that when summed make up the coffee rating score (total_cup_points).&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;tuesdata &amp;lt;- tidytuesdayR::tt_load(2020, week = 28)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## 
-##  Downloading file 1 of 1: `coffee_ratings.csv`&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;coffee_ratings_tbl &amp;lt;- tuesdata$coffee_ratings
-
-# coffee_ratings_tbl &amp;lt;- read_csv(&amp;quot;static/01_data/coffee_ratings.csv&amp;quot;)
-# coffee_ratings_tbl &amp;lt;- read_csv(&amp;quot;../../static/01_data/coffee_ratings.csv&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;tuesdata &amp;lt;- tidytuesdayR::tt_load(2020, week = 28)
+coffee_ratings_tbl &amp;lt;- tuesdata$coffee_ratings&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;data-caveats&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;2.3 Data Caveats&lt;/h3&gt;
@@ -114,8 +109,8 @@ theme_set(theme_tq())&lt;/code&gt;&lt;/pre&gt;
 &lt;div id=&#34;case-study-objectives&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;3.0 Case-Study Objectives&lt;/h3&gt;
 &lt;ol style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;Rapidly assess data.&lt;/li&gt;
-&lt;li&gt;Gains insights that help preprocess data.&lt;/li&gt;
+&lt;li&gt;Rapidly assess our data&lt;/li&gt;
+&lt;li&gt;Gains insights that help clean and preprocess those data&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;Let’s see how &lt;code&gt;{DataExplorer}&lt;/code&gt; can expedite the process.&lt;/p&gt;
 &lt;p&gt;As usual, let’s take a &lt;code&gt;glimpse()&lt;/code&gt; of our data to see how we should proceed.&lt;/p&gt;
@@ -746,7 +741,7 @@ theme_set(theme_tq())&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The visualization provided by &lt;code&gt;plot_missing()&lt;/code&gt; helps identify columns that may need attention.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;coffee_ratings_preprocessed_tbl %&amp;gt;% 
   plot_missing(ggtheme = theme_tq())&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2020-09-16-how-to-explore-data-dataexplorer-package_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.exploringdata.org/post/2020-09-16-how-to-explore-data-dataexplorer-package_files/figure-html/unnamed-chunk-7-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;This visual allows rapid assessment of features that may need to be dropped or have their values estimated via imputation.&lt;/p&gt;
 &lt;div id=&#34;new-insights-1&#34; class=&#34;section level4&#34;&gt;
 &lt;h4&gt;New Insights&lt;/h4&gt;
@@ -761,7 +756,7 @@ theme_set(theme_tq())&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Equipped with &lt;code&gt;plot_bar()&lt;/code&gt; we can rapidly assess categorical features by looking at the frequency of each value.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;coffee_ratings_preprocessed_tbl %&amp;gt;% 
     plot_bar(ggtheme = theme_tq(), ncol = 2, nrow = 4)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2020-09-16-how-to-explore-data-dataexplorer-package_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.exploringdata.org/post/2020-09-16-how-to-explore-data-dataexplorer-package_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;I’m definitely impressed with this function and it is now part of my EDA toolbox 🧰&lt;/p&gt;
 &lt;div id=&#34;new-insights-2&#34; class=&#34;section level4&#34;&gt;
 &lt;h4&gt;New Insights&lt;/h4&gt;
@@ -780,7 +775,7 @@ theme_set(theme_tq())&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Onward to assessing our numerical features using &lt;code&gt;plot_histogram()&lt;/code&gt;.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;coffee_ratings_preprocessed_tbl %&amp;gt;% 
     plot_histogram(ggtheme = theme_tq(), nrow = 5, ncol = 4)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2020-09-16-how-to-explore-data-dataexplorer-package_files/figure-html/unnamed-chunk-9-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.exploringdata.org/post/2020-09-16-how-to-explore-data-dataexplorer-package_files/figure-html/unnamed-chunk-9-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;This is another function that swiftly made its way into my EDA toolbox 🧰&lt;/p&gt;
 &lt;div id=&#34;new-insights-3&#34; class=&#34;section level4&#34;&gt;
 &lt;h4&gt;New Insights&lt;/h4&gt;
@@ -810,7 +805,7 @@ theme_set(theme_tq())&lt;/code&gt;&lt;/pre&gt;
     scale_y_log10(label = scales::comma_format()) +
     theme(legend.position = &amp;quot;none&amp;quot;) + 
     labs(x = &amp;quot;&amp;quot;, y = &amp;quot;Meters&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2020-09-16-how-to-explore-data-dataexplorer-package_files/figure-html/unnamed-chunk-10-1.png&#34; width=&#34;576&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.exploringdata.org/post/2020-09-16-how-to-explore-data-dataexplorer-package_files/figure-html/unnamed-chunk-10-1.png&#34; width=&#34;576&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Looks good.&lt;/p&gt;
 &lt;p&gt;The variation between low and high isn’t substantial and so we would probably keep altitude_mean_meters and drop the others.&lt;/p&gt;
 &lt;/div&gt;
@@ -824,7 +819,7 @@ theme_set(theme_tq())&lt;/code&gt;&lt;/pre&gt;
     ggplot(aes(as.factor(quakers), total_cup_points)) +
     geom_violin() +
     geom_jitter(alpha = 0.2) + ylim(0, 100)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2020-09-16-how-to-explore-data-dataexplorer-package_files/figure-html/unnamed-chunk-11-1.png&#34; width=&#34;576&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.exploringdata.org/post/2020-09-16-how-to-explore-data-dataexplorer-package_files/figure-html/unnamed-chunk-11-1.png&#34; width=&#34;576&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;It doesn’t look like quakers explains much of the variation within total_cup_points.&lt;/p&gt;
 &lt;p&gt;If kept, it would be worth updating to a categorical variable.&lt;/p&gt;
 &lt;/div&gt;
@@ -853,7 +848,7 @@ theme_set(theme_tq())&lt;/code&gt;&lt;/pre&gt;
 &lt;h3&gt;5.2 Learn R Fast&lt;/h3&gt;
 &lt;p&gt;I’ve been learning Data Science at &lt;a href=&#34;http://bit.ly/2UbPat2&#34; target=&#34;_blank&#34;&gt;Business Science University&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Join me on the journey.&lt;/p&gt;
-&lt;p&gt;Check out this link to get 15% off of the courses that are helping 1000s of analytics professionals take their careers to the next level: &lt;a href=&#34;http://bit.ly/2UbPat2&#34; target=&#34;_blank&#34;&gt;15% off Business Science Courses&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Click this link to get a discount on data-science courses helping 1000s of analytics professionals take their careers to the next level: &lt;a href=&#34;http://bit.ly/2UbPat2&#34; target=&#34;_blank&#34;&gt;15% off Business Science Courses&lt;/a&gt;&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;knitr::knit_exit()&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -869,16 +864,16 @@ theme_set(theme_tq())&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>How to Clean Data: {janitor} Package</title>
-      <link>/post/how-to-clean-data-janitor-package/</link>
+      <link>https://www.exploringdata.org/post/how-to-clean-data-janitor-package/</link>
       <pubDate>Wed, 02 Sep 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/how-to-clean-data-janitor-package/</guid>
+      <guid>https://www.exploringdata.org/post/how-to-clean-data-janitor-package/</guid>
       <description>
-&lt;link href=&#34;/rmarkdown-libs/pagedtable/css/pagedtable.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;/rmarkdown-libs/pagedtable/js/pagedtable.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;https://www.exploringdata.org/rmarkdown-libs/pagedtable/css/pagedtable.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;https://www.exploringdata.org/rmarkdown-libs/pagedtable/js/pagedtable.js&#34;&gt;&lt;/script&gt;
 
 
-&lt;p&gt;&lt;img src=&#34;/post/2020-09-02-how-to-clean-data-janitor-package_files/Screen%20Shot%202020-09-02%20at%208.00.42%20PM.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.exploringdata.org/post/2020-09-02-how-to-clean-data-janitor-package_files/Screen%20Shot%202020-09-02%20at%208.00.42%20PM.png&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;br/&gt;&lt;/p&gt;
 &lt;p&gt;“Exploring-Data” is a blog in which I share easily digestible content aimed at making the wrangling and exploration of data more efficient and more fun.&lt;/p&gt;
 &lt;p&gt;Sign up &lt;a href=&#34;https://tinyletter.com/dexters-analytics&#34; target=&#34;_blank&#34;&gt;HERE&lt;/a&gt; to join other subscribers who also nerd-out on tips for exploring data using &lt;code&gt;R&lt;/code&gt;.&lt;/p&gt;
@@ -952,7 +947,7 @@ library(USAboundaries) # Get state name/code mapping&lt;/code&gt;&lt;/pre&gt;
 &lt;h3&gt;Let’s Get Some Data&lt;/h3&gt;
 &lt;p&gt;For our case-study we are using data from the &lt;a href=&#34;https://github.com/rfordatascience/tidytuesday&#34; target=&#34;_blank&#34;&gt;Tidy Tuesday Project&lt;/a&gt; archive.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Import Data ----
-# tuesdata &amp;lt;- tidytuesdayR::tt_load(&amp;quot;2018-05-07&amp;quot;) &lt;/code&gt;&lt;/pre&gt;
+tuesdata &amp;lt;- tidytuesdayR::tt_load(&amp;quot;2018-05-07&amp;quot;) &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;pro-tip-pre-processing-pipeline&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Pro-Tip: Pre-Processing Pipeline&lt;/h3&gt;
@@ -962,7 +957,7 @@ library(USAboundaries) # Get state name/code mapping&lt;/code&gt;&lt;/pre&gt;
 &lt;div id=&#34;step-1&#34; class=&#34;section level4&#34;&gt;
 &lt;h4&gt;Step 1&lt;/h4&gt;
 &lt;p&gt;Save &lt;code&gt;raw&lt;/code&gt; data to a variable.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# coffee_chains_raw &amp;lt;- tuesdata$week6_coffee_chains&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;coffee_chains_raw &amp;lt;- tuesdata$week6_coffee_chains&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;step-2&#34; class=&#34;section level4&#34;&gt;
 &lt;h4&gt;Step 2&lt;/h4&gt;
@@ -1093,7 +1088,7 @@ DataExplorer::plot_missing(
   data    = coffee_chains_raw,
   ggtheme = tidyquant::theme_tq(), 
   missing_only = TRUE) &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2020-09-02-how-to-clean-data-janitor-package_files/figure-html/unnamed-chunk-13-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.exploringdata.org/post/2020-09-02-how-to-clean-data-janitor-package_files/figure-html/unnamed-chunk-13-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;The plot shows that &lt;code&gt;0%&lt;/code&gt; of data are missing for lat/long leading me to believe that the store identified earlier is the only record with missing data (insignificant amount when plotted).&lt;/p&gt;
 &lt;p&gt;We will filter that record out in our &lt;code&gt;data-cleaning&lt;/code&gt; step.&lt;/p&gt;
 &lt;/div&gt;
@@ -1244,7 +1239,7 @@ starbucks_lower_48 %&amp;gt;%
   scale_color_manual(values = c(&amp;quot;#2c3e50&amp;quot;, &amp;quot;#18BC9C&amp;quot;)) +
   labs(title = &amp;quot;Starbucks Locations by Ownership Type (Lower 48)&amp;quot;,
        color = &amp;quot;Ownership Type&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2020-09-02-how-to-clean-data-janitor-package_files/figure-html/unnamed-chunk-21-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.exploringdata.org/post/2020-09-02-how-to-clean-data-janitor-package_files/figure-html/unnamed-chunk-21-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;That’s a solid map but I think we can do better to identify patterns in ownership types.&lt;/p&gt;
 &lt;p&gt;Let’s calculate the ratio of Corporate (Company Owned) vs. Licensed ownership and map that at the state level.&lt;/p&gt;
 &lt;/div&gt;
@@ -1315,7 +1310,7 @@ ownership_ratios_by_state &amp;lt;- starbucks_lower_48 %&amp;gt;%
   labs(title = &amp;quot;Ratio of Corporate vs. Licensed Starbucks in the US (Lower 48)&amp;quot;,
        subtitle = &amp;quot;Darker green equates to more corporate locations compared to licensed establishments.&amp;quot;,
        fill = &amp;quot;Ratio of\nCorporate/\nLicensed&amp;quot;) &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2020-09-02-how-to-clean-data-janitor-package_files/figure-html/unnamed-chunk-25-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.exploringdata.org/post/2020-09-02-how-to-clean-data-janitor-package_files/figure-html/unnamed-chunk-25-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;This represent the data in a way that helps us identify patterns - our manager will be pleased 👍&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;wrap-up&#34; class=&#34;section level3&#34;&gt;
@@ -1351,14 +1346,14 @@ ownership_ratios_by_state &amp;lt;- starbucks_lower_48 %&amp;gt;%
     
     <item>
       <title>Quick Tips for Data Cleaning in R</title>
-      <link>/post/quick-tips-for-data-cleaning-in-r/</link>
+      <link>https://www.exploringdata.org/post/quick-tips-for-data-cleaning-in-r/</link>
       <pubDate>Tue, 25 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/quick-tips-for-data-cleaning-in-r/</guid>
+      <guid>https://www.exploringdata.org/post/quick-tips-for-data-cleaning-in-r/</guid>
       <description>
 
 
-&lt;p&gt;&lt;img src=&#34;/post/2020-05-24-quick-tips-for-data-cleaning-in-r_files/Screen%20Shot%202020-08-17%20at%209.15.29%20PM.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.exploringdata.org/post/2020-05-24-quick-tips-for-data-cleaning-in-r_files/Screen%20Shot%202020-08-17%20at%209.15.29%20PM.png&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;br/&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;Exploring-Data&lt;/code&gt; is a place where I share easily digestible content aimed at making the wrangling and exploration of data more efficient (+fun).&lt;/p&gt;
 &lt;p&gt;Sign up &lt;a href=&#34;https://tinyletter.com/dexters-analytics&#34; target=&#34;_blank&#34;&gt;Here&lt;/a&gt; to join the many other subscribers who also nerd out on new tips and tricks 🤓&lt;/p&gt;
@@ -1540,10 +1535,10 @@ cetacean_cols_allcaps_tbl %&amp;gt;% glimpse()&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>Exploratory Data Analysis Guide</title>
-      <link>/post/exploratory-data-analysis-eda-guide/</link>
+      <link>https://www.exploringdata.org/post/exploratory-data-analysis-eda-guide/</link>
       <pubDate>Wed, 15 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/exploratory-data-analysis-eda-guide/</guid>
+      <guid>https://www.exploringdata.org/post/exploratory-data-analysis-eda-guide/</guid>
       <description>
 
 
@@ -1559,7 +1554,7 @@ cetacean_cols_allcaps_tbl %&amp;gt;% glimpse()&lt;/code&gt;&lt;/pre&gt;
 &lt;h3&gt;R for Data Science&lt;/h3&gt;
 &lt;p&gt;Hadley Wickham and Garrett Grolemund wrote an incredible book called &lt;a href=&#34;https://r4ds.had.co.nz/exploratory-data-analysis.html&#34; target=&#34;_blank&#34;&gt;R for Data Science (R4DS)&lt;/a&gt;. In the book they teach how to “turn raw data into understanding, insight, and knowledge.” The authors do this by being laser focused on the tools that help the data-practitioner import, tidy, transform, visualize, and model data (+communicate findings):&lt;/p&gt;
 &lt;div class=&#34;figure&#34;&gt;
-&lt;img src=&#34;/post/2020-06-20-exploratory-data-analysis-eda-guide_files/data_science_workflow.png&#34; alt=&#34;&#34; /&gt;
+&lt;img src=&#34;https://www.exploringdata.org/post/2020-06-20-exploratory-data-analysis-eda-guide_files/data_science_workflow.png&#34; alt=&#34;&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;R4DS Workflow&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;I dug into the chapter on Exploratory Data Analysis (EDA) this past week.&lt;/p&gt;
@@ -1638,7 +1633,7 @@ theme_set(theme_tq())&lt;/code&gt;&lt;/pre&gt;
     geom_bar(aes(x = cut)) +
     labs(title = &amp;quot;Bar Charts for Categorical Variables&amp;quot;)
 p1&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2020-06-20-exploratory-data-analysis-eda-guide_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.exploringdata.org/post/2020-06-20-exploratory-data-analysis-eda-guide_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;continuous-variables&#34; class=&#34;section level4&#34;&gt;
 &lt;h4&gt;Continuous Variables&lt;/h4&gt;
@@ -1671,7 +1666,7 @@ patchwork + plot_annotation(
   title   = &amp;quot;Histograms for Continuous Variables&amp;quot;,
   caption = &amp;quot;Notice the different patterns that are revealed.&amp;quot;
 )&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2020-06-20-exploratory-data-analysis-eda-guide_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.exploringdata.org/post/2020-06-20-exploratory-data-analysis-eda-guide_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div id=&#34;typical-values&#34; class=&#34;section level3&#34;&gt;
@@ -1685,7 +1680,7 @@ patchwork + plot_annotation(
 &lt;/ul&gt;
 &lt;p&gt;Another learning from this section is to focus on the clusters revealed when &lt;code&gt;Visualizing&lt;/code&gt; your &lt;code&gt;Distributions.&lt;/code&gt; For example, take a look at the &lt;code&gt;Histogram&lt;/code&gt; using a &lt;code&gt;Binwidth&lt;/code&gt; of &lt;code&gt;0.01&lt;/code&gt;; obvious clusters are revealed that are not obvious in the other 3 plots.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p5&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2020-06-20-exploratory-data-analysis-eda-guide_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.exploringdata.org/post/2020-06-20-exploratory-data-analysis-eda-guide_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;The author’s point out that “clusters of similar values suggest that subgroups exist in your data.”&lt;/p&gt;
 &lt;p&gt;What do you think they suggest doing in this situation? Ask more &lt;code&gt;questions&lt;/code&gt; 🤔&lt;/p&gt;
 &lt;p&gt;Understand the subgroups by asking:&lt;/p&gt;
@@ -1739,10 +1734,10 @@ patchwork + plot_annotation(
     
     <item>
       <title>Business Ready Plots with R</title>
-      <link>/post/business-ready-plots-with-r/</link>
+      <link>https://www.exploringdata.org/post/business-ready-plots-with-r/</link>
       <pubDate>Tue, 02 Jun 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/business-ready-plots-with-r/</guid>
+      <guid>https://www.exploringdata.org/post/business-ready-plots-with-r/</guid>
       <description>
 
 
@@ -1766,7 +1761,7 @@ patchwork + plot_annotation(
 &lt;h3&gt;The Final Plot&lt;/h3&gt;
 &lt;p&gt;This is the plot that we will recreate in the post - it’s crisp, clean, and Business-Ready.&lt;/p&gt;
 &lt;p&gt;Let’s get started 😎&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2020-05-30-business-ready-plots-with-r_files/edu_comps_la_vs_nation.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.exploringdata.org/post/2020-05-30-business-ready-plots-with-r_files/edu_comps_la_vs_nation.png&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;load-our-libraries&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Load our Libraries&lt;/h3&gt;
@@ -1832,7 +1827,7 @@ edu_census_filtered_tbl&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;edu_census_filtered_tbl %&amp;gt;% 
     ggplot(aes(x = variable, y = value, fill = name)) +
     geom_col() &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2020-05-30-business-ready-plots-with-r_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.exploringdata.org/post/2020-05-30-business-ready-plots-with-r_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;We can immediately see that ‘some’ differences exist but it’s difficult to get a sense of the magnitude. It’s also difficult to make out the names of the variables on the x-axis.&lt;/p&gt;
 &lt;p&gt;Making &lt;code&gt;Business-Ready&lt;/code&gt; plots can be time-consuming - thankfully, we have the &lt;code&gt;Tidyquant&lt;/code&gt; library to help expedite the process.&lt;/p&gt;
 &lt;/div&gt;
@@ -1917,7 +1912,7 @@ data_visualized_plot &amp;lt;- data_manipulated_tbl %&amp;gt;%
 &lt;h3&gt;Display Plot&lt;/h3&gt;
 &lt;p&gt;Let’s take a look at our awesome plot 😎&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data_visualized_plot&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2020-05-30-business-ready-plots-with-r_files/figure-html/unnamed-chunk-9-1.png&#34; width=&#34;768&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.exploringdata.org/post/2020-05-30-business-ready-plots-with-r_files/figure-html/unnamed-chunk-9-1.png&#34; width=&#34;768&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;wrap-up&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Wrap Up&lt;/h3&gt;
@@ -1951,26 +1946,26 @@ data_visualized_plot &amp;lt;- data_manipulated_tbl %&amp;gt;%
     
     <item>
       <title>Examining Data with glimpse()</title>
-      <link>/post/examining-data-with-glimpse/</link>
+      <link>https://www.exploringdata.org/post/examining-data-with-glimpse/</link>
       <pubDate>Fri, 15 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/examining-data-with-glimpse/</guid>
+      <guid>https://www.exploringdata.org/post/examining-data-with-glimpse/</guid>
       <description>
-&lt;link href=&#34;/rmarkdown-libs/pagedtable/css/pagedtable.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;/rmarkdown-libs/pagedtable/js/pagedtable.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;/rmarkdown-libs/htmlwidgets/htmlwidgets.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;/rmarkdown-libs/jquery/jquery.min.js&#34;&gt;&lt;/script&gt;
-&lt;link href=&#34;/rmarkdown-libs/leaflet/leaflet.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;/rmarkdown-libs/leaflet/leaflet.js&#34;&gt;&lt;/script&gt;
-&lt;link href=&#34;/rmarkdown-libs/leafletfix/leafletfix.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;/rmarkdown-libs/Proj4Leaflet/proj4-compressed.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;/rmarkdown-libs/Proj4Leaflet/proj4leaflet.js&#34;&gt;&lt;/script&gt;
-&lt;link href=&#34;/rmarkdown-libs/rstudio_leaflet/rstudio_leaflet.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;/rmarkdown-libs/leaflet-binding/leaflet.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;https://www.exploringdata.org/rmarkdown-libs/pagedtable/css/pagedtable.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;https://www.exploringdata.org/rmarkdown-libs/pagedtable/js/pagedtable.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://www.exploringdata.org/rmarkdown-libs/htmlwidgets/htmlwidgets.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://www.exploringdata.org/rmarkdown-libs/jquery/jquery.min.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;https://www.exploringdata.org/rmarkdown-libs/leaflet/leaflet.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;https://www.exploringdata.org/rmarkdown-libs/leaflet/leaflet.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;https://www.exploringdata.org/rmarkdown-libs/leafletfix/leafletfix.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;https://www.exploringdata.org/rmarkdown-libs/Proj4Leaflet/proj4-compressed.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://www.exploringdata.org/rmarkdown-libs/Proj4Leaflet/proj4leaflet.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;https://www.exploringdata.org/rmarkdown-libs/rstudio_leaflet/rstudio_leaflet.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;https://www.exploringdata.org/rmarkdown-libs/leaflet-binding/leaflet.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;div class=&#34;figure&#34;&gt;
-&lt;img src=&#34;/post/2020-05-15-examining-data-with-glimpse_files/examining_data_2.png&#34; alt=&#34;&#34; /&gt;
+&lt;img src=&#34;https://www.exploringdata.org/post/2020-05-15-examining-data-with-glimpse_files/examining_data_2.png&#34; alt=&#34;&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;Source: &lt;a href=&#34;https://bit.ly/3g9sNgK&#34; class=&#34;uri&#34;&gt;https://bit.ly/3g9sNgK&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;quick-overview&#34; class=&#34;section level3&#34;&gt;
@@ -2266,17 +2261,17 @@ indonesia_tidy_tbl %&amp;gt;% paged_table(list(rows.print = 5))&lt;/code&gt;&lt;
     
     <item>
       <title>Advanced Plots with str_glue()</title>
-      <link>/post/advanced-plots-in-r-with-str_glue/</link>
+      <link>https://www.exploringdata.org/post/advanced-plots-in-r-with-str_glue/</link>
       <pubDate>Sun, 03 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/advanced-plots-in-r-with-str_glue/</guid>
+      <guid>https://www.exploringdata.org/post/advanced-plots-in-r-with-str_glue/</guid>
       <description>
-&lt;link href=&#34;/rmarkdown-libs/pagedtable/css/pagedtable.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;/rmarkdown-libs/pagedtable/js/pagedtable.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;https://www.exploringdata.org/rmarkdown-libs/pagedtable/css/pagedtable.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;https://www.exploringdata.org/rmarkdown-libs/pagedtable/js/pagedtable.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;div class=&#34;figure&#34;&gt;
-&lt;img src=&#34;/post/2020-05-03-advanced-plots-in-r-with-str_glue_files/Screen%20Shot%202020-08-17%20at%208.52.51%20PM.png&#34; target=&#34;_blank&#34; alt=&#34;&#34; /&gt;
+&lt;img src=&#34;https://www.exploringdata.org/post/2020-05-03-advanced-plots-in-r-with-str_glue_files/Screen%20Shot%202020-08-17%20at%208.52.51%20PM.png&#34; target=&#34;_blank&#34; alt=&#34;&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;Source: &lt;a href=&#34;https://bit.ly/2CGyS6I&#34; class=&#34;uri&#34;&gt;https://bit.ly/2CGyS6I&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;quick-overview&#34; class=&#34;section level3&#34;&gt;
@@ -2313,7 +2308,7 @@ sf_trees_data_raw_tbl &amp;lt;- tuesdata$sf_trees&lt;/code&gt;&lt;/pre&gt;
     ggtheme = theme_tq(),
     title = str_glue(
     &amp;#39;Exploring Missing Data (N = {count(sf_trees_data_raw_tbl)})&amp;#39;))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2020-05-03-advanced-plots-in-r-with-str_glue_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.exploringdata.org/post/2020-05-03-advanced-plots-in-r-with-str_glue_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;This is a fairly small data-set with only 12 columns. For the purpose of demonstration, let’s see what we can do with just the species column.&lt;/p&gt;
 &lt;p&gt;The Coastal Redwoods in the SF area are incredible and one of my favorite species. I’m curious if other species of Redwoods are in SF and if so, at what proportions do they exist relative to the Coastal Redwoods.&lt;/p&gt;
 &lt;/div&gt;
@@ -2414,7 +2409,7 @@ g &amp;lt;- redwood_labeled_text_tbl %&amp;gt;%
 &lt;div id=&#34;display-awesome-plot&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Display Awesome Plot&lt;/h2&gt;
 &lt;p&gt;And here is our plot with the engineered labels from the last few steps. And that’s just one example of why I love &lt;code&gt;str_glue()&lt;/code&gt; - Simply Awesome!&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2020-05-03-advanced-plots-in-r-with-str_glue_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;768&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://www.exploringdata.org/post/2020-05-03-advanced-plots-in-r-with-str_glue_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;768&#34; /&gt;&lt;/p&gt;
 &lt;div id=&#34;wrap-up&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Wrap Up&lt;/h3&gt;
 &lt;p&gt;That’s it for today!&lt;/p&gt;

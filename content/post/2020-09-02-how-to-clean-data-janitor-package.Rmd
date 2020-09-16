@@ -112,7 +112,7 @@ For our case-study we are using data from the [Tidy Tuesday Project](https://git
 
 ```{r, results="hide"}
 # Import Data ----
-# tuesdata <- tidytuesdayR::tt_load("2018-05-07") 
+tuesdata <- tidytuesdayR::tt_load("2018-05-07") 
 ```
 
 
@@ -129,7 +129,7 @@ In this post, I'll illustrate this technique by adding to our pipeline as we go;
 Save `raw` data to a variable.
 
 ```{r}
-# coffee_chains_raw <- tuesdata$week6_coffee_chains
+coffee_chains_raw <- tuesdata$week6_coffee_chains
 ```
 
 ```{r, include=FALSE}
