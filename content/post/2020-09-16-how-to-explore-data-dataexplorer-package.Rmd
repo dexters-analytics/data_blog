@@ -56,7 +56,7 @@ You can tell by the name of my blog that `{DataExplorer}` is perfectly suited fo
 [Boxuan Cui](https://www.linkedin.com/in/boxuancui/){target="_blank"} is the developer and maintainer of `{DataExplorer}`, a package which at it's core is designed to "simplify and automate EDA." 
 
 <center>
-![](/post/2020-09-02-how-to-explore-data-dataexplorer-package_files/DataExplorer-180x180.png)
+![](/post/2020-09-16-how-to-explore-data-dataexplorer-package_files/DataExplorer-180x180.png)
 </center>
 
 <br/>
