@@ -90,11 +90,13 @@ theme_set(theme_tq())&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;For our case-study we are using data from the &lt;a href=&#34;https://github.com/rfordatascience/tidytuesday&#34; target=&#34;_blank&#34;&gt;Tidy Tuesday Project&lt;/a&gt; archive.&lt;/p&gt;
 &lt;p&gt;Each record represents bags of coffee that were assessed and “professionally rated on a 0-100 scale.” Each row has a score that originated from assessing X number of bags of coffee beans.&lt;/p&gt;
 &lt;p&gt;Out of the many features in the data set, there are 10 numeric metrics that when summed make up the coffee rating score (total_cup_points).&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#tuesdata &amp;lt;- tidytuesdayR::tt_load(2020, week = 28)
-#coffee_ratings &amp;lt;- tuesdata$coffee_ratings
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;tuesdata &amp;lt;- tidytuesdayR::tt_load(2020, week = 28)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## 
+##  Downloading file 1 of 1: `coffee_ratings.csv`&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;coffee_ratings_tbl &amp;lt;- tuesdata$coffee_ratings
 
-#coffee_ratings_tbl &amp;lt;- read_csv(&amp;quot;static/01_data/coffee_ratings.csv&amp;quot;)
-coffee_ratings_tbl &amp;lt;- read_csv(&amp;quot;../../static/01_data/coffee_ratings.csv&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+# coffee_ratings_tbl &amp;lt;- read_csv(&amp;quot;static/01_data/coffee_ratings.csv&amp;quot;)
+# coffee_ratings_tbl &amp;lt;- read_csv(&amp;quot;../../static/01_data/coffee_ratings.csv&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;data-caveats&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;2.3 Data Caveats&lt;/h3&gt;
@@ -852,8 +854,7 @@ coffee_ratings_tbl &amp;lt;- read_csv(&amp;quot;../../static/01_data/coffee_rati
 &lt;p&gt;I’ve been learning Data Science at &lt;a href=&#34;http://bit.ly/2UbPat2&#34; target=&#34;_blank&#34;&gt;Business Science University&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Join me on the journey.&lt;/p&gt;
 &lt;p&gt;Check out this link to get 15% off of the courses that are helping 1000s of analytics professionals take their careers to the next level: &lt;a href=&#34;http://bit.ly/2UbPat2&#34; target=&#34;_blank&#34;&gt;15% off Business Science Courses&lt;/a&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;knitr::knit_exit()
-# 0711051058d4ded9ebc5fcd4e2bb6352ab28a605&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;knitr::knit_exit()&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
