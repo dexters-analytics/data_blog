@@ -19,7 +19,7 @@ knitr::opts_chunk$set(
   warning = FALSE)
 ```
 
-![](/post/2020-09-02-how-to-explore-data-dataexplorer-package_files/01_exploring_data.png)
+![](/post/2020-09-16-how-to-explore-data-dataexplorer-package_files/01_exploring_data.png)
 
 <br/>
 

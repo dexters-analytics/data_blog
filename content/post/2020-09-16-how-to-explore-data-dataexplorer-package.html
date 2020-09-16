@@ -14,7 +14,7 @@ tags:
 
 
 
-<p><img src="/post/2020-09-02-how-to-explore-data-dataexplorer-package_files/01_exploring_data.png" /></p>
+<p><img src="/post/2020-09-16-how-to-explore-data-dataexplorer-package_files/01_exploring_data.png" /></p>
 <p><br/></p>
 <p>“Exploring-Data” is an <code>R-Centric</code> blog in which I share easily digestible content aimed at making the wrangling and exploration of data more efficient and more fun.</p>
 <p>Sign up <a href="https://tinyletter.com/dexters-analytics" target="_blank">HERE</a> to join other subscribers who also nerd-out on tips for exploring data.</p>
@@ -85,8 +85,10 @@ theme_set(theme_tq())</code></pre>
 <p>For our case-study we are using data from the <a href="https://github.com/rfordatascience/tidytuesday" target="_blank">Tidy Tuesday Project</a> archive.</p>
 <p>Each record represents bags of coffee that were assessed and “professionally rated on a 0-100 scale.” Each row has a score that originated from assessing X number of bags of coffee beans.</p>
 <p>Out of the many features in the data set, there are 10 numeric metrics that when summed make up the coffee rating score (total_cup_points).</p>
-<pre class="r"><code>tuesdata &lt;- tidytuesdayR::tt_load(2020, week = 28)
-coffee_ratings &lt;- tuesdata$coffee_ratings
+<pre class="r"><code>tuesdata &lt;- tidytuesdayR::tt_load(2020, week = 28)</code></pre>
+<pre><code>## 
+##  Downloading file 1 of 1: `coffee_ratings.csv`</code></pre>
+<pre class="r"><code>coffee_ratings &lt;- tuesdata$coffee_ratings
 
 coffee_ratings_tbl &lt;- read_csv(&quot;../../static/01_data/coffee_ratings.csv&quot;)</code></pre>
 </div>
