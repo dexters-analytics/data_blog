@@ -5,9 +5,9 @@ date: '2020-07-15'
 slug: exploratory-data-analysis-eda-guide
 categories: R
 tags:
+  - r4ds
+  - visualization
   - eda
-  - r for data science
-  - data visualization
 editor_options: 
   chunk_output_type: console
 output: html_document

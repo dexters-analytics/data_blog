@@ -7,9 +7,8 @@ categories:
   - R
 tags:
   - r packages
-  - data wrangling
+  - visualization
   - eda
-  - data visualization
 ---
 
 

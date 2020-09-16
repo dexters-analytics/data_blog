@@ -8,7 +8,6 @@ categories:
 tags:
   - r packages
   - data cleaning
-  - data wrangling
   - eda
 editor_options:
   chunk_output_type: console
