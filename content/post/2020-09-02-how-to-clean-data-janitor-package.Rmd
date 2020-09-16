@@ -29,7 +29,7 @@ knitr::opts_chunk$set(
 
 "Exploring-Data" is a blog in which I share easily digestible content aimed at making the wrangling and exploration of data more efficient and more fun.
 
-Sign up [HERE](https://tinyletter.com/dexters-analytics){target="_blank"} to join other subscribers who also `nerd-out` on tips for exploring data using `R`.
+Sign up [HERE](https://tinyletter.com/dexters-analytics){target="_blank"} to join other subscribers who also nerd-out on tips for exploring data using `R`.
 
 Click on these links to see where I am improving my skills in handling data using `R`:
 

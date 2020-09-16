@@ -1,0 +1,351 @@
+---
+title: 'How to Explore Data: {DataExplorer} Package'
+author: Jason Dexter
+date: '2020-09-16'
+slug: how-to-explore-data-dataexplorer-package
+categories:
+  - R
+tags:
+  - r packages
+  - data wrangling
+  - eda
+  - data visualization
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  message = FALSE,
+  warning = FALSE)
+```
+
+![](/post/2020-09-02-how-to-explore-data-dataexplorer-package_files/01_exploring_data.png)
+
+<br/>
+
+"Exploring-Data" is an `R-Centric` blog in which I share easily digestible content aimed at making the wrangling and exploration of data more efficient and more fun.
+
+Sign up [HERE](https://tinyletter.com/dexters-analytics){target="_blank"} to join other subscribers who also nerd-out on tips for exploring data.
+
+Click on these links to see where I am improving my skills in handling data using `R`:
+
+1. [Business Science University (Data-Science for Business)](https://www.business-science.io/?affcode=173166_vnvxtqbd){target="_blank"}
+2. [R-bloggers (all-things R)](https://www.r-bloggers.com/){target="_blank"}
+
+Join me on the journey 🏃‍♂  🏃‍♀
+
+## Exploring R {packages}
+
+This is the 2nd post in my series on exploring `R` packages in which I share my findings.
+
+You can read the first post here: [How to Clean Data: {janitor} Package](https://www.exploringdata.org/post/how-to-clean-data-janitor-package/){target="_blank"}.
+
+
+### 1.0 Context
+
+My habit has been to utilize one or two functions in a package without investigating other functionality.
+
+In this series I'm testing the idea of breaking that habit.
+
+Each post will include how I was using a package integrated with a case-study that illustrates newly discovered functions.
+
+
+### 1.1 DataExplorer {package}
+
+You can tell by the name of my blog that `{DataExplorer}` is perfectly suited for this series on `R` packages.
+
+[Boxuan Cui](https://www.linkedin.com/in/boxuancui/){target="_blank"} is the developer and maintainer of `{DataExplorer}`, a package which at it's core is designed to "simplify and automate EDA." 
+
+<center>
+![](/post/2020-09-02-how-to-explore-data-dataexplorer-package_files/DataExplorer-180x180.png)
+</center>
+
+<br/>
+
+Take the time to explore the `{DataExplorer}` [Github Page](https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-07-07/readme.md){target="_blank"} where Boxuan provides the following context:
+
+> Exploratory Data Analysis (EDA) is the initial and an important phase of data analysis/predictive modeling. During this process, analysts/modelers will have a first look of the data, and thus generate relevant hypotheses and decide next steps. However, the EDA process could be a hassle at times. This R package aims to automate most of data handling and visualization, so that users could focus on studying the data and extracting insights.
+
+
+Just about every time I'm working with new data, I'm loading `{DataExplorer}` from my library of `R` packages.
+
+However, I'm typically only using the `plot_missing()` function.
+
+While researching the package I was excited to discover functionality that has become core to my EDA process.
+
+In today's case-study we will go over:
+
+* The function I use often: `plot_missing()`
+* Newly discovered functions from `{DataExplorer}`
+* How `{DataExplorer}` provides insights that expedite EDA
+
+
+## 2.0 Case-Study Setup
+
+Let's get started by loading our packages and importing a bit of data.
+
+
+### 2.1 Load Packages
+
+```{r}
+# Core Packages
+library(tidyverse)
+library(tidyquant)
+library(recipes)
+library(rsample)
+library(knitr)
+
+# Data Cleaning
+library(janitor)
+
+# EDA
+library(skimr)
+library(DataExplorer)
+
+# ggplot2 Helpers
+library(scales)
+theme_set(theme_tq())
+```
+
+
+### 2.2 Import Data
+
+For our case-study we are using data from the [Tidy Tuesday Project](https://github.com/rfordatascience/tidytuesday){target="_blank"} archive.
+
+Each record represents bags of coffee that were assessed and "professionally rated on a 0-100 scale." Each row has a score that originated from assessing X number of bags of coffee beans.
+
+Out of the many features in the data set, there are 10 numeric metrics that when summed make up the coffee rating score (total_cup_points).
+
+
+```{r}
+tuesdata <- tidytuesdayR::tt_load(2020, week = 28)
+coffee_ratings <- tuesdata$coffee_ratings
+
+coffee_ratings_tbl <- read_csv("../../static/01_data/coffee_ratings.csv")
+
+```
+
+
+### 2.3 Data Caveats
+
+If you have all 10 metrics then you don't need a model to predict total_cup_points.
+
+That said, this post is about preprocessing data in preparation for analysis and/or predictive modeling. I chose these data for the case-study because of the many characteristics and features present that will help illustrate the benefits of `{DataExplorer}`.
+
+To illustrate the benefits, we assume total_cup_points is our target (dependent variable) and that all others are potential predictors (independent variables).
+
+Let's get to work!
+
+
+### 2.4 Preprocessing Pipeline
+
+As usual, let's setup our preprocessing data pipeline so that we can add to it as we gain insights.
+
+Read [This Post](https://www.exploringdata.org/post/how-to-clean-data-janitor-package/){target="_blank"} to learn more about my approach to preprocessing data.
+
+```{r}
+coffee_ratings_preprocessed_tbl <- coffee_ratings_tbl 
+```
+
+
+### 3.0 Case-Study Objectives
+
+1. Rapidly assess data.
+2. Gains insights that help preprocess data.
+
+Let's see how `{DataExplorer}` can expedite the process.
+
+As usual, let's take a `glimpse()` of our data to see how we should proceed.
+
+```{r}
+coffee_ratings_preprocessed_tbl %>% glimpse()
+```
+
+
+#### Wow, 43 columns! 
+
+Many of these are obviously unnecessary and so let's get to work reducing these down to something more meaningful.
+
+We can begin by removing a few columns and so lets add that step to our preprocessing.
+
+
+```{r}
+coffee_ratings_preprocessed_tbl <- coffee_ratings_tbl %>% 
+  
+    # remove columns
+    select(-contains("certification"), -in_country_partner)
+```
+
+
+### 4.0 Exploratory Data Analysis (EDA)
+
+Integrating `{DataExplorer}` into our EDA process creates a work-flow that quickly assesses:
+
+1. Summary statistics: `skimr::skim()`
+2. Missing data: `plot_missing()`
+3. Categorical data: `plot_bar()`
+4. Numerical data: `plot_historgram`
+
+Once the data is assessed, we can decide on steps that might be added to a preprocessing data pipeline.
+
+
+### 4.1 Summary Statistics
+
+`skimr::skim()` gives us everything we need to quickly derive insights.
+
+```{r}
+coffee_ratings_preprocessed_tbl %>% skimr::skim()
+```
+
+<br/>
+
+The `skim()` function gives an incredible amount of detail to help guide data preprocessing.
+
+#### New Insights
+
+* Breakout by data-type: 20 categorical and  19 numeric features
+* Substantial missing values within some features
+* Many features with skewed distributions
+* Large number of features that appear unnecessary
+* Categorical features with large number of unique values
+
+
+### 4.2 Missing Data
+
+The visualization provided by `plot_missing()` helps identify columns that may need attention.
+
+
+```{r}
+coffee_ratings_preprocessed_tbl %>% 
+  plot_missing(ggtheme = theme_tq())
+```
+
+This visual allows rapid assessment of features that may need to be dropped or have their values estimated via imputation.
+
+#### New Insights
+
+* Most features have complete data.
+* Many features (if kept) need imputation (estimate and replace missing data).
+
+
+### 4.3 Categorical Data
+
+Equipped with `plot_bar()` we can rapidly assess categorical features by looking at the frequency of each value.
+
+```{r, fig.height=8}
+coffee_ratings_preprocessed_tbl %>% 
+    plot_bar(ggtheme = theme_tq(), ncol = 2, nrow = 4)
+```
+
+I'm definitely impressed with this function and it is now part of my EDA toolbox 🧰
+
+#### New Insights
+
+* Arabica dominates the species feature (we can remove)
+* Features exist with many categories but few values (we can lump into 'other')
+* We can engineer a continent feature from country_of_orgin
+* Cleaning and standardization is needed for harvest_year
+* Unit of measurement can be dropped
+* Better picture of where imputation is needed
+
+
+### 4.4 Numerical Data 
+
+Onward to assessing our numerical features using `plot_histogram()`.
+
+```{r, fig.height=8}
+coffee_ratings_preprocessed_tbl %>% 
+    plot_histogram(ggtheme = theme_tq(), nrow = 5, ncol = 4)
+```
+
+This is another function that swiftly made its way into my EDA toolbox 🧰
+
+#### New Insights
+
+* Many features look normally distributed
+* Skewed features may need transformations (depending on modeling approach)
+* We can probably keep mean altitude and drop the low and high versions
+* Quakers (unripened beans) should probably be categorical
+
+
+### Plot Altitude
+
+Let's test our assumption about dropping the low and high altitude features.
+
+```{r, fig.height=3, fig.width=6, fig.align='center'}
+coffee_ratings_preprocessed_tbl %>% 
+  
+    # select columns and pivot data
+    select(contains("altitude_")) %>% 
+    pivot_longer(1:3) %>% 
+  
+    # plot data
+    ggplot(aes(name, value, color = name)) +
+    geom_violin() +
+    geom_jitter(alpha = 0.05) +
+  
+    # formatting
+    scale_y_log10(label = scales::comma_format()) +
+    theme(legend.position = "none") + 
+    labs(x = "", y = "Meters")
+```
+
+Looks good. 
+
+The variation between low and high isn't substantial and so we would probably keep altitude_mean_meters and drop the others.
+
+
+### Plot Quakers vs. Score
+
+Let's quickly double check quakers to see if it's better to encode as a factor (categorical variable).
+
+```{r, fig.height=3, fig.width=6, fig.align='center'}
+coffee_ratings_preprocessed_tbl %>% 
+  
+    # select columns and plot data
+    select(quakers, total_cup_points) %>% 
+    ggplot(aes(as.factor(quakers), total_cup_points)) +
+    geom_violin() +
+    geom_jitter(alpha = 0.2) + ylim(0, 100)
+```
+
+It doesn't look like quakers explains much of the variation within total_cup_points. 
+
+If kept, it would be worth updating to a categorical variable.
+
+
+### 5.0 Wrap Up
+
+Rapidly assessing data is critical for speeding up analysis. 
+
+After researching `{DataExplorer}` I am convinced it is worth adding to the data practitioners toolbox 🧰
+
+Three functions allowed us to quickly assess our data and gain insights:
+
+* `DataExplorer::plot_missing()`
+* `DataExplorer::plot_bar()`
+* `DataExplorer::plot_histogram()`
+
+These insights could then be used in the next step of cleaning and preprocessing these data for analysis and/or predictive modeling.
+
+
+### 5.1 Comment Below
+
+If you like this style of post and want to see this series continue, leave a comment below.
+
+
+### 5.1 Subscribe and Share
+
+Enter your [EMAIL HERE](https://tinyletter.com/dexters-analytics){target="_blank"} to get the latest from Exploring-Data in your inbox.
+
+PS: Be Kind and Tidy your Data 😎
+
+
+### 5.2 Learn R Fast
+
+I've been learning Data Science at [Business Science University](http://bit.ly/2UbPat2){target="_blank"}.
+
+Join me on the journey. 
+
+Check out this link to get 15% off of the courses that are helping 1000s of analytics professionals take their careers to the next level: [15% off Business Science Courses](http://bit.ly/2UbPat2){target="_blank"}
+
