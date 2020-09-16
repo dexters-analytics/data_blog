@@ -1,13 +1,13 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>r packages on Exploring Data</title>
-    <link>/tags/r-packages/</link>
-    <description>Recent content in r packages on Exploring Data</description>
+    <title>visualization on Exploring Data</title>
+    <link>/tags/visualization/</link>
+    <description>Recent content in visualization on Exploring Data</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 16 Sep 2020 00:00:00 +0000</lastBuildDate>
     
-        <atom:link href="/tags/r-packages/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="/tags/visualization/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -867,460 +867,360 @@ coffee_ratings_tbl &amp;lt;- read_csv(&amp;quot;../../static/01_data/coffee_rati
     </item>
     
     <item>
-      <title>How to Clean Data: {janitor} Package</title>
-      <link>/post/how-to-clean-data-janitor-package/</link>
-      <pubDate>Wed, 02 Sep 2020 00:00:00 +0000</pubDate>
+      <title>Exploratory Data Analysis Guide</title>
+      <link>/post/exploratory-data-analysis-eda-guide/</link>
+      <pubDate>Wed, 15 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>/post/how-to-clean-data-janitor-package/</guid>
+      <guid>/post/exploratory-data-analysis-eda-guide/</guid>
+      <description>
+
+
+&lt;div id=&#34;quick-overview&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Quick Overview&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;Exploring-Data&lt;/code&gt; is a place where I share easily digestible content aimed at making the wrangling and exploration of data more efficient (+fun).&lt;/p&gt;
+&lt;p&gt;Sign up &lt;a href=&#34;https://tinyletter.com/dexters-analytics&#34; target=&#34;_blank&#34;&gt;Here&lt;/a&gt; to join the many other subscribers who also nerd out on new tips and tricks 🤓&lt;/p&gt;
+&lt;p&gt;And if you enjoy the post be sure to share it&lt;/p&gt;
+&lt;a href=&#34;https://twitter.com/share?ref_src=twsrc%5Etfw&#34; class=&#34;twitter-share-button&#34; data-show-count=&#34;false&#34;&gt;Tweet&lt;/a&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+&lt;/div&gt;
+&lt;div id=&#34;r-for-data-science&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;R for Data Science&lt;/h3&gt;
+&lt;p&gt;Hadley Wickham and Garrett Grolemund wrote an incredible book called &lt;a href=&#34;https://r4ds.had.co.nz/exploratory-data-analysis.html&#34; target=&#34;_blank&#34;&gt;R for Data Science (R4DS)&lt;/a&gt;. In the book they teach how to “turn raw data into understanding, insight, and knowledge.” The authors do this by being laser focused on the tools that help the data-practitioner import, tidy, transform, visualize, and model data (+communicate findings):&lt;/p&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;/post/2020-06-20-exploratory-data-analysis-eda-guide_files/data_science_workflow.png&#34; alt=&#34;&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;R4DS Workflow&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;I dug into the chapter on Exploratory Data Analysis (EDA) this past week.&lt;/p&gt;
+&lt;p&gt;The chapter is 🔥 and I highly recommend it 😎&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;exploring-data&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Exploring Data&lt;/h3&gt;
+&lt;p&gt;I was super excited about the chapter and the knowledge it packed!&lt;/p&gt;
+&lt;p&gt;In my own path to improving my EDA skills I thought I’d capture what stuck out most in the form of a blog post.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;eda-overview&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;EDA Overview&lt;/h3&gt;
+&lt;p&gt;The authors of R4DS explain EDA as the process of “using visualization and transformation to &lt;code&gt;Explore&lt;/code&gt; your &lt;code&gt;Data&lt;/code&gt; in a systematic way.” They recommend an iterative cycle as follows:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Generate &lt;code&gt;questions&lt;/code&gt; about your data.&lt;/li&gt;
+&lt;li&gt;Search for &lt;code&gt;answers&lt;/code&gt; by visualizing, transforming, and modeling your data.&lt;/li&gt;
+&lt;li&gt;Use what you learn to refine your &lt;code&gt;questions&lt;/code&gt; and/or generate new &lt;code&gt;questions.&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div id=&#34;favorite-quotes-from-intro&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Favorite Quotes (from Intro)&lt;/h3&gt;
+&lt;p&gt;The chapter was packed full of content - here are the quotes that stood out the most from the Introduction:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;“EDA is not a formal process with a strict set of rules.”&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;“EDA is a state of mind.” - I love this one 😎&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;“During the initial phases of EDA you should feel free to investigate every idea that occurs to you.”&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;“As your exploration continues, you will home in on a few particularly productive areas that you’ll eventually write up and communicate to others.”&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;questions-drive-eda&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Questions Drive EDA&lt;/h3&gt;
+&lt;p&gt;One of my biggest take always from the chapter was the emphasis on EDA being a creative process that is &lt;code&gt;driven by&lt;/code&gt; asking &lt;code&gt;questions&lt;/code&gt; - and lots of them 🤔&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;section-on-questions&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Section on Questions&lt;/h3&gt;
+&lt;p&gt;The section titled &lt;code&gt;Questions&lt;/code&gt; was packed full of nuggets - here are a few of the quotes that stuck out:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;“EDA is fundamentally a creative process.”&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;“Your goal during EDA is to develop an understanding of your data. The easiest way to do this is to use &lt;code&gt;questions&lt;/code&gt; as tools to guide your investigation.”&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;“the key to asking quality &lt;code&gt;questions&lt;/code&gt; is to generate a large quantity of &lt;code&gt;questions.&lt;/code&gt;” - So Good 😎&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;“each new &lt;code&gt;question&lt;/code&gt; that you ask will expose you to a new aspect of your data and increase your chance of making a discovery.”&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;“There is no rule about which &lt;code&gt;questions&lt;/code&gt; you should ask to guide your research. However, two types of &lt;code&gt;questions&lt;/code&gt; will always be useful for making discoveries within your data. You can loosely word these &lt;code&gt;questions&lt;/code&gt; as:”&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;What type of variation occurs within my variables?&lt;/li&gt;
+&lt;li&gt;What type of covariation occurs between my variables?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div id=&#34;section-on-variation&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Section on Variation&lt;/h3&gt;
+&lt;p&gt;We are always interested in discovering what explains the variation seen in data and so the section on &lt;code&gt;Variation&lt;/code&gt; was very interesting. Here are a few of the quotes that stood out:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;“Variation is the tendency of the values of a variable to change from measurement to measurement.”&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;“Every variable has its own pattern of variation, which can reveal interesting information.”&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;“The best way to understand that pattern is to visualize the distribution of the variable’s values.”&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;visualizing-distributions&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Visualizing Distributions&lt;/h3&gt;
+&lt;p&gt;This post wouldn’t be complete without a bit of code and a few visualizations 🤓&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# load libraries
+library(tidyverse)
+library(tidyquant)
+library(patchwork)
+theme_set(theme_tq())&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;categorical-variables&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Categorical Variables&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;“To examine the distribution of a categorical variable, use a bar chart:”&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p1 &amp;lt;- ggplot(diamonds) +
+    geom_bar(aes(x = cut)) +
+    labs(title = &amp;quot;Bar Charts for Categorical Variables&amp;quot;)
+p1&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-06-20-exploratory-data-analysis-eda-guide_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;continuous-variables&#34; class=&#34;section level4&#34;&gt;
+&lt;h4&gt;Continuous Variables&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;“To examine the distribution of a continuous variable, use a histogram:”&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;“You can set the width of the intervals in a histogram with the &lt;code&gt;binwidth&lt;/code&gt; argument, which is &lt;code&gt;measured in the units of the x variable&lt;/code&gt;.”&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p2 &amp;lt;- ggplot(diamonds %&amp;gt;% filter(carat &amp;lt; 3)) +
+    geom_histogram(aes(x = carat), binwidth = 1.0) +
+    labs(title = &amp;quot;Binwidth: 1.0&amp;quot;) 
+
+p3 &amp;lt;- ggplot(diamonds %&amp;gt;% filter(carat &amp;lt; 3)) +
+    geom_histogram(aes(x = carat), binwidth = 0.5) +
+    labs(title = &amp;quot;Binwidth = 0.5&amp;quot;) 
+
+p4 &amp;lt;- ggplot(diamonds %&amp;gt;% filter(carat &amp;lt; 3)) +
+    geom_histogram(aes(x = carat), binwidth = 0.1) +
+    labs(title = &amp;quot;Binwidth = 0.1&amp;quot;) 
+
+p5 &amp;lt;- ggplot(diamonds %&amp;gt;% filter(carat &amp;lt; 3)) +
+    geom_histogram(aes(x = carat), binwidth = 0.01) +
+    labs(title = &amp;quot;Binwidth = 0.01&amp;quot;) &lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;“You should always &lt;code&gt;explore a variety of binwidths&lt;/code&gt; when working with histograms, as different binwidths can reveal different patterns.”&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Show plots
+patchwork &amp;lt;- p2 + p3 + p4 + p5
+
+patchwork + plot_annotation(
+  title   = &amp;quot;Histograms for Continuous Variables&amp;quot;,
+  caption = &amp;quot;Notice the different patterns that are revealed.&amp;quot;
+)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-06-20-exploratory-data-analysis-eda-guide_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;typical-values&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Typical Values&lt;/h3&gt;
+&lt;p&gt;Remember how the author’s emphasize the use of &lt;code&gt;questions&lt;/code&gt; to drive EDA?&lt;/p&gt;
+&lt;p&gt;This section on &lt;code&gt;Typical&lt;/code&gt; &lt;code&gt;Values&lt;/code&gt; continues that thread and suggests the following &lt;code&gt;questions&lt;/code&gt; to ask when &lt;code&gt;Visualizing&lt;/code&gt; &lt;code&gt;Distributions&lt;/code&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;“Which values are the most common? Why?”&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;“Which values are rare? Why? Does that match your expectations?”&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;“Can you see any unusual patterns? What might explain them?”&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Another learning from this section is to focus on the clusters revealed when &lt;code&gt;Visualizing&lt;/code&gt; your &lt;code&gt;Distributions.&lt;/code&gt; For example, take a look at the &lt;code&gt;Histogram&lt;/code&gt; using a &lt;code&gt;Binwidth&lt;/code&gt; of &lt;code&gt;0.01&lt;/code&gt;; obvious clusters are revealed that are not obvious in the other 3 plots.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p5&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-06-20-exploratory-data-analysis-eda-guide_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;480&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;The author’s point out that “clusters of similar values suggest that subgroups exist in your data.”&lt;/p&gt;
+&lt;p&gt;What do you think they suggest doing in this situation? Ask more &lt;code&gt;questions&lt;/code&gt; 🤔&lt;/p&gt;
+&lt;p&gt;Understand the subgroups by asking:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;“How are the observations within each cluster similar to each other?”&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;“How are the observations in separate clusters different from each other?”&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;“How can you explain or describe the clusters?”&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;“Why might the appearance of clusters be misleading?”&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;wrap-up&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Wrap Up&lt;/h3&gt;
+&lt;p&gt;The chapter goes on to discuss unusual values, missing values, covariation, and briefly goes into using models to further your EDA. I highly recommend giving it a read and trying out the exercises in the chapter.&lt;/p&gt;
+&lt;p&gt;Get the code here: &lt;a href=&#34;https://github.com/dexters-analytics/data_blog/tree/master/content/post&#34; target=&#34;_blank&#34;&gt;Github Repo&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Questions.&lt;/code&gt; &lt;code&gt;Questions.&lt;/code&gt; &lt;code&gt;Questions.&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;The biggest learning I took from this chapter, and what I’ve started using in my own EDA process, is getting better at asking &lt;code&gt;questions.&lt;/code&gt; Not only that, but really to let my curiosity drive the EDA early on in the process.&lt;/p&gt;
+&lt;p&gt;And my favorite quote is probably this one:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“the key to asking quality questions is to generate a large quantity of questions.”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div id=&#34;watch-an-expert-do-eda&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Watch an Expert do EDA&lt;/h3&gt;
+&lt;p&gt;This is a &lt;code&gt;bonus&lt;/code&gt; for making it this far in the post 😉&lt;/p&gt;
+&lt;p&gt;David Robinson is an expert when it comes to all things &lt;code&gt;EDA&lt;/code&gt; and &lt;code&gt;R&lt;/code&gt;. For the last year or so he has been recording weekly screencasts where he &lt;code&gt;Explores&lt;/code&gt; &lt;code&gt;Data&lt;/code&gt; he has never seen before.&lt;/p&gt;
+&lt;p&gt;I watch these videos often to get insights into how to think analytically when doing EDA.&lt;/p&gt;
+&lt;p&gt;You can check them out here at his YouTube channel: &lt;a href=&#34;https://www.youtube.com/playlist?list=PL19ev-r1GBwkuyiwnxoHTRC8TTqP8OEi8&#34; target=&#34;_blank&#34;&gt;Tidy Tuesday R Screencasts&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;subscribe-share&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Subscribe + Share&lt;/h3&gt;
+&lt;p&gt;Enter your &lt;a href=&#34;https://tinyletter.com/dexters-analytics&#34; target=&#34;_blank&#34;&gt;Email Here&lt;/a&gt; to get the latest from Exploring-Data in your inbox.&lt;br/&gt;&lt;/p&gt;
+&lt;a href=&#34;https://twitter.com/share?ref_src=twsrc%5Etfw&#34; class=&#34;twitter-share-button&#34; data-show-count=&#34;false&#34;&gt;Tweet&lt;/a&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+&lt;p&gt;PS: Be Kind and Tidy your Data 😎&lt;br/&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;learn-r-quickly&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Learn R Quickly&lt;/h3&gt;
+&lt;p&gt;I’ve expedited my &lt;code&gt;R&lt;/code&gt; and &lt;code&gt;Data-Science&lt;/code&gt; journey using the courses over at &lt;a href=&#34;https://www.business-science.io/?affcode=173166_vnvxtqbd&#34; target=&#34;_blank&#34;&gt;Business Science University&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The instructor, Matt Dancho, has given me a 15% discount to share with my audience. Get the discount and join me on the journey.&lt;/p&gt;
+&lt;p&gt;Link to my favorite &lt;code&gt;R&lt;/code&gt; course (with 15% off discount): &lt;a href=&#34;https://university.business-science.io/p/ds4b-101-r-business-analysis-r/?coupon_code=DS4B15&amp;amp;affcode=173166_vnvxtqbd&#34; target=&#34;_blank&#34;&gt;Data Science for Business 101&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+</description>
+      
+            <category>r4ds</category>
+      
+            <category>visualization</category>
+      
+            <category>eda</category>
+      
+    </item>
+    
+    <item>
+      <title>Advanced Plots with str_glue()</title>
+      <link>/post/advanced-plots-in-r-with-str_glue/</link>
+      <pubDate>Sun, 03 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/advanced-plots-in-r-with-str_glue/</guid>
       <description>
 &lt;link href=&#34;/rmarkdown-libs/pagedtable/css/pagedtable.css&#34; rel=&#34;stylesheet&#34; /&gt;
 &lt;script src=&#34;/rmarkdown-libs/pagedtable/js/pagedtable.js&#34;&gt;&lt;/script&gt;
 
 
-&lt;p&gt;&lt;img src=&#34;/post/2020-09-02-how-to-clean-data-janitor-package_files/Screen%20Shot%202020-09-02%20at%208.00.42%20PM.png&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
-&lt;p&gt;“Exploring-Data” is a blog in which I share easily digestible content aimed at making the wrangling and exploration of data more efficient and more fun.&lt;/p&gt;
-&lt;p&gt;Sign up &lt;a href=&#34;https://tinyletter.com/dexters-analytics&#34; target=&#34;_blank&#34;&gt;HERE&lt;/a&gt; to join other subscribers who also nerd-out on tips for exploring data using &lt;code&gt;R&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;Click on these links to see where I am improving my skills in handling data using &lt;code&gt;R&lt;/code&gt;:&lt;/p&gt;
-&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.business-science.io/?affcode=173166_vnvxtqbd&#34; target=&#34;_blank&#34;&gt;Business Science University (Data-Science for Business)&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.r-bloggers.com/&#34; target=&#34;_blank&#34;&gt;R-bloggers (all-things R)&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Join me on the journey 🏃‍♂ 🏃‍♀&lt;/p&gt;
-&lt;div id=&#34;new-series-exploring-r-packages&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;New Series: Exploring R {packages}&lt;/h3&gt;
-&lt;p&gt;When I discover new and helpful &lt;code&gt;functions&lt;/code&gt; I light up 💡 with excitement.&lt;/p&gt;
-&lt;p&gt;Interestingly, I have a pattern of finding one or two useful &lt;code&gt;functions&lt;/code&gt; in a &lt;code&gt;{package}&lt;/code&gt;, but rarely explore further to discover other useful &lt;code&gt;functionality&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;That’s what this New Series is all about - &lt;code&gt;Exploration&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;In each post, I will share a bit about how I was using a &lt;code&gt;{package}&lt;/code&gt; and then use a case-study to highlight other &lt;code&gt;functionality&lt;/code&gt; I discovered to be useful.&lt;/p&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;/post/2020-05-03-advanced-plots-in-r-with-str_glue_files/Screen%20Shot%202020-08-17%20at%208.52.51%20PM.png&#34; target=&#34;_blank&#34; alt=&#34;&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;Source: &lt;a href=&#34;https://bit.ly/2CGyS6I&#34; class=&#34;uri&#34;&gt;https://bit.ly/2CGyS6I&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
-&lt;div id=&#34;leave-a-comment&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Leave a Comment&lt;/h3&gt;
-&lt;p&gt;Leave a comment at the end to let me know if you like this style of post. The feedback will be considered in determining the direction of this series.&lt;/p&gt;
-&lt;div id=&#34;examples-of-feedback&#34; class=&#34;section level4&#34;&gt;
-&lt;h4&gt;Examples of feedback:&lt;/h4&gt;
-&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;Was the post to long?&lt;/li&gt;
-&lt;li&gt;Do you like the case-study approach?&lt;/li&gt;
-&lt;li&gt;Could I have just shared the functions without the case-study?&lt;/li&gt;
-&lt;li&gt;Was sharing about the pre-processing pro-tip helpful or distracting?&lt;/li&gt;
-&lt;/ol&gt;
+&lt;div id=&#34;quick-overview&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Quick Overview&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;Exploring-Data&lt;/code&gt; is a place where I share easily digestible content aimed at making the wrangling and exploration of data more efficient (+fun).&lt;/p&gt;
+&lt;p&gt;Sign up &lt;a href=&#34;https://tinyletter.com/dexters-analytics&#34; target=&#34;_blank&#34;&gt;Here&lt;/a&gt; to join the many other subscribers who also nerd out on new tips and tricks 🤓&lt;/p&gt;
+&lt;p&gt;And if you enjoy the post be sure to share it&lt;/p&gt;
+&lt;a href=&#34;https://twitter.com/share?ref_src=twsrc%5Etfw&#34; class=&#34;twitter-share-button&#34; data-show-count=&#34;false&#34;&gt;Tweet&lt;/a&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
 &lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;janitor-package&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;janitor {package}&lt;/h3&gt;
-&lt;p&gt;This a wonderful &lt;code&gt;{package}&lt;/code&gt; built by &lt;a href=&#34;https://github.com/sfirke&#34; target=&#34;_blank&#34;&gt;Sam Firke&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Take the time to explore the &lt;a href=&#34;https://github.com/sfirke/janitor&#34; target=&#34;_blank&#34;&gt;Github Page&lt;/a&gt; for the &lt;code&gt;{janitor:package}&lt;/code&gt;, where Sam describes it as follow:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;janitor has simple functions for examining and cleaning dirty data. It was built with beginning and intermediate R users in mind and is optimized for user-friendliness. Advanced R users can already do everything covered here, but with janitor they can do it faster and save their thinking for the fun stuff.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;There are many more functions (20+) in the package that we will not cover - head over to the following page to learn more about them: &lt;a href=&#34;http://sfirke.github.io/janitor/articles/janitor.html&#34; target=&#34;_blank&#34;&gt;Overview of janitor functions.&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;case-study&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Case-Study&lt;/h3&gt;
-&lt;p&gt;The case-study will provide and illustrate the following:&lt;/p&gt;
-&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;A pro-tip for setting up a pre-processing data pipepline.&lt;/li&gt;
-&lt;li&gt;The &lt;code&gt;function&lt;/code&gt; I use often: &lt;code&gt;clean_names()&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Newly discovered &lt;code&gt;functions&lt;/code&gt; from &lt;code&gt;{janitor}&lt;/code&gt;.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;
-&lt;div id=&#34;lets-dive-in&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Let’s dive in…&lt;/h3&gt;
-&lt;p&gt;Imagine being tasked with doing an analysis on Starbucks coffee locations. Your manager has provided you with &lt;code&gt;raw-data&lt;/code&gt; from coffee chains and requested that you:&lt;/p&gt;
-&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;QA the data for duplicates (by store and by location).&lt;/li&gt;
-&lt;li&gt;Tabulate the various types of Starbucks Ownership:
-&lt;ul&gt;
-&lt;li&gt;Worldwide &amp;amp;&lt;/li&gt;
-&lt;li&gt;US (lower 48)&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;Deliver a US map that identifies patterns in ownership types.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;To streamline your efforts and get swiftly to making that map, you decide to leverage the &lt;code&gt;{janitor:package}&lt;/code&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;load-our-libraries&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Load our Libraries&lt;/h3&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)     # Work-Horse Package
-library(janitor)       # Data cleaning (+tabulating data)
-library(janitor)       # Business Ready Plots
-library(ggthemes)      # Clean ggplot theme for Maps
-library(USAboundaries) # Get state name/code mapping&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;lets-dive-into-an-example&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Let’s Dive Into an Example&lt;/h3&gt;
+&lt;p&gt;I’d like to share a technique using &lt;code&gt;str_glue()&lt;/code&gt; that I learned from &lt;a href=&#34;https://www.linkedin.com/in/mattdancho/&#34; target=&#34;_blank&#34;&gt;Matt Dancho&lt;/a&gt;, a Data-Science instructor at &lt;a href=&#34;https://www.business-science.io/?affcode=173166_vnvxtqbd&#34; target=&#34;_blank&#34;&gt;Business Science University&lt;/a&gt;. Check out my favorite course here: &lt;a href=&#34;http://bit.ly/2Z9SHsd&#34; target=&#34;_blank&#34;&gt;Business Analysis With R&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;str_glue()&lt;/code&gt; from the &lt;code&gt;stringr&lt;/code&gt; library is one of my favorite functions in &lt;code&gt;R&lt;/code&gt; - It’s super helpful for wrangling and manipulating text in preparation for building &lt;code&gt;advanced&lt;/code&gt; plots.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;lets-get-some-data&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Let’s Get Some Data&lt;/h3&gt;
-&lt;p&gt;For our case-study we are using data from the &lt;a href=&#34;https://github.com/rfordatascience/tidytuesday&#34; target=&#34;_blank&#34;&gt;Tidy Tuesday Project&lt;/a&gt; archive.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Import Data ----
-# tuesdata &amp;lt;- tidytuesdayR::tt_load(&amp;quot;2018-05-07&amp;quot;) &lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;Let’s Get Some Data 🤓&lt;/h3&gt;
+&lt;p&gt;The &lt;a href=&#34;https://github.com/rfordatascience/tidytuesday&#34; target=&#34;_blank&#34;&gt;Tidy Tuesday Project&lt;/a&gt; is an awesome repository of useful data for practicing your data &lt;code&gt;Wrangling&lt;/code&gt; skills.&lt;/p&gt;
+&lt;p&gt;We will work with the &lt;code&gt;San Francisco Trees&lt;/code&gt; data as a case-study for using &lt;code&gt;str_glue()&lt;/code&gt; for advanced plotting techniques.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)
+library(stringr)
+library(tidyquant)
+library(scales)
+library(DataExplorer)
+
+tuesdata &amp;lt;- tidytuesdayR::tt_load(&amp;#39;2020-01-28&amp;#39;) 
+sf_trees_data_raw_tbl &amp;lt;- tuesdata$sf_trees&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;div id=&#34;pro-tip-pre-processing-pipeline&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Pro-Tip: Pre-Processing Pipeline&lt;/h3&gt;
-&lt;p&gt;When working with new data, I’ll typically setup up a pre-processing step at the beginning of the script. It typically starts out with no steps and then they get added as I move through my analysis.&lt;/p&gt;
-&lt;p&gt;The idea is that as you conduct your Exploratory Data Analysis &lt;code&gt;(EDA)&lt;/code&gt;, you will discover pre-processing steps that need to be added to your pipeline.&lt;/p&gt;
-&lt;p&gt;In this post, I’ll illustrate this technique by adding to our pipeline as we go; however, this data pipeline would live near the top of the script and would not move.&lt;/p&gt;
-&lt;div id=&#34;step-1&#34; class=&#34;section level4&#34;&gt;
-&lt;h4&gt;Step 1&lt;/h4&gt;
-&lt;p&gt;Save &lt;code&gt;raw&lt;/code&gt; data to a variable.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# coffee_chains_raw &amp;lt;- tuesdata$week6_coffee_chains&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;data-exploration&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Data Exploration&lt;/h3&gt;
+&lt;p&gt;Let’s take a quick peak and inspect the SF Trees Data.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot_missing(
+    sf_trees_data_raw_tbl,
+    ggtheme = theme_tq(),
+    title = str_glue(
+    &amp;#39;Exploring Missing Data (N = {count(sf_trees_data_raw_tbl)})&amp;#39;))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-05-03-advanced-plots-in-r-with-str_glue_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;This is a fairly small data-set with only 12 columns. For the purpose of demonstration, let’s see what we can do with just the species column.&lt;/p&gt;
+&lt;p&gt;The Coastal Redwoods in the SF area are incredible and one of my favorite species. I’m curious if other species of Redwoods are in SF and if so, at what proportions do they exist relative to the Coastal Redwoods.&lt;/p&gt;
 &lt;/div&gt;
-&lt;div id=&#34;step-2&#34; class=&#34;section level4&#34;&gt;
-&lt;h4&gt;Step 2&lt;/h4&gt;
-&lt;p&gt;Immediately save the &lt;code&gt;raw&lt;/code&gt; data to new variable labeled with the suffix, &lt;code&gt;processed&lt;/code&gt;.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Beginning of Pre-Processing Pipeline
-coffee_chains_processed &amp;lt;- coffee_chains_raw&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;This obviously has ZERO pre-processing done to the data at this point. The point though is that as you discover areas of your data that require attention, you then can circle back to this pipeline and add those steps.&lt;/p&gt;
-&lt;p&gt;This may seem odd, but the beauty comes in not having to get further along in your analysis before realizing that you need to do data cleaning steps; if you approach it that way, then you have to go back and rename your variables created along the way - this method allows you to keep working with your &lt;code&gt;processed&lt;/code&gt; data as you move swiftly through your analysis.&lt;/p&gt;
-&lt;p&gt;I picked up this &lt;code&gt;pro-tip&lt;/code&gt; while watching &lt;code&gt;David Robinson&lt;/code&gt; in his &lt;code&gt;Tidy Tuesday Screencasts&lt;/code&gt; - check those out here: &lt;a href=&#34;https://www.youtube.com/playlist?list=PL19ev-r1GBwkuyiwnxoHTRC8TTqP8OEi8&#34; target=&#34;_blank&#34;&gt;Tidy Tuesday R Screencasts&lt;/a&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Hat-Tip to D-Rob&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;data-wrangling&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Data Wrangling&lt;/h3&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Data Wrangling
+redwood_tbl &amp;lt;- sf_trees_data_raw_tbl %&amp;gt;% 
+    
+    # select species and filter to redwood only
+    select(species) %&amp;gt;% 
+    filter(str_detect(species, pattern = &amp;#39;Redwood&amp;#39;)) %&amp;gt;% 
+    
+    # break up species and common-name into separate columns
+    separate(
+        col = species,
+        into = c(&amp;quot;species&amp;quot;, &amp;quot;common_name&amp;quot;),
+        sep  = &amp;#39; :: &amp;#39;,
+        remove = FALSE) %&amp;gt;% 
+    
+    # calculate absolute and relative distributions
+    count(species, common_name) %&amp;gt;% 
+    mutate(pct = n / sum(n),
+           pct_text = percent(pct)) %&amp;gt;% 
+    arrange(desc(pct))&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;div id=&#34;step-3&#34; class=&#34;section level4&#34;&gt;
-&lt;h4&gt;Step 3&lt;/h4&gt;
-&lt;p&gt;Begin &lt;code&gt;Exploring&lt;/code&gt; your &lt;code&gt;Data&lt;/code&gt; and conducting your analysis.&lt;/p&gt;
-&lt;p&gt;At this point, I’ll do a bit of &lt;code&gt;EDA&lt;/code&gt; to familiarize myself with the data I’m working with; this process is always to get a high-level understanding of the data so that I can pick up on nuances along with data integrity issues that need attention (dealt with in the pre-processing pipeline).&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;initial-exploration&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Initial Exploration&lt;/h3&gt;
-&lt;p&gt;Let’s look at these &lt;code&gt;raw&lt;/code&gt; data using the &lt;code&gt;tibble::glimpse()&lt;/code&gt; function.&lt;/p&gt;
-&lt;p&gt;The &lt;code&gt;glimpse()&lt;/code&gt; function allows us to quickly assess column names, data-types, and also view a sample of the values contained in each column - you can read more about the &lt;code&gt;glimpse()&lt;/code&gt; function in my archived post, &lt;a href=&#34;https://www.exploringdata.org/post/examining-data-with-glimpse/&#34; target=&#34;_blank&#34;&gt;Examining Data with glimpse()&lt;/a&gt;.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;coffee_chains_processed %&amp;gt;% 
-  tibble::glimpse()&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Rows: 25,600
-## Columns: 13
-## $ Brand            &amp;lt;chr&amp;gt; &amp;quot;Starbucks&amp;quot;, &amp;quot;Starbucks&amp;quot;, &amp;quot;Starbucks&amp;quot;, &amp;quot;Starbucks&amp;quot;, …
-## $ `Store Number`   &amp;lt;chr&amp;gt; &amp;quot;47370-257954&amp;quot;, &amp;quot;22331-212325&amp;quot;, &amp;quot;47089-256771&amp;quot;, &amp;quot;221…
-## $ `Store Name`     &amp;lt;chr&amp;gt; &amp;quot;Meritxell, 96&amp;quot;, &amp;quot;Ajman Drive Thru&amp;quot;, &amp;quot;Dana Mall&amp;quot;, &amp;quot;T…
-## $ `Ownership Type` &amp;lt;chr&amp;gt; &amp;quot;Licensed&amp;quot;, &amp;quot;Licensed&amp;quot;, &amp;quot;Licensed&amp;quot;, &amp;quot;Licensed&amp;quot;, &amp;quot;Lic…
-## $ `Street Address` &amp;lt;chr&amp;gt; &amp;quot;Av. Meritxell, 96&amp;quot;, &amp;quot;1 Street 69, Al Jarf&amp;quot;, &amp;quot;Sheikh…
-## $ City             &amp;lt;chr&amp;gt; &amp;quot;Andorra la Vella&amp;quot;, &amp;quot;Ajman&amp;quot;, &amp;quot;Ajman&amp;quot;, &amp;quot;Abu Dhabi&amp;quot;, &amp;quot;…
-## $ `State/Province` &amp;lt;chr&amp;gt; &amp;quot;7&amp;quot;, &amp;quot;AJ&amp;quot;, &amp;quot;AJ&amp;quot;, &amp;quot;AZ&amp;quot;, &amp;quot;AZ&amp;quot;, &amp;quot;AZ&amp;quot;, &amp;quot;AZ&amp;quot;, &amp;quot;AZ&amp;quot;, &amp;quot;AZ&amp;quot;,…
-## $ Country          &amp;lt;chr&amp;gt; &amp;quot;AD&amp;quot;, &amp;quot;AE&amp;quot;, &amp;quot;AE&amp;quot;, &amp;quot;AE&amp;quot;, &amp;quot;AE&amp;quot;, &amp;quot;AE&amp;quot;, &amp;quot;AE&amp;quot;, &amp;quot;AE&amp;quot;, &amp;quot;AE&amp;quot;…
-## $ Postcode         &amp;lt;chr&amp;gt; &amp;quot;AD500&amp;quot;, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, &amp;quot;31…
-## $ `Phone Number`   &amp;lt;chr&amp;gt; &amp;quot;376818720&amp;quot;, NA, NA, NA, NA, NA, NA, NA, &amp;quot;26670052&amp;quot;,…
-## $ Timezone         &amp;lt;chr&amp;gt; &amp;quot;GMT+1:00 Europe/Andorra&amp;quot;, &amp;quot;GMT+04:00 Asia/Dubai&amp;quot;, &amp;quot;…
-## $ Longitude        &amp;lt;dbl&amp;gt; 1.53, 55.47, 55.47, 54.38, 54.54, 54.49, 54.49, 54.6…
-## $ Latitude         &amp;lt;dbl&amp;gt; 42.51, 25.42, 25.39, 24.48, 24.51, 24.40, 24.40, 24.…&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Immediately, we can see that our column names are not optimal for analysis. Personally, I’m VERY biased towards &lt;code&gt;snake_case&lt;/code&gt; and therefore always like to get column names into that format.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;janitorclean_names&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;janitor::clean_names()&lt;/h3&gt;
-&lt;p&gt;In comes &lt;code&gt;{janitor::clean_names}&lt;/code&gt; to the rescue ⛑️&lt;/p&gt;
-&lt;p&gt;By default, &lt;code&gt;clean_names()&lt;/code&gt; outputs column naming with the &lt;code&gt;snake_case&lt;/code&gt; format - maybe this is one of the reasons that it’s in my top 10 for favorite functions in &lt;code&gt;R&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;Let’s test it out on our coffee data.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# clean_names() with default naming
-coffee_chains_processed %&amp;gt;% 
-  janitor::clean_names() %&amp;gt;% 
-  base::names()&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##  [1] &amp;quot;brand&amp;quot;          &amp;quot;store_number&amp;quot;   &amp;quot;store_name&amp;quot;     &amp;quot;ownership_type&amp;quot;
-##  [5] &amp;quot;street_address&amp;quot; &amp;quot;city&amp;quot;           &amp;quot;state_province&amp;quot; &amp;quot;country&amp;quot;       
-##  [9] &amp;quot;postcode&amp;quot;       &amp;quot;phone_number&amp;quot;   &amp;quot;timezone&amp;quot;       &amp;quot;longitude&amp;quot;     
-## [13] &amp;quot;latitude&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;div id=&#34;awesome&#34; class=&#34;section level4&#34;&gt;
-&lt;h4&gt;Awesome!&lt;/h4&gt;
-&lt;p&gt;You’ll notice the &lt;code&gt;function&lt;/code&gt; took care of the &lt;code&gt;/&lt;/code&gt; in &lt;code&gt;State/Province&lt;/code&gt; and replaced it with an underscore - simply amazing 😎&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;naming-convention-options&#34; class=&#34;section level4&#34;&gt;
-&lt;h4&gt;Naming Convention Options&lt;/h4&gt;
-&lt;p&gt;If you prefer a different naming convention - I’m not sure why you would 🙄 - then you can use the &lt;code&gt;case&lt;/code&gt; argument.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# clean_names() with diff. naming convention
-coffee_chains_processed %&amp;gt;% 
-  clean_names(case = &amp;quot;small_camel&amp;quot;) %&amp;gt;% 
-  names()&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##  [1] &amp;quot;brand&amp;quot;         &amp;quot;storeNumber&amp;quot;   &amp;quot;storeName&amp;quot;     &amp;quot;ownershipType&amp;quot;
-##  [5] &amp;quot;streetAddress&amp;quot; &amp;quot;city&amp;quot;          &amp;quot;stateProvince&amp;quot; &amp;quot;country&amp;quot;      
-##  [9] &amp;quot;postcode&amp;quot;      &amp;quot;phoneNumber&amp;quot;   &amp;quot;timezone&amp;quot;      &amp;quot;longitude&amp;quot;    
-## [13] &amp;quot;latitude&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;pre-processing-addition&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Pre-Processing Addition&lt;/h3&gt;
-&lt;p&gt;Now let’s add this step to our pre-processing pipeline.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Adding to our Pre-Processing Pipeline
-coffee_chains_processed &amp;lt;- coffee_chains_raw %&amp;gt;% 
-  
-  # clean up column names
-  janitor::clean_names()&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;janitorget_dupes&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;janitor::get_dupes()&lt;/h3&gt;
-&lt;p&gt;&lt;code&gt;get_dupes()&lt;/code&gt; is at the top of the list for newly discovered &lt;code&gt;functionality&lt;/code&gt; within the &lt;code&gt;{janitor}&lt;/code&gt; package.&lt;/p&gt;
-&lt;p&gt;This is one of those things you need to do often (check for duplicates) and &lt;code&gt;{janitor}&lt;/code&gt; makes it simple.&lt;/p&gt;
-&lt;p&gt;Going back to our &lt;code&gt;case-study&lt;/code&gt;, our manager asked us to check for duplicated records (a common &lt;code&gt;data-cleaning&lt;/code&gt; and &lt;code&gt;EDA&lt;/code&gt; step).&lt;/p&gt;
-&lt;p&gt;Let’s subset our data and investigate.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;coffee_chains_processed %&amp;gt;% 
-  
-  # subset data by store and by location
-  dplyr::select(brand, store_number, 
-                city, state_province, country) %&amp;gt;% 
-  
-  # identify duplicated records
-  janitor::get_dupes()&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## # A tibble: 2 x 6
-##   brand     store_number city  state_province country dupe_count
-##   &amp;lt;chr&amp;gt;     &amp;lt;chr&amp;gt;        &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt;          &amp;lt;chr&amp;gt;        &amp;lt;int&amp;gt;
-## 1 Starbucks 19773-160973 Seoul 11             KR               2
-## 2 Starbucks 19773-160973 Seoul 11             KR               2&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Using &lt;code&gt;janitor::get_dupes()&lt;/code&gt; we’ve quickly identified a potential issue: store number &lt;code&gt;19773-160973&lt;/code&gt; has duplicated records.&lt;/p&gt;
-&lt;p&gt;Let’s investigate further.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# filter to store with dupes
-coffee_chains_processed %&amp;gt;% 
-  
-  # filter to store and glimpse data
-  dplyr::filter(store_number == &amp;quot;19773-160973&amp;quot;) %&amp;gt;% 
-  glimpse()&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## Rows: 2
-## Columns: 13
-## $ brand          &amp;lt;chr&amp;gt; &amp;quot;Starbucks&amp;quot;, &amp;quot;Starbucks&amp;quot;
-## $ store_number   &amp;lt;chr&amp;gt; &amp;quot;19773-160973&amp;quot;, &amp;quot;19773-160973&amp;quot;
-## $ store_name     &amp;lt;chr&amp;gt; &amp;quot;Yoido IFC Mall - 1F&amp;quot;, &amp;quot;Yoido IFC Mall - 1F&amp;quot;
-## $ ownership_type &amp;lt;chr&amp;gt; &amp;quot;Joint Venture&amp;quot;, &amp;quot;Joint Venture&amp;quot;
-## $ street_address &amp;lt;chr&amp;gt; &amp;quot;23 &amp;amp; 23-1, Yoido-Dong, Yongdongpo-Gu, 1F, #101&amp;quot;, &amp;quot;23 …
-## $ city           &amp;lt;chr&amp;gt; &amp;quot;Seoul&amp;quot;, &amp;quot;Seoul&amp;quot;
-## $ state_province &amp;lt;chr&amp;gt; &amp;quot;11&amp;quot;, &amp;quot;11&amp;quot;
-## $ country        &amp;lt;chr&amp;gt; &amp;quot;KR&amp;quot;, &amp;quot;KR&amp;quot;
-## $ postcode       &amp;lt;chr&amp;gt; &amp;quot;153-023&amp;quot;, &amp;quot;153-023&amp;quot;
-## $ phone_number   &amp;lt;chr&amp;gt; NA, NA
-## $ timezone       &amp;lt;chr&amp;gt; &amp;quot;GMT+09:00 Asia/Seoul&amp;quot;, &amp;quot;GMT+09:00 Asia/Seoul&amp;quot;
-## $ longitude      &amp;lt;dbl&amp;gt; NA, 126.92
-## $ latitude       &amp;lt;dbl&amp;gt; NA, 37.53&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Look carefully and you’ll notice that the latitude/longitude are missing for one of these records.&lt;/p&gt;
-&lt;p&gt;We need lat/long for mapping and so we will want to prioritize the records with those data. Also, we don’t want duplicated records to interfere with our tabulations later on in this analysis.&lt;/p&gt;
-&lt;p&gt;Let’s quickly look and see how much data is missing from the lat/long columns.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# plot missing data (using raw data)
-DataExplorer::plot_missing(
-  title   = &amp;quot;% of Missing Data (filtered to cols w/missing data)&amp;quot;,
-  data    = coffee_chains_raw,
-  ggtheme = tidyquant::theme_tq(), 
-  missing_only = TRUE) &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2020-09-02-how-to-clean-data-janitor-package_files/figure-html/unnamed-chunk-13-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;The plot shows that &lt;code&gt;0%&lt;/code&gt; of data are missing for lat/long leading me to believe that the store identified earlier is the only record with missing data (insignificant amount when plotted).&lt;/p&gt;
-&lt;p&gt;We will filter that record out in our &lt;code&gt;data-cleaning&lt;/code&gt; step.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;pre-processing-addition-1&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Pre-Processing Addition&lt;/h3&gt;
-&lt;p&gt;Now let’s add this step to our pre-processing pipeline&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Adding to our Pre-Processing Pipeline
-coffee_chains_processed &amp;lt;- coffee_chains_raw %&amp;gt;% 
-  
-  # clean up column names
-  janitor::clean_names() %&amp;gt;% 
-  
-  # filter out records missing lat/long values
-  dplyr::filter(!is.na(latitude), !is.na(longitude))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Let’s use &lt;code&gt;get_dupes()&lt;/code&gt; to confirm the problem is solved&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;coffee_chains_processed %&amp;gt;% 
-  
-  # subset data
-  dplyr::select(brand, store_number, city, state_province, country) %&amp;gt;% 
-  
-  # identify duplicated records
-  janitor::get_dupes()&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## # A tibble: 0 x 6
-## # … with 6 variables: brand &amp;lt;chr&amp;gt;, store_number &amp;lt;chr&amp;gt;, city &amp;lt;chr&amp;gt;,
-## #   state_province &amp;lt;chr&amp;gt;, country &amp;lt;chr&amp;gt;, dupe_count &amp;lt;int&amp;gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;starbucks-analysis&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Starbucks Analysis&lt;/h3&gt;
-&lt;p&gt;Now that we’ve done our due diligence in being sure we’ve dealt with data issues, let’s knock out this analysis by
-tabulating these data and compiling a map, or two 🤓&lt;/p&gt;
-&lt;p&gt;Before doing so, let’s add one final step to our pre-processing data pipeline.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;pre-processing-addition-2&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Pre-Processing Addition&lt;/h3&gt;
-&lt;p&gt;The final step is to subset the columns needed to complete the analysis.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Adding to our Pre-Processing Pipeline
-coffee_chains_processed &amp;lt;- coffee_chains_raw %&amp;gt;% 
-  
-  # clean up column names
-  janitor::clean_names() %&amp;gt;% 
-  
-  # filter out records missing lat/long values
-  dplyr::filter(!is.na(latitude), !is.na(longitude)) %&amp;gt;% 
-  
-  # subset columns for analysis
-  dplyr::select(brand, ownership_type, country, 
-                state_province, latitude, longitude)&lt;/code&gt;&lt;/pre&gt;
-&lt;div id=&#34;view-data&#34; class=&#34;section level4&#34;&gt;
-&lt;h4&gt;View Data&lt;/h4&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# view first 5 rows
-coffee_chains_processed %&amp;gt;% head(5)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## # A tibble: 5 x 6
-##   brand     ownership_type country state_province latitude longitude
-##   &amp;lt;chr&amp;gt;     &amp;lt;chr&amp;gt;          &amp;lt;chr&amp;gt;   &amp;lt;chr&amp;gt;             &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;
-## 1 Starbucks Licensed       AD      7                  42.5      1.53
-## 2 Starbucks Licensed       AE      AJ                 25.4     55.5 
-## 3 Starbucks Licensed       AE      AJ                 25.4     55.5 
-## 4 Starbucks Licensed       AE      AZ                 24.5     54.4 
-## 5 Starbucks Licensed       AE      AZ                 24.5     54.5&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;tabulate-data-worldwide&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Tabulate Data (worldwide)&lt;/h3&gt;
-&lt;p&gt;Let’s start with looking at Ownership Types worldwide.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;janitor::tabyl&lt;/code&gt; stuck out to me because the ease with which to generate frequency tables.&lt;/p&gt;
-&lt;p&gt;Check it out.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# generate frequency table
-coffee_chains_processed %&amp;gt;% 
-  
-  # filter data
-  dplyr::filter(brand == &amp;quot;Starbucks&amp;quot;) %&amp;gt;% 
-  
-  # tabulate and arrange data
-  janitor::tabyl(ownership_type) %&amp;gt;% 
-  arrange(desc(percent)) %&amp;gt;% 
-  
-  # formatting
-  janitor::adorn_totals() %&amp;gt;% 
-  janitor::adorn_pct_formatting() %&amp;gt;% 
-  rmarkdown::paged_table()&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;summary-table&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Summary Table&lt;/h3&gt;
+&lt;p&gt;Let’s take a look at our findings.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;rmarkdown::paged_table(redwood_tbl %&amp;gt;% select(-pct))&lt;/code&gt;&lt;/pre&gt;
 &lt;div data-pagedtable=&#34;false&#34;&gt;
 &lt;script data-pagedtable-source type=&#34;application/json&#34;&gt;
-{&#34;columns&#34;:[{&#34;label&#34;:[&#34;&#34;],&#34;name&#34;:[&#34;_rn_&#34;],&#34;type&#34;:[&#34;&#34;],&#34;align&#34;:[&#34;left&#34;]},{&#34;label&#34;:[&#34;ownership_type&#34;],&#34;name&#34;:[1],&#34;type&#34;:[&#34;chr&#34;],&#34;align&#34;:[&#34;left&#34;]},{&#34;label&#34;:[&#34;n&#34;],&#34;name&#34;:[2],&#34;type&#34;:[&#34;dbl&#34;],&#34;align&#34;:[&#34;right&#34;]},{&#34;label&#34;:[&#34;percent&#34;],&#34;name&#34;:[3],&#34;type&#34;:[&#34;chr&#34;],&#34;align&#34;:[&#34;left&#34;]}],&#34;data&#34;:[{&#34;1&#34;:&#34;Company Owned&#34;,&#34;2&#34;:&#34;11581&#34;,&#34;3&#34;:&#34;45.9%&#34;,&#34;_rn_&#34;:&#34;1&#34;},{&#34;1&#34;:&#34;Licensed&#34;,&#34;2&#34;:&#34;9375&#34;,&#34;3&#34;:&#34;37.1%&#34;,&#34;_rn_&#34;:&#34;2&#34;},{&#34;1&#34;:&#34;Joint Venture&#34;,&#34;2&#34;:&#34;3975&#34;,&#34;3&#34;:&#34;15.7%&#34;,&#34;_rn_&#34;:&#34;3&#34;},{&#34;1&#34;:&#34;Franchise&#34;,&#34;2&#34;:&#34;317&#34;,&#34;3&#34;:&#34;1.3%&#34;,&#34;_rn_&#34;:&#34;4&#34;},{&#34;1&#34;:&#34;Total&#34;,&#34;2&#34;:&#34;25248&#34;,&#34;3&#34;:&#34;100.0%&#34;,&#34;_rn_&#34;:&#34;5&#34;}],&#34;options&#34;:{&#34;columns&#34;:{&#34;min&#34;:{},&#34;max&#34;:[10]},&#34;rows&#34;:{&#34;min&#34;:[10],&#34;max&#34;:[10]},&#34;pages&#34;:{}}}
+{&#34;columns&#34;:[{&#34;label&#34;:[&#34;species&#34;],&#34;name&#34;:[1],&#34;type&#34;:[&#34;chr&#34;],&#34;align&#34;:[&#34;left&#34;]},{&#34;label&#34;:[&#34;common_name&#34;],&#34;name&#34;:[2],&#34;type&#34;:[&#34;chr&#34;],&#34;align&#34;:[&#34;left&#34;]},{&#34;label&#34;:[&#34;n&#34;],&#34;name&#34;:[3],&#34;type&#34;:[&#34;int&#34;],&#34;align&#34;:[&#34;right&#34;]},{&#34;label&#34;:[&#34;pct_text&#34;],&#34;name&#34;:[4],&#34;type&#34;:[&#34;chr&#34;],&#34;align&#34;:[&#34;left&#34;]}],&#34;data&#34;:[{&#34;1&#34;:&#34;Sequoia sempervirens&#34;,&#34;2&#34;:&#34;Coast Redwood&#34;,&#34;3&#34;:&#34;341&#34;,&#34;4&#34;:&#34;92.41%&#34;},{&#34;1&#34;:&#34;Metasequoia glyplostroboides&#34;,&#34;2&#34;:&#34;Dawn Redwood&#34;,&#34;3&#34;:&#34;15&#34;,&#34;4&#34;:&#34;4.07%&#34;},{&#34;1&#34;:&#34;Sequoiadendron giganteum&#34;,&#34;2&#34;:&#34;Sierra Redwood&#34;,&#34;3&#34;:&#34;13&#34;,&#34;4&#34;:&#34;3.52%&#34;}],&#34;options&#34;:{&#34;columns&#34;:{&#34;min&#34;:{},&#34;max&#34;:[10]},&#34;rows&#34;:{&#34;min&#34;:[10],&#34;max&#34;:[10]},&#34;pages&#34;:{}}}
   &lt;/script&gt;
 &lt;/div&gt;
-&lt;p&gt;Using just the &lt;code&gt;tabyl&lt;/code&gt; function we were able to generate frequencies along with the percent of total.&lt;/p&gt;
-&lt;p&gt;However, &lt;code&gt;{janitor}&lt;/code&gt; is packed full of other goodies - the creator(s) have crafted a number of &lt;code&gt;adorn&lt;/code&gt; options for formatting our outputs. I used the &lt;code&gt;adorn_totals&lt;/code&gt; and &lt;code&gt;adorn_pct_formatting&lt;/code&gt; to tidy up and make our table ready for presentation.&lt;/p&gt;
-&lt;p&gt;Simply Amazing 😎&lt;/p&gt;
+&lt;p&gt;As I expected, the Coastal Redwoods are the dominant species in San Francisco.&lt;/p&gt;
+&lt;p&gt;And while the table is good, lets craft an awesome plot to display these results.&lt;/p&gt;
 &lt;/div&gt;
-&lt;div id=&#34;tabulate-data-us-lower-48&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Tabulate Data (US, lower 48)&lt;/h3&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# generate frequency table
-coffee_chains_processed %&amp;gt;% 
-  
-  # filter data
-  dplyr::filter(brand   == &amp;quot;Starbucks&amp;quot;, 
-                country == &amp;quot;US&amp;quot;, 
-                state_province != &amp;quot;AK&amp;quot;, 
-                state_province != &amp;quot;HI&amp;quot;) %&amp;gt;% 
-  
-  # tabulate and arrange data
-  janitor::tabyl(ownership_type) %&amp;gt;% 
-  arrange(desc(percent)) %&amp;gt;% 
-  
-  # formatting
-  janitor::adorn_totals() %&amp;gt;% 
-  janitor::adorn_pct_formatting() %&amp;gt;% 
-  rmarkdown::paged_table()&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;the-power-of-str_glue&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;The Power of &lt;code&gt;str_glue()&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;With a couple lines of &lt;code&gt;code&lt;/code&gt; we can build our label for plotting. As you can see, we can add &lt;code&gt;arguments&lt;/code&gt; directly from our table using curly brackets &lt;code&gt;{}&lt;/code&gt; - honestly, the options are endless for how creative you can get with &lt;code&gt;stringing&lt;/code&gt; together text and adding labels to your plots.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Data Wrangling
+redwood_labeled_text_tbl &amp;lt;- redwood_tbl %&amp;gt;% 
+    
+    # label text
+    mutate(label_text = str_glue(
+        &amp;#39;Scientific Name:
+        {species}
+        Count: {n} of {sum(n)}
+        Pct (%): {pct_text}&amp;#39;),
+    
+    # add &amp;#39;forward-slash&amp;#39; to wrap-text on our plot
+    common_name = str_replace(common_name, pattern = &amp;#39; &amp;#39;, 
+                              replacement = &amp;#39; \n &amp;#39;)) %&amp;gt;% 
+    
+    # reorder factors based on percent rank
+    mutate(common_name = common_name %&amp;gt;% fct_reorder(pct))&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;manipulated-text-ready-to-plot&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Manipulated Text (ready to plot)&lt;/h3&gt;
+&lt;p&gt;Here is the manipulated text that will be useful once we plot these data; this setup is critical for the labels on our final plot e.g., the &lt;code&gt;\n&lt;/code&gt; will wrap the text at those locations.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;redwood_labeled_text_tbl %&amp;gt;% 
+    select(label_text) %&amp;gt;% 
+    rmarkdown::paged_table()&lt;/code&gt;&lt;/pre&gt;
 &lt;div data-pagedtable=&#34;false&#34;&gt;
 &lt;script data-pagedtable-source type=&#34;application/json&#34;&gt;
-{&#34;columns&#34;:[{&#34;label&#34;:[&#34;&#34;],&#34;name&#34;:[&#34;_rn_&#34;],&#34;type&#34;:[&#34;&#34;],&#34;align&#34;:[&#34;left&#34;]},{&#34;label&#34;:[&#34;ownership_type&#34;],&#34;name&#34;:[1],&#34;type&#34;:[&#34;chr&#34;],&#34;align&#34;:[&#34;left&#34;]},{&#34;label&#34;:[&#34;n&#34;],&#34;name&#34;:[2],&#34;type&#34;:[&#34;dbl&#34;],&#34;align&#34;:[&#34;right&#34;]},{&#34;label&#34;:[&#34;percent&#34;],&#34;name&#34;:[3],&#34;type&#34;:[&#34;chr&#34;],&#34;align&#34;:[&#34;left&#34;]}],&#34;data&#34;:[{&#34;1&#34;:&#34;Company Owned&#34;,&#34;2&#34;:&#34;7859&#34;,&#34;3&#34;:&#34;59.7%&#34;,&#34;_rn_&#34;:&#34;1&#34;},{&#34;1&#34;:&#34;Licensed&#34;,&#34;2&#34;:&#34;5306&#34;,&#34;3&#34;:&#34;40.3%&#34;,&#34;_rn_&#34;:&#34;2&#34;},{&#34;1&#34;:&#34;Total&#34;,&#34;2&#34;:&#34;13165&#34;,&#34;3&#34;:&#34;100.0%&#34;,&#34;_rn_&#34;:&#34;3&#34;}],&#34;options&#34;:{&#34;columns&#34;:{&#34;min&#34;:{},&#34;max&#34;:[10]},&#34;rows&#34;:{&#34;min&#34;:[10],&#34;max&#34;:[10]},&#34;pages&#34;:{}}}
+{&#34;columns&#34;:[{&#34;label&#34;:[&#34;label_text&#34;],&#34;name&#34;:[1],&#34;type&#34;:[&#34;S3: glue&#34;],&#34;align&#34;:[&#34;right&#34;]}],&#34;data&#34;:[{&#34;1&#34;:&#34;Scientific Name:\\nSequoia sempervirens\\nCount: 341 of 369\\nPct (%): 92.41%&#34;},{&#34;1&#34;:&#34;Scientific Name:\\nMetasequoia glyplostroboides\\nCount: 15 of 369\\nPct (%): 4.07%&#34;},{&#34;1&#34;:&#34;Scientific Name:\\nSequoiadendron giganteum\\nCount: 13 of 369\\nPct (%): 3.52%&#34;}],&#34;options&#34;:{&#34;columns&#34;:{&#34;min&#34;:{},&#34;max&#34;:[10]},&#34;rows&#34;:{&#34;min&#34;:[10],&#34;max&#34;:[10]},&#34;pages&#34;:{}}}
   &lt;/script&gt;
 &lt;/div&gt;
-&lt;blockquote&gt;
-&lt;p&gt;All Starbucks are either company owned, which is almost all of them, or else they’re “licensed” locations, which are the Starbucks in airports, supermarkets, etc. - Charles Partrick&lt;/p&gt;
-&lt;/blockquote&gt;
 &lt;/div&gt;
-&lt;div id=&#34;map-starbucks-locations&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Map Starbucks Locations&lt;/h3&gt;
-&lt;p&gt;Now lets make those maps and get this analysis wrapped up.&lt;/p&gt;
-&lt;p&gt;Lets start by getting a general sense of where in the US these Starbucks are located.&lt;/p&gt;
-&lt;div id=&#34;data-manipulation&#34; class=&#34;section level4&#34;&gt;
-&lt;h4&gt;Data Manipulation&lt;/h4&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Data Manipulation
-starbucks_lower_48 &amp;lt;- coffee_chains_processed %&amp;gt;% 
-  
-  # filter data
-  dplyr::filter(brand   == &amp;quot;Starbucks&amp;quot;, 
-                country == &amp;quot;US&amp;quot;, 
-                state_province != &amp;quot;AK&amp;quot;, 
-                state_province != &amp;quot;HI&amp;quot;) &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;data-visualization&#34; class=&#34;section level4&#34;&gt;
-&lt;h4&gt;Data Visualization&lt;/h4&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Data Visualization
-starbucks_lower_48 %&amp;gt;% 
-  
-  # setup ggplot canvas + US borders
-  ggplot(aes(longitude, latitude, color = ownership_type)) +
-  
-  # add geometries
-  borders(&amp;quot;state&amp;quot;) +
-  geom_point(size = .75, alpha = 0.5) +
-  
-  # formatting
-  ggthemes::theme_map() +   # remove x/y for tidy map
-  coord_map() +             # scales map (simple approach)
-  scale_color_manual(values = c(&amp;quot;#2c3e50&amp;quot;, &amp;quot;#18BC9C&amp;quot;)) +
-  labs(title = &amp;quot;Starbucks Locations by Ownership Type (Lower 48)&amp;quot;,
-       color = &amp;quot;Ownership Type&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2020-09-02-how-to-clean-data-janitor-package_files/figure-html/unnamed-chunk-21-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;That’s a solid map but I think we can do better to identify patterns in ownership types.&lt;/p&gt;
-&lt;p&gt;Let’s calculate the ratio of Corporate (Company Owned) vs. Licensed ownership and map that at the state level.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;data-acquisition-state-boundaries&#34; class=&#34;section level4&#34;&gt;
-&lt;h4&gt;Data Acquisition (state boundaries)&lt;/h4&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Get state level lat/long table
-states &amp;lt;- ggplot2::map_data(&amp;quot;state&amp;quot;) %&amp;gt;% 
-  tibble() %&amp;gt;% 
-  mutate(region = str_to_title(region))&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;data-manipulation-1&#34; class=&#34;section level4&#34;&gt;
-&lt;h4&gt;Data Manipulation&lt;/h4&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Data Manipulation
-ownership_ratios_by_state &amp;lt;- starbucks_lower_48 %&amp;gt;% 
-  
-  # count ownership types by state
-  group_by(state_province, ownership_type) %&amp;gt;% 
-  summarize(n = n()) %&amp;gt;% 
-  ungroup() %&amp;gt;% 
-  
-  # pivot data and calculate ratios
-  pivot_wider(names_from = ownership_type, 
-              values_from = n) %&amp;gt;% 
-  clean_names() %&amp;gt;% 
-  mutate(corp_vs_lic = company_owned/licensed) %&amp;gt;% 
-  
-  # join to get state names from codes
-  left_join(USAboundaries::state_codes %&amp;gt;% 
-          select(state_name, state_abbr),
-          by = c(&amp;quot;state_province&amp;quot; = &amp;quot;state_abbr&amp;quot;)) %&amp;gt;% 
-  
-  # reorder columns
-  select(state_name, everything())&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;view-data-1&#34; class=&#34;section level4&#34;&gt;
-&lt;h4&gt;View Data&lt;/h4&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ownership_ratios_by_state %&amp;gt;% head()&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## # A tibble: 6 x 5
-##   state_name  state_province company_owned licensed corp_vs_lic
-##   &amp;lt;chr&amp;gt;       &amp;lt;chr&amp;gt;                  &amp;lt;int&amp;gt;    &amp;lt;int&amp;gt;       &amp;lt;dbl&amp;gt;
-## 1 Alabama     AL                        48       36       1.33 
-## 2 Arkansas    AR                        35       19       1.84 
-## 3 Arizona     AZ                       196      283       0.693
-## 4 California  CA                      1943      839       2.32 
-## 5 Colorado    CO                       227      250       0.908
-## 6 Connecticut CT                        83       35       2.37&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;data-visualization-1&#34; class=&#34;section level3&#34;&gt;
+&lt;div id=&#34;data-visualization&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Data Visualization&lt;/h3&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ownership_ratios_by_state %&amp;gt;% 
-  
-  # join to get state boundaries (lat/long)
-  left_join(states, by = c(&amp;quot;state_name&amp;quot; = &amp;quot;region&amp;quot;)) %&amp;gt;% 
-  
-  # setup ggplot canvas + US borders
-  ggplot(aes(long, lat, fill = corp_vs_lic, group = group)) +
-  
-  # add geometries
-  geom_polygon() +
-  ggplot2::borders(&amp;quot;state&amp;quot;) +
-  
-  # formatting
-  ggthemes::theme_map() + # remove x/y for tidy map
-  theme(legend.position = c(.9, .05)) +
-  coord_map(projection = &amp;quot;mercator&amp;quot;) + # scales map projection 
-  scale_fill_gradient2(low = &amp;quot;white&amp;quot;, high = &amp;quot;#18BC9C&amp;quot;, ) + 
-  labs(title = &amp;quot;Ratio of Corporate vs. Licensed Starbucks in the US (Lower 48)&amp;quot;,
-       subtitle = &amp;quot;Darker green equates to more corporate locations compared to licensed establishments.&amp;quot;,
-       fill = &amp;quot;Ratio of\nCorporate/\nLicensed&amp;quot;) &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/post/2020-09-02-how-to-clean-data-janitor-package_files/figure-html/unnamed-chunk-25-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;This represent the data in a way that helps us identify patterns - our manager will be pleased 👍&lt;/p&gt;
+&lt;p&gt;Now that we’ve done our &lt;code&gt;Data Wrangling&lt;/code&gt;, lets get into a bit of &lt;code&gt;Data Visualization&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Save Plot
+g &amp;lt;- redwood_labeled_text_tbl %&amp;gt;% 
+    
+    # Canvas
+    ggplot(aes(pct, common_name), color = &amp;#39;#2c3e50&amp;#39;) +
+    
+    # Geometries
+    geom_segment(aes(xend = 0, yend = common_name), size = 2) +
+    geom_point(aes(size = 5)) +
+    geom_label(aes(label = label_text),hjust = &amp;quot;inward&amp;quot;,size = 3) +
+
+    # Formatting
+    scale_x_continuous(labels = scales::percent_format()) +
+    theme_tq() + 
+    labs(
+      title = str_glue(&amp;quot;Redwoods Trees of San Francisco&amp;quot;),
+      subtitle = str_glue(
+        &amp;quot;As expected, the coastal Redwoods make up the largest proportion.
+        Dawn Redwoods were once thought to be extinct (low #s not suprising).
+        Siera Redwoods grow at high elev. and so low numbers are expected.&amp;quot;),
+      caption = str_glue(&amp;quot;The Coastal Redwood is the dominant species in SF.&amp;quot;),
+      x = &amp;quot;&amp;quot;, y = &amp;quot;&amp;quot;) +
+    theme(legend.position = &amp;quot;none&amp;quot;,
+          plot.title = element_text(face = &amp;quot;bold&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
+&lt;div id=&#34;display-awesome-plot&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Display Awesome Plot&lt;/h2&gt;
+&lt;p&gt;And here is our plot with the engineered labels from the last few steps. And that’s just one example of why I love &lt;code&gt;str_glue()&lt;/code&gt; - Simply Awesome!&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-05-03-advanced-plots-in-r-with-str_glue_files/figure-html/unnamed-chunk-8-1.png&#34; width=&#34;768&#34; /&gt;&lt;/p&gt;
 &lt;div id=&#34;wrap-up&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Wrap Up&lt;/h3&gt;
-&lt;p&gt;I hope you enjoyed the first post in this new series.&lt;/p&gt;
-&lt;p&gt;Leave a comment and let me know.&lt;/p&gt;
+&lt;p&gt;That’s it for today!&lt;/p&gt;
+&lt;p&gt;We used &lt;code&gt;str_glue()&lt;/code&gt; to manipulate our text and add awesome labels to our &lt;code&gt;ggplot()&lt;/code&gt; - the plot is now &lt;code&gt;Business-Ready&lt;/code&gt; 👍&lt;/p&gt;
+&lt;p&gt;Stay tuned for more posts on &lt;code&gt;Wrangling&lt;/code&gt; + &lt;code&gt;Exploring-Data&lt;/code&gt; with &lt;code&gt;R&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Get the code here: &lt;a href=&#34;https://github.com/dexters-analytics/data_blog/tree/master/content/post&#34; target=&#34;_blank&#34;&gt;Github Repo&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;subscribe-share&#34; class=&#34;section level3&#34;&gt;
@@ -1328,23 +1228,21 @@ ownership_ratios_by_state &amp;lt;- starbucks_lower_48 %&amp;gt;%
 &lt;p&gt;Enter your &lt;a href=&#34;https://tinyletter.com/dexters-analytics&#34; target=&#34;_blank&#34;&gt;Email Here&lt;/a&gt; to get the latest from Exploring-Data in your inbox.&lt;br/&gt;&lt;/p&gt;
 &lt;a href=&#34;https://twitter.com/share?ref_src=twsrc%5Etfw&#34; class=&#34;twitter-share-button&#34; data-show-count=&#34;false&#34;&gt;Tweet&lt;/a&gt;
 &lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
-&lt;p&gt;PS: Be Kind and Tidy your Data 😎&lt;/p&gt;
-&lt;p&gt;PSS: Leave a comment to help guide the subsequent posts in this series.&lt;/p&gt;
+&lt;p&gt;PS: Be Kind and Tidy your Data 😎&lt;br/&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;learn-r-fast&#34; class=&#34;section level3&#34;&gt;
 &lt;h3&gt;Learn R Fast&lt;/h3&gt;
-&lt;p&gt;I’ve been learning Data Science at &lt;a href=&#34;http://bit.ly/2UbPat2&#34; target=&#34;_blank&#34;&gt;Business Science University&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Join me on the journey.&lt;/p&gt;
-&lt;p&gt;Check out this link to get 15% off of the courses that are helping 1000s of analytics professionals take their careers to the next level: &lt;a href=&#34;http://bit.ly/2UbPat2&#34; target=&#34;_blank&#34;&gt;Business Science Courses&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Good luck.&lt;/p&gt;
+&lt;p&gt;Interested in expediting your learning path? Head on over to &lt;a href=&#34;https://www.business-science.io/?affcode=173166_vnvxtqbd&#34; target=&#34;_blank&#34;&gt;Business Science&lt;/a&gt; and join me on the journey.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://university.business-science.io/p/jumpstart-with-r/?affcode=173166_vnvxtqbd&#34; target=&#34;_blank&#34;&gt;Business Science: FREE Jumpstart Data-Science Course&lt;/a&gt; (opened for a limited time)&lt;/p&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 </description>
       
-            <category>r packages</category>
+            <category>stringr</category>
       
-            <category>data cleaning</category>
+            <category>visualization</category>
       
-            <category>eda</category>
+            <category>data wrangling</category>
       
     </item>
     

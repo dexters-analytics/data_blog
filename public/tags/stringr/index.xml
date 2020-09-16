@@ -185,7 +185,7 @@ g &amp;lt;- redwood_labeled_text_tbl %&amp;gt;%
       
             <category>stringr</category>
       
-            <category>data visualization</category>
+            <category>visualization</category>
       
             <category>data wrangling</category>
       

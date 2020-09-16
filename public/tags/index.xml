@@ -11,26 +11,6 @@
     
     
     <item>
-      <title>data visualization</title>
-      <link>/tags/data-visualization/</link>
-      <pubDate>Wed, 16 Sep 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/data-visualization/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>data wrangling</title>
-      <link>/tags/data-wrangling/</link>
-      <pubDate>Wed, 16 Sep 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/data-wrangling/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
       <title>eda</title>
       <link>/tags/eda/</link>
       <pubDate>Wed, 16 Sep 2020 00:00:00 +0000</pubDate>
@@ -61,6 +41,16 @@
     </item>
     
     <item>
+      <title>visualization</title>
+      <link>/tags/visualization/</link>
+      <pubDate>Wed, 16 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/visualization/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
       <title>data cleaning</title>
       <link>/tags/data-cleaning/</link>
       <pubDate>Wed, 02 Sep 2020 00:00:00 +0000</pubDate>
@@ -71,11 +61,21 @@
     </item>
     
     <item>
-      <title>r for data science</title>
-      <link>/tags/r-for-data-science/</link>
+      <title>data wrangling</title>
+      <link>/tags/data-wrangling/</link>
+      <pubDate>Tue, 25 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/data-wrangling/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>r4ds</title>
+      <link>/tags/r4ds/</link>
       <pubDate>Wed, 15 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/r-for-data-science/</guid>
+      <guid>/tags/r4ds/</guid>
       <description></description>
       
     </item>
@@ -116,16 +116,6 @@
       <pubDate>Fri, 15 May 2020 00:00:00 +0000</pubDate>
       
       <guid>/tags/dplyr/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>tidyverse</title>
-      <link>/tags/tidyverse/</link>
-      <pubDate>Fri, 15 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/tidyverse/</guid>
       <description></description>
       
     </item>

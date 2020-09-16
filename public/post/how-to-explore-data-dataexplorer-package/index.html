@@ -134,11 +134,9 @@
         
 <a href="/tags/r-packages"><kbd class="item-tag">r packages</kbd></a>
 
-<a href="/tags/data-wrangling"><kbd class="item-tag">data wrangling</kbd></a>
+<a href="/tags/visualization"><kbd class="item-tag">visualization</kbd></a>
 
 <a href="/tags/eda"><kbd class="item-tag">eda</kbd></a>
-
-<a href="/tags/data-visualization"><kbd class="item-tag">data visualization</kbd></a>
 
 
     </div>
@@ -171,7 +169,7 @@
 <p>You can tell by the name of my blog that <code>{DataExplorer}</code> is perfectly suited for this series on <code>R</code> packages.</p>
 <p><a href="https://www.linkedin.com/in/boxuancui/" target="_blank">Boxuan Cui</a> is the developer and maintainer of <code>{DataExplorer}</code>, a package which at it’s core is designed to “simplify and automate EDA.”</p>
 <center>
-<img src="/post/2020-09-02-how-to-explore-data-dataexplorer-package_files/DataExplorer-180x180.png" />
+<img src="/post/2020-09-16-how-to-explore-data-dataexplorer-package_files/DataExplorer-180x180.png" />
 </center>
 <p><br/></p>
 <p>Take the time to explore the <code>{DataExplorer}</code> <a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-07-07/readme.md" target="_blank">Github Page</a> where Boxuan provides the following context:</p>
@@ -217,11 +215,10 @@ theme_set(theme_tq())</code></pre>
 <p>For our case-study we are using data from the <a href="https://github.com/rfordatascience/tidytuesday" target="_blank">Tidy Tuesday Project</a> archive.</p>
 <p>Each record represents bags of coffee that were assessed and “professionally rated on a 0-100 scale.” Each row has a score that originated from assessing X number of bags of coffee beans.</p>
 <p>Out of the many features in the data set, there are 10 numeric metrics that when summed make up the coffee rating score (total_cup_points).</p>
-<pre class="r"><code>tuesdata &lt;- tidytuesdayR::tt_load(2020, week = 28)</code></pre>
-<pre><code>## 
-##  Downloading file 1 of 1: `coffee_ratings.csv`</code></pre>
-<pre class="r"><code>coffee_ratings &lt;- tuesdata$coffee_ratings
+<pre class="r"><code>#tuesdata &lt;- tidytuesdayR::tt_load(2020, week = 28)
+#coffee_ratings &lt;- tuesdata$coffee_ratings
 
+#coffee_ratings_tbl &lt;- read_csv(&quot;static/01_data/coffee_ratings.csv&quot;)
 coffee_ratings_tbl &lt;- read_csv(&quot;../../static/01_data/coffee_ratings.csv&quot;)</code></pre>
 </div>
 <div id="data-caveats" class="section level3">
@@ -980,6 +977,8 @@ coffee_ratings_tbl &lt;- read_csv(&quot;../../static/01_data/coffee_ratings.csv&
 <p>I’ve been learning Data Science at <a href="http://bit.ly/2UbPat2" target="_blank">Business Science University</a>.</p>
 <p>Join me on the journey.</p>
 <p>Check out this link to get 15% off of the courses that are helping 1000s of analytics professionals take their careers to the next level: <a href="http://bit.ly/2UbPat2" target="_blank">15% off Business Science Courses</a></p>
+<pre class="r"><code>knitr::knit_exit()
+# 0711051058d4ded9ebc5fcd4e2bb6352ab28a605</code></pre>
 </div>
 </div>
 </div>
@@ -1003,8 +1002,6 @@ coffee_ratings_tbl &lt;- read_csv(&quot;../../static/01_data/coffee_ratings.csv&
 <a href="/tags/r-packages"><kbd class="item-tag">r packages</kbd></a>
 
 <a href="/tags/data-cleaning"><kbd class="item-tag">data cleaning</kbd></a>
-
-<a href="/tags/data-wrangling"><kbd class="item-tag">data wrangling</kbd></a>
 
 <a href="/tags/eda"><kbd class="item-tag">eda</kbd></a>
 
@@ -1044,11 +1041,11 @@ coffee_ratings_tbl &lt;- read_csv(&quot;../../static/01_data/coffee_ratings.csv&
     <h4><a href="/post/exploratory-data-analysis-eda-guide/">Exploratory Data Analysis Guide</a></h4>
     <h5>July 15, 2020</h5>
     
+<a href="/tags/r4ds"><kbd class="item-tag">r4ds</kbd></a>
+
+<a href="/tags/visualization"><kbd class="item-tag">visualization</kbd></a>
+
 <a href="/tags/eda"><kbd class="item-tag">eda</kbd></a>
-
-<a href="/tags/r-for-data-science"><kbd class="item-tag">r for data science</kbd></a>
-
-<a href="/tags/data-visualization"><kbd class="item-tag">data visualization</kbd></a>
 
 
 

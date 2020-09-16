@@ -44,7 +44,7 @@
 &lt;p&gt;You can tell by the name of my blog that &lt;code&gt;{DataExplorer}&lt;/code&gt; is perfectly suited for this series on &lt;code&gt;R&lt;/code&gt; packages.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://www.linkedin.com/in/boxuancui/&#34; target=&#34;_blank&#34;&gt;Boxuan Cui&lt;/a&gt; is the developer and maintainer of &lt;code&gt;{DataExplorer}&lt;/code&gt;, a package which at it’s core is designed to “simplify and automate EDA.”&lt;/p&gt;
 &lt;center&gt;
-&lt;img src=&#34;/post/2020-09-02-how-to-explore-data-dataexplorer-package_files/DataExplorer-180x180.png&#34; /&gt;
+&lt;img src=&#34;/post/2020-09-16-how-to-explore-data-dataexplorer-package_files/DataExplorer-180x180.png&#34; /&gt;
 &lt;/center&gt;
 &lt;p&gt;&lt;br/&gt;&lt;/p&gt;
 &lt;p&gt;Take the time to explore the &lt;code&gt;{DataExplorer}&lt;/code&gt; &lt;a href=&#34;https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-07-07/readme.md&#34; target=&#34;_blank&#34;&gt;Github Page&lt;/a&gt; where Boxuan provides the following context:&lt;/p&gt;
@@ -90,11 +90,10 @@ theme_set(theme_tq())&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;For our case-study we are using data from the &lt;a href=&#34;https://github.com/rfordatascience/tidytuesday&#34; target=&#34;_blank&#34;&gt;Tidy Tuesday Project&lt;/a&gt; archive.&lt;/p&gt;
 &lt;p&gt;Each record represents bags of coffee that were assessed and “professionally rated on a 0-100 scale.” Each row has a score that originated from assessing X number of bags of coffee beans.&lt;/p&gt;
 &lt;p&gt;Out of the many features in the data set, there are 10 numeric metrics that when summed make up the coffee rating score (total_cup_points).&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;tuesdata &amp;lt;- tidytuesdayR::tt_load(2020, week = 28)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## 
-##  Downloading file 1 of 1: `coffee_ratings.csv`&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;coffee_ratings &amp;lt;- tuesdata$coffee_ratings
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#tuesdata &amp;lt;- tidytuesdayR::tt_load(2020, week = 28)
+#coffee_ratings &amp;lt;- tuesdata$coffee_ratings
 
+#coffee_ratings_tbl &amp;lt;- read_csv(&amp;quot;static/01_data/coffee_ratings.csv&amp;quot;)
 coffee_ratings_tbl &amp;lt;- read_csv(&amp;quot;../../static/01_data/coffee_ratings.csv&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;data-caveats&#34; class=&#34;section level3&#34;&gt;
@@ -853,17 +852,17 @@ coffee_ratings_tbl &amp;lt;- read_csv(&amp;quot;../../static/01_data/coffee_rati
 &lt;p&gt;I’ve been learning Data Science at &lt;a href=&#34;http://bit.ly/2UbPat2&#34; target=&#34;_blank&#34;&gt;Business Science University&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Join me on the journey.&lt;/p&gt;
 &lt;p&gt;Check out this link to get 15% off of the courses that are helping 1000s of analytics professionals take their careers to the next level: &lt;a href=&#34;http://bit.ly/2UbPat2&#34; target=&#34;_blank&#34;&gt;15% off Business Science Courses&lt;/a&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;knitr::knit_exit()
+# 0711051058d4ded9ebc5fcd4e2bb6352ab28a605&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
       
             <category>r packages</category>
       
-            <category>data wrangling</category>
+            <category>visualization</category>
       
             <category>eda</category>
-      
-            <category>data visualization</category>
       
     </item>
     
@@ -1345,8 +1344,6 @@ ownership_ratios_by_state &amp;lt;- starbucks_lower_48 %&amp;gt;%
       
             <category>data cleaning</category>
       
-            <category>data wrangling</category>
-      
             <category>eda</category>
       
     </item>
@@ -1731,11 +1728,11 @@ patchwork + plot_annotation(
 &lt;/div&gt;
 </description>
       
+            <category>r4ds</category>
+      
+            <category>visualization</category>
+      
             <category>eda</category>
-      
-            <category>r for data science</category>
-      
-            <category>data visualization</category>
       
     </item>
     
@@ -2258,13 +2255,11 @@ indonesia_tidy_tbl %&amp;gt;% paged_table(list(rows.print = 5))&lt;/code&gt;&lt;
 &lt;/div&gt;
 </description>
       
-            <category>tidyverse</category>
-      
             <category>dplyr</category>
       
-            <category>eda</category>
-      
             <category>data wrangling</category>
+      
+            <category>eda</category>
       
     </item>
     
@@ -2443,7 +2438,7 @@ g &amp;lt;- redwood_labeled_text_tbl %&amp;gt;%
       
             <category>stringr</category>
       
-            <category>data visualization</category>
+            <category>visualization</category>
       
             <category>data wrangling</category>
       

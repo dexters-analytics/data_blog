@@ -117,11 +117,11 @@ Out of the many features in the data set, there are 10 numeric metrics that when
 
 
 ```{r}
-tuesdata <- tidytuesdayR::tt_load(2020, week = 28)
-coffee_ratings <- tuesdata$coffee_ratings
+#tuesdata <- tidytuesdayR::tt_load(2020, week = 28)
+#coffee_ratings <- tuesdata$coffee_ratings
 
+#coffee_ratings_tbl <- read_csv("static/01_data/coffee_ratings.csv")
 coffee_ratings_tbl <- read_csv("../../static/01_data/coffee_ratings.csv")
-
 ```
 
 
@@ -347,4 +347,10 @@ I've been learning Data Science at [Business Science University](http://bit.ly/2
 Join me on the journey. 
 
 Check out this link to get 15% off of the courses that are helping 1000s of analytics professionals take their careers to the next level: [15% off Business Science Courses](http://bit.ly/2UbPat2){target="_blank"}
+
+
+```{r}
+knitr::knit_exit()
+# 0711051058d4ded9ebc5fcd4e2bb6352ab28a605
+```
 

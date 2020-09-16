@@ -317,13 +317,11 @@ indonesia_tidy_tbl %&amp;gt;% paged_table(list(rows.print = 5))&lt;/code&gt;&lt;
 &lt;/div&gt;
 </description>
       
-            <category>tidyverse</category>
-      
             <category>dplyr</category>
       
-            <category>eda</category>
-      
             <category>data wrangling</category>
+      
+            <category>eda</category>
       
     </item>
     

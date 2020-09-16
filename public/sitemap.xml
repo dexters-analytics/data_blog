@@ -8,16 +8,6 @@
   </url>
   
   <url>
-    <loc>/tags/data-visualization/</loc>
-    <lastmod>2020-09-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/data-wrangling/</loc>
-    <lastmod>2020-09-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tags/eda/</loc>
     <lastmod>2020-09-16T00:00:00+00:00</lastmod>
   </url>
@@ -58,6 +48,11 @@
   </url>
   
   <url>
+    <loc>/tags/visualization/</loc>
+    <lastmod>2020-09-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/tags/data-cleaning/</loc>
     <lastmod>2020-09-02T00:00:00+00:00</lastmod>
   </url>
@@ -65,6 +60,11 @@
   <url>
     <loc>/post/how-to-clean-data-janitor-package/</loc>
     <lastmod>2020-09-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/data-wrangling/</loc>
+    <lastmod>2020-08-25T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -78,7 +78,7 @@
   </url>
   
   <url>
-    <loc>/tags/r-for-data-science/</loc>
+    <loc>/tags/r4ds/</loc>
     <lastmod>2020-07-15T00:00:00+00:00</lastmod>
   </url>
   
@@ -109,11 +109,6 @@
   
   <url>
     <loc>/post/examining-data-with-glimpse/</loc>
-    <lastmod>2020-05-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/tidyverse/</loc>
     <lastmod>2020-05-15T00:00:00+00:00</lastmod>
   </url>
   
