@@ -217,8 +217,8 @@ theme_set(theme_tq())</code></pre>
 <p>For our case-study we are using data from the <a href="https://github.com/rfordatascience/tidytuesday" target="_blank">Tidy Tuesday Project</a> archive.</p>
 <p>Each record represents bags of coffee that were assessed and “professionally rated on a 0-100 scale.” Each row has a score that originated from assessing X number of bags of coffee beans.</p>
 <p>Out of the many features in the data set, there are 10 numeric metrics that when summed make up the coffee rating score (total_cup_points).</p>
-<pre class="r"><code># tuesdata &lt;- tidytuesdayR::tt_load(2020, week = 28)
-# coffee_ratings_tbl &lt;- tuesdata$coffee_ratings</code></pre>
+<pre class="r"><code>tuesdata &lt;- tidytuesdayR::tt_load(2020, week = 28)
+coffee_ratings_tbl &lt;- tuesdata$coffee_ratings</code></pre>
 </div>
 <div id="data-caveats" class="section level3">
 <h3>2.3 Data Caveats</h3>

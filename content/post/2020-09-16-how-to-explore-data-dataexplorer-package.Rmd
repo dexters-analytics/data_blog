@@ -123,8 +123,8 @@ Out of the many features in the data set, there are 10 numeric metrics that when
 
 
 ```{r, results="hide"}
-# tuesdata <- tidytuesdayR::tt_load(2020, week = 28)
-# coffee_ratings_tbl <- tuesdata$coffee_ratings
+tuesdata <- tidytuesdayR::tt_load(2020, week = 28)
+coffee_ratings_tbl <- tuesdata$coffee_ratings
 ```
 
 ```{r, include=FALSE}
@@ -132,7 +132,7 @@ Out of the many features in the data set, there are 10 numeric metrics that when
 # coffee_ratings <- tuesdata$coffee_ratings
 
 #coffee_ratings_tbl <- read_csv("static/01_data/coffee_ratings.csv")
-coffee_ratings_tbl <- read_csv("../../static/01_data/coffee_ratings.csv")
+#coffee_ratings_tbl <- read_csv("../../static/01_data/coffee_ratings.csv")
 ```
 
 
