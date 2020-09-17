@@ -22,7 +22,7 @@
 </style>
 
 
-<link rel="stylesheet" href="https://www.exploringdata.org/css/main.css">
+<link rel="stylesheet" href="/css/main.css">
 
 
 
@@ -132,11 +132,11 @@
         <h2>How to Explore Data: {DataExplorer} Package</h2>
         <h5>September 16, 2020</h5>
         
-<a href="https://www.exploringdata.org/tags/r-packages"><kbd class="item-tag">r packages</kbd></a>
+<a href="/tags/r-packages"><kbd class="item-tag">r packages</kbd></a>
 
-<a href="https://www.exploringdata.org/tags/visualization"><kbd class="item-tag">visualization</kbd></a>
+<a href="/tags/visualization"><kbd class="item-tag">visualization</kbd></a>
 
-<a href="https://www.exploringdata.org/tags/eda"><kbd class="item-tag">eda</kbd></a>
+<a href="/tags/eda"><kbd class="item-tag">eda</kbd></a>
 
 
     </div>
@@ -158,6 +158,8 @@
 <h2>Exploring R {packages}</h2>
 <p>This is the 2nd post in my series on exploring <code>R</code> packages in which I share my findings.</p>
 <p>You can read the first post here: <a href="https://www.exploringdata.org/post/how-to-clean-data-janitor-package/" target="_blank">How to Clean Data: {janitor} Package</a>.</p>
+<p>Part of the inspiration for my 2nd post came from <a href="https://www.business-science.io/about.html?affcode=173166_vnvxtqbd" target="_blank">Matt Dancho’s</a> machine learning tutorial where he uses <code>{DataExplorer}</code> to expedite exploratory data analysis (EDA) prior to modeling.</p>
+<p>Read his article here: <a href="https://www.business-science.io/code-tools/2020/01/21/hyperparamater-tune-product-price-prediction.html?affcode=173166_vnvxtqbd" target="_blank">Product Price Prediction: A Tidy Hyperparameter Tuning and Cross Validation Tutorial</a>.</p>
 <div id="context" class="section level3">
 <h3>1.0 Context</h3>
 <p>My habit has been to utilize one or two functions in a package without investigating other functionality.</p>
@@ -215,8 +217,8 @@ theme_set(theme_tq())</code></pre>
 <p>For our case-study we are using data from the <a href="https://github.com/rfordatascience/tidytuesday" target="_blank">Tidy Tuesday Project</a> archive.</p>
 <p>Each record represents bags of coffee that were assessed and “professionally rated on a 0-100 scale.” Each row has a score that originated from assessing X number of bags of coffee beans.</p>
 <p>Out of the many features in the data set, there are 10 numeric metrics that when summed make up the coffee rating score (total_cup_points).</p>
-<pre class="r"><code>tuesdata &lt;- tidytuesdayR::tt_load(2020, week = 28)
-coffee_ratings_tbl &lt;- tuesdata$coffee_ratings</code></pre>
+<pre class="r"><code># tuesdata &lt;- tidytuesdayR::tt_load(2020, week = 28)
+# coffee_ratings_tbl &lt;- tuesdata$coffee_ratings</code></pre>
 </div>
 <div id="data-caveats" class="section level3">
 <h3>2.3 Data Caveats</h3>
@@ -311,7 +313,7 @@ coffee_ratings_tbl &lt;- tuesdata$coffee_ratings</code></pre>
 <p><code>skimr::skim()</code> gives us everything we need to quickly derive insights.</p>
 <pre class="r"><code>coffee_ratings_preprocessed_tbl %&gt;% skimr::skim()</code></pre>
 <table>
-<caption><span id="tab:unnamed-chunk-6">Table 1: </span>Data summary</caption>
+<caption><span id="tab:unnamed-chunk-7">Table 1: </span>Data summary</caption>
 <tbody>
 <tr class="odd">
 <td align="left">Name</td>
@@ -866,7 +868,7 @@ coffee_ratings_tbl &lt;- tuesdata$coffee_ratings</code></pre>
 <p>The visualization provided by <code>plot_missing()</code> helps identify columns that may need attention.</p>
 <pre class="r"><code>coffee_ratings_preprocessed_tbl %&gt;% 
   plot_missing(ggtheme = theme_tq())</code></pre>
-<p><img src="/post/2020-09-16-how-to-explore-data-dataexplorer-package_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p><img src="/post/2020-09-16-how-to-explore-data-dataexplorer-package_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 <p>This visual allows rapid assessment of features that may need to be dropped or have their values estimated via imputation.</p>
 <div id="new-insights-1" class="section level4">
 <h4>New Insights</h4>
@@ -881,7 +883,7 @@ coffee_ratings_tbl &lt;- tuesdata$coffee_ratings</code></pre>
 <p>Equipped with <code>plot_bar()</code> we can rapidly assess categorical features by looking at the frequency of each value.</p>
 <pre class="r"><code>coffee_ratings_preprocessed_tbl %&gt;% 
     plot_bar(ggtheme = theme_tq(), ncol = 2, nrow = 4)</code></pre>
-<p><img src="/post/2020-09-16-how-to-explore-data-dataexplorer-package_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p><img src="/post/2020-09-16-how-to-explore-data-dataexplorer-package_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 <p>I’m definitely impressed with this function and it is now part of my EDA toolbox 🧰</p>
 <div id="new-insights-2" class="section level4">
 <h4>New Insights</h4>
@@ -900,7 +902,7 @@ coffee_ratings_tbl &lt;- tuesdata$coffee_ratings</code></pre>
 <p>Onward to assessing our numerical features using <code>plot_histogram()</code>.</p>
 <pre class="r"><code>coffee_ratings_preprocessed_tbl %&gt;% 
     plot_histogram(ggtheme = theme_tq(), nrow = 5, ncol = 4)</code></pre>
-<p><img src="/post/2020-09-16-how-to-explore-data-dataexplorer-package_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p><img src="/post/2020-09-16-how-to-explore-data-dataexplorer-package_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
 <p>This is another function that swiftly made its way into my EDA toolbox 🧰</p>
 <div id="new-insights-3" class="section level4">
 <h4>New Insights</h4>
@@ -930,7 +932,7 @@ coffee_ratings_tbl &lt;- tuesdata$coffee_ratings</code></pre>
     scale_y_log10(label = scales::comma_format()) +
     theme(legend.position = &quot;none&quot;) + 
     labs(x = &quot;&quot;, y = &quot;Meters&quot;)</code></pre>
-<p><img src="/post/2020-09-16-how-to-explore-data-dataexplorer-package_files/figure-html/unnamed-chunk-10-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="/post/2020-09-16-how-to-explore-data-dataexplorer-package_files/figure-html/unnamed-chunk-11-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>Looks good.</p>
 <p>The variation between low and high isn’t substantial and so we would probably keep altitude_mean_meters and drop the others.</p>
 </div>
@@ -944,7 +946,7 @@ coffee_ratings_tbl &lt;- tuesdata$coffee_ratings</code></pre>
     ggplot(aes(as.factor(quakers), total_cup_points)) +
     geom_violin() +
     geom_jitter(alpha = 0.2) + ylim(0, 100)</code></pre>
-<p><img src="/post/2020-09-16-how-to-explore-data-dataexplorer-package_files/figure-html/unnamed-chunk-11-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p><img src="/post/2020-09-16-how-to-explore-data-dataexplorer-package_files/figure-html/unnamed-chunk-12-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>It doesn’t look like quakers explains much of the variation within total_cup_points.</p>
 <p>If kept, it would be worth updating to a categorical variable.</p>
 </div>
@@ -959,6 +961,7 @@ coffee_ratings_tbl &lt;- tuesdata$coffee_ratings</code></pre>
 <li><code>DataExplorer::plot_histogram()</code></li>
 </ul>
 <p>These insights could then be used in the next step of cleaning and preprocessing these data for analysis and/or predictive modeling.</p>
+<p>To see an end-to-end example of how an expert data scientist integrates <code>{DataExplorer}</code> into a machine learning project, check out Matt Dancho’s article: <a href="https://www.business-science.io/code-tools/2020/01/21/hyperparamater-tune-product-price-prediction.html?affcode=173166_vnvxtqbd" target="_blank">Product Price Prediction: A Tidy Hyperparameter Tuning and Cross Validation Tutorial</a>.</p>
 </div>
 <div id="comment-below" class="section level3">
 <h3>5.1 Comment Below</h3>
@@ -974,7 +977,6 @@ coffee_ratings_tbl &lt;- tuesdata$coffee_ratings</code></pre>
 <p>I’ve been learning Data Science at <a href="http://bit.ly/2UbPat2" target="_blank">Business Science University</a>.</p>
 <p>Join me on the journey.</p>
 <p>Click this link to get a discount on data-science courses helping 1000s of analytics professionals take their careers to the next level: <a href="http://bit.ly/2UbPat2" target="_blank">15% off Business Science Courses</a></p>
-<pre class="r"><code>knitr::knit_exit()</code></pre>
 </div>
 </div>
 </div>
@@ -995,11 +997,11 @@ coffee_ratings_tbl &lt;- tuesdata$coffee_ratings</code></pre>
     <h4><a href="/post/how-to-clean-data-janitor-package/">How to Clean Data: {janitor} Package</a></h4>
     <h5>September 2, 2020</h5>
     
-<a href="https://www.exploringdata.org/tags/r-packages"><kbd class="item-tag">r packages</kbd></a>
+<a href="/tags/r-packages"><kbd class="item-tag">r packages</kbd></a>
 
-<a href="https://www.exploringdata.org/tags/data-cleaning"><kbd class="item-tag">data cleaning</kbd></a>
+<a href="/tags/data-cleaning"><kbd class="item-tag">data cleaning</kbd></a>
 
-<a href="https://www.exploringdata.org/tags/eda"><kbd class="item-tag">eda</kbd></a>
+<a href="/tags/eda"><kbd class="item-tag">eda</kbd></a>
 
 
 
@@ -1016,11 +1018,11 @@ coffee_ratings_tbl &lt;- tuesdata$coffee_ratings</code></pre>
     <h4><a href="/post/quick-tips-for-data-cleaning-in-r/">Quick Tips for Data Cleaning in R</a></h4>
     <h5>August 25, 2020</h5>
     
-<a href="https://www.exploringdata.org/tags/data-cleaning"><kbd class="item-tag">data cleaning</kbd></a>
+<a href="/tags/data-cleaning"><kbd class="item-tag">data cleaning</kbd></a>
 
-<a href="https://www.exploringdata.org/tags/data-wrangling"><kbd class="item-tag">data wrangling</kbd></a>
+<a href="/tags/data-wrangling"><kbd class="item-tag">data wrangling</kbd></a>
 
-<a href="https://www.exploringdata.org/tags/eda"><kbd class="item-tag">eda</kbd></a>
+<a href="/tags/eda"><kbd class="item-tag">eda</kbd></a>
 
 
 
@@ -1037,11 +1039,11 @@ coffee_ratings_tbl &lt;- tuesdata$coffee_ratings</code></pre>
     <h4><a href="/post/exploratory-data-analysis-eda-guide/">Exploratory Data Analysis Guide</a></h4>
     <h5>July 15, 2020</h5>
     
-<a href="https://www.exploringdata.org/tags/r4ds"><kbd class="item-tag">r4ds</kbd></a>
+<a href="/tags/r4ds"><kbd class="item-tag">r4ds</kbd></a>
 
-<a href="https://www.exploringdata.org/tags/visualization"><kbd class="item-tag">visualization</kbd></a>
+<a href="/tags/visualization"><kbd class="item-tag">visualization</kbd></a>
 
-<a href="https://www.exploringdata.org/tags/eda"><kbd class="item-tag">eda</kbd></a>
+<a href="/tags/eda"><kbd class="item-tag">eda</kbd></a>
 
 
 

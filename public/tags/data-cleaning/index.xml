@@ -1,27 +1,27 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>data cleaning on Exploring Data</title>
-    <link>https://www.exploringdata.org/tags/data-cleaning/</link>
+    <link>/tags/data-cleaning/</link>
     <description>Recent content in data cleaning on Exploring Data</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 02 Sep 2020 00:00:00 +0000</lastBuildDate>
     
-        <atom:link href="https://www.exploringdata.org/tags/data-cleaning/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="/tags/data-cleaning/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>How to Clean Data: {janitor} Package</title>
-      <link>https://www.exploringdata.org/post/how-to-clean-data-janitor-package/</link>
+      <link>/post/how-to-clean-data-janitor-package/</link>
       <pubDate>Wed, 02 Sep 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.exploringdata.org/post/how-to-clean-data-janitor-package/</guid>
+      <guid>/post/how-to-clean-data-janitor-package/</guid>
       <description>
-&lt;link href=&#34;https://www.exploringdata.org/rmarkdown-libs/pagedtable/css/pagedtable.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;https://www.exploringdata.org/rmarkdown-libs/pagedtable/js/pagedtable.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;/rmarkdown-libs/pagedtable/css/pagedtable.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;/rmarkdown-libs/pagedtable/js/pagedtable.js&#34;&gt;&lt;/script&gt;
 
 
-&lt;p&gt;&lt;img src=&#34;https://www.exploringdata.org/post/2020-09-02-how-to-clean-data-janitor-package_files/Screen%20Shot%202020-09-02%20at%208.00.42%20PM.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-09-02-how-to-clean-data-janitor-package_files/Screen%20Shot%202020-09-02%20at%208.00.42%20PM.png&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;br/&gt;&lt;/p&gt;
 &lt;p&gt;“Exploring-Data” is a blog in which I share easily digestible content aimed at making the wrangling and exploration of data more efficient and more fun.&lt;/p&gt;
 &lt;p&gt;Sign up &lt;a href=&#34;https://tinyletter.com/dexters-analytics&#34; target=&#34;_blank&#34;&gt;HERE&lt;/a&gt; to join other subscribers who also nerd-out on tips for exploring data using &lt;code&gt;R&lt;/code&gt;.&lt;/p&gt;
@@ -236,7 +236,7 @@ DataExplorer::plot_missing(
   data    = coffee_chains_raw,
   ggtheme = tidyquant::theme_tq(), 
   missing_only = TRUE) &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://www.exploringdata.org/post/2020-09-02-how-to-clean-data-janitor-package_files/figure-html/unnamed-chunk-13-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-09-02-how-to-clean-data-janitor-package_files/figure-html/unnamed-chunk-13-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;The plot shows that &lt;code&gt;0%&lt;/code&gt; of data are missing for lat/long leading me to believe that the store identified earlier is the only record with missing data (insignificant amount when plotted).&lt;/p&gt;
 &lt;p&gt;We will filter that record out in our &lt;code&gt;data-cleaning&lt;/code&gt; step.&lt;/p&gt;
 &lt;/div&gt;
@@ -387,7 +387,7 @@ starbucks_lower_48 %&amp;gt;%
   scale_color_manual(values = c(&amp;quot;#2c3e50&amp;quot;, &amp;quot;#18BC9C&amp;quot;)) +
   labs(title = &amp;quot;Starbucks Locations by Ownership Type (Lower 48)&amp;quot;,
        color = &amp;quot;Ownership Type&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://www.exploringdata.org/post/2020-09-02-how-to-clean-data-janitor-package_files/figure-html/unnamed-chunk-21-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-09-02-how-to-clean-data-janitor-package_files/figure-html/unnamed-chunk-21-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;That’s a solid map but I think we can do better to identify patterns in ownership types.&lt;/p&gt;
 &lt;p&gt;Let’s calculate the ratio of Corporate (Company Owned) vs. Licensed ownership and map that at the state level.&lt;/p&gt;
 &lt;/div&gt;
@@ -458,7 +458,7 @@ ownership_ratios_by_state &amp;lt;- starbucks_lower_48 %&amp;gt;%
   labs(title = &amp;quot;Ratio of Corporate vs. Licensed Starbucks in the US (Lower 48)&amp;quot;,
        subtitle = &amp;quot;Darker green equates to more corporate locations compared to licensed establishments.&amp;quot;,
        fill = &amp;quot;Ratio of\nCorporate/\nLicensed&amp;quot;) &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://www.exploringdata.org/post/2020-09-02-how-to-clean-data-janitor-package_files/figure-html/unnamed-chunk-25-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-09-02-how-to-clean-data-janitor-package_files/figure-html/unnamed-chunk-25-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;This represent the data in a way that helps us identify patterns - our manager will be pleased 👍&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;wrap-up&#34; class=&#34;section level3&#34;&gt;
@@ -494,14 +494,14 @@ ownership_ratios_by_state &amp;lt;- starbucks_lower_48 %&amp;gt;%
     
     <item>
       <title>Quick Tips for Data Cleaning in R</title>
-      <link>https://www.exploringdata.org/post/quick-tips-for-data-cleaning-in-r/</link>
+      <link>/post/quick-tips-for-data-cleaning-in-r/</link>
       <pubDate>Tue, 25 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://www.exploringdata.org/post/quick-tips-for-data-cleaning-in-r/</guid>
+      <guid>/post/quick-tips-for-data-cleaning-in-r/</guid>
       <description>
 
 
-&lt;p&gt;&lt;img src=&#34;https://www.exploringdata.org/post/2020-05-24-quick-tips-for-data-cleaning-in-r_files/Screen%20Shot%202020-08-17%20at%209.15.29%20PM.png&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-05-24-quick-tips-for-data-cleaning-in-r_files/Screen%20Shot%202020-08-17%20at%209.15.29%20PM.png&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;br/&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;Exploring-Data&lt;/code&gt; is a place where I share easily digestible content aimed at making the wrangling and exploration of data more efficient (+fun).&lt;/p&gt;
 &lt;p&gt;Sign up &lt;a href=&#34;https://tinyletter.com/dexters-analytics&#34; target=&#34;_blank&#34;&gt;Here&lt;/a&gt; to join the many other subscribers who also nerd out on new tips and tricks 🤓&lt;/p&gt;

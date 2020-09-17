@@ -9,6 +9,8 @@ tags:
   - r packages
   - visualization
   - eda
+editor_options: 
+  chunk_output_type: console
 ---
 
 
@@ -38,6 +40,10 @@ Join me on the journey 🏃‍♂  🏃‍♀
 This is the 2nd post in my series on exploring `R` packages in which I share my findings.
 
 You can read the first post here: [How to Clean Data: {janitor} Package](https://www.exploringdata.org/post/how-to-clean-data-janitor-package/){target="_blank"}.
+
+Part of the inspiration for my 2nd post came from [Matt Dancho's](https://www.business-science.io/about.html?affcode=173166_vnvxtqbd){target="_blank"} machine learning tutorial where he uses `{DataExplorer}` to expedite exploratory data analysis (EDA) prior to modeling.
+
+Read his article here: [Product Price Prediction: A Tidy Hyperparameter Tuning and Cross Validation Tutorial](https://www.business-science.io/code-tools/2020/01/21/hyperparamater-tune-product-price-prediction.html?affcode=173166_vnvxtqbd){target="_blank"}.
 
 
 ### 1.0 Context
@@ -117,9 +123,18 @@ Out of the many features in the data set, there are 10 numeric metrics that when
 
 
 ```{r, results="hide"}
-tuesdata <- tidytuesdayR::tt_load(2020, week = 28)
-coffee_ratings_tbl <- tuesdata$coffee_ratings
+# tuesdata <- tidytuesdayR::tt_load(2020, week = 28)
+# coffee_ratings_tbl <- tuesdata$coffee_ratings
 ```
+
+```{r, include=FALSE}
+# tuesdata <- tidytuesdayR::tt_load(2020, week = 28)
+# coffee_ratings <- tuesdata$coffee_ratings
+
+#coffee_ratings_tbl <- read_csv("static/01_data/coffee_ratings.csv")
+coffee_ratings_tbl <- read_csv("../../static/01_data/coffee_ratings.csv")
+```
+
 
 
 ### 2.3 Data Caveats
@@ -324,6 +339,9 @@ Three functions allowed us to quickly assess our data and gain insights:
 
 These insights could then be used in the next step of cleaning and preprocessing these data for analysis and/or predictive modeling.
 
+To see an end-to-end example of how an expert data scientist integrates `{DataExplorer}` into a machine learning project, check out Matt Dancho's article: [Product Price Prediction: A Tidy Hyperparameter Tuning and Cross Validation Tutorial](https://www.business-science.io/code-tools/2020/01/21/hyperparamater-tune-product-price-prediction.html?affcode=173166_vnvxtqbd){target="_blank"}.
+
+
 
 ### 5.1 Comment Below
 
@@ -344,9 +362,4 @@ I've been learning Data Science at [Business Science University](http://bit.ly/2
 Join me on the journey. 
 
 Click this link to get a discount on data-science courses helping 1000s of analytics professionals take their careers to the next level: [15% off Business Science Courses](http://bit.ly/2UbPat2){target="_blank"}
-
-
-```{r}
-knitr::knit_exit()
-```
 
